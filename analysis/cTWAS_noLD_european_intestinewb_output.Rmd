@@ -1,0 +1,281 @@
+---
+title: "cTWAS-European Small Intestine+Whole Blood//eQTL+sQTL"
+author: "Nina Yifan Y."
+date: "`r Sys.Date()`"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+## Introduction
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+library(readr)
+library(ctwas)
+library(EnsDb.Hsapiens.v86)
+library(ggplot2)
+library(ggrepel)
+library(tidyverse)
+library(data.table)
+
+ens_db <- EnsDb.Hsapiens.v86
+weights <- readRDS(system.file("extdata/project_data", "European.intestine_wb.weights.RDS", package = "ctwas"))
+ctwas_res <- readRDS(system.file("extdata/project_data", "European.intestine_wb.ctwas_noLD_allchrs.RDS", package = "ctwas"))
+gwas_n <- 726828
+param <- ctwas_res$param
+finemap_res <- readRDS("~/Desktop/Prostate Cancer Project/European.intestine_wb.finemap_res.RDS")
+finemap_res_sub <- subset(finemap_res, group != "SNP" & gene_type == "protein_coding" & susie_pip > 0.8 & cs_index != 0)
+```
+
+# Data Summary
+### Group Size
+```{r Size Table, echo=FALSE}
+V1 <- c("small_intestine_terminal_ileum|expression", "9412")
+V2 <- c("small_intestine_terminal_ileum|splicing", "28029")
+V3 <- c("whole_blood|expression", "9284")
+V4 <- c("whole_blood|splicing", "17682")
+V5 <- c("SNP", "7146350")
+df <- data.frame(V1,V2,V3,V4,V5)
+row.names(df) <- c("group", "group_size")
+knitr::kable(df)
+```
+### Piechart with att_pve on
+```{r Piechart, echo=FALSE, fig.height=9, fig.width=9}
+# Convert the cities_data DataFrame to a data.table
+df_dt <- data.table(df)
+ 
+# Transpose the data.table
+transposed_df_dt <- transpose(df_dt)
+# get row and colnames in order
+colnames(transposed_df_dt) <- rownames(df)
+
+ctwas_parameters <- summarize_param(param, gwas_n)
+transposed_df_dt$attr_pve <- ctwas_parameters$attributable_pve
+transposed_df_dt$percentage <- formattable::percent(transposed_df_dt$attr_pve, 2)
+
+ggplot(transposed_df_dt, aes(x = "", y = percentage, fill = group)) +
+    geom_bar(width = 1, stat = "identity", color = "white") +
+    coord_polar("y", start = 0) +
+    geom_text(aes(label = percentage),
+              position = position_stack(vjust = 0.5))+
+    scale_fill_brewer(palette = "Pastel1") +
+    theme_void() +
+  ggtitle("Percentage of weights for each category with attr_pve on")
+
+# # Basic boxplot
+# ggplot(transposed_df_dt, aes(group, percentage, fill=group)) +
+#   geom_col(width = 0.5, color = 1) +
+#   coord_polar() +
+#   scale_fill_brewer(palette = "Pastel1") +
+#   geom_label_repel(data = transposed_df_dt,
+#                    aes(y =percentage, label = paste0(percentage))) +
+#   coord_flip() +
+#   guides(fill = guide_legend(title = "Group"))
+```
+
+
+### Combined PIPs
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+combined_pip_by_group <- combine_gene_pips(finemap_res, 
+                                             group_by = "gene_name",
+                                             by = "group",
+                                             method = "combine_cs",
+                                             filter_cs = TRUE)
+combined_pip_table <- subset(combined_pip_by_group, combined_pip > 0.8)
+knitr::kable(combined_pip_table)
+```
+
+### Scatter Plot
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+x <- finemap_res_sub$pval
+y <- finemap_res_sub$susie_pip
+df2 <- data.frame(x,y)
+ggplot(df2,aes(x=x,y=y)) +
+  geom_point() +
+  ggtitle("Scatter plot of imputed TWAS P-value vs SuSiE PIP") +
+  xlab("P-values") +
+  ylab("SuSiE PIP")
+#plot(x, y, main="Scatter plot of imputed TWAS P-value vs SuSiE PIP", xlab="P-values", ylab="SuSiE PIP")
+```
+
+
+# cTWAS output
+```{r cTWAS output, message=FALSE, warning=FALSE, fig.height=6, fig.width=10}
+make_convergence_plots(param, gwas_n)
+
+ctwas_parameters <- summarize_param(param, gwas_n)
+ctwas_parameters
+```
+
+# Locus plot (from highest PIP to lowest)
+```{r locus plot, message=FALSE, warning=FALSE, fig.height=6, fig.width=10}
+make_locusplot(finemap_res,
+               region_id = "6_28050041_28949831",
+               ens_db = ens_db,
+               weights = weights,
+               highlight_pip = 0.8,
+               filter_protein_coding_genes = TRUE,
+               filter_cs = TRUE,
+               color_pval_by = "cs",
+               color_pip_by = "cs")
+
+make_locusplot(finemap_res,
+               region_id = "16_84412277_85115079",
+               ens_db = ens_db,
+               weights = weights,
+               highlight_pip = 0.8,
+               filter_protein_coding_genes = TRUE,
+               filter_cs = TRUE,
+               color_pval_by = "cs",
+               color_pip_by = "cs")
+
+make_locusplot(finemap_res,
+               region_id = "1_204711940_206268085",
+               ens_db = ens_db,
+               weights = weights,
+               highlight_pip = 0.8,
+               filter_protein_coding_genes = TRUE,
+               filter_cs = TRUE,
+               color_pval_by = "cs",
+               color_pip_by = "cs")
+
+make_locusplot(finemap_res,
+               region_id = "8_37521871_39081287",
+               ens_db = ens_db,
+               weights = weights,
+               highlight_pip = 0.8,
+               filter_protein_coding_genes = TRUE,
+               filter_cs = TRUE,
+               color_pval_by = "cs",
+               color_pip_by = "cs")
+
+make_locusplot(finemap_res,
+               region_id = "17_150263_1269105",
+               ens_db = ens_db,
+               weights = weights,
+               highlight_pip = 0.8,
+               filter_protein_coding_genes = TRUE,
+               filter_cs = TRUE,
+               color_pval_by = "cs",
+               color_pip_by = "cs")
+
+make_locusplot(finemap_res,
+               region_id = "4_93312148_95261037",
+               ens_db = ens_db,
+               weights = weights,
+               highlight_pip = 0.8,
+               filter_protein_coding_genes = TRUE,
+               filter_cs = TRUE,
+               color_pval_by = "cs",
+               color_pip_by = "cs")
+
+make_locusplot(finemap_res,
+               region_id = "5_132803957_135441711",
+               ens_db = ens_db,
+               weights = weights,
+               highlight_pip = 0.8,
+               filter_protein_coding_genes = TRUE,
+               filter_cs = TRUE,
+               color_pval_by = "cs",
+               color_pip_by = "cs")
+
+make_locusplot(finemap_res,
+               region_id = "6_123535036_125103237",
+               ens_db = ens_db,
+               weights = weights,
+               highlight_pip = 0.8,
+               filter_protein_coding_genes = TRUE,
+               filter_cs = TRUE,
+               color_pval_by = "cs",
+               color_pip_by = "cs")
+
+make_locusplot(finemap_res,
+               region_id = "17_2025437_3799018",
+               ens_db = ens_db,
+               weights = weights,
+               highlight_pip = 0.8,
+               filter_protein_coding_genes = TRUE,
+               filter_cs = TRUE,
+               color_pval_by = "cs",
+               color_pip_by = "cs")
+
+make_locusplot(finemap_res,
+               region_id = "17_12631452_13277055",
+               ens_db = ens_db,
+               weights = weights,
+               highlight_pip = 0.8,
+               filter_protein_coding_genes = TRUE,
+               filter_cs = TRUE,
+               color_pval_by = "cs",
+               color_pip_by = "cs")
+
+make_locusplot(finemap_res,
+               region_id = "6_53414304_55603472",
+               ens_db = ens_db,
+               weights = weights,
+               highlight_pip = 0.8,
+               filter_protein_coding_genes = TRUE,
+               filter_cs = TRUE,
+               color_pval_by = "cs",
+               color_pip_by = "cs")
+
+make_locusplot(finemap_res,
+               region_id = "15_40885316_42484201",
+               ens_db = ens_db,
+               weights = weights,
+               highlight_pip = 0.8,
+               filter_protein_coding_genes = TRUE,
+               filter_cs = TRUE,
+               color_pval_by = "cs",
+               color_pip_by = "cs")
+
+make_locusplot(finemap_res,
+               region_id = "8_81044160_81781504",
+               ens_db = ens_db,
+               weights = weights,
+               highlight_pip = 0.8,
+               filter_protein_coding_genes = TRUE,
+               filter_cs = TRUE,
+               color_pval_by = "cs",
+               color_pip_by = "cs")
+
+make_locusplot(finemap_res,
+               region_id = "17_18953007_21387045",
+               ens_db = ens_db,
+               weights = weights,
+               highlight_pip = 0.8,
+               filter_protein_coding_genes = TRUE,
+               filter_cs = TRUE,
+               color_pval_by = "cs",
+               color_pip_by = "cs")
+
+make_locusplot(finemap_res,
+               region_id = "2_8282017_10158342",
+               ens_db = ens_db,
+               weights = weights,
+               highlight_pip = 0.8,
+               filter_protein_coding_genes = TRUE,
+               filter_cs = TRUE,
+               color_pval_by = "cs",
+               color_pip_by = "cs")
+
+make_locusplot(finemap_res,
+               region_id = "19_37036131_39679979",
+               ens_db = ens_db,
+               weights = weights,
+               highlight_pip = 0.8,
+               filter_protein_coding_genes = TRUE,
+               filter_cs = TRUE,
+               color_pval_by = "cs",
+               color_pip_by = "cs")
+
+make_locusplot(finemap_res,
+               region_id = "6_25684359_26791023",
+               ens_db = ens_db,
+               weights = weights,
+               highlight_pip = 0.8,
+               filter_protein_coding_genes = TRUE,
+               filter_cs = TRUE,
+               color_pval_by = "cs",
+               color_pip_by = "cs")
+```
