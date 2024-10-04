@@ -1,0 +1,1538 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Nina Yifan Yang" />
+
+<meta name="date" content="2024-10-04" />
+
+<title>Prostate Cancer ~ Predictdb eQTL&amp;sQTL from Prostate &amp; Testis &amp; Lymphocytes</title>
+
+<script src="site_libs/header-attrs-2.28/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet" />
+<script src="site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<link href="site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="site_libs/datatables-binding-0.33/datatables.js"></script>
+<link href="site_libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="site_libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="site_libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script>
+<link href="site_libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet" />
+<script src="site_libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
+<link href="site_libs/font-awesome-6.4.2/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet" />
+
+<link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/main/img/reproducible.png">
+<!-- Add a small amount of space between sections. -->
+<style type="text/css">
+div.section {
+  padding-top: 12px;
+}
+</style>
+
+
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Multigroup_cTWAS</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="about.html">About</a>
+</li>
+<li>
+  <a href="license.html">License</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/yy896/Multigroup_cTWAS">
+    <span class="fab fa-github"></span>
+     
+    Source code
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+<div class="btn-group pull-right float-right">
+<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu dropdown-menu-right" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
+
+
+
+<h1 class="title toc-ignore">Prostate Cancer ~ Predictdb eQTL&amp;sQTL
+from Prostate &amp; Testis &amp; Lymphocytes</h1>
+<h4 class="author">Nina Yifan Yang</h4>
+<h4 class="date">2024-10-04</h4>
+
+</div>
+
+
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+workflowr <span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span>
+</button>
+</p>
+<div id="workflowr-report" class="collapse">
+<ul class="nav nav-tabs">
+<li class="active">
+<a data-toggle="tab" href="#summary">Summary</a>
+</li>
+<li>
+<a data-toggle="tab" href="#checks"> Checks <span
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+</a>
+</li>
+<li>
+<a data-toggle="tab" href="#versions">Past versions</a>
+</li>
+</ul>
+<div class="tab-content">
+<div id="summary" class="tab-pane fade in active">
+<p>
+<strong>Last updated:</strong> 2024-10-04
+</p>
+<p>
+<strong>Checks:</strong> <span
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7
+<span class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> 0
+</p>
+<p>
+<strong>Knit directory:</strong> <code>Multigroup_cTWAS/</code> <span
+class="glyphicon glyphicon-question-sign" aria-hidden="true"
+title="This is the local directory in which the code in this file was executed.">
+</span>
+</p>
+<p>
+This reproducible <a href="https://rmarkdown.rstudio.com">R Markdown</a>
+analysis was created with <a
+  href="https://github.com/workflowr/workflowr">workflowr</a> (version
+1.7.1). The <em>Checks</em> tab describes the reproducibility checks
+that were applied when the results were created. The <em>Past
+versions</em> tab lists the development history.
+</p>
+<hr>
+</div>
+<div id="checks" class="tab-pane fade">
+<div id="workflowr-checks" class="panel-group">
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date
+</a>
+</p>
+</div>
+<div id="strongRMarkdownfilestronguptodate"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great! Since the R Markdown file has been committed to the Git
+repository, you know the exact version of the code that produced these
+results.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongEnvironmentstrongempty">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Environment:</strong> empty </a>
+</p>
+</div>
+<div id="strongEnvironmentstrongempty" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! The global environment was empty. Objects defined in the
+global environment can affect the analysis in your R Markdown file in
+unknown ways. For reproduciblity it’s best to always run the code in an
+empty environment.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSeedstrongcodesetseed20241004code">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Seed:</strong>
+<code>set.seed(20241004)</code> </a>
+</p>
+</div>
+<div id="strongSeedstrongcodesetseed20241004code"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>The command <code>set.seed(20241004)</code> was run prior to running
+the code in the R Markdown file. Setting a seed ensures that any results
+that rely on randomness, e.g. subsampling or permutations, are
+reproducible.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSessioninformationstrongrecorded">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Session information:</strong>
+recorded </a>
+</p>
+</div>
+<div id="strongSessioninformationstrongrecorded"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Recording the operating system, R version, and package
+versions is critical for reproducibility.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongCachestrongnone">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Cache:</strong> none </a>
+</p>
+</div>
+<div id="strongCachestrongnone" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Nice! There were no cached chunks for this analysis, so you can be
+confident that you successfully produced the results during this
+run.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongFilepathsstrongrelative">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>File paths:</strong> relative </a>
+</p>
+</div>
+<div id="strongFilepathsstrongrelative" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Using relative paths to the files within your workflowr
+project makes it easier to run your code on other machines.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomyy896MultigroupcTWAStreea715301abe738a788dc41bff144e60cdf3e9d77atargetblanka715301a">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Repository version:</strong>
+<a href="https://github.com/yy896/Multigroup_cTWAS/tree/a715301abe738a788dc41bff144e60cdf3e9d77a" target="_blank">a715301</a>
+</a>
+</p>
+</div>
+<div
+id="strongRepositoryversionstrongahrefhttpsgithubcomyy896MultigroupcTWAStreea715301abe738a788dc41bff144e60cdf3e9d77atargetblanka715301a"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>
+Great! You are using Git for version control. Tracking code development
+and connecting the code version to the results is critical for
+reproducibility.
+</p>
+<p>
+The results in this page were generated with repository version
+<a href="https://github.com/yy896/Multigroup_cTWAS/tree/a715301abe738a788dc41bff144e60cdf3e9d77a" target="_blank">a715301</a>.
+See the <em>Past versions</em> tab to see a history of the changes made
+to the R Markdown and HTML files.
+</p>
+<p>
+Note that you need to be careful to ensure that all relevant files for
+the analysis have been committed to Git prior to generating the results
+(you can use <code>wflow_publish</code> or
+<code>wflow_git_commit</code>). workflowr only checks the R Markdown
+file, but you know if there are other scripts or data files that it
+depends on. Below is the status of the Git repository when the results
+were generated:
+</p>
+<pre><code>
+Ignored files:
+    Ignored:    .DS_Store
+    Ignored:    .Rhistory
+
+Untracked files:
+    Untracked:  analysis/cTWAS_noLD_european_GENE_SUMMARY.Rmd
+    Untracked:  analysis/cTWAS_noLD_european_intestinewb_output.Rmd
+    Untracked:  analysis/cTWAS_noLD_european_liver_output.Rmd
+    Untracked:  analysis/cTWAS_noLD_european_lung_output.Rmd
+    Untracked:  analysis/cTWAS_noLD_european_lungliver_output.Rmd
+    Untracked:  analysis/cTWAS_noLD_european_lungliverlymphocytes_output.Rmd
+    Untracked:  analysis/cTWAS_noLD_european_lymphocytes_output.Rmd
+    Untracked:  analysis/cTWAS_noLD_european_prostatetestis_output.Rmd
+
+</code></pre>
+<p>
+Note that any generated files, e.g. HTML, png, CSS, etc., are not
+included in this status report because it is ok for generated content to
+have uncommitted changes.
+</p>
+</div>
+</div>
+</div>
+</div>
+<hr>
+</div>
+<div id="versions" class="tab-pane fade">
+<p>
+These are the previous versions of the repository in which changes were
+made to the R Markdown
+(<code>analysis/cTWAS_noLD_european_prostatetestislymphocytes_output.Rmd</code>)
+and HTML
+(<code>docs/cTWAS_noLD_european_prostatetestislymphocytes_output.html</code>)
+files. If you’ve configured a remote Git repository (see
+<code>?wflow_git_remote</code>), click on the hyperlinks in the table
+below to view the files as they were in that past version.
+</p>
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+File
+</th>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+<th>
+Message
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/yy896/Multigroup_cTWAS/blob/a715301abe738a788dc41bff144e60cdf3e9d77a/analysis/cTWAS_noLD_european_prostatetestislymphocytes_output.Rmd" target="_blank">a715301</a>
+</td>
+<td>
+yy896
+</td>
+<td>
+2024-10-04
+</td>
+<td>
+Add my first analysis
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+</div>
+</div>
+</div>
+<p>We present a sample cTWAS report based on real data analysis. The
+analyzed trait is prostate cancer, the prediction models are Prostate
+&amp; Testis &amp; Lymphocytes gene expression and splicing models
+trained on GTEx v8 in the PredictDB format.</p>
+<div id="analysis-settings" class="section level2">
+<h2>Analysis Settings</h2>
+<div id="input-data" class="section level3">
+<h3>Input Data</h3>
+<ul>
+<li>GWAS Z-scores</li>
+</ul>
+<p>The summary statistics for prostate cancer are downloaded from <a
+href="https://www.ebi.ac.uk/gwas/downloads/summary-statistics"
+class="uri">https://www.ebi.ac.uk/gwas/downloads/summary-statistics</a>,
+using dataset ID: GCST90274714.</p>
+<p>The sample size is</p>
+<pre><code>[1] &quot;gwas_n = 726828&quot;</code></pre>
+<ul>
+<li>Prediction models</li>
+</ul>
+<p>The prediction models used in this analysis are prostate &amp; testis
+&amp; lymphocytes gene expression and splicing models, trained on GTEx
+v8 in the PredictDB format. These models can be downloaded from <a
+href="https://predictdb.org/post/2021/07/21/gtex-v8-models-on-eqtl-and-sqtl/"
+class="uri">https://predictdb.org/post/2021/07/21/gtex-v8-models-on-eqtl-and-sqtl/</a></p>
+<ul>
+<li>Reference data</li>
+</ul>
+<p>We did not include LD reference in the analysis.</p>
+</div>
+<div id="data-processing-and-harmonization" class="section level3">
+<h3>Data processing and harmonization</h3>
+<p>We map the reference SNPs to regions following the instructions from
+the cTWAS tutorial.</p>
+<p>When processing z-scores, we exclude multi-allelic and
+strand-ambiguous variants by setting
+<code>drop_multiallelic = TRUE</code> and
+<code>drop_strand_ambig = TRUE</code>.</p>
+<p>The process can be divided into steps below, users can expand the
+code snippets below to view the exact code used.</p>
+<ul>
+<li>Input and output settings</li>
+</ul>
+<pre class="r"><code>weight_prostate_expression_file &lt;- system.file(&quot;extdata/project_data&quot;, 
+                                               &quot;mashr_Prostate_e.db&quot;, package = &quot;ctwas&quot;)
+weight_prostate_splicing_file &lt;- system.file(&quot;extdata/project_data&quot;, 
+                                             &quot;mashr_Prostate_s.db&quot;, package = &quot;ctwas&quot;)
+weight_testis_expression_file &lt;- system.file(&quot;extdata/project_data&quot;, 
+                                             &quot;mashr_Testis_e.db&quot;, package = &quot;ctwas&quot;)
+weight_testis_splicing_file &lt;- system.file(&quot;extdata/project_data&quot;, 
+                                           &quot;mashr_Testis_s.db&quot;, package = &quot;ctwas&quot;)
+weight_lymphocytes_expression_file &lt;- system.file(&quot;extdata/project_data&quot;, 
+                                                  &quot;mashr_Cells_EBV-transformed_lymphocytes_e.db&quot;, package = &quot;ctwas&quot;)
+weight_lymphocytes_splicing_file &lt;- system.file(&quot;extdata/project_data&quot;, 
+                                                &quot;mashr_Cells_EBV-transformed_lymphocytes_s.db&quot;, package = &quot;ctwas&quot;)
+
+z_snp &lt;- vroom::vroom(&quot;~/Desktop/Prostate Cancer Project/GCST90274714.mod.tsv.gz&quot;, col_names = TRUE, show_col_types = FALSE)
+z_snp$Z &lt;- z_snp$beta / z_snp$standard_error
+
+z_snp &lt;- z_snp[, c(&quot;rsid&quot;, &quot;other_allele&quot;, &quot;effect_allele&quot;, &quot;Z&quot;)]
+colnames(z_snp) &lt;- c(&quot;id&quot;, &quot;A1&quot;, &quot;A2&quot;, &quot;z&quot;)
+
+region_file &lt;- system.file(&quot;extdata/ldetect&quot;, &quot;EUR.b38.ldetect.regions.RDS&quot;, package = &quot;ctwas&quot;)
+region_info &lt;- readRDS(region_file)
+
+## other parameters
+ncore &lt;- 6</code></pre>
+<ul>
+<li>Preprocessing GWAS</li>
+</ul>
+<pre class="r"><code>### Preprocess SNP_map
+ref_snp_info_file &lt;- system.file(&quot;extdata/project_data&quot;, &quot;ukb_b38_0.1_var_info.Rvar.gz&quot;, package = &quot;ctwas&quot;)
+
+ref_snp_info &lt;- data.table::fread(ref_snp_info_file, sep = &quot;\t&quot;)
+class(ref_snp_info) &lt;- &quot;data.frame&quot;
+
+res &lt;- create_snp_map(region_info, ref_snp_info)
+region_info &lt;- res$region_info
+snp_map &lt;- res$snp_map
+
+### Preprocess GWAS z-scores
+z_snp &lt;- preprocess_z_snp(z_snp, snp_map, 
+                          drop_multiallelic = TRUE, 
+                          drop_strand_ambig = TRUE)</code></pre>
+<ul>
+<li>Preprocessing weights</li>
+</ul>
+<pre class="r"><code>weights_prostate_expression &lt;- preprocess_weights(weight_prostate_expression_file,
+                                                  region_info,
+                                                  gwas_snp_ids = z_snp$id,
+                                                  snp_map = snp_map,
+                                                  type = &quot;expression&quot;,
+                                                  context = &quot;prostate&quot;,
+                                                  weight_name = &quot;prostate_expression&quot;,
+                                                  weight_format = &quot;PredictDB&quot;,
+                                                  drop_strand_ambig = TRUE,
+                                                  scale_predictdb_weights = TRUE,
+                                                  load_predictdb_LD = TRUE,
+                                                  filter_protein_coding_genes = TRUE,
+                                                  ncore = 6)
+weights_prostate_splicing &lt;- preprocess_weights(weight_prostate_splicing_file,
+                                                region_info,
+                                                gwas_snp_ids = z_snp$id,
+                                                snp_map = snp_map,
+                                                type = &quot;splicing&quot;,
+                                                context = &quot;prostate&quot;,
+                                                weight_name = &quot;prostate_splicing&quot;,
+                                                weight_format = &quot;PredictDB&quot;,
+                                                drop_strand_ambig = TRUE,
+                                                scale_predictdb_weights = TRUE,
+                                                load_predictdb_LD = TRUE,
+                                                filter_protein_coding_genes = TRUE,
+                                                ncore = 6)
+
+weights_testis_expression &lt;- preprocess_weights(weight_testis_expression_file,
+                                                region_info,
+                                                gwas_snp_ids = z_snp$id,
+                                                snp_map = snp_map,
+                                                type = &quot;expression&quot;,
+                                                context = &quot;testis&quot;,
+                                                weight_name = &quot;testis_expression&quot;,
+                                                weight_format = &quot;PredictDB&quot;,
+                                                drop_strand_ambig = TRUE,
+                                                scale_predictdb_weights = TRUE,
+                                                load_predictdb_LD = TRUE,
+                                                filter_protein_coding_genes = TRUE,
+                                                ncore = 6)
+weights_testis_splicing &lt;- preprocess_weights(weight_testis_splicing_file,
+                                              region_info,
+                                              gwas_snp_ids = z_snp$id,
+                                              snp_map = snp_map,
+                                              type = &quot;splicing&quot;,
+                                              context = &quot;testis&quot;,
+                                              weight_name = &quot;testis_splicing&quot;,
+                                              weight_format = &quot;PredictDB&quot;,
+                                              drop_strand_ambig = TRUE,
+                                              scale_predictdb_weights = TRUE,
+                                              load_predictdb_LD = TRUE,
+                                              filter_protein_coding_genes = TRUE,
+                                              ncore = 6)
+
+weights_lymphocytes_expression &lt;- preprocess_weights(weight_lymphocytes_expression_file,
+                                                     region_info,
+                                                     gwas_snp_ids = z_snp$id,
+                                                     snp_map = snp_map,
+                                                     type = &quot;expression&quot;,
+                                                     context = &quot;lymphocytes&quot;,
+                                                     weight_name = &quot;lymphocytes_expression&quot;,
+                                                     weight_format = &quot;PredictDB&quot;,
+                                                     drop_strand_ambig = TRUE,
+                                                     scale_predictdb_weights = TRUE,
+                                                     load_predictdb_LD = TRUE,
+                                                     filter_protein_coding_genes = TRUE,
+                                                     ncore = 6)
+weights_lymphocytes_splicing &lt;- preprocess_weights(weight_lymphocytes_splicing_file,
+                                                   region_info,
+                                                   gwas_snp_ids = z_snp$id,
+                                                   snp_map = snp_map,
+                                                   type = &quot;splicing&quot;,
+                                                   context = &quot;lymphocytes&quot;,
+                                                   weight_name = &quot;lymphocytes_splicing&quot;,
+                                                   weight_format = &quot;PredictDB&quot;,
+                                                   drop_strand_ambig = TRUE,
+                                                   scale_predictdb_weights = TRUE,
+                                                   load_predictdb_LD = TRUE,
+                                                   filter_protein_coding_genes = TRUE,
+                                                   ncore = 6)
+
+weights &lt;- c(
+  weights_prostate_expression,
+  weights_prostate_splicing,
+  weights_testis_expression,
+  weights_testis_splicing,
+  weights_lymphocytes_expression,
+  weights_lymphocytes_splicing)</code></pre>
+</div>
+</div>
+<div id="running-ctwas-analysis" class="section level2">
+<h2>Running cTWAS analysis</h2>
+<p>We use the ctwas main function <code>ctwas_sumstats_noLD</code> to
+run the cTWAS analysis without LD. For more details on this function,
+refer to the cTWAS tutorial: <a
+href="https://xinhe-lab.github.io/multigroup_ctwas/articles/minimal_tutorial.html"
+class="uri">https://xinhe-lab.github.io/multigroup_ctwas/articles/minimal_tutorial.html</a></p>
+<p>All arguments are set to their default values.</p>
+<p>Users can expand the code snippets below to view the exact code
+used.</p>
+<pre class="r"><code>ctwas_res &lt;- ctwas_sumstats_noLD(z_snp,
+                                 weights,
+                                 region_info,
+                                 snp_map,
+                                 thin = 0.1, 
+                                 ncore = 6)</code></pre>
+</div>
+<div id="parameter-estimation" class="section level2">
+<h2>Parameter estimation</h2>
+<p><code>ctwas_res</code> is the object contains the outputs of
+cTWAS</p>
+<p>We extract the estimated parameters by
+<code>param &lt;- ctwas_res$param</code></p>
+<p>We make plots using the function
+<code>make_convergence_plots(param, gwas_n)</code> to see how estimated
+parameters converge during the execution of the program:</p>
+<p><img src="figure/cTWAS_noLD_european_prostatetestislymphocytes_output.Rmd/unnamed-chunk-7-1.png" width="960" style="display: block; margin: auto;" /></p>
+<p>These plots show the estimated prior inclusion probability, prior
+effect size variance, enrichment and proportion of variance explained
+(PVE) over the iterations of parameter estimation. The enrichment is
+defined as the ratio of the prior inclusion probability of molecular
+traits over the prior inclusion probability of variants. We generally
+expect molecular traits to have higher prior inclusion probability than
+variants. Enrichment values typically range from 20 - 100 for expression
+traits.</p>
+<p>Then, we use <code>summarize_param(param, gwas_n)</code> to obtain
+estimated parameters (from the last iteration) and to compute the PVE by
+variants and molecular traits.</p>
+<pre><code>[1] &quot;The number of genes/introns/SNPs used in the analysis is:&quot;</code></pre>
+<pre><code>   prostate|expression      prostate|splicing      testis|expression 
+                  9693                  29875                  11361 
+       testis|splicing lymphocytes|expression   lymphocytes|splicing 
+                 50036                   8478                  26609 
+                   SNP 
+               7146350 </code></pre>
+<p><code>ctwas_parameters$attributable_pve</code> contains the
+proportion of heritability mediated by molecular traits and variants, we
+visualize it using pie chart.</p>
+<pre class="r"><code>ctwas_parameters &lt;- summarize_param(param, gwas_n)
+data &lt;- data.frame(
+  category = names(ctwas_parameters$attributable_pve),
+  percentage = ctwas_parameters$attributable_pve
+)
+# Calculate percentage labels for the chart
+data$percentage_label &lt;- paste0(round(data$percentage * 100, 1), &quot;%&quot;)
+
+ggplot(data, aes(x = &quot;&quot;, y = percentage, fill = category)) +
+  geom_bar(stat = &quot;identity&quot;, width = 1) +
+  coord_polar(&quot;y&quot;, start = 0) +
+  theme_void() +  # Remove background and axes
+  geom_text(aes(label = percentage_label), 
+            position = position_stack(vjust = 0.5)) +
+  scale_fill_brewer(palette = &quot;Pastel1&quot;) +
+  labs(fill = &quot;Category&quot;) +
+  ggtitle(&quot;Percent of heritability&quot;)</code></pre>
+<p><img src="figure/cTWAS_noLD_european_prostatetestislymphocytes_output.Rmd/piechart-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="diagnosis-plots" class="section level2">
+<h2>Diagnosis plots</h2>
+<p>For all genes analyzed, we compare the z-scores and fine-mapping
+PIPs”</p>
+<pre class="r"><code>ggplot(data = finemap_res[finemap_res$type!=&quot;SNP&quot;,], aes(x = abs(z), y = susie_pip)) +
+  geom_point() +
+  labs(x = &quot;abs(z-scores)&quot;, y = &quot;PIPs&quot;) +
+  theme_minimal()</code></pre>
+<p><img src="figure/cTWAS_noLD_european_prostatetestislymphocytes_output.Rmd/unnamed-chunk-9-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="fine-mapping-results" class="section level2">
+<h2>Fine-mapping results</h2>
+<p>We process the fine-mapping results here.</p>
+<p>We first add gene annotations to cTWAS results.</p>
+<p><code>mapping_table</code> is the combination of both expression and
+splicing data.</p>
+<pre class="r"><code>finemap_res &lt;- anno_finemap_res(finemap_res,
+                                snp_map = snp_map,
+                                mapping_table = mapping_table,
+                                add_gene_annot = TRUE,
+                                map_by = &quot;molecular_id&quot;,
+                                drop_unmapped = TRUE,
+                                add_position = TRUE,
+                                use_gene_pos = &quot;mid&quot;)</code></pre>
+<p>The annotated fine-mapping results, ones within credible sets are
+shown</p>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-232a8e63d6aacd296363" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-232a8e63d6aacd296363">{"x":{"filter":"none","vertical":false,"data":[["4287","8833","11702","17512","18562","19132","28345","46194","57056","65012","66870","69409","89327","90092","112851","114226","117284","117628","121092"],["ENSG00000163874.10|prostate_expression","ENSG00000143545.8|lymphocytes_expression","ENSG00000133056.13|lymphocytes_expression","intron_2_207165706_207166757|lymphocytes_splicing","ENSG00000115648.13|lymphocytes_expression","intron_2_241195845_241199316|prostate_splicing","ENSG00000121897.14|prostate_expression","ENSG00000164695.4|prostate_expression","ENSG00000138111.14|prostate_expression","ENSG00000165495.15|prostate_expression","ENSG00000121380.12|prostate_expression","ENSG00000120832.9|testis_expression","ENSG00000153786.12|prostate_expression","ENSG00000179409.10|prostate_expression","ENSG00000105327.17|prostate_expression","ENSG00000170892.10|testis_expression","ENSG00000101417.11|lymphocytes_expression","ENSG00000126001.15|testis_expression","ENSG00000184058.12|prostate_expression"],["expression","expression","expression","splicing","expression","splicing","expression","expression","expression","expression","expression","expression","expression","expression","expression","expression","expression","expression","expression"],["prostate","lymphocytes","lymphocytes","lymphocytes","lymphocytes","prostate","prostate","prostate","prostate","prostate","prostate","testis","prostate","prostate","prostate","testis","lymphocytes","testis","prostate"],["prostate|expression","lymphocytes|expression","lymphocytes|expression","lymphocytes|splicing","lymphocytes|expression","prostate|splicing","prostate|expression","prostate|expression","prostate|expression","prostate|expression","prostate|expression","testis|expression","prostate|expression","prostate|expression","prostate|expression","testis|expression","lymphocytes|expression","testis|expression","prostate|expression"],["1_37083582_38266175","1_153208353_154797927","1_203365606_204711940","2_205870980_207780675","2_236540389_237852338","2_240620667_241210506","4_38905401_40200989","8_81044160_81781504","10_101189482_102620653","11_124625632_126441425","12_11601912_12580594","12_106564970_108632125","16_84412277_85115079","17_150263_1269105","19_46646825_48778970","19_54099074_55216712","20_33027017_34225635","20_34225635_36332043","22_17813322_19924835"],[-4.57196354978897,12.14221990404148,14.44444444444444,-6.192982456140351,-10.35733908051552,13.791151879786,-4.64,4.736363636363636,-10.02440158725867,9.978798586572438,4.625901499526558,-4.892857142857143,6.991183970613101,14.40350877192982,5.136986301369863,-5.317204335134762,-6.141025641025641,23.11759293172035,9],[0.8267506162356483,0.9430596427873486,0.9355604219327955,0.8906131428823488,0.986786257292312,0.9999999998904678,0.8145980808782043,0.8322149627696228,0.8720404636437864,0.9922659551340168,0.8227319512620693,0.8214745414268911,0.9922293511356849,0.9939279340958611,0.9391627443015023,0.9958134381816497,0.9205644634569985,1,0.9283350201866505],[20.12348469140445,136.1401019111538,192.2624688408234,33.51540011939397,99.31807624775908,162.5559251370618,20.6981543983209,21.52661539930437,93.09609892385267,92.25969252155504,20.57837419398721,22.90830953173423,45.77281044700776,191.1796859572486,25.15342279512128,26.88090311999976,35.53606114273546,490.9728867437253,75.22687484661593],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],["ENSG00000163874.10","ENSG00000143545.8","ENSG00000133056.13","intron_2_207165706_207166757","ENSG00000115648.13","intron_2_241195845_241199316","ENSG00000121897.14","ENSG00000164695.4","ENSG00000138111.14","ENSG00000165495.15","ENSG00000121380.12","ENSG00000120832.9","ENSG00000153786.12","ENSG00000179409.10","ENSG00000105327.17","ENSG00000170892.10","ENSG00000101417.11","ENSG00000126001.15","ENSG00000184058.12"],[4.831750025929168e-06,6.309078982351151e-34,2.717395018514352e-47,5.903630251842007e-10,3.875947638287908e-25,2.881223371161483e-43,3.484091780689317e-06,2.175870276506592e-06,1.190787383032674e-23,1.8873814535796e-23,3.72972533281776e-06,9.938254618921576e-07,2.72576046411427e-12,4.918188507245037e-47,2.791792973768315e-07,1.0537371290076e-07,8.199034637298113e-10,3.08096146668202e-118,2.257176811907682e-19],["ZC3H12A","RAB13","PIK3C2B","MIR7845","MLPH","ANO7","LIAS","CHMP4C","MFSD13A","PKNOX2","BCL2L14","MTERF2","ZDHHC7","GEMIN4","BBC3","TSEN34","PXMP4","CEP250","TBX1"],["protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding"],["1","1","1","2","2","2","4","8","10","11","12","12","16","17","19","19","20","20","22"],["37474552","153981617","204422628","207165706","237485428","241195845","39459000","81732434","102461395","125164687","12049844","106977291","84974181","744414","47220822","54189938","33702754","35455164","19756703"],["37484379","153986358","204494724","207166757","237555318","241199316","39477653","81759515","102477045","125433389","12211084","106987166","85011535","753999","47232766","54194536","33720319","35519280","19783593"],[37479466,153983988,204458676,207166232,237520373,241197580,39468326,81745974,102469220,125299038,12130464,106982228,84992858,749206,47226794,54192237,33711536,35487222,19770148]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>id<\/th>\n      <th>type<\/th>\n      <th>context<\/th>\n      <th>group<\/th>\n      <th>region_id<\/th>\n      <th>z<\/th>\n      <th>susie_pip<\/th>\n      <th>mu2<\/th>\n      <th>cs_index<\/th>\n      <th>molecular_id<\/th>\n      <th>pval<\/th>\n      <th>gene_name<\/th>\n      <th>gene_type<\/th>\n      <th>chrom<\/th>\n      <th>start<\/th>\n      <th>end<\/th>\n      <th>pos<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[6,7,8,9,11,17]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"id","targets":1},{"name":"type","targets":2},{"name":"context","targets":3},{"name":"group","targets":4},{"name":"region_id","targets":5},{"name":"z","targets":6},{"name":"susie_pip","targets":7},{"name":"mu2","targets":8},{"name":"cs_index","targets":9},{"name":"molecular_id","targets":10},{"name":"pval","targets":11},{"name":"gene_name","targets":12},{"name":"gene_type","targets":13},{"name":"chrom","targets":14},{"name":"start","targets":15},{"name":"end","targets":16},{"name":"pos","targets":17}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<p>Next, we compute gene PIPs across different types of molecular
+traits.</p>
+<div id="combined-pips" class="section level3">
+<h3>Combined PIPs</h3>
+<pre class="r"><code>library(dplyr)
+combined_pip_by_group &lt;- combine_gene_pips(finemap_res, 
+                                             group_by = &quot;gene_name&quot;,
+                                             by = &quot;group&quot;,
+                                             method = &quot;combine_cs&quot;,
+                                             filter_cs = TRUE)</code></pre>
+<pre><code>2024-10-04 17:49:14.798072 INFO::Limit gene results to credible sets</code></pre>
+<pre class="r"><code>combined_pip_table &lt;- subset(combined_pip_by_group, combined_pip &gt; 0.8)
+DT::datatable(combined_pip_table)</code></pre>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-2112c1f1dbc2c6427f4c" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-2112c1f1dbc2c6427f4c">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38"],["CEP250","ANO7","PCAT19","TSEN34","PDLIM5","GEMIN4","PKNOX2","ZDHHC7","TBX1","MSMB","ARNT2","MLPH","CCDC88C","ADGRG1","PPP1R14A","TOR1A","TACC1","RAB13","MYO5C","BBC3","PIK3C2B","PXMP4","ZBTB38","MIR7845","CHMP4C","ZC3H12A","MAPKBP1","GRHL1","RPS6KL1","MFSD13A","MTERF2","FBXO38","HLA-DQB1","FAM118A","BCL2L14","LIAS","CASP8","CXXC1"],[null,null,null,null,null,0.9939279340958611,0.9922659551340168,0.9922293511356849,0.9283350201866505,0.620357635625032,0.675239452851997,null,null,null,null,null,null,null,0.5527642238523927,0.9391627443015023,null,null,null,null,0.8322149627696228,0.8267506162356483,null,0.779365738394701,0.4588056003343992,0.8720404636437864,null,0.3033081635730621,null,0.03236335275292457,0.8227319512620693,0.8145980808782043,null,0.007218920601398504],[null,0.9999999998904678,null,null,null,null,null,null,null,null,null,null,0.5286428961882982,0.477090367544198,null,0.3438220219151278,0.3899729037239459,null,null,null,null,null,0.05183262438940828,null,null,0.02140186515423725,0.580744837751438,0.09934969923990733,0.1534528986350877,null,null,0.1593244629068433,0.8350938786918438,0.4351505633067296,null,null,null,0.421774090479917],[1,null,null,0.9958134381816497,null,null,null,null,null,0.366826171576454,0.3116798149275091,null,null,null,0.3824751330142335,0.1942593585788137,null,null,null,null,null,null,null,null,0.03768972439378304,0.01996225188593437,null,null,0.2117773835577036,null,0.8214745414268911,0.0396531482381044,null,0.01581938470691113,null,null,null,0.003332139180430072],[null,null,0.9999999982235406,null,null,null,null,null,0.06368307448732724,null,null,null,null,0.4899112149993869,null,0.08826538741865375,0.2123087996763388,null,null,null,null,null,0.4322471242151494,null,null,null,0.2981755956758771,null,0.02641980730880455,null,0.04501276431248891,0.03480865068289118,null,0.2576829041742007,null,null,null,0.00356602440160847],[null,null,null,null,null,null,null,null,null,null,null,0.986786257292312,null,null,0.5841467908390516,0.2966885193554367,null,0.9430596427873486,0.3896813181029817,null,0.9355604219327955,0.9205644634569985,null,null,0.0184766189755996,null,null,null,0.02652304060983024,null,null,0.2328066408765683,null,null,null,null,null,null],[null,null,null,null,0.9947002556210185,null,null,null,null,null,null,null,0.4429226041911103,null,null,0.02733024033232578,0.343581310157285,null,null,null,null,null,0.4128579816148623,0.8906131428823488,null,0.01885587639367792,null,null,null,null,null,0.09342626209415417,null,0.09214961098970242,null,null,0.8055735534911265,0.3685398076543518],[1,0.9999999998904678,0.9999999982235406,0.9958134381816497,0.9947002556210185,0.9939279340958611,0.9922659551340168,0.9922293511356849,0.9920180946739776,0.987183807201486,0.9869192677795061,0.986786257292312,0.9715655003794083,0.9670015825435849,0.9666219238532852,0.9503655276003578,0.9458630135575695,0.9430596427873486,0.9424455419553743,0.9391627443015023,0.9355604219327955,0.9205644634569985,0.8969377302194204,0.8906131428823488,0.8883813061390055,0.8869706096694978,0.8789204334273152,0.8787154376346084,0.8769787304458254,0.8720404636437864,0.86648730573938,0.863327328371624,0.8350938786918438,0.8331658159304687,0.8227319512620693,0.8145980808782043,0.8055735534911265,0.8044309823177058]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>gene_name<\/th>\n      <th>prostate|expression_pip<\/th>\n      <th>prostate|splicing_pip<\/th>\n      <th>testis|expression_pip<\/th>\n      <th>testis|splicing_pip<\/th>\n      <th>lymphocytes|expression_pip<\/th>\n      <th>lymphocytes|splicing_pip<\/th>\n      <th>combined_pip<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[2,3,4,5,6,7,8]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"gene_name","targets":1},{"name":"prostate|expression_pip","targets":2},{"name":"prostate|splicing_pip","targets":3},{"name":"testis|expression_pip","targets":4},{"name":"testis|splicing_pip","targets":5},{"name":"lymphocytes|expression_pip","targets":6},{"name":"lymphocytes|splicing_pip","targets":7},{"name":"combined_pip","targets":8}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<div id="locus-plots-from-highest-pip-to-lowest-0.8-cutoff"
+class="section level2">
+<h2>Locus plots (from highest PIP to lowest 0.8 cutoff)</h2>
+<pre class="r"><code>make_locusplot(finemap_res,
+               region_id = &quot;20_34225635_36332043&quot;,
+               ens_db = ens_db,
+               weights = weights,
+               highlight_pip = 0.8,
+               filter_protein_coding_genes = TRUE,
+               filter_cs = TRUE,
+               color_pval_by = &quot;cs&quot;,
+               color_pip_by = &quot;cs&quot;)</code></pre>
+<pre><code>2024-10-04 17:49:15.369977 INFO::Limit to protein coding genes
+2024-10-04 17:49:15.374033 INFO::focal id: ENSG00000126001.15|testis_expression
+2024-10-04 17:49:15.374297 INFO::focal molecular trait: CEP250 testis expression
+2024-10-04 17:49:15.374583 INFO::Range of locus: chr20:34225783-36331600</code></pre>
+<pre><code>chromosome 20, position 34225783 to 36331600</code></pre>
+<pre><code>4318 SNPs/datapoints</code></pre>
+<pre><code>2024-10-04 17:49:15.510586 INFO::focal molecular trait QTL positions: 35445740,35454222,35456125
+2024-10-04 17:49:15.524779 INFO::Limit PIPs to credible sets</code></pre>
+<pre><code>Warning: ggrepel: 880 unlabeled data points (too many overlaps). Consider
+increasing max.overlaps</code></pre>
+<p><img src="figure/cTWAS_noLD_european_prostatetestislymphocytes_output.Rmd/locus%20plot-1.png" width="960" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>make_locusplot(finemap_res,
+               region_id = &quot;2_240620667_241210506&quot;,
+               ens_db = ens_db,
+               weights = weights,
+               highlight_pip = 0.8,
+               filter_protein_coding_genes = TRUE,
+               filter_cs = TRUE,
+               color_pval_by = &quot;cs&quot;,
+               color_pip_by = &quot;cs&quot;)</code></pre>
+<pre><code>2024-10-04 17:49:16.736354 INFO::Limit to protein coding genes
+2024-10-04 17:49:16.736822 INFO::focal id: intron_2_241195845_241199316|prostate_splicing
+2024-10-04 17:49:16.737053 INFO::focal molecular trait: ANO7 prostate splicing
+2024-10-04 17:49:16.737299 INFO::Range of locus: chr2:240618245-241608572</code></pre>
+<pre><code>chromosome 2, position 240618245 to 241608572</code></pre>
+<pre><code>2174 SNPs/datapoints</code></pre>
+<pre><code>2024-10-04 17:49:16.855249 INFO::focal molecular trait QTL positions: 241195850,241202304
+2024-10-04 17:49:16.867355 INFO::Limit PIPs to credible sets</code></pre>
+<pre><code>Warning: ggrepel: 213 unlabeled data points (too many overlaps). Consider
+increasing max.overlaps</code></pre>
+<p><img src="figure/cTWAS_noLD_european_prostatetestislymphocytes_output.Rmd/locus%20plot-2.png" width="960" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>make_locusplot(finemap_res,
+               region_id = &quot;19_54099074_55216712&quot;,
+               ens_db = ens_db,
+               weights = weights,
+               highlight_pip = 0.8,
+               filter_protein_coding_genes = TRUE,
+               filter_cs = TRUE,
+               color_pval_by = &quot;cs&quot;,
+               color_pip_by = &quot;cs&quot;)</code></pre>
+<pre><code>2024-10-04 17:49:17.613412 INFO::Limit to protein coding genes
+2024-10-04 17:49:17.61394 INFO::focal id: ENSG00000170892.10|testis_expression
+2024-10-04 17:49:17.614203 INFO::focal molecular trait: TSEN34 testis expression
+2024-10-04 17:49:17.614454 INFO::Range of locus: chr19:54098580-55244488</code></pre>
+<pre><code>chromosome 19, position 54098580 to 55244488</code></pre>
+<pre><code>4136 SNPs/datapoints</code></pre>
+<pre><code>2024-10-04 17:49:17.712663 INFO::focal molecular trait QTL positions: 54189591,54190017
+2024-10-04 17:49:17.725108 INFO::Limit PIPs to credible sets</code></pre>
+<pre><code>Warning: ggrepel: 388 unlabeled data points (too many overlaps). Consider
+increasing max.overlaps</code></pre>
+<p><img src="figure/cTWAS_noLD_european_prostatetestislymphocytes_output.Rmd/locus%20plot-3.png" width="960" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>make_locusplot(finemap_res,
+               region_id = &quot;17_150263_1269105&quot;,
+               ens_db = ens_db,
+               weights = weights,
+               highlight_pip = 0.8,
+               filter_protein_coding_genes = TRUE,
+               filter_cs = TRUE,
+               color_pval_by = &quot;cs&quot;,
+               color_pip_by = &quot;cs&quot;)</code></pre>
+<pre><code>2024-10-04 17:49:18.644018 INFO::Limit to protein coding genes
+2024-10-04 17:49:18.644556 INFO::focal id: ENSG00000179409.10|prostate_expression
+2024-10-04 17:49:18.644817 INFO::focal molecular trait: GEMIN4 prostate expression
+2024-10-04 17:49:18.645095 INFO::Range of locus: chr17:150409-1727661</code></pre>
+<pre><code>chromosome 17, position 150409 to 1727661</code></pre>
+<pre><code>4317 SNPs/datapoints</code></pre>
+<pre><code>2024-10-04 17:49:18.720506 INFO::focal molecular trait QTL positions: 715725
+2024-10-04 17:49:18.733372 INFO::Limit PIPs to credible sets</code></pre>
+<pre><code>Warning: ggrepel: 210 unlabeled data points (too many overlaps). Consider
+increasing max.overlaps</code></pre>
+<p><img src="figure/cTWAS_noLD_european_prostatetestislymphocytes_output.Rmd/locus%20plot-4.png" width="960" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>make_locusplot(finemap_res,
+               region_id = &quot;11_124625632_126441425&quot;,
+               ens_db = ens_db,
+               weights = weights,
+               highlight_pip = 0.8,
+               filter_protein_coding_genes = TRUE,
+               filter_cs = TRUE,
+               color_pval_by = &quot;cs&quot;,
+               color_pip_by = &quot;cs&quot;)</code></pre>
+<pre><code>2024-10-04 17:49:19.449334 INFO::Limit to protein coding genes
+2024-10-04 17:49:19.449866 INFO::focal id: ENSG00000165495.15|prostate_expression
+2024-10-04 17:49:19.450119 INFO::focal molecular trait: PKNOX2 prostate expression
+2024-10-04 17:49:19.450379 INFO::Range of locus: chr11:124627414-126441118</code></pre>
+<pre><code>chromosome 11, position 124627414 to 126441118</code></pre>
+<pre><code>5527 SNPs/datapoints</code></pre>
+<pre><code>2024-10-04 17:49:19.5222 INFO::focal molecular trait QTL positions: 125184897
+2024-10-04 17:49:19.534548 INFO::Limit PIPs to credible sets</code></pre>
+<pre><code>Warning: ggrepel: 542 unlabeled data points (too many overlaps). Consider
+increasing max.overlaps</code></pre>
+<p><img src="figure/cTWAS_noLD_european_prostatetestislymphocytes_output.Rmd/locus%20plot-5.png" width="960" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>make_locusplot(finemap_res,
+               region_id = &quot;16_84412277_85115079&quot;,
+               ens_db = ens_db,
+               weights = weights,
+               highlight_pip = 0.8,
+               filter_protein_coding_genes = TRUE,
+               filter_cs = TRUE,
+               color_pval_by = &quot;cs&quot;,
+               color_pip_by = &quot;cs&quot;)</code></pre>
+<pre><code>2024-10-04 17:49:20.499633 INFO::Limit to protein coding genes
+2024-10-04 17:49:20.500149 INFO::focal id: ENSG00000153786.12|prostate_expression
+2024-10-04 17:49:20.500404 INFO::focal molecular trait: ZDHHC7 prostate expression
+2024-10-04 17:49:20.500665 INFO::Range of locus: chr16:84412178-85114834</code></pre>
+<pre><code>chromosome 16, position 84412178 to 85114834</code></pre>
+<pre><code>3456 SNPs/datapoints</code></pre>
+<pre><code>2024-10-04 17:49:20.553133 INFO::focal molecular trait QTL positions: 85011497,85011520,85018213
+2024-10-04 17:49:20.565688 INFO::Limit PIPs to credible sets</code></pre>
+<pre><code>Warning: ggrepel: 155 unlabeled data points (too many overlaps). Consider
+increasing max.overlaps</code></pre>
+<p><img src="figure/cTWAS_noLD_european_prostatetestislymphocytes_output.Rmd/locus%20plot-6.png" width="960" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>make_locusplot(finemap_res,
+               region_id = &quot;2_236540389_237852338&quot;,
+               ens_db = ens_db,
+               weights = weights,
+               highlight_pip = 0.8,
+               filter_protein_coding_genes = TRUE,
+               filter_cs = TRUE,
+               color_pval_by = &quot;cs&quot;,
+               color_pip_by = &quot;cs&quot;)</code></pre>
+<pre><code>2024-10-04 17:49:21.207408 INFO::Limit to protein coding genes
+2024-10-04 17:49:21.207908 INFO::focal id: ENSG00000115648.13|lymphocytes_expression
+2024-10-04 17:49:21.208156 INFO::focal molecular trait: MLPH lymphocytes expression
+2024-10-04 17:49:21.208414 INFO::Range of locus: chr2:236541810-237851575</code></pre>
+<pre><code>chromosome 2, position 236541810 to 237851575</code></pre>
+<pre><code>4211 SNPs/datapoints</code></pre>
+<pre><code>2024-10-04 17:49:21.262106 INFO::focal molecular trait QTL positions: 237484645,237484791
+2024-10-04 17:49:21.27403 INFO::Limit PIPs to credible sets</code></pre>
+<pre><code>Warning: ggrepel: 130 unlabeled data points (too many overlaps). Consider
+increasing max.overlaps</code></pre>
+<p><img src="figure/cTWAS_noLD_european_prostatetestislymphocytes_output.Rmd/locus%20plot-7.png" width="960" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>make_locusplot(finemap_res,
+               region_id = &quot;1_153208353_154797927&quot;,
+               ens_db = ens_db,
+               weights = weights,
+               highlight_pip = 0.8,
+               filter_protein_coding_genes = TRUE,
+               filter_cs = TRUE,
+               color_pval_by = &quot;cs&quot;,
+               color_pip_by = &quot;cs&quot;)</code></pre>
+<pre><code>2024-10-04 17:49:21.883521 INFO::Limit to protein coding genes
+2024-10-04 17:49:21.884029 INFO::focal id: ENSG00000143545.8|lymphocytes_expression
+2024-10-04 17:49:21.884268 INFO::focal molecular trait: RAB13 lymphocytes expression
+2024-10-04 17:49:21.884513 INFO::Range of locus: chr1:153208786-154797763</code></pre>
+<pre><code>chromosome 1, position 153208786 to 154797763</code></pre>
+<pre><code>3641 SNPs/datapoints</code></pre>
+<pre><code>2024-10-04 17:49:21.959429 INFO::focal molecular trait QTL positions: 153985724,153989308
+2024-10-04 17:49:21.971606 INFO::Limit PIPs to credible sets</code></pre>
+<pre><code>Warning: ggrepel: 432 unlabeled data points (too many overlaps). Consider
+increasing max.overlaps</code></pre>
+<p><img src="figure/cTWAS_noLD_european_prostatetestislymphocytes_output.Rmd/locus%20plot-8.png" width="960" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>make_locusplot(finemap_res,
+               region_id = &quot;19_46646825_48778970&quot;,
+               ens_db = ens_db,
+               weights = weights,
+               highlight_pip = 0.8,
+               filter_protein_coding_genes = TRUE,
+               filter_cs = TRUE,
+               color_pval_by = &quot;cs&quot;,
+               color_pip_by = &quot;cs&quot;)</code></pre>
+<pre><code>2024-10-04 17:49:22.92946 INFO::Limit to protein coding genes
+2024-10-04 17:49:22.930106 INFO::focal id: ENSG00000105327.17|prostate_expression
+2024-10-04 17:49:22.930404 INFO::focal molecular trait: BBC3 prostate expression
+2024-10-04 17:49:22.9307 INFO::Range of locus: chr19:46646725-48778681</code></pre>
+<pre><code>chromosome 19, position 46646725 to 48778681</code></pre>
+<pre><code>6583 SNPs/datapoints</code></pre>
+<pre><code>2024-10-04 17:49:23.110544 INFO::focal molecular trait QTL positions: 47232618
+2024-10-04 17:49:23.123109 INFO::Limit PIPs to credible sets</code></pre>
+<pre><code>Warning: ggrepel: 738 unlabeled data points (too many overlaps). Consider
+increasing max.overlaps</code></pre>
+<p><img src="figure/cTWAS_noLD_european_prostatetestislymphocytes_output.Rmd/locus%20plot-9.png" width="960" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>make_locusplot(finemap_res,
+               region_id = &quot;1_203365606_204711940&quot;,
+               ens_db = ens_db,
+               weights = weights,
+               highlight_pip = 0.8,
+               filter_protein_coding_genes = TRUE,
+               filter_cs = TRUE,
+               color_pval_by = &quot;cs&quot;,
+               color_pip_by = &quot;cs&quot;)</code></pre>
+<pre><code>2024-10-04 17:49:24.449582 INFO::Limit to protein coding genes
+2024-10-04 17:49:24.450127 INFO::focal id: ENSG00000133056.13|lymphocytes_expression
+2024-10-04 17:49:24.450386 INFO::focal molecular trait: PIK3C2B lymphocytes expression
+2024-10-04 17:49:24.450646 INFO::Range of locus: chr1:203365611-204711982</code></pre>
+<pre><code>chromosome 1, position 203365611 to 204711982</code></pre>
+<pre><code>3607 SNPs/datapoints</code></pre>
+<pre><code>2024-10-04 17:49:24.510483 INFO::focal molecular trait QTL positions: 204495053
+2024-10-04 17:49:24.522556 INFO::Limit PIPs to credible sets</code></pre>
+<pre><code>Warning: ggrepel: 137 unlabeled data points (too many overlaps). Consider
+increasing max.overlaps</code></pre>
+<p><img src="figure/cTWAS_noLD_european_prostatetestislymphocytes_output.Rmd/locus%20plot-10.png" width="960" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>make_locusplot(finemap_res,
+               region_id = &quot;22_17813322_19924835&quot;,
+               ens_db = ens_db,
+               weights = weights,
+               highlight_pip = 0.8,
+               filter_protein_coding_genes = TRUE,
+               filter_cs = TRUE,
+               color_pval_by = &quot;cs&quot;,
+               color_pip_by = &quot;cs&quot;)</code></pre>
+<pre><code>2024-10-04 17:49:25.165442 INFO::Limit to protein coding genes
+2024-10-04 17:49:25.165919 INFO::focal id: ENSG00000184058.12|prostate_expression
+2024-10-04 17:49:25.166159 INFO::focal molecular trait: TBX1 prostate expression
+2024-10-04 17:49:25.16641 INFO::Range of locus: chr22:17813372-19925414</code></pre>
+<pre><code>chromosome 22, position 17813372 to 19925414</code></pre>
+<pre><code>4739 SNPs/datapoints</code></pre>
+<pre><code>2024-10-04 17:49:25.216446 INFO::focal molecular trait QTL positions: 19762002
+2024-10-04 17:49:25.228419 INFO::Limit PIPs to credible sets</code></pre>
+<pre><code>Warning: ggrepel: 262 unlabeled data points (too many overlaps). Consider
+increasing max.overlaps</code></pre>
+<p><img src="figure/cTWAS_noLD_european_prostatetestislymphocytes_output.Rmd/locus%20plot-11.png" width="960" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>make_locusplot(finemap_res,
+               region_id = &quot;20_33027017_34225635&quot;,
+               ens_db = ens_db,
+               weights = weights,
+               highlight_pip = 0.8,
+               filter_protein_coding_genes = TRUE,
+               filter_cs = TRUE,
+               color_pval_by = &quot;cs&quot;,
+               color_pip_by = &quot;cs&quot;)</code></pre>
+<pre><code>2024-10-04 17:49:26.039013 INFO::Limit to protein coding genes
+2024-10-04 17:49:26.039468 INFO::focal id: ENSG00000101417.11|lymphocytes_expression
+2024-10-04 17:49:26.039686 INFO::focal molecular trait: PXMP4 lymphocytes expression
+2024-10-04 17:49:26.03992 INFO::Range of locus: chr20:33027532-34224952</code></pre>
+<pre><code>chromosome 20, position 33027532 to 34224952</code></pre>
+<pre><code>1953 SNPs/datapoints</code></pre>
+<pre><code>2024-10-04 17:49:26.087151 INFO::focal molecular trait QTL positions: 33720469
+2024-10-04 17:49:26.099171 INFO::Limit PIPs to credible sets</code></pre>
+<pre><code>Warning: ggrepel: 123 unlabeled data points (too many overlaps). Consider
+increasing max.overlaps</code></pre>
+<p><img src="figure/cTWAS_noLD_european_prostatetestislymphocytes_output.Rmd/locus%20plot-12.png" width="960" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>make_locusplot(finemap_res,
+               region_id = &quot;2_205870980_207780675&quot;,
+               ens_db = ens_db,
+               weights = weights,
+               highlight_pip = 0.8,
+               filter_protein_coding_genes = TRUE,
+               filter_cs = TRUE,
+               color_pval_by = &quot;cs&quot;,
+               color_pip_by = &quot;cs&quot;)</code></pre>
+<pre><code>2024-10-04 17:49:26.762431 INFO::Limit to protein coding genes
+2024-10-04 17:49:26.762998 INFO::focal id: intron_2_207165706_207166757|lymphocytes_splicing
+2024-10-04 17:49:26.763265 INFO::focal molecular trait: MIR7845 lymphocytes splicing
+2024-10-04 17:49:26.763537 INFO::Range of locus: chr2:205871698-207779797</code></pre>
+<pre><code>chromosome 2, position 205871698 to 207779797</code></pre>
+<pre><code>4879 SNPs/datapoints</code></pre>
+<pre><code>2024-10-04 17:49:26.814301 INFO::focal molecular trait QTL positions: 207166747
+2024-10-04 17:49:26.827448 INFO::Limit PIPs to credible sets</code></pre>
+<pre><code>Warning: ggrepel: 199 unlabeled data points (too many overlaps). Consider
+increasing max.overlaps</code></pre>
+<p><img src="figure/cTWAS_noLD_european_prostatetestislymphocytes_output.Rmd/locus%20plot-13.png" width="960" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>make_locusplot(finemap_res,
+               region_id = &quot;10_101189482_102620653&quot;,
+               ens_db = ens_db,
+               weights = weights,
+               highlight_pip = 0.8,
+               filter_protein_coding_genes = TRUE,
+               filter_cs = TRUE,
+               color_pval_by = &quot;cs&quot;,
+               color_pip_by = &quot;cs&quot;)</code></pre>
+<pre><code>2024-10-04 17:49:28.433413 INFO::Limit to protein coding genes
+2024-10-04 17:49:28.433893 INFO::focal id: ENSG00000138111.14|prostate_expression
+2024-10-04 17:49:28.434119 INFO::focal molecular trait: MFSD13A prostate expression
+2024-10-04 17:49:28.434364 INFO::Range of locus: chr10:101190250-102621720</code></pre>
+<pre><code>chromosome 10, position 101190250 to 102621720</code></pre>
+<pre><code>2735 SNPs/datapoints</code></pre>
+<pre><code>2024-10-04 17:49:28.479268 INFO::focal molecular trait QTL positions: 102462097,102463206,102466080
+2024-10-04 17:49:28.491719 INFO::Limit PIPs to credible sets</code></pre>
+<pre><code>Warning: ggrepel: 412 unlabeled data points (too many overlaps). Consider
+increasing max.overlaps</code></pre>
+<p><img src="figure/cTWAS_noLD_european_prostatetestislymphocytes_output.Rmd/locus%20plot-14.png" width="960" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>make_locusplot(finemap_res,
+               region_id = &quot;8_81044160_81781504&quot;,
+               ens_db = ens_db,
+               weights = weights,
+               highlight_pip = 0.8,
+               filter_protein_coding_genes = TRUE,
+               filter_cs = TRUE,
+               color_pval_by = &quot;cs&quot;,
+               color_pip_by = &quot;cs&quot;)</code></pre>
+<pre><code>2024-10-04 17:49:29.28197 INFO::Limit to protein coding genes
+2024-10-04 17:49:29.282406 INFO::focal id: ENSG00000164695.4|prostate_expression
+2024-10-04 17:49:29.282621 INFO::focal molecular trait: CHMP4C prostate expression
+2024-10-04 17:49:29.282856 INFO::Range of locus: chr8:81039839-81781010</code></pre>
+<pre><code>chromosome 8, position 81039839 to 81781010</code></pre>
+<pre><code>1855 SNPs/datapoints</code></pre>
+<pre><code>2024-10-04 17:49:29.329533 INFO::focal molecular trait QTL positions: 81741409
+2024-10-04 17:49:29.34159 INFO::Limit PIPs to credible sets</code></pre>
+<pre><code>Warning: ggrepel: 64 unlabeled data points (too many overlaps). Consider
+increasing max.overlaps</code></pre>
+<p><img src="figure/cTWAS_noLD_european_prostatetestislymphocytes_output.Rmd/locus%20plot-15.png" width="960" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>make_locusplot(finemap_res,
+               region_id = &quot;1_37083582_38266175&quot;,
+               ens_db = ens_db,
+               weights = weights,
+               highlight_pip = 0.8,
+               filter_protein_coding_genes = TRUE,
+               filter_cs = TRUE,
+               color_pval_by = &quot;cs&quot;,
+               color_pip_by = &quot;cs&quot;)</code></pre>
+<pre><code>2024-10-04 17:49:29.938418 INFO::Limit to protein coding genes
+2024-10-04 17:49:29.938869 INFO::focal id: ENSG00000163874.10|prostate_expression
+2024-10-04 17:49:29.939091 INFO::focal molecular trait: ZC3H12A prostate expression
+2024-10-04 17:49:29.939326 INFO::Range of locus: chr1:37083938-38266050</code></pre>
+<pre><code>chromosome 1, position 37083938 to 38266050</code></pre>
+<pre><code>3063 SNPs/datapoints</code></pre>
+<pre><code>2024-10-04 17:49:29.992381 INFO::focal molecular trait QTL positions: 37475037,37499397
+2024-10-04 17:49:30.004103 INFO::Limit PIPs to credible sets</code></pre>
+<pre><code>Warning: ggrepel: 227 unlabeled data points (too many overlaps). Consider
+increasing max.overlaps</code></pre>
+<pre><code>Warning: ggrepel: 46 unlabeled data points (too many overlaps). Consider
+increasing max.overlaps</code></pre>
+<p><img src="figure/cTWAS_noLD_european_prostatetestislymphocytes_output.Rmd/locus%20plot-16.png" width="960" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>make_locusplot(finemap_res,
+               region_id = &quot;12_11601912_12580594&quot;,
+               ens_db = ens_db,
+               weights = weights,
+               highlight_pip = 0.8,
+               filter_protein_coding_genes = TRUE,
+               filter_cs = TRUE,
+               color_pval_by = &quot;cs&quot;,
+               color_pip_by = &quot;cs&quot;)</code></pre>
+<pre><code>2024-10-04 17:49:30.625868 INFO::Limit to protein coding genes
+2024-10-04 17:49:30.626328 INFO::focal id: ENSG00000121380.12|prostate_expression
+2024-10-04 17:49:30.626559 INFO::focal molecular trait: BCL2L14 prostate expression
+2024-10-04 17:49:30.626807 INFO::Range of locus: chr12:11034257-12580271</code></pre>
+<pre><code>chromosome 12, position 11034257 to 12580271</code></pre>
+<pre><code>2897 SNPs/datapoints</code></pre>
+<pre><code>2024-10-04 17:49:30.775138 INFO::focal molecular trait QTL positions: 12052195,12052348
+2024-10-04 17:49:30.787527 INFO::Limit PIPs to credible sets</code></pre>
+<pre><code>Warning: ggrepel: 62 unlabeled data points (too many overlaps). Consider
+increasing max.overlaps</code></pre>
+<p><img src="figure/cTWAS_noLD_european_prostatetestislymphocytes_output.Rmd/locus%20plot-17.png" width="960" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>make_locusplot(finemap_res,
+               region_id = &quot;12_106564970_108632125&quot;,
+               ens_db = ens_db,
+               weights = weights,
+               highlight_pip = 0.8,
+               filter_protein_coding_genes = TRUE,
+               filter_cs = TRUE,
+               color_pval_by = &quot;cs&quot;,
+               color_pip_by = &quot;cs&quot;)</code></pre>
+<pre><code>2024-10-04 17:49:31.227589 INFO::Limit to protein coding genes
+2024-10-04 17:49:31.228073 INFO::focal id: ENSG00000120832.9|testis_expression
+2024-10-04 17:49:31.228323 INFO::focal molecular trait: MTERF2 testis expression
+2024-10-04 17:49:31.228583 INFO::Range of locus: chr12:106564986-108631756</code></pre>
+<pre><code>chromosome 12, position 106564986 to 108631756</code></pre>
+<pre><code>5509 SNPs/datapoints</code></pre>
+<pre><code>2024-10-04 17:49:31.282295 INFO::focal molecular trait QTL positions: 106988381
+2024-10-04 17:49:31.29428 INFO::Limit PIPs to credible sets</code></pre>
+<pre><code>Warning: ggrepel: 212 unlabeled data points (too many overlaps). Consider
+increasing max.overlaps</code></pre>
+<pre><code>Warning: ggrepel: 13 unlabeled data points (too many overlaps). Consider
+increasing max.overlaps</code></pre>
+<p><img src="figure/cTWAS_noLD_european_prostatetestislymphocytes_output.Rmd/locus%20plot-18.png" width="960" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>make_locusplot(finemap_res,
+               region_id = &quot;4_38905401_40200989&quot;,
+               ens_db = ens_db,
+               weights = weights,
+               highlight_pip = 0.8,
+               filter_protein_coding_genes = TRUE,
+               filter_cs = TRUE,
+               color_pval_by = &quot;cs&quot;,
+               color_pip_by = &quot;cs&quot;)</code></pre>
+<pre><code>2024-10-04 17:49:32.035474 INFO::Limit to protein coding genes
+2024-10-04 17:49:32.036011 INFO::focal id: ENSG00000121897.14|prostate_expression
+2024-10-04 17:49:32.036267 INFO::focal molecular trait: LIAS prostate expression
+2024-10-04 17:49:32.036524 INFO::Range of locus: chr4:38905595-40200074</code></pre>
+<pre><code>chromosome 4, position 38905595 to 40200074</code></pre>
+<pre><code>3803 SNPs/datapoints</code></pre>
+<pre><code>2024-10-04 17:49:32.088581 INFO::focal molecular trait QTL positions: 39465159
+2024-10-04 17:49:32.100406 INFO::Limit PIPs to credible sets</code></pre>
+<pre><code>Warning: ggrepel: 256 unlabeled data points (too many overlaps). Consider
+increasing max.overlaps</code></pre>
+<p><img src="figure/cTWAS_noLD_european_prostatetestislymphocytes_output.Rmd/locus%20plot-19.png" width="960" style="display: block; margin: auto;" /></p>
+<br>
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
+<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+Session information
+</button>
+</p>
+<div id="workflowr-sessioninfo" class="collapse">
+<pre class="r"><code>sessionInfo()</code></pre>
+<pre><code>R version 4.4.1 (2024-06-14)
+Platform: aarch64-apple-darwin20
+Running under: macOS 15.0.1
+
+Matrix products: default
+BLAS:   /Library/Frameworks/R.framework/Versions/4.4-arm64/Resources/lib/libRblas.0.dylib 
+LAPACK: /Library/Frameworks/R.framework/Versions/4.4-arm64/Resources/lib/libRlapack.dylib;  LAPACK version 3.12.0
+
+locale:
+[1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+
+time zone: America/New_York
+tzcode source: internal
+
+attached base packages:
+[1] stats4    stats     graphics  grDevices utils     datasets  methods  
+[8] base     
+
+other attached packages:
+ [1] data.table_1.16.0         lubridate_1.9.3          
+ [3] forcats_1.0.0             stringr_1.5.1            
+ [5] dplyr_1.1.4               purrr_1.0.2              
+ [7] tidyr_1.3.1               tibble_3.2.1             
+ [9] tidyverse_2.0.0           ggrepel_0.9.6            
+[11] ggplot2_3.5.1             EnsDb.Hsapiens.v86_2.99.0
+[13] ensembldb_2.28.1          AnnotationFilter_1.28.0  
+[15] GenomicFeatures_1.56.0    AnnotationDbi_1.66.0     
+[17] Biobase_2.64.0            GenomicRanges_1.56.1     
+[19] GenomeInfoDb_1.40.1       IRanges_2.38.1           
+[21] S4Vectors_0.42.1          BiocGenerics_0.50.0      
+[23] ctwas_0.4.14              readr_2.1.5              
+[25] workflowr_1.7.1          
+
+loaded via a namespace (and not attached):
+  [1] RColorBrewer_1.1-3          rstudioapi_0.16.0          
+  [3] jsonlite_1.8.9              magrittr_2.0.3             
+  [5] farver_2.1.2                rmarkdown_2.28             
+  [7] fs_1.6.4                    BiocIO_1.14.0              
+  [9] zlibbioc_1.50.0             vctrs_0.6.5                
+ [11] memoise_2.0.1               Rsamtools_2.20.0           
+ [13] RCurl_1.98-1.16             mixsqp_0.3-54              
+ [15] htmltools_0.5.8.1           S4Arrays_1.4.1             
+ [17] curl_5.2.3                  SparseArray_1.4.8          
+ [19] sass_0.4.9                  bslib_0.8.0                
+ [21] htmlwidgets_1.6.4           plotly_4.10.4              
+ [23] zoo_1.8-12                  cachem_1.1.0               
+ [25] gggrid_0.2-0                GenomicAlignments_1.40.0   
+ [27] whisker_0.4.1               lifecycle_1.0.4            
+ [29] pkgconfig_2.0.3             Matrix_1.7-0               
+ [31] R6_2.5.1                    fastmap_1.2.0              
+ [33] GenomeInfoDbData_1.2.12     MatrixGenerics_1.16.0      
+ [35] digest_0.6.37               colorspace_2.1-1           
+ [37] ps_1.8.0                    rprojroot_2.0.4            
+ [39] irlba_2.3.5.1               crosstalk_1.2.1            
+ [41] RSQLite_2.3.7               labeling_0.4.3             
+ [43] pgenlibr_0.3.7              timechange_0.3.0           
+ [45] fansi_1.0.6                 httr_1.4.7                 
+ [47] abind_1.4-8                 compiler_4.4.1             
+ [49] bit64_4.0.5                 withr_3.0.1                
+ [51] BiocParallel_1.38.0         DBI_1.2.3                  
+ [53] highr_0.11                  DelayedArray_0.30.1        
+ [55] rjson_0.2.23                tools_4.4.1                
+ [57] httpuv_1.6.15               glue_1.7.0                 
+ [59] restfulr_0.0.15             callr_3.7.6                
+ [61] promises_1.3.0              grid_4.4.1                 
+ [63] getPass_0.2-4               generics_0.1.3             
+ [65] LDlinkR_1.4.0               gtable_0.3.5               
+ [67] tzdb_0.4.0                  locuszoomr_0.3.5           
+ [69] hms_1.1.3                   utf8_1.2.4                 
+ [71] XVector_0.44.0              pillar_1.9.0               
+ [73] later_1.3.2                 logging_0.10-108           
+ [75] lattice_0.22-6              rtracklayer_1.64.0         
+ [77] bit_4.5.0                   tidyselect_1.2.1           
+ [79] Biostrings_2.72.1           knitr_1.48                 
+ [81] git2r_0.33.0.9000           ProtGenerics_1.36.0        
+ [83] SummarizedExperiment_1.34.0 xfun_0.47                  
+ [85] matrixStats_1.4.1           DT_0.33                    
+ [87] stringi_1.8.4               UCSC.utils_1.0.0           
+ [89] lazyeval_0.2.2              yaml_2.3.10                
+ [91] evaluate_1.0.0              codetools_0.2-20           
+ [93] cli_3.6.3                   munsell_0.5.1              
+ [95] processx_3.8.4              jquerylib_0.1.4            
+ [97] Rcpp_1.0.13                 png_0.1-8                  
+ [99] XML_3.99-0.17               parallel_4.4.1             
+[101] blob_1.2.4                  bitops_1.0-8               
+[103] viridisLite_0.4.2           scales_1.3.0               
+[105] crayon_1.5.3                rlang_1.1.4                
+[107] cowplot_1.1.3               KEGGREST_1.44.1            </code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<!-- Adjust MathJax settings so that all math formulae are shown using
+TeX fonts only; see
+https://docs.mathjax.org/en/latest/web/configuration.html. This will make
+the presentation more consistent at the cost of the webpage sometimes
+taking slightly longer to load. Note that this only works because the
+footer is added to webpages before the MathJax javascript. -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("hide" === "show");
+});
+</script>
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
