@@ -1,0 +1,15 @@
+---
+title: "first-analysis"
+author: "yy896"
+date: "2024-10-04"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+## Introduction
+
+```{r}
+
+```
+
