@@ -20,6 +20,8 @@ Prostate+Testis+Liver // eQTL+sQTL [link](cTWAS_noLD_european_prostatetestislive
 
 Prostate+Testis+Lymphocytes+Lung // eQTL+sQTL [link](cTWAS_noLD_european_prostatetestislymphocyteslung_output.html) (Edited)
 
+Prostate+Testis+Lymphocytes+Liver // eQTL+sQTL [link](cTWAS_noLD_european_prostatetestislymphocytesliver_output.html) (Edited)
+
 Small Instestine+Whole Blood // eQTL+sQTL [link](cTWAS_noLD_european_intestinewb_output.html)
 
 Liver // eQTL+sQTL [link](cTWAS_noLD_european_liver_output.html)
