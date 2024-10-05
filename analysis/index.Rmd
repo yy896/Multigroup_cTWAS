@@ -22,6 +22,8 @@ Prostate+Testis+Lymphocytes+Lung // eQTL+sQTL [link](cTWAS_noLD_european_prostat
 
 Prostate+Testis+Lymphocytes+Liver // eQTL+sQTL [link](cTWAS_noLD_european_prostatetestislymphocytesliver_output.html) (Edited)
 
+Gene Summary for above analysis [link](cTWAS_noLD_european_GENE_SUMMARY.html) (Edited)
+
 Small Instestine+Whole Blood // eQTL+sQTL [link](cTWAS_noLD_european_intestinewb_output.html)
 
 Liver // eQTL+sQTL [link](cTWAS_noLD_european_liver_output.html)
@@ -33,5 +35,3 @@ Lymphocytes // eQTL+sQTL [link](cTWAS_noLD_european_lymphocytes_output.html)
 Lung+Liver // eQTL+sQTL [link](cTWAS_noLD_european_lungliver_output.html)
 
 Lung+Liver+Lymphocytes // eQTL+sQTL [link](cTWAS_noLD_european_lungliverlymphocytes_output.html)
-
-Gene Summary for above analysis [link](cTWAS_noLD_european_GENE_SUMMARY.html) (**Editing**)
