@@ -379,7 +379,7 @@ fgseaResTidy_stat <- as_tibble(fgseaRes1_kegg) %>%
   scale_fill_nejm())
 ```
 
-```{r 38 genes Reactome, echo=FALSE, eval=TRUE, fig.width=16, fig.height=12}
+```{r 38 genes Reactome, echo=FALSE, eval=TRUE, fig.width=17, fig.height=13}
 ### Reactome
 fgseaRes1_reactome <- fgsea(pathways=pathways.c2cpreactome, stats=stats)
 
