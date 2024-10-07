@@ -14,6 +14,8 @@ Prostate+Testis+Lymphocytes // eQTL+sQTL [link](cTWAS_noLD_european_prostatetest
 
 Gene Summary for above analysis [link](cTWAS_noLD_european_GENE_SUMMARY.html)
 
+Overlapped rsid p-values comparison [link](overlapped_pvalue.html)
+
 ---
 
 Prostate+Testis // eQTL+sQTL [link](cTWAS_noLD_european_prostatetestis_output.html)
