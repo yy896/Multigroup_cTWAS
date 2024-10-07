@@ -324,7 +324,7 @@ pathways.c2cpreactome <- gmtPathways("~/Desktop/Prostate Cancer Project/Pathways
 pathways.c2cpbiocarta <- gmtPathways("~/Desktop/Prostate Cancer Project/Pathways/c2.cp.biocarta.v2024.1.Hs.symbols.gmt.txt")
 ```
 
-```{r 38 genes GSEA, echo=FALSE, eval=TRUE, fig.width=12, fig.height=10}
+```{r 38 genes Hallmark, echo=FALSE, eval=TRUE, fig.width=8, fig.height=6}
 res_stat <- combined_pip_table %>% 
   as_tibble() %>% 
   dplyr::select(gene_name, combined_pip) %>% 
@@ -354,7 +354,9 @@ fgseaResTidy_stat <- as_tibble(fgseaRes1_hallmark) %>%
   theme_minimal() + 
   ggtitle("Hallmark Pathway of 38 combined-PIP genes") +
   scale_fill_nejm())
+```
 
+```{r 38 genes KEGG, echo=FALSE, eval=TRUE, fig.width=14, fig.height=10}
 ### KEGG
 fgseaRes1_kegg <- fgsea(pathways=pathways.c2cpkegg, stats=stats)
 
@@ -375,7 +377,9 @@ fgseaResTidy_stat <- as_tibble(fgseaRes1_kegg) %>%
   theme_minimal() + 
   ggtitle("KEGG Pathway of 38 combined-PIP genes") +
   scale_fill_nejm())
+```
 
+```{r 38 genes Reactome, echo=FALSE, eval=TRUE, fig.width=16, fig.height=12}
 ### Reactome
 fgseaRes1_reactome <- fgsea(pathways=pathways.c2cpreactome, stats=stats)
 
@@ -396,7 +400,9 @@ fgseaResTidy_stat <- as_tibble(fgseaRes1_reactome) %>%
   theme_minimal() +   
   ggtitle("Reactome Pathway of 38 combined-PIP genes") +
   scale_fill_nejm())
+```
 
+```{r 38 genes BioCarta, echo=FALSE, eval=TRUE, fig.width=8, fig.height=6}
 ### BioCarta
 fgseaRes1_biocarta <- fgsea(pathways=pathways.c2cpbiocarta, stats=stats)
 
