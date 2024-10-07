@@ -318,172 +318,30 @@ DT::datatable(combined_pip_table)
 ## GSEA Analysis
 
 ```{r pathway setup, echo=FALSE, eval=TRUE}
-## BIOCARTA 
-## CP
-c2cp <- msigdbr::msigdbr(
-  species = "Homo sapiens", 
-  category = "C2",
-  subcategory = c("CP")
-)
-
-c2cp_list <- split(
-  c2cp$gene_symbol, 
-  c2cp$gs_name
-)
-
-##"CP:WIKIPATHWAYS"
-
-c2cp_biocarta <- msigdbr::msigdbr(
-  species = "Homo sapiens", 
-  category = "C2",
-  subcategory = c("CP:BIOCARTA")
-)
-c2cp_biocarta_list <- split(
-  c2cp_biocarta$gene_symbol, 
-  c2cp_biocarta$gs_name
-)
-
-## KEGG
-
-c2cp_kegg <- msigdbr::msigdbr(
-  species = "Homo sapiens", 
-  category = "C2",
-  subcategory = c("CP:KEGG")
-)
-c2cp_kegg_list <- split(
-  c2cp_kegg$gene_symbol, 
-  c2cp_kegg$gs_name
-)
-
-## PID
-
-c2cp_pid <- msigdbr::msigdbr(
-  species = "Homo sapiens", 
-  category = "C2",
-  subcategory = c("CP:PID")
-)
-c2cp_pid_list <- split(
-  c2cp_pid$gene_symbol, 
-  c2cp_pid$gs_name
-)
-
-## REACTOME
-
-c2cp_reactome <- msigdbr::msigdbr(
-  species = "Homo sapiens", 
-  category = "C2",
-  subcategory = c("CP:REACTOME")
-)
-c2cp_reatome_list <- split(
-  c2cp_reactome$gene_symbol, 
-  c2cp_reactome$gs_name
-)
-
-## WIKIPATHWAYS 
-
-c2cp_wiki <- msigdbr::msigdbr(
-  species = "Homo sapiens", 
-  category = "C2",
-  subcategory = c("CP:WIKIPATHWAYS")
-)
-c2cp_wiki_list <- split(
-  c2cp_wiki$gene_symbol, 
-  c2cp_wiki$gs_name
-)
-
-##HALLMARK
-hallmark <- msigdbr::msigdbr(
-  species = "Homo sapiens", 
-  category = "H"
-)
-hallmark_list <- split(
-  hallmark$gene_symbol, 
-  hallmark$gs_name
-)
-
-gene_sets_list <- c(c2cp_list, c2cp_biocarta_list, c2cp_kegg_list, c2cp_pid_list, c2cp_reatome_list, c2cp_wiki_list, hallmark_list)
-
-# names(gene_sets_list) %>% as.data.frame() %>% View()
-
-pathways_to_include <- c(
-  "HALLMARK_P53_PATHWAY",
-  "BIOCARTA_P53_PATHWAY",
-  "KEGG_P53_SIGNALING_PATHWAY",
-  "BIOCARTA_PTEN_PATHWAY",
-  "REACTOME_PTEN_REGULATION",
-  "KEGG_ABC_TRANSPORTERS",
-  "REACTOME_ABC_FAMILY_PROTEINS_MEDIATED_TRANSPORT",
-  "KEGG_APOPTOSIS",
-  "HALLMARK_APOPTOSIS",
-  "REACTOME_APOPTOSIS",
-  "HALLMARK_HYPOXIA",
-  "BIOCARTA_P53HYPOXIA_PATHWAY",
-  "REACTOME_CELLULAR_RESPONSE_TO_HYPOXIA",
-  "HALLMARK_OXIDATIVE_PHOSPHORYLATION",
-  "KEGG_OXIDATIVE_PHOSPHORYLATION",
-  "WP_OXIDATIVE_PHOSPHORYLATION",
-  "HALLMARK_GLYCOLYSIS",
-  "REACTOME_GLYCOLYSIS",
-  "REACTOME_DNA_REPAIR",
-  "HALLMARK_DNA_REPAIR",
-  "WP_DNA_DAMAGE_RESPONSE",
-  "KEGG_CELL_CYCLE",
-  "REACTOME_CELL_CYCLE",
-  "HALLMARK_G2M_CHECKPOINT",
-  "KEGG_DNA_REPLICATION",
-  "REACTOME_DNA_REPLICATION",
-  "REACTOME_PD_1_SIGNALING",
-  "REACTOME_PROGRAMMED_CELL_DEATH",
-  "HALLMARK_PI3K_AKT_MTOR_SIGNALING",
-  "REACTOME_PI3K_AKT_ACTIVATION",
-  "BIOCARTA_AKT_PATHWAY",
-  "BIOCARTA_STAT3_PATHWAY",
-  "REACTOME_STAT3_NUCLEAR_EVENTS_DOWNSTREAM_OF_ALK_SIGNALING",
-  "BIOCARTA_ERK_PATHWAY",
-  "REACTOME_MAPK1_ERK2_ACTIVATION",
-  "KEGG_MAPK_SIGNALING_PATHWAY",
-  "BIOCARTA_MAPK_PATHWAY",
-  "WP_NRF2_PATHWAY",
-  "BIOCARTA_ARENRF2_PATHWAY",
-  "WP_OXIDATIVE_STRESS_RESPONSE",
-  "HALLMARK_REACTIVE_OXYGEN_SPECIES_PATHWAY",
-  "BIOCARTA_RAS_PATHWAY",
-  "HALLMARK_KRAS_SIGNALING_UP",
-  "HALLMARK_KRAS_SIGNALING_DN",
-  "REACTOME_SIGNALLING_TO_RAS",
-  "BIOCARTA_VEGF_PATHWAY",
-  "BIOCARTA_MET_PATHWAY",
-  "HALLMARK_ANGIOGENESIS",
-  "REACTOME_SIGNALING_BY_VEGF",
-  "REACTOME_VEGF_LIGAND_RECEPTOR_INTERACTIONS",
-  "WP_VEGFAVEGFR2_SIGNALING_PATHWAY",
-  "PID_VEGFR1_PATHWAY",
-  "REACTOME_VEGFR2_MEDIATED_CELL_PROLIFERATION",
-  "REACTOME_VEGFR2_MEDIATED_VASCULAR_PERMEABILITY",
-  "REACTOME_FLT3_SIGNALING",
-  "WP_KIT_RECEPTOR_SIGNALING_PATHWAY"
-)
-
-gene_sets_to_include <- gene_sets_list[names(gene_sets_list) %in% pathways_to_include]
+pathways.hallmark <- gmtPathways("~/Desktop/Prostate Cancer Project/Pathways/h.all.v2024.1.Hs.symbols.gmt.txt")
+pathways.c2cpkegg <- append(gmtPathways("~/Desktop/Prostate Cancer Project/Pathways/c2.cp.kegg_legacy.v2024.1.Hs.symbols.gmt.txt"), gmtPathways("~/Desktop/Prostate Cancer Project/Pathways/c2.cp.kegg_medicus.v2024.1.Hs.symbols.gmt.txt"))
+pathways.c2cpreactome <- gmtPathways("~/Desktop/Prostate Cancer Project/Pathways/c2.cp.reactome.v2024.1.Hs.symbols.gmt.txt")
+pathways.c2cpbiocarta <- gmtPathways("~/Desktop/Prostate Cancer Project/Pathways/c2.cp.biocarta.v2024.1.Hs.symbols.gmt.txt")
 ```
 
-```{r pathway figure output, echo=FALSE, eval=TRUE}
-res1_stat <- combined_pip_table %>% 
+```{r 38 genes GSEA, echo=FALSE, eval=TRUE, fig.width=12, fig.height=10}
+res_stat <- combined_pip_table %>% 
   as_tibble() %>% 
   dplyr::select(gene_name, combined_pip) %>% 
   na.omit() %>% 
   distinct() %>% 
   group_by(gene_name)
 
-stats <- deframe(res1_stat)
+stats <- deframe(res_stat)
 
-fgseaRes_stat <- fgsea(pathways=gene_sets_to_include, stats=stats, nperm=100000)
+### Hallmark
+fgseaRes1_hallmark <- fgsea(pathways=pathways.hallmark, stats=stats)
 
-list <- fgseaRes_stat$leadingEdge
+list <- fgseaRes1_hallmark$leadingEdge
 
-names(list) <- fgseaRes_stat$pathway
+names(list) <- fgseaRes1_hallmark$pathway
 
-fgseaResTidy_stat <- as_tibble(fgseaRes_stat) %>% 
+fgseaResTidy_stat <- as_tibble(fgseaRes1_hallmark) %>% 
   arrange() %>% 
   arrange(desc(NES))  %>% #enrichment score
   dplyr::select(-leadingEdge, -ES) %>% 
@@ -493,29 +351,39 @@ fgseaResTidy_stat <- as_tibble(fgseaRes_stat) %>%
   geom_col(aes(fill=padj<0.05)) +
   coord_flip() +
   labs(x="Pathways from GSEA", y="Normalized Enrichment Score") + 
-  theme_minimal() +   
-  theme(axis.text.y = element_text(size=12, face="bold"),
-        axis.text.x = element_text(size=12),
-        axis.title = element_text(size=14, face = "bold")) +
-  ggtitle("GSEA Pathways of 38 combined-PIP genes") +
+  theme_minimal() + 
+  ggtitle("Hallmark Pathway of 38 combined-PIP genes") +
   scale_fill_nejm())
 
-res2_stat <- finemap_res %>% 
-  as_tibble() %>% 
-  dplyr::select(gene_name, susie_pip) %>% 
-  na.omit() %>% 
-  distinct() %>% 
-  group_by(gene_name)
+### KEGG
+fgseaRes1_kegg <- fgsea(pathways=pathways.c2cpkegg, stats=stats)
 
-stats <- deframe(res2_stat)
+list <- fgseaRes1_kegg$leadingEdge
 
-fgseaRes_stat <- fgsea(pathways=gene_sets_to_include, stats=stats, nperm=100000)
+names(list) <- fgseaRes1_kegg$pathway
 
-list <- fgseaRes_stat$leadingEdge
+fgseaResTidy_stat <- as_tibble(fgseaRes1_kegg) %>% 
+  arrange() %>% 
+  arrange(desc(NES))  %>% #enrichment score
+  dplyr::select(-leadingEdge, -ES) %>% 
+  arrange(padj) 
 
-names(list) <- fgseaRes_stat$pathway
+(gsea_hallmark_plot <- ggplot(fgseaResTidy_stat, aes(reorder(pathway, NES), NES)) +
+  geom_col(aes(fill=padj<0.05)) +
+  coord_flip() +
+  labs(x="Pathways from GSEA", y="Normalized Enrichment Score") + 
+  theme_minimal() + 
+  ggtitle("KEGG Pathway of 38 combined-PIP genes") +
+  scale_fill_nejm())
 
-fgseaResTidy_stat <- as_tibble(fgseaRes_stat) %>% 
+### Reactome
+fgseaRes1_reactome <- fgsea(pathways=pathways.c2cpreactome, stats=stats)
+
+list <- fgseaRes1_reactome$leadingEdge
+
+names(list) <- fgseaRes1_reactome$pathway
+
+fgseaResTidy_stat <- as_tibble(fgseaRes1_reactome) %>% 
   arrange() %>% 
   arrange(desc(NES))  %>% #enrichment score
   dplyr::select(-leadingEdge, -ES) %>% 
@@ -526,10 +394,28 @@ fgseaResTidy_stat <- as_tibble(fgseaRes_stat) %>%
   coord_flip() +
   labs(x="Pathways from GSEA", y="Normalized Enrichment Score") + 
   theme_minimal() +   
-  theme(axis.text.y = element_text(size=12, face="bold"),
-        axis.text.x = element_text(size=12),
-        axis.title = element_text(size=14, face = "bold")) +
-  ggtitle("GSEA Pathways of finemapping genes") +
+  ggtitle("Reactome Pathway of 38 combined-PIP genes") +
+  scale_fill_nejm())
+
+### BioCarta
+fgseaRes1_biocarta <- fgsea(pathways=pathways.c2cpbiocarta, stats=stats)
+
+list <- fgseaRes1_biocarta$leadingEdge
+
+names(list) <- fgseaRes1_biocarta$pathway
+
+fgseaResTidy_stat <- as_tibble(fgseaRes1_biocarta) %>% 
+  arrange() %>% 
+  arrange(desc(NES))  %>% #enrichment score
+  dplyr::select(-leadingEdge, -ES) %>% 
+  arrange(padj) 
+
+(gsea_hallmark_plot <- ggplot(fgseaResTidy_stat, aes(reorder(pathway, NES), NES)) +
+  geom_col(aes(fill=padj<0.05)) +
+  coord_flip() +
+  labs(x="Pathways from GSEA", y="Normalized Enrichment Score") + 
+  theme_minimal() +   
+  ggtitle("BioCarta Pathway of 38 combined-PIP genes") +
   scale_fill_nejm())
 ```
 
