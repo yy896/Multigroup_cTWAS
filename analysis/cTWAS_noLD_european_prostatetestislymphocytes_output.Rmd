@@ -16,6 +16,10 @@ library(ggplot2)
 library(ggrepel)
 library(tidyverse)
 library(data.table)
+library(fgsea)
+library(enrichplot)
+library(ggsci)
+library(ReactomePA)
 
 ens_db <- EnsDb.Hsapiens.v86
 weights <- readRDS(system.file("extdata/project_data", "European.prostate_testis_lymphocytes.weights.RDS", package = "ctwas"))
@@ -309,6 +313,224 @@ combined_pip_by_group <- combine_gene_pips(finemap_res,
                                              filter_cs = TRUE)
 combined_pip_table <- subset(combined_pip_by_group, combined_pip > 0.8)
 DT::datatable(combined_pip_table)
+```
+
+## GSEA Analysis
+
+```{r pathway setup, echo=FALSE, eval=TRUE}
+## BIOCARTA 
+## CP
+c2cp <- msigdbr::msigdbr(
+  species = "Homo sapiens", 
+  category = "C2",
+  subcategory = c("CP")
+)
+
+c2cp_list <- split(
+  c2cp$gene_symbol, 
+  c2cp$gs_name
+)
+
+##"CP:WIKIPATHWAYS"
+
+c2cp_biocarta <- msigdbr::msigdbr(
+  species = "Homo sapiens", 
+  category = "C2",
+  subcategory = c("CP:BIOCARTA")
+)
+c2cp_biocarta_list <- split(
+  c2cp_biocarta$gene_symbol, 
+  c2cp_biocarta$gs_name
+)
+
+## KEGG
+
+c2cp_kegg <- msigdbr::msigdbr(
+  species = "Homo sapiens", 
+  category = "C2",
+  subcategory = c("CP:KEGG")
+)
+c2cp_kegg_list <- split(
+  c2cp_kegg$gene_symbol, 
+  c2cp_kegg$gs_name
+)
+
+## PID
+
+c2cp_pid <- msigdbr::msigdbr(
+  species = "Homo sapiens", 
+  category = "C2",
+  subcategory = c("CP:PID")
+)
+c2cp_pid_list <- split(
+  c2cp_pid$gene_symbol, 
+  c2cp_pid$gs_name
+)
+
+## REACTOME
+
+c2cp_reactome <- msigdbr::msigdbr(
+  species = "Homo sapiens", 
+  category = "C2",
+  subcategory = c("CP:REACTOME")
+)
+c2cp_reatome_list <- split(
+  c2cp_reactome$gene_symbol, 
+  c2cp_reactome$gs_name
+)
+
+## WIKIPATHWAYS 
+
+c2cp_wiki <- msigdbr::msigdbr(
+  species = "Homo sapiens", 
+  category = "C2",
+  subcategory = c("CP:WIKIPATHWAYS")
+)
+c2cp_wiki_list <- split(
+  c2cp_wiki$gene_symbol, 
+  c2cp_wiki$gs_name
+)
+
+##HALLMARK
+hallmark <- msigdbr::msigdbr(
+  species = "Homo sapiens", 
+  category = "H"
+)
+hallmark_list <- split(
+  hallmark$gene_symbol, 
+  hallmark$gs_name
+)
+
+gene_sets_list <- c(c2cp_list, c2cp_biocarta_list, c2cp_kegg_list, c2cp_pid_list, c2cp_reatome_list, c2cp_wiki_list, hallmark_list)
+
+# names(gene_sets_list) %>% as.data.frame() %>% View()
+
+pathways_to_include <- c(
+  "HALLMARK_P53_PATHWAY",
+  "BIOCARTA_P53_PATHWAY",
+  "KEGG_P53_SIGNALING_PATHWAY",
+  "BIOCARTA_PTEN_PATHWAY",
+  "REACTOME_PTEN_REGULATION",
+  "KEGG_ABC_TRANSPORTERS",
+  "REACTOME_ABC_FAMILY_PROTEINS_MEDIATED_TRANSPORT",
+  "KEGG_APOPTOSIS",
+  "HALLMARK_APOPTOSIS",
+  "REACTOME_APOPTOSIS",
+  "HALLMARK_HYPOXIA",
+  "BIOCARTA_P53HYPOXIA_PATHWAY",
+  "REACTOME_CELLULAR_RESPONSE_TO_HYPOXIA",
+  "HALLMARK_OXIDATIVE_PHOSPHORYLATION",
+  "KEGG_OXIDATIVE_PHOSPHORYLATION",
+  "WP_OXIDATIVE_PHOSPHORYLATION",
+  "HALLMARK_GLYCOLYSIS",
+  "REACTOME_GLYCOLYSIS",
+  "REACTOME_DNA_REPAIR",
+  "HALLMARK_DNA_REPAIR",
+  "WP_DNA_DAMAGE_RESPONSE",
+  "KEGG_CELL_CYCLE",
+  "REACTOME_CELL_CYCLE",
+  "HALLMARK_G2M_CHECKPOINT",
+  "KEGG_DNA_REPLICATION",
+  "REACTOME_DNA_REPLICATION",
+  "REACTOME_PD_1_SIGNALING",
+  "REACTOME_PROGRAMMED_CELL_DEATH",
+  "HALLMARK_PI3K_AKT_MTOR_SIGNALING",
+  "REACTOME_PI3K_AKT_ACTIVATION",
+  "BIOCARTA_AKT_PATHWAY",
+  "BIOCARTA_STAT3_PATHWAY",
+  "REACTOME_STAT3_NUCLEAR_EVENTS_DOWNSTREAM_OF_ALK_SIGNALING",
+  "BIOCARTA_ERK_PATHWAY",
+  "REACTOME_MAPK1_ERK2_ACTIVATION",
+  "KEGG_MAPK_SIGNALING_PATHWAY",
+  "BIOCARTA_MAPK_PATHWAY",
+  "WP_NRF2_PATHWAY",
+  "BIOCARTA_ARENRF2_PATHWAY",
+  "WP_OXIDATIVE_STRESS_RESPONSE",
+  "HALLMARK_REACTIVE_OXYGEN_SPECIES_PATHWAY",
+  "BIOCARTA_RAS_PATHWAY",
+  "HALLMARK_KRAS_SIGNALING_UP",
+  "HALLMARK_KRAS_SIGNALING_DN",
+  "REACTOME_SIGNALLING_TO_RAS",
+  "BIOCARTA_VEGF_PATHWAY",
+  "BIOCARTA_MET_PATHWAY",
+  "HALLMARK_ANGIOGENESIS",
+  "REACTOME_SIGNALING_BY_VEGF",
+  "REACTOME_VEGF_LIGAND_RECEPTOR_INTERACTIONS",
+  "WP_VEGFAVEGFR2_SIGNALING_PATHWAY",
+  "PID_VEGFR1_PATHWAY",
+  "REACTOME_VEGFR2_MEDIATED_CELL_PROLIFERATION",
+  "REACTOME_VEGFR2_MEDIATED_VASCULAR_PERMEABILITY",
+  "REACTOME_FLT3_SIGNALING",
+  "WP_KIT_RECEPTOR_SIGNALING_PATHWAY"
+)
+
+gene_sets_to_include <- gene_sets_list[names(gene_sets_list) %in% pathways_to_include]
+```
+
+```{r pathway figure output, echo=FALSE, eval=TRUE}
+res1_stat <- combined_pip_table %>% 
+  as_tibble() %>% 
+  dplyr::select(gene_name, combined_pip) %>% 
+  na.omit() %>% 
+  distinct() %>% 
+  group_by(gene_name)
+
+stats <- deframe(res1_stat)
+
+fgseaRes_stat <- fgsea(pathways=gene_sets_to_include, stats=stats, nperm=100000)
+
+list <- fgseaRes_stat$leadingEdge
+
+names(list) <- fgseaRes_stat$pathway
+
+fgseaResTidy_stat <- as_tibble(fgseaRes_stat) %>% 
+  arrange() %>% 
+  arrange(desc(NES))  %>% #enrichment score
+  dplyr::select(-leadingEdge, -ES) %>% 
+  arrange(padj) 
+
+(gsea_hallmark_plot <- ggplot(fgseaResTidy_stat, aes(reorder(pathway, NES), NES)) +
+  geom_col(aes(fill=padj<0.05)) +
+  coord_flip() +
+  labs(x="Pathways from GSEA", y="Normalized Enrichment Score") + 
+  theme_minimal() +   
+  theme(axis.text.y = element_text(size=12, face="bold"),
+        axis.text.x = element_text(size=12),
+        axis.title = element_text(size=14, face = "bold")) +
+  ggtitle("GSEA Pathways of 38 combined-PIP genes") +
+  scale_fill_nejm())
+
+res2_stat <- finemap_res %>% 
+  as_tibble() %>% 
+  dplyr::select(gene_name, susie_pip) %>% 
+  na.omit() %>% 
+  distinct() %>% 
+  group_by(gene_name)
+
+stats <- deframe(res2_stat)
+
+fgseaRes_stat <- fgsea(pathways=gene_sets_to_include, stats=stats, nperm=100000)
+
+list <- fgseaRes_stat$leadingEdge
+
+names(list) <- fgseaRes_stat$pathway
+
+fgseaResTidy_stat <- as_tibble(fgseaRes_stat) %>% 
+  arrange() %>% 
+  arrange(desc(NES))  %>% #enrichment score
+  dplyr::select(-leadingEdge, -ES) %>% 
+  arrange(padj) 
+
+(gsea_hallmark_plot <- ggplot(fgseaResTidy_stat, aes(reorder(pathway, NES), NES)) +
+  geom_col(aes(fill=padj<0.05)) +
+  coord_flip() +
+  labs(x="Pathways from GSEA", y="Normalized Enrichment Score") + 
+  theme_minimal() +   
+  theme(axis.text.y = element_text(size=12, face="bold"),
+        axis.text.x = element_text(size=12),
+        axis.title = element_text(size=14, face = "bold")) +
+  ggtitle("GSEA Pathways of finemapping genes") +
+  scale_fill_nejm())
 ```
 
 ## Locus plots (from highest PIP to lowest 0.8 cutoff)
