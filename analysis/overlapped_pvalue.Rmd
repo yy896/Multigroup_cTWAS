@@ -6,7 +6,7 @@ editor_options:
   chunk_output_type: console
 ---
 
-```{r echo=FALSE, eval=TRUE}
+```{r echo=FALSE}
 library(tidyverse)
 library(readxl)
 library(data.table)
