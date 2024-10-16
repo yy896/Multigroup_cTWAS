@@ -1,0 +1,1239 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Nina Yifan Yang" />
+
+<meta name="date" content="2024-10-16" />
+
+<title>Prostate Cancer ~ Predictdb eQTL&amp;sQTL from Prostate &amp; Testis &amp; Lymphocytes &amp; RefZ expression from prostate cohort Chr2+22 TEST RUN</title>
+
+<script src="site_libs/header-attrs-2.28/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet" />
+<script src="site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<link href="site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="site_libs/datatables-binding-0.33/datatables.js"></script>
+<link href="site_libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="site_libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="site_libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script>
+<link href="site_libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet" />
+<script src="site_libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
+<link href="site_libs/font-awesome-6.4.2/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet" />
+
+<link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/main/img/reproducible.png">
+<!-- Add a small amount of space between sections. -->
+<style type="text/css">
+div.section {
+  padding-top: 12px;
+}
+</style>
+
+
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Multigroup_cTWAS</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="about.html">About</a>
+</li>
+<li>
+  <a href="license.html">License</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/yy896/Multigroup_cTWAS">
+    <span class="fab fa-github"></span>
+     
+    Source code
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+<div class="btn-group pull-right float-right">
+<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu dropdown-menu-right" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
+
+
+
+<h1 class="title toc-ignore">Prostate Cancer ~ Predictdb eQTL&amp;sQTL
+from Prostate &amp; Testis &amp; Lymphocytes &amp; RefZ expression from
+prostate cohort Chr2+22 TEST RUN</h1>
+<h4 class="author">Nina Yifan Yang</h4>
+<h4 class="date">2024-10-16</h4>
+
+</div>
+
+
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+workflowr <span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span>
+</button>
+</p>
+<div id="workflowr-report" class="collapse">
+<ul class="nav nav-tabs">
+<li class="active">
+<a data-toggle="tab" href="#summary">Summary</a>
+</li>
+<li>
+<a data-toggle="tab" href="#checks"> Checks <span
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+</a>
+</li>
+<li>
+<a data-toggle="tab" href="#versions">Past versions</a>
+</li>
+</ul>
+<div class="tab-content">
+<div id="summary" class="tab-pane fade in active">
+<p>
+<strong>Last updated:</strong> 2024-10-16
+</p>
+<p>
+<strong>Checks:</strong> <span
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7
+<span class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> 0
+</p>
+<p>
+<strong>Knit directory:</strong> <code>Multigroup_cTWAS/</code> <span
+class="glyphicon glyphicon-question-sign" aria-hidden="true"
+title="This is the local directory in which the code in this file was executed.">
+</span>
+</p>
+<p>
+This reproducible <a href="https://rmarkdown.rstudio.com">R Markdown</a>
+analysis was created with <a
+  href="https://github.com/workflowr/workflowr">workflowr</a> (version
+1.7.1). The <em>Checks</em> tab describes the reproducibility checks
+that were applied when the results were created. The <em>Past
+versions</em> tab lists the development history.
+</p>
+<hr>
+</div>
+<div id="checks" class="tab-pane fade">
+<div id="workflowr-checks" class="panel-group">
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date
+</a>
+</p>
+</div>
+<div id="strongRMarkdownfilestronguptodate"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great! Since the R Markdown file has been committed to the Git
+repository, you know the exact version of the code that produced these
+results.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongEnvironmentstrongempty">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Environment:</strong> empty </a>
+</p>
+</div>
+<div id="strongEnvironmentstrongempty" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! The global environment was empty. Objects defined in the
+global environment can affect the analysis in your R Markdown file in
+unknown ways. For reproduciblity it’s best to always run the code in an
+empty environment.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSeedstrongcodesetseed20241004code">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Seed:</strong>
+<code>set.seed(20241004)</code> </a>
+</p>
+</div>
+<div id="strongSeedstrongcodesetseed20241004code"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>The command <code>set.seed(20241004)</code> was run prior to running
+the code in the R Markdown file. Setting a seed ensures that any results
+that rely on randomness, e.g. subsampling or permutations, are
+reproducible.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSessioninformationstrongrecorded">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Session information:</strong>
+recorded </a>
+</p>
+</div>
+<div id="strongSessioninformationstrongrecorded"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Recording the operating system, R version, and package
+versions is critical for reproducibility.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongCachestrongnone">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Cache:</strong> none </a>
+</p>
+</div>
+<div id="strongCachestrongnone" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Nice! There were no cached chunks for this analysis, so you can be
+confident that you successfully produced the results during this
+run.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongFilepathsstrongrelative">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>File paths:</strong> relative </a>
+</p>
+</div>
+<div id="strongFilepathsstrongrelative" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Using relative paths to the files within your workflowr
+project makes it easier to run your code on other machines.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomyy896MultigroupcTWAStreecea5fa5f015986dafbb7747d962dc26876310f8btargetblankcea5fa5a">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Repository version:</strong>
+<a href="https://github.com/yy896/Multigroup_cTWAS/tree/cea5fa5f015986dafbb7747d962dc26876310f8b" target="_blank">cea5fa5</a>
+</a>
+</p>
+</div>
+<div
+id="strongRepositoryversionstrongahrefhttpsgithubcomyy896MultigroupcTWAStreecea5fa5f015986dafbb7747d962dc26876310f8btargetblankcea5fa5a"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>
+Great! You are using Git for version control. Tracking code development
+and connecting the code version to the results is critical for
+reproducibility.
+</p>
+<p>
+The results in this page were generated with repository version
+<a href="https://github.com/yy896/Multigroup_cTWAS/tree/cea5fa5f015986dafbb7747d962dc26876310f8b" target="_blank">cea5fa5</a>.
+See the <em>Past versions</em> tab to see a history of the changes made
+to the R Markdown and HTML files.
+</p>
+<p>
+Note that you need to be careful to ensure that all relevant files for
+the analysis have been committed to Git prior to generating the results
+(you can use <code>wflow_publish</code> or
+<code>wflow_git_commit</code>). workflowr only checks the R Markdown
+file, but you know if there are other scripts or data files that it
+depends on. Below is the status of the Git repository when the results
+were generated:
+</p>
+<pre><code>
+Ignored files:
+    Ignored:    .DS_Store
+    Ignored:    .Rhistory
+    Ignored:    analysis/.DS_Store
+    Ignored:    analysis/.Rhistory
+
+</code></pre>
+<p>
+Note that any generated files, e.g. HTML, png, CSS, etc., are not
+included in this status report because it is ok for generated content to
+have uncommitted changes.
+</p>
+</div>
+</div>
+</div>
+</div>
+<hr>
+</div>
+<div id="versions" class="tab-pane fade">
+<p>
+These are the previous versions of the repository in which changes were
+made to the R Markdown
+(<code>analysis/cTWAS_LD_european_combined_output.Rmd</code>) and HTML
+(<code>docs/cTWAS_LD_european_combined_output.html</code>) files. If
+you’ve configured a remote Git repository (see
+<code>?wflow_git_remote</code>), click on the hyperlinks in the table
+below to view the files as they were in that past version.
+</p>
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+File
+</th>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+<th>
+Message
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/yy896/Multigroup_cTWAS/blob/cea5fa5f015986dafbb7747d962dc26876310f8b/analysis/cTWAS_LD_european_combined_output.Rmd" target="_blank">cea5fa5</a>
+</td>
+<td>
+yy896
+</td>
+<td>
+2024-10-16
+</td>
+<td>
+Update TEST RUN
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+</div>
+</div>
+</div>
+<p>We present a sample cTWAS report based on real data analysis. The
+analyzed trait is prostate cancer, the prediction models are Prostate
+&amp; Testis &amp; Lymphocytes gene expression and splicing models
+trained on GTEx v8 in the PredictDB format.</p>
+<div id="analysis-settings" class="section level2">
+<h2>Analysis Settings</h2>
+<div id="input-data" class="section level3">
+<h3>Input Data</h3>
+<ul>
+<li>GWAS Z-scores</li>
+</ul>
+<p>The summary statistics for prostate cancer are downloaded from <a
+href="https://www.ebi.ac.uk/gwas/downloads/summary-statistics"
+class="uri">https://www.ebi.ac.uk/gwas/downloads/summary-statistics</a>,
+using dataset ID: GCST90274714.</p>
+<p>The sample size is</p>
+<pre><code>[1] &quot;gwas_n = 726828&quot;</code></pre>
+<ul>
+<li>Prediction models</li>
+</ul>
+<p>The prediction models used in this analysis are prostate &amp; testis
+&amp; lymphocytes gene expression and splicing models, trained on GTEx
+v8 in the PredictDB format. These models can be downloaded from <a
+href="https://predictdb.org/post/2021/07/21/gtex-v8-models-on-eqtl-and-sqtl/"
+class="uri">https://predictdb.org/post/2021/07/21/gtex-v8-models-on-eqtl-and-sqtl/</a></p>
+<ul>
+<li>Reference data</li>
+</ul>
+<p>We did not include LD reference in the analysis.</p>
+</div>
+<div id="data-processing-and-harmonization" class="section level3">
+<h3>Data processing and harmonization</h3>
+<p>We map the reference SNPs to regions following the instructions from
+the cTWAS tutorial.</p>
+<p>When processing z-scores, we exclude multi-allelic and
+strand-ambiguous variants by setting
+<code>drop_multiallelic = TRUE</code> and
+<code>drop_strand_ambig = TRUE</code>.</p>
+<p>The process can be divided into steps below, users can expand the
+code snippets below to view the exact code used.</p>
+<ul>
+<li>Input and output settings</li>
+</ul>
+<pre class="r"><code>weight_prostate_expression_file &lt;- system.file(&quot;extdata/project_data&quot;, 
+                                               &quot;mashr_Prostate_e.db&quot;, package = &quot;ctwas&quot;)
+weight_prostate_splicing_file &lt;- system.file(&quot;extdata/project_data&quot;, 
+                                             &quot;mashr_Prostate_s.db&quot;, package = &quot;ctwas&quot;)
+weight_testis_expression_file &lt;- system.file(&quot;extdata/project_data&quot;, 
+                                             &quot;mashr_Testis_e.db&quot;, package = &quot;ctwas&quot;)
+weight_testis_splicing_file &lt;- system.file(&quot;extdata/project_data&quot;, 
+                                           &quot;mashr_Testis_s.db&quot;, package = &quot;ctwas&quot;)
+weight_lymphocytes_expression_file &lt;- system.file(&quot;extdata/project_data&quot;, 
+                                                  &quot;mashr_Cells_EBV-transformed_lymphocytes_e.db&quot;, package = &quot;ctwas&quot;)
+weight_lymphocytes_splicing_file &lt;- system.file(&quot;extdata/project_data&quot;, 
+                                                &quot;mashr_Cells_EBV-transformed_lymphocytes_s.db&quot;, package = &quot;ctwas&quot;)
+
+z_snp &lt;- vroom::vroom(&quot;~/Desktop/Prostate Cancer Project/GCST90274714.mod.tsv.gz&quot;, col_names = TRUE, show_col_types = FALSE)
+z_snp$Z &lt;- z_snp$beta / z_snp$standard_error
+
+z_snp &lt;- z_snp[, c(&quot;rsid&quot;, &quot;other_allele&quot;, &quot;effect_allele&quot;, &quot;Z&quot;)]
+colnames(z_snp) &lt;- c(&quot;id&quot;, &quot;A1&quot;, &quot;A2&quot;, &quot;z&quot;)
+
+region_file &lt;- system.file(&quot;extdata/ldetect&quot;, &quot;EUR.b38.ldetect.regions.RDS&quot;, package = &quot;ctwas&quot;)
+region_info &lt;- readRDS(region_file)
+
+## other parameters
+ncore &lt;- 6</code></pre>
+<ul>
+<li>Preprocessing GWAS</li>
+</ul>
+<pre class="r"><code>### Preprocess SNP_map
+ref_snp_info_file &lt;- system.file(&quot;extdata/project_data&quot;, &quot;ukb_b38_0.1_var_info.Rvar.gz&quot;, package = &quot;ctwas&quot;)
+
+ref_snp_info &lt;- data.table::fread(ref_snp_info_file, sep = &quot;\t&quot;)
+class(ref_snp_info) &lt;- &quot;data.frame&quot;
+
+res &lt;- create_snp_map(region_info, ref_snp_info)
+region_info &lt;- res$region_info
+snp_map &lt;- res$snp_map
+
+### Preprocess GWAS z-scores
+z_snp &lt;- preprocess_z_snp(z_snp, snp_map, 
+                          drop_multiallelic = TRUE, 
+                          drop_strand_ambig = TRUE)</code></pre>
+<ul>
+<li>Preprocessing weights</li>
+</ul>
+<pre class="r"><code>weights_prostate_expression &lt;- preprocess_weights(weight_prostate_expression_file,
+                                                  region_info,
+                                                  gwas_snp_ids = z_snp$id,
+                                                  snp_map = snp_map,
+                                                  type = &quot;expression&quot;,
+                                                  context = &quot;prostate&quot;,
+                                                  weight_name = &quot;prostate_expression&quot;,
+                                                  weight_format = &quot;PredictDB&quot;,
+                                                  drop_strand_ambig = TRUE,
+                                                  scale_predictdb_weights = TRUE,
+                                                  load_predictdb_LD = TRUE,
+                                                  filter_protein_coding_genes = TRUE,
+                                                  ncore = 6)
+weights_prostate_splicing &lt;- preprocess_weights(weight_prostate_splicing_file,
+                                                region_info,
+                                                gwas_snp_ids = z_snp$id,
+                                                snp_map = snp_map,
+                                                type = &quot;splicing&quot;,
+                                                context = &quot;prostate&quot;,
+                                                weight_name = &quot;prostate_splicing&quot;,
+                                                weight_format = &quot;PredictDB&quot;,
+                                                drop_strand_ambig = TRUE,
+                                                scale_predictdb_weights = TRUE,
+                                                load_predictdb_LD = TRUE,
+                                                filter_protein_coding_genes = TRUE,
+                                                ncore = 6)
+
+weights_testis_expression &lt;- preprocess_weights(weight_testis_expression_file,
+                                                region_info,
+                                                gwas_snp_ids = z_snp$id,
+                                                snp_map = snp_map,
+                                                type = &quot;expression&quot;,
+                                                context = &quot;testis&quot;,
+                                                weight_name = &quot;testis_expression&quot;,
+                                                weight_format = &quot;PredictDB&quot;,
+                                                drop_strand_ambig = TRUE,
+                                                scale_predictdb_weights = TRUE,
+                                                load_predictdb_LD = TRUE,
+                                                filter_protein_coding_genes = TRUE,
+                                                ncore = 6)
+weights_testis_splicing &lt;- preprocess_weights(weight_testis_splicing_file,
+                                              region_info,
+                                              gwas_snp_ids = z_snp$id,
+                                              snp_map = snp_map,
+                                              type = &quot;splicing&quot;,
+                                              context = &quot;testis&quot;,
+                                              weight_name = &quot;testis_splicing&quot;,
+                                              weight_format = &quot;PredictDB&quot;,
+                                              drop_strand_ambig = TRUE,
+                                              scale_predictdb_weights = TRUE,
+                                              load_predictdb_LD = TRUE,
+                                              filter_protein_coding_genes = TRUE,
+                                              ncore = 6)
+
+weights_lymphocytes_expression &lt;- preprocess_weights(weight_lymphocytes_expression_file,
+                                                     region_info,
+                                                     gwas_snp_ids = z_snp$id,
+                                                     snp_map = snp_map,
+                                                     type = &quot;expression&quot;,
+                                                     context = &quot;lymphocytes&quot;,
+                                                     weight_name = &quot;lymphocytes_expression&quot;,
+                                                     weight_format = &quot;PredictDB&quot;,
+                                                     drop_strand_ambig = TRUE,
+                                                     scale_predictdb_weights = TRUE,
+                                                     load_predictdb_LD = TRUE,
+                                                     filter_protein_coding_genes = TRUE,
+                                                     ncore = 6)
+weights_lymphocytes_splicing &lt;- preprocess_weights(weight_lymphocytes_splicing_file,
+                                                   region_info,
+                                                   gwas_snp_ids = z_snp$id,
+                                                   snp_map = snp_map,
+                                                   type = &quot;splicing&quot;,
+                                                   context = &quot;lymphocytes&quot;,
+                                                   weight_name = &quot;lymphocytes_splicing&quot;,
+                                                   weight_format = &quot;PredictDB&quot;,
+                                                   drop_strand_ambig = TRUE,
+                                                   scale_predictdb_weights = TRUE,
+                                                   load_predictdb_LD = TRUE,
+                                                   filter_protein_coding_genes = TRUE,
+                                                   ncore = 6)
+
+weights_RefZ_prostate &lt;- preprocess_weights(&quot;~/Desktop/Prostate Cancer Project/MAYO/weights&quot;,
+                              region_info,
+                              gwas_snp_ids = z_snp$id,
+                              snp_map = snp_map,
+                              LD_map = LD_map,
+                              type = &quot;RefZ_expression&quot;,
+                              context = &quot;prostate&quot;,                         
+                              weight_format = &quot;FUSION&quot;,
+                              fusion_method = &quot;lasso&quot;,
+                              fusion_genome_version = &quot;b38&quot;,
+                              top_n_snps = NULL,
+                              drop_strand_ambig = TRUE,
+                              filter_protein_coding_genes = FALSE,
+                              scale_predictdb_weights = FALSE,
+                              load_predictdb_LD = FALSE,
+                              ncore = 4)
+
+weights &lt;- c(
+  weights_prostate_expression,
+  weights_prostate_splicing,
+  weights_testis_expression,
+  weights_testis_splicing,
+  weights_lymphocytes_expression,
+  weights_lymphocytes_splicing,
+  weights_RefZ_prostate)</code></pre>
+</div>
+</div>
+<div id="running-ctwas-analysis" class="section level2">
+<h2>Running cTWAS analysis</h2>
+<p>We use the ctwas main function <code>ctwas_sumstats_noLD</code> to
+run the cTWAS analysis without LD. For more details on this function,
+refer to the cTWAS tutorial: <a
+href="https://xinhe-lab.github.io/multigroup_ctwas/articles/minimal_tutorial.html"
+class="uri">https://xinhe-lab.github.io/multigroup_ctwas/articles/minimal_tutorial.html</a></p>
+<p>All arguments are set to their default values.</p>
+<p>Users can expand the code snippets below to view the exact code
+used.</p>
+<pre class="r"><code>ctwas_res &lt;- ctwas_sumstats(z_snp, 
+                            weights, 
+                            region_info, 
+                            LD_map, 
+                            snp_map, 
+                            thin = 0.1,
+                            maxSNP = 20000,
+                            group_prior_var_structure = &quot;shared_type&quot;, 
+                            filter_L = TRUE,
+                            filter_nonSNP_PIP = FALSE,
+                            min_nonSNP_PIP = 0.5,
+                            min_abs_corr = 0.1, 
+                            ncore = 6, 
+                            ncore_LD = 4,
+                            save_cor = TRUE,
+                            cor_dir = &quot;./cor_matrix&quot;,
+                            force_compute_cor = FALSE)</code></pre>
+</div>
+<div id="parameter-estimation" class="section level2">
+<h2>Parameter estimation</h2>
+<p><code>ctwas_res</code> is the object contains the outputs of
+cTWAS</p>
+<p>We extract the estimated parameters by
+<code>param &lt;- ctwas_res$param</code></p>
+<p>We make plots using the function
+<code>make_convergence_plots(param, gwas_n)</code> to see how estimated
+parameters converge during the execution of the program:</p>
+<p><img src="figure/cTWAS_LD_european_combined_output.Rmd/unnamed-chunk-7-1.png" width="960" style="display: block; margin: auto;" /></p>
+<p>These plots show the estimated prior inclusion probability, prior
+effect size variance, enrichment and proportion of variance explained
+(PVE) over the iterations of parameter estimation. The enrichment is
+defined as the ratio of the prior inclusion probability of molecular
+traits over the prior inclusion probability of variants. We generally
+expect molecular traits to have higher prior inclusion probability than
+variants. Enrichment values typically range from 20 - 100 for expression
+traits.</p>
+<p>Then, we use <code>summarize_param(param, gwas_n)</code> to obtain
+estimated parameters (from the last iteration) and to compute the PVE by
+variants and molecular traits.</p>
+<pre><code>[1] &quot;The number of genes/introns/SNPs used in the analysis is:&quot;</code></pre>
+<pre><code>       testis|mashr_splicing     prostate|RefZ_expression 
+                        5007                         1221 
+   prostate|mashr_expression      testis|mashr_expression 
+                         907                         1041 
+lymphocytes|mashr_expression   lymphocytes|mashr_splicing 
+                         782                         2683 
+     prostate|mashr_splicing                          SNP 
+                        3005                       694790 </code></pre>
+<p><code>ctwas_parameters$prop_heritability</code> contains the
+proportion of heritability mediated by molecular traits and variants, we
+visualize it using pie chart.</p>
+<pre class="r"><code>ctwas_parameters &lt;- summarize_param(param, gwas_n)
+data &lt;- data.frame(
+  category = names(ctwas_parameters$prop_heritability),
+  percentage = ctwas_parameters$prop_heritability
+)
+# Calculate percentage labels for the chart
+data$percentage_label &lt;- paste0(round(data$percentage * 100, 1), &quot;%&quot;)
+
+ggplot(data, aes(x = &quot;&quot;, y = percentage, fill = category)) +
+  geom_bar(stat = &quot;identity&quot;, width = 1) +
+  coord_polar(&quot;y&quot;, start = 0) +
+  theme_void() +  # Remove background and axes
+  geom_text(aes(label = percentage_label), 
+            position = position_stack(vjust = 0.5)) +
+  scale_fill_brewer(palette = &quot;Pastel1&quot;) +
+  labs(fill = &quot;Category&quot;) +
+  ggtitle(&quot;Percent of heritability&quot;)</code></pre>
+<p><img src="figure/cTWAS_LD_european_combined_output.Rmd/piechart-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="diagnosis-plots" class="section level2">
+<h2>Diagnosis plots</h2>
+<p>For all genes analyzed, we compare the z-scores and fine-mapping
+PIPs”</p>
+<pre class="r"><code>ggplot(data = finemap_res[finemap_res$type!=&quot;SNP&quot;,], aes(x = abs(z), y = susie_pip)) +
+  geom_point() +
+  labs(x = &quot;abs(z-scores)&quot;, y = &quot;PIPs&quot;) +
+  theme_minimal()</code></pre>
+<p><img src="figure/cTWAS_LD_european_combined_output.Rmd/unnamed-chunk-9-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="fine-mapping-results" class="section level2">
+<h2>Fine-mapping results</h2>
+<p>We process the fine-mapping results here.</p>
+<p>We first add gene annotations to cTWAS results.</p>
+<p><code>mapping_table</code> is the combination of both expression and
+splicing data.</p>
+<pre class="r"><code>finemap_res &lt;- anno_finemap_res(finemap_res,
+                                snp_map = snp_map,
+                                mapping_table = mapping_table,
+                                add_gene_annot = TRUE,
+                                map_by = &quot;molecular_id&quot;,
+                                drop_unmapped = TRUE,
+                                add_position = TRUE,
+                                use_gene_pos = &quot;mid&quot;)</code></pre>
+<p>The annotated fine-mapping results, ones within credible sets are
+shown</p>
+<pre class="r"><code>finemap_res_show &lt;- finemap_res[!is.na(finemap_res$cs) &amp;finemap_res$type !=&quot;SNP&quot;,]
+
+DT::datatable(finemap_res_show,caption = htmltools::tags$caption( style = &#39;caption-side: topleft; text-align = left; color:black;&#39;,&#39;The annotated fine-mapping results, ones within credible sets are shown&#39;),options = list(pageLength = 5) )</code></pre>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-232a8e63d6aacd296363" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-232a8e63d6aacd296363">{"x":{"filter":"none","vertical":false,"caption":"<caption style=\"caption-side: topleft; text-align = left; color:black;\">The annotated fine-mapping results, ones within credible sets are shown<\/caption>","data":[["210","268","269","270","271","272","273","274","295","304","305","306","353","837","838","839","921","922","923","928","1217","1221","1669","1690","1781","1782","1783","1957","1958","2053","2054","2055","2056","2057","2058","2059","2060","2061","2062","2085","2088","2286","2911","2916","2918","2922","2923","2945","2946","2947","2948","2949","2950","2951","2952","2953","2954","2955","2956","2957","2958","2959","2960","2961","2962","2963","2964","2965","2966","2967","2968","2969","2971","2972","2973","2981","2982","2983","2984","2985","2986","3006","3007","3008","3009","3010","3011","3012","3015","3016","3180","3181","3182","3183","3184","3185","3186","3187","3188","3189","3190","3191","3192","3193","3194","3195","3196","3197","3198","3199","3200","3201","3202","3203","3204","3205","3206","3207","3208","3209","3219","3220","3221","3222","3223","3224","3225","3226","3227","3228","3229","3230","3231","3232","3233","3234","3235","3236","3237","3238","3239","3240","3241","3242","3243","3244","3245","3246","3247","3248","3249","3250","3251","3252","3253","3254","3255","3256","3257","3258","3259","3260","3261","3271","3272","3273","3277","3278","3279","3280","3281","3282","3283","3284","3285","3286","3287","3288","3289","3290","3291","3292","3293","3294","3295","3296","3297","3298","3648","3656","3923","3939","4037","4038","4039","4040","4041","4042","4043","4044","4050","4051","4052","4088","4089","4090","4091","4092","4093","4094","4095","4096","4100","4410","4411","4518","4519","4520","4521","4522","4526","4668","4669","4675","4949","4950","4951","5192","5193","5194","5195","5196","5206","5211","5742","5743","5973","6031","6302","6303","6306","6415","6480","6684","6992","7136","7149","7424","7630","8084","8085","8086","8153","8184","8185","8352","8353","8360","8361","8362","8363","8364","8365","8372","8373","8374","8399","8400","8731","8884","8885","8886","8887","8888","8889","8897","8898","8899","9141","9144","9145","9146","9227","9228","9229","9230","9231","9232","9233","9234","9235","9236","9237","9238","9239","9240","9241","9242","9243","9244","9245","9246","9247","9248","9249","9250","9251","9252","9253","9254","9255","9261","9262","9263","9304","9305","9310","9574","9576","9637","9638","9642","9643","9644","9645","9646","9664","9665","9666","9667","9668","9669","9670","9671","9672","9673","9674","9675","9676","9677","9678","9679","9680","9681","9682","9686","9687","9688","9689","9690","9691","9738","9741","9745","9747","9750","9757","9760","9773","9779","9966","10045","10082","10083","10084","10092","10093","10094","10095","10096","10097","10285","10286","10287","10308","10309","10310","10311","10312","10313"],["ENSG00000151353.14|lymphocytes_expression","ACP1|prostate_RefZ_expression","FAM110C|prostate_RefZ_expression","PXDN|prostate_RefZ_expression","SH3YL1|prostate_RefZ_expression","SNTG2|prostate_RefZ_expression","TMEM18|prostate_RefZ_expression","TPO|prostate_RefZ_expression","ENSG00000134317.17|prostate_expression","intron_2_9993244_9995879|prostate_splicing","intron_2_9996401_9998965|prostate_splicing","intron_2_9996401_9998965|prostate_splicing","intron_2_9962531_9963886|prostate_splicing","intron_2_20740205_20774810|prostate_splicing","intron_2_20740205_20774810|prostate_splicing","intron_2_20740205_20774810|prostate_splicing","intron_2_20740205_20774810|lymphocytes_splicing","intron_2_20740205_20774810|lymphocytes_splicing","intron_2_20740205_20774810|lymphocytes_splicing","GDF7|prostate_RefZ_expression","CRIM1|prostate_RefZ_expression","LOC100288911|prostate_RefZ_expression","intron_2_66437963_66440562|prostate_splicing","ENSG00000035141.7|prostate_expression","intron_2_70229091_70229264|prostate_splicing","intron_2_70229091_70229264|prostate_splicing","intron_2_70229091_70229264|prostate_splicing","ENSG00000143977.13|lymphocytes_expression","ENSG00000035141.7|lymphocytes_expression","intron_2_70230854_70236079|lymphocytes_splicing","intron_2_70230854_70236079|lymphocytes_splicing","intron_2_70230854_70236079|lymphocytes_splicing","intron_2_70229318_70230761|lymphocytes_splicing","intron_2_70229318_70230761|lymphocytes_splicing","intron_2_70229318_70230756|lymphocytes_splicing","intron_2_70229318_70230756|lymphocytes_splicing","intron_2_70229091_70229264|lymphocytes_splicing","intron_2_70229091_70229264|lymphocytes_splicing","intron_2_70229091_70229264|lymphocytes_splicing","FAM136A|prostate_RefZ_expression","MXD1|prostate_RefZ_expression","TGFA|prostate_RefZ_expression","ENSG00000071073.12|prostate_expression","ENSG00000144214.9|prostate_expression","ENSG00000144218.18|prostate_expression","intron_2_99464985_99489817|prostate_splicing","intron_2_99403106_99403695|prostate_splicing","intron_2_98555808_98559463|prostate_splicing","intron_2_98555808_98559463|prostate_splicing","intron_2_98555808_98559463|prostate_splicing","intron_2_98572029_98572815|prostate_splicing","intron_2_98572029_98572815|prostate_splicing","intron_2_98572029_98572815|prostate_splicing","intron_2_98559495_98563465|prostate_splicing","intron_2_98559495_98563465|prostate_splicing","intron_2_98559495_98563465|prostate_splicing","intron_2_98555691_98559463|prostate_splicing","intron_2_98555691_98559463|prostate_splicing","intron_2_98555691_98559463|prostate_splicing","intron_2_98600793_98604108|prostate_splicing","intron_2_98600793_98604108|prostate_splicing","intron_2_98600793_98604108|prostate_splicing","intron_2_98616346_98616432|prostate_splicing","intron_2_98616346_98616432|prostate_splicing","intron_2_98616346_98616432|prostate_splicing","intron_2_98616533_98618146|prostate_splicing","intron_2_98616533_98618146|prostate_splicing","intron_2_98616533_98618146|prostate_splicing","intron_2_98616533_98618168|prostate_splicing","intron_2_98616533_98618168|prostate_splicing","intron_2_98610634_98610775|prostate_splicing","intron_2_98610634_98610775|prostate_splicing","intron_2_99154427_99154693|prostate_splicing","intron_2_99154427_99154693|prostate_splicing","intron_2_99154427_99154693|prostate_splicing","intron_2_99155051_99156301|prostate_splicing","intron_2_99155051_99156301|prostate_splicing","intron_2_99155051_99156301|prostate_splicing","intron_2_99155051_99161957|prostate_splicing","intron_2_99155051_99161957|prostate_splicing","intron_2_99155051_99161957|prostate_splicing","intron_2_99406490_99408029|prostate_splicing","intron_2_99406490_99408029|prostate_splicing","intron_2_99406490_99408029|prostate_splicing","intron_2_99406431_99408029|prostate_splicing","intron_2_99406431_99408029|prostate_splicing","intron_2_99406431_99408029|prostate_splicing","intron_2_99429945_99431741|prostate_splicing","intron_2_100008932_100011497|prostate_splicing","intron_2_100008932_100011497|prostate_splicing","ENSG00000185674.9|lymphocytes_expression","ENSG00000115446.11|lymphocytes_expression","ENSG00000071073.12|lymphocytes_expression","ENSG00000273045.5|lymphocytes_expression","ENSG00000135951.14|lymphocytes_expression","ENSG00000144182.16|lymphocytes_expression","ENSG00000158411.11|lymphocytes_expression","ENSG00000185414.19|lymphocytes_expression","ENSG00000144214.9|lymphocytes_expression","ENSG00000158417.10|lymphocytes_expression","ENSG00000115514.11|lymphocytes_expression","ENSG00000135945.9|lymphocytes_expression","ENSG00000144218.18|lymphocytes_expression","ENSG00000115526.10|lymphocytes_expression","ENSG00000115539.13|lymphocytes_expression","intron_2_99303013_99304640|lymphocytes_splicing","intron_2_99408131_99410695|lymphocytes_splicing","intron_2_101006071_101018998|lymphocytes_splicing","intron_2_101006071_101018998|lymphocytes_splicing","intron_2_101006071_101006350|lymphocytes_splicing","intron_2_101006071_101006350|lymphocytes_splicing","intron_2_100406707_100415041|lymphocytes_splicing","intron_2_100406707_100415041|lymphocytes_splicing","intron_2_100406707_100415041|lymphocytes_splicing","intron_2_99127176_99141428|lymphocytes_splicing","intron_2_99127176_99141428|lymphocytes_splicing","intron_2_99127176_99141083|lymphocytes_splicing","intron_2_99127176_99141083|lymphocytes_splicing","intron_2_99109556_99110850|lymphocytes_splicing","intron_2_99109556_99110850|lymphocytes_splicing","intron_2_98555808_98559463|lymphocytes_splicing","intron_2_98555808_98559463|lymphocytes_splicing","intron_2_98555808_98559463|lymphocytes_splicing","intron_2_98555691_98559463|lymphocytes_splicing","intron_2_98555691_98559463|lymphocytes_splicing","intron_2_98555691_98559463|lymphocytes_splicing","intron_2_98572029_98572815|lymphocytes_splicing","intron_2_98572029_98572815|lymphocytes_splicing","intron_2_98572029_98572815|lymphocytes_splicing","intron_2_98559495_98563465|lymphocytes_splicing","intron_2_98559495_98563465|lymphocytes_splicing","intron_2_98559495_98563465|lymphocytes_splicing","intron_2_98600793_98604108|lymphocytes_splicing","intron_2_98600793_98604108|lymphocytes_splicing","intron_2_98600793_98604108|lymphocytes_splicing","intron_2_98602645_98604108|lymphocytes_splicing","intron_2_98604191_98608263|lymphocytes_splicing","intron_2_98616346_98616432|lymphocytes_splicing","intron_2_98616346_98616432|lymphocytes_splicing","intron_2_98616346_98616432|lymphocytes_splicing","intron_2_98616533_98618146|lymphocytes_splicing","intron_2_98616533_98618146|lymphocytes_splicing","intron_2_98616533_98618146|lymphocytes_splicing","intron_2_98616533_98618168|lymphocytes_splicing","intron_2_98616533_98618168|lymphocytes_splicing","intron_2_98610895_98616432|lymphocytes_splicing","intron_2_98610895_98616432|lymphocytes_splicing","intron_2_98610634_98610775|lymphocytes_splicing","intron_2_98610634_98610775|lymphocytes_splicing","intron_2_99154427_99154693|lymphocytes_splicing","intron_2_99154427_99154693|lymphocytes_splicing","intron_2_99154427_99154693|lymphocytes_splicing","intron_2_99148348_99154693|lymphocytes_splicing","intron_2_99148348_99154693|lymphocytes_splicing","intron_2_99155051_99156301|lymphocytes_splicing","intron_2_99155051_99156301|lymphocytes_splicing","intron_2_99155051_99156301|lymphocytes_splicing","intron_2_99155051_99161957|lymphocytes_splicing","intron_2_99155051_99161957|lymphocytes_splicing","intron_2_99155051_99161957|lymphocytes_splicing","intron_2_99171646_99173414|lymphocytes_splicing","intron_2_99171646_99173414|lymphocytes_splicing","intron_2_99171646_99173414|lymphocytes_splicing","intron_2_99298549_99301050|lymphocytes_splicing","intron_2_99298549_99301050|lymphocytes_splicing","intron_2_99306785_99321955|lymphocytes_splicing","intron_2_99442469_99449336|lymphocytes_splicing","intron_2_99424899_99429840|lymphocytes_splicing","intron_2_99424899_99429840|lymphocytes_splicing","intron_2_99406490_99408029|lymphocytes_splicing","intron_2_99406490_99408029|lymphocytes_splicing","intron_2_99406490_99408029|lymphocytes_splicing","intron_2_99406431_99408029|lymphocytes_splicing","intron_2_99406431_99408029|lymphocytes_splicing","intron_2_99406431_99408029|lymphocytes_splicing","AFF3|prostate_RefZ_expression","C2orf15|prostate_RefZ_expression","C2orf55|prostate_RefZ_expression","CHST10|prostate_RefZ_expression","EIF5B|prostate_RefZ_expression","LIPT1|prostate_RefZ_expression","LONRF2|prostate_RefZ_expression","LYG1|prostate_RefZ_expression","MITD1|prostate_RefZ_expression","MRPL30|prostate_RefZ_expression","PDCL3|prostate_RefZ_expression","TSGA10|prostate_RefZ_expression","TXNDC9|prostate_RefZ_expression","FLJ42351|prostate_RefZ_expression","SLC20A1|prostate_RefZ_expression","INHBB|prostate_RefZ_expression","NCKAP5|prostate_RefZ_expression","intron_2_151514428_151516459|prostate_splicing","intron_2_151514428_151516459|prostate_splicing","intron_2_151514928_151516459|prostate_splicing","intron_2_151514928_151516459|prostate_splicing","intron_2_151514928_151516459|prostate_splicing","intron_2_151514428_151514818|prostate_splicing","intron_2_151514428_151514818|prostate_splicing","intron_2_151514428_151514818|prostate_splicing","intron_2_151423042_151428784|prostate_splicing","intron_2_151423042_151428784|prostate_splicing","intron_2_151423042_151428784|prostate_splicing","intron_2_151423042_151428784|lymphocytes_splicing","intron_2_151423042_151428784|lymphocytes_splicing","intron_2_151423042_151428784|lymphocytes_splicing","intron_2_151514928_151516459|lymphocytes_splicing","intron_2_151514928_151516459|lymphocytes_splicing","intron_2_151514928_151516459|lymphocytes_splicing","intron_2_151514428_151514818|lymphocytes_splicing","intron_2_151514428_151514818|lymphocytes_splicing","intron_2_151514428_151514818|lymphocytes_splicing","RIF1|prostate_RefZ_expression","intron_2_172489613_172491024|prostate_splicing","intron_2_172489613_172491024|prostate_splicing","intron_2_173363895_173364795|lymphocytes_splicing","intron_2_173363895_173364795|lymphocytes_splicing","intron_2_173363895_173364795|lymphocytes_splicing","intron_2_173363895_173364000|lymphocytes_splicing","intron_2_172481021_172495375|lymphocytes_splicing","intron_2_172481813_172495375|lymphocytes_splicing","HOXD10|prostate_RefZ_expression","HOXD11|prostate_RefZ_expression","HOXD9|prostate_RefZ_expression","intron_2_190920248_190921024|prostate_splicing","intron_2_190920248_190921024|prostate_splicing","intron_2_190920248_190921024|prostate_splicing","intron_2_190920248_190921024|lymphocytes_splicing","intron_2_190920248_190921024|lymphocytes_splicing","intron_2_190920248_190921024|lymphocytes_splicing","intron_2_190910321_190921024|lymphocytes_splicing","intron_2_190910321_190921024|lymphocytes_splicing","GLS|prostate_RefZ_expression","NAB1|prostate_RefZ_expression","intron_2_201260613_201266461|lymphocytes_splicing","intron_2_201260613_201266461|lymphocytes_splicing","intron_2_207165706_207166757|lymphocytes_splicing","ENSG00000030419.16|lymphocytes_expression","EFHD1|prostate_RefZ_expression","GIGYF2|prostate_RefZ_expression","NMUR1|prostate_RefZ_expression","ENSG00000115648.13|lymphocytes_expression","intron_2_241195845_241199316|prostate_splicing","ENSG00000168385.17|prostate_expression","ENSG00000115677.16|lymphocytes_expression","FARP2|prostate_RefZ_expression","ENSG00000184058.12|prostate_expression","TBX1|prostate_RefZ_expression","ENSG00000100325.14|prostate_expression","intron_22_29814767_29815172|lymphocytes_splicing","intron_22_29814767_29815172|lymphocytes_splicing","intron_22_29814767_29815172|lymphocytes_splicing","UQCR10|prostate_RefZ_expression","ENSG00000100216.5|prostate_expression","ENSG00000100221.10|prostate_expression","intron_22_38670989_38671076|prostate_splicing","intron_22_38670989_38671076|prostate_splicing","intron_22_38656750_38668017|prostate_splicing","intron_22_38656750_38668017|prostate_splicing","intron_22_38656750_38668017|prostate_splicing","intron_22_38656750_38665546|prostate_splicing","intron_22_38656750_38665546|prostate_splicing","intron_22_38656750_38665546|prostate_splicing","intron_22_38706147_38715907|prostate_splicing","intron_22_38706147_38715907|prostate_splicing","intron_22_38706147_38715907|prostate_splicing","intron_22_38721865_38724297|prostate_splicing","intron_22_38721865_38724297|prostate_splicing","ENSG00000100216.5|lymphocytes_expression","intron_22_38656750_38668017|lymphocytes_splicing","intron_22_38656750_38668017|lymphocytes_splicing","intron_22_38656750_38668017|lymphocytes_splicing","intron_22_38656750_38665546|lymphocytes_splicing","intron_22_38656750_38665546|lymphocytes_splicing","intron_22_38656750_38665546|lymphocytes_splicing","intron_22_38706147_38715907|lymphocytes_splicing","intron_22_38706147_38715907|lymphocytes_splicing","intron_22_38706147_38715907|lymphocytes_splicing","ENSG00000100412.15|prostate_expression","ENSG00000196419.12|prostate_expression","ENSG00000100138.13|prostate_expression","ENSG00000167077.12|prostate_expression","intron_22_41437407_41446379|prostate_splicing","intron_22_41437407_41446379|prostate_splicing","intron_22_41437407_41446379|prostate_splicing","intron_22_41467614_41468020|prostate_splicing","intron_22_41467614_41468020|prostate_splicing","intron_22_41517631_41518481|prostate_splicing","intron_22_41517631_41517943|prostate_splicing","intron_22_41515917_41517297|prostate_splicing","intron_22_41515917_41517527|prostate_splicing","intron_22_41515917_41517527|prostate_splicing","intron_22_41532745_41533522|prostate_splicing","intron_22_41532745_41533522|prostate_splicing","intron_22_41532745_41540699|prostate_splicing","intron_22_41533687_41540699|prostate_splicing","intron_22_41533687_41540699|prostate_splicing","intron_22_41572141_41573655|prostate_splicing","intron_22_41572141_41573382|prostate_splicing","intron_22_41586193_41589719|prostate_splicing","intron_22_41586193_41589719|prostate_splicing","intron_22_41586193_41589719|prostate_splicing","intron_22_41586193_41588659|prostate_splicing","intron_22_41586193_41588659|prostate_splicing","intron_22_41682587_41688794|prostate_splicing","intron_22_41682587_41688794|prostate_splicing","intron_22_41682587_41688794|prostate_splicing","intron_22_41680364_41688794|prostate_splicing","intron_22_41680364_41688794|prostate_splicing","intron_22_41675195_41680244|prostate_splicing","intron_22_41675195_41680244|prostate_splicing","intron_22_41784420_41784608|prostate_splicing","intron_22_41784420_41784608|prostate_splicing","intron_22_41784420_41784608|prostate_splicing","intron_22_41621345_41621990|prostate_splicing","intron_22_41621345_41621990|prostate_splicing","intron_22_41573475_41573655|prostate_splicing","ENSG00000167074.14|lymphocytes_expression","ENSG00000100413.16|lymphocytes_expression","intron_22_41141222_41147837|lymphocytes_splicing","intron_22_41141222_41147837|lymphocytes_splicing","intron_22_41219536_41220734|lymphocytes_splicing","intron_22_41219536_41220734|lymphocytes_splicing","intron_22_41217202_41219419|lymphocytes_splicing","intron_22_41217202_41219419|lymphocytes_splicing","intron_22_41217202_41219419|lymphocytes_splicing","intron_22_41437407_41446379|lymphocytes_splicing","intron_22_41437407_41446379|lymphocytes_splicing","intron_22_41437407_41446379|lymphocytes_splicing","intron_22_41437407_41444112|lymphocytes_splicing","intron_22_41437407_41444112|lymphocytes_splicing","intron_22_41532157_41532604|lymphocytes_splicing","intron_22_41532157_41532604|lymphocytes_splicing","intron_22_41532745_41533522|lymphocytes_splicing","intron_22_41532745_41533522|lymphocytes_splicing","intron_22_41533687_41540699|lymphocytes_splicing","intron_22_41533687_41540699|lymphocytes_splicing","intron_22_41586193_41589719|lymphocytes_splicing","intron_22_41586193_41589719|lymphocytes_splicing","intron_22_41586193_41589719|lymphocytes_splicing","intron_22_41586193_41588659|lymphocytes_splicing","intron_22_41586193_41588659|lymphocytes_splicing","intron_22_41682587_41688794|lymphocytes_splicing","intron_22_41682587_41688794|lymphocytes_splicing","intron_22_41682587_41688794|lymphocytes_splicing","intron_22_41784420_41793829|lymphocytes_splicing","intron_22_41784420_41793829|lymphocytes_splicing","intron_22_41784420_41784608|lymphocytes_splicing","intron_22_41784420_41784608|lymphocytes_splicing","intron_22_41784420_41784608|lymphocytes_splicing","intron_22_41784420_41784668|lymphocytes_splicing","intron_22_41770961_41776102|lymphocytes_splicing","intron_22_41794477_41795735|lymphocytes_splicing","ACO2|prostate_RefZ_expression","C22orf46|prostate_RefZ_expression","CSDC2|prostate_RefZ_expression","MEI1|prostate_RefZ_expression","NHP2L1|prostate_RefZ_expression","XRCC6|prostate_RefZ_expression","ENSG00000100294.12|prostate_expression","ENSG00000100294.12|lymphocytes_expression","ENSG00000100376.11|prostate_expression","intron_22_45330731_45332425|prostate_splicing","intron_22_45330731_45332425|prostate_splicing","intron_22_45330731_45332425|prostate_splicing","intron_22_45322426_45323175|prostate_splicing","intron_22_45322426_45323175|prostate_splicing","intron_22_45322426_45323175|prostate_splicing","intron_22_45322215_45322371|prostate_splicing","intron_22_45322215_45322371|prostate_splicing","intron_22_45322215_45322371|prostate_splicing","intron_22_45330731_45332425|lymphocytes_splicing","intron_22_45330731_45332425|lymphocytes_splicing","intron_22_45330731_45332425|lymphocytes_splicing","intron_22_45322426_45323175|lymphocytes_splicing","intron_22_45322426_45323175|lymphocytes_splicing","intron_22_45322426_45323175|lymphocytes_splicing","intron_22_45322215_45322371|lymphocytes_splicing","intron_22_45322215_45322371|lymphocytes_splicing","intron_22_45322215_45322371|lymphocytes_splicing"],["ENSG00000151353.14","ACP1","FAM110C","PXDN","SH3YL1","SNTG2","TMEM18","TPO","ENSG00000134317.17","intron_2_9993244_9995879","intron_2_9996401_9998965","intron_2_9996401_9998965","intron_2_9962531_9963886","intron_2_20740205_20774810","intron_2_20740205_20774810","intron_2_20740205_20774810","intron_2_20740205_20774810","intron_2_20740205_20774810","intron_2_20740205_20774810","GDF7","CRIM1","LOC100288911","intron_2_66437963_66440562","ENSG00000035141.7","intron_2_70229091_70229264","intron_2_70229091_70229264","intron_2_70229091_70229264","ENSG00000143977.13","ENSG00000035141.7","intron_2_70230854_70236079","intron_2_70230854_70236079","intron_2_70230854_70236079","intron_2_70229318_70230761","intron_2_70229318_70230761","intron_2_70229318_70230756","intron_2_70229318_70230756","intron_2_70229091_70229264","intron_2_70229091_70229264","intron_2_70229091_70229264","FAM136A","MXD1","TGFA","ENSG00000071073.12","ENSG00000144214.9","ENSG00000144218.18","intron_2_99464985_99489817","intron_2_99403106_99403695","intron_2_98555808_98559463","intron_2_98555808_98559463","intron_2_98555808_98559463","intron_2_98572029_98572815","intron_2_98572029_98572815","intron_2_98572029_98572815","intron_2_98559495_98563465","intron_2_98559495_98563465","intron_2_98559495_98563465","intron_2_98555691_98559463","intron_2_98555691_98559463","intron_2_98555691_98559463","intron_2_98600793_98604108","intron_2_98600793_98604108","intron_2_98600793_98604108","intron_2_98616346_98616432","intron_2_98616346_98616432","intron_2_98616346_98616432","intron_2_98616533_98618146","intron_2_98616533_98618146","intron_2_98616533_98618146","intron_2_98616533_98618168","intron_2_98616533_98618168","intron_2_98610634_98610775","intron_2_98610634_98610775","intron_2_99154427_99154693","intron_2_99154427_99154693","intron_2_99154427_99154693","intron_2_99155051_99156301","intron_2_99155051_99156301","intron_2_99155051_99156301","intron_2_99155051_99161957","intron_2_99155051_99161957","intron_2_99155051_99161957","intron_2_99406490_99408029","intron_2_99406490_99408029","intron_2_99406490_99408029","intron_2_99406431_99408029","intron_2_99406431_99408029","intron_2_99406431_99408029","intron_2_99429945_99431741","intron_2_100008932_100011497","intron_2_100008932_100011497","ENSG00000185674.9","ENSG00000115446.11","ENSG00000071073.12","ENSG00000273045.5","ENSG00000135951.14","ENSG00000144182.16","ENSG00000158411.11","ENSG00000185414.19","ENSG00000144214.9","ENSG00000158417.10","ENSG00000115514.11","ENSG00000135945.9","ENSG00000144218.18","ENSG00000115526.10","ENSG00000115539.13","intron_2_99303013_99304640","intron_2_99408131_99410695","intron_2_101006071_101018998","intron_2_101006071_101018998","intron_2_101006071_101006350","intron_2_101006071_101006350","intron_2_100406707_100415041","intron_2_100406707_100415041","intron_2_100406707_100415041","intron_2_99127176_99141428","intron_2_99127176_99141428","intron_2_99127176_99141083","intron_2_99127176_99141083","intron_2_99109556_99110850","intron_2_99109556_99110850","intron_2_98555808_98559463","intron_2_98555808_98559463","intron_2_98555808_98559463","intron_2_98555691_98559463","intron_2_98555691_98559463","intron_2_98555691_98559463","intron_2_98572029_98572815","intron_2_98572029_98572815","intron_2_98572029_98572815","intron_2_98559495_98563465","intron_2_98559495_98563465","intron_2_98559495_98563465","intron_2_98600793_98604108","intron_2_98600793_98604108","intron_2_98600793_98604108","intron_2_98602645_98604108","intron_2_98604191_98608263","intron_2_98616346_98616432","intron_2_98616346_98616432","intron_2_98616346_98616432","intron_2_98616533_98618146","intron_2_98616533_98618146","intron_2_98616533_98618146","intron_2_98616533_98618168","intron_2_98616533_98618168","intron_2_98610895_98616432","intron_2_98610895_98616432","intron_2_98610634_98610775","intron_2_98610634_98610775","intron_2_99154427_99154693","intron_2_99154427_99154693","intron_2_99154427_99154693","intron_2_99148348_99154693","intron_2_99148348_99154693","intron_2_99155051_99156301","intron_2_99155051_99156301","intron_2_99155051_99156301","intron_2_99155051_99161957","intron_2_99155051_99161957","intron_2_99155051_99161957","intron_2_99171646_99173414","intron_2_99171646_99173414","intron_2_99171646_99173414","intron_2_99298549_99301050","intron_2_99298549_99301050","intron_2_99306785_99321955","intron_2_99442469_99449336","intron_2_99424899_99429840","intron_2_99424899_99429840","intron_2_99406490_99408029","intron_2_99406490_99408029","intron_2_99406490_99408029","intron_2_99406431_99408029","intron_2_99406431_99408029","intron_2_99406431_99408029","AFF3","C2orf15","C2orf55","CHST10","EIF5B","LIPT1","LONRF2","LYG1","MITD1","MRPL30","PDCL3","TSGA10","TXNDC9","FLJ42351","SLC20A1","INHBB","NCKAP5","intron_2_151514428_151516459","intron_2_151514428_151516459","intron_2_151514928_151516459","intron_2_151514928_151516459","intron_2_151514928_151516459","intron_2_151514428_151514818","intron_2_151514428_151514818","intron_2_151514428_151514818","intron_2_151423042_151428784","intron_2_151423042_151428784","intron_2_151423042_151428784","intron_2_151423042_151428784","intron_2_151423042_151428784","intron_2_151423042_151428784","intron_2_151514928_151516459","intron_2_151514928_151516459","intron_2_151514928_151516459","intron_2_151514428_151514818","intron_2_151514428_151514818","intron_2_151514428_151514818","RIF1","intron_2_172489613_172491024","intron_2_172489613_172491024","intron_2_173363895_173364795","intron_2_173363895_173364795","intron_2_173363895_173364795","intron_2_173363895_173364000","intron_2_172481021_172495375","intron_2_172481813_172495375","HOXD10","HOXD11","HOXD9","intron_2_190920248_190921024","intron_2_190920248_190921024","intron_2_190920248_190921024","intron_2_190920248_190921024","intron_2_190920248_190921024","intron_2_190920248_190921024","intron_2_190910321_190921024","intron_2_190910321_190921024","GLS","NAB1","intron_2_201260613_201266461","intron_2_201260613_201266461","intron_2_207165706_207166757","ENSG00000030419.16","EFHD1","GIGYF2","NMUR1","ENSG00000115648.13","intron_2_241195845_241199316","ENSG00000168385.17","ENSG00000115677.16","FARP2","ENSG00000184058.12","TBX1","ENSG00000100325.14","intron_22_29814767_29815172","intron_22_29814767_29815172","intron_22_29814767_29815172","UQCR10","ENSG00000100216.5","ENSG00000100221.10","intron_22_38670989_38671076","intron_22_38670989_38671076","intron_22_38656750_38668017","intron_22_38656750_38668017","intron_22_38656750_38668017","intron_22_38656750_38665546","intron_22_38656750_38665546","intron_22_38656750_38665546","intron_22_38706147_38715907","intron_22_38706147_38715907","intron_22_38706147_38715907","intron_22_38721865_38724297","intron_22_38721865_38724297","ENSG00000100216.5","intron_22_38656750_38668017","intron_22_38656750_38668017","intron_22_38656750_38668017","intron_22_38656750_38665546","intron_22_38656750_38665546","intron_22_38656750_38665546","intron_22_38706147_38715907","intron_22_38706147_38715907","intron_22_38706147_38715907","ENSG00000100412.15","ENSG00000196419.12","ENSG00000100138.13","ENSG00000167077.12","intron_22_41437407_41446379","intron_22_41437407_41446379","intron_22_41437407_41446379","intron_22_41467614_41468020","intron_22_41467614_41468020","intron_22_41517631_41518481","intron_22_41517631_41517943","intron_22_41515917_41517297","intron_22_41515917_41517527","intron_22_41515917_41517527","intron_22_41532745_41533522","intron_22_41532745_41533522","intron_22_41532745_41540699","intron_22_41533687_41540699","intron_22_41533687_41540699","intron_22_41572141_41573655","intron_22_41572141_41573382","intron_22_41586193_41589719","intron_22_41586193_41589719","intron_22_41586193_41589719","intron_22_41586193_41588659","intron_22_41586193_41588659","intron_22_41682587_41688794","intron_22_41682587_41688794","intron_22_41682587_41688794","intron_22_41680364_41688794","intron_22_41680364_41688794","intron_22_41675195_41680244","intron_22_41675195_41680244","intron_22_41784420_41784608","intron_22_41784420_41784608","intron_22_41784420_41784608","intron_22_41621345_41621990","intron_22_41621345_41621990","intron_22_41573475_41573655","ENSG00000167074.14","ENSG00000100413.16","intron_22_41141222_41147837","intron_22_41141222_41147837","intron_22_41219536_41220734","intron_22_41219536_41220734","intron_22_41217202_41219419","intron_22_41217202_41219419","intron_22_41217202_41219419","intron_22_41437407_41446379","intron_22_41437407_41446379","intron_22_41437407_41446379","intron_22_41437407_41444112","intron_22_41437407_41444112","intron_22_41532157_41532604","intron_22_41532157_41532604","intron_22_41532745_41533522","intron_22_41532745_41533522","intron_22_41533687_41540699","intron_22_41533687_41540699","intron_22_41586193_41589719","intron_22_41586193_41589719","intron_22_41586193_41589719","intron_22_41586193_41588659","intron_22_41586193_41588659","intron_22_41682587_41688794","intron_22_41682587_41688794","intron_22_41682587_41688794","intron_22_41784420_41793829","intron_22_41784420_41793829","intron_22_41784420_41784608","intron_22_41784420_41784608","intron_22_41784420_41784608","intron_22_41784420_41784668","intron_22_41770961_41776102","intron_22_41794477_41795735","ACO2","C22orf46","CSDC2","MEI1","NHP2L1","XRCC6","ENSG00000100294.12","ENSG00000100294.12","ENSG00000100376.11","intron_22_45330731_45332425","intron_22_45330731_45332425","intron_22_45330731_45332425","intron_22_45322426_45323175","intron_22_45322426_45323175","intron_22_45322426_45323175","intron_22_45322215_45322371","intron_22_45322215_45322371","intron_22_45322215_45322371","intron_22_45330731_45332425","intron_22_45330731_45332425","intron_22_45330731_45332425","intron_22_45322426_45323175","intron_22_45322426_45323175","intron_22_45322426_45323175","intron_22_45322215_45322371","intron_22_45322215_45322371","intron_22_45322215_45322371"],["mashr_expression","RefZ_expression","RefZ_expression","RefZ_expression","RefZ_expression","RefZ_expression","RefZ_expression","RefZ_expression","mashr_expression","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","RefZ_expression","RefZ_expression","RefZ_expression","mashr_splicing","mashr_expression","mashr_splicing","mashr_splicing","mashr_splicing","mashr_expression","mashr_expression","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","RefZ_expression","RefZ_expression","RefZ_expression","mashr_expression","mashr_expression","mashr_expression","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_expression","mashr_expression","mashr_expression","mashr_expression","mashr_expression","mashr_expression","mashr_expression","mashr_expression","mashr_expression","mashr_expression","mashr_expression","mashr_expression","mashr_expression","mashr_expression","mashr_expression","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","RefZ_expression","RefZ_expression","RefZ_expression","RefZ_expression","RefZ_expression","RefZ_expression","RefZ_expression","RefZ_expression","RefZ_expression","RefZ_expression","RefZ_expression","RefZ_expression","RefZ_expression","RefZ_expression","RefZ_expression","RefZ_expression","RefZ_expression","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","RefZ_expression","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","RefZ_expression","RefZ_expression","RefZ_expression","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","RefZ_expression","RefZ_expression","mashr_splicing","mashr_splicing","mashr_splicing","mashr_expression","RefZ_expression","RefZ_expression","RefZ_expression","mashr_expression","mashr_splicing","mashr_expression","mashr_expression","RefZ_expression","mashr_expression","RefZ_expression","mashr_expression","mashr_splicing","mashr_splicing","mashr_splicing","RefZ_expression","mashr_expression","mashr_expression","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_expression","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_expression","mashr_expression","mashr_expression","mashr_expression","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_expression","mashr_expression","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","RefZ_expression","RefZ_expression","RefZ_expression","RefZ_expression","RefZ_expression","RefZ_expression","mashr_expression","mashr_expression","mashr_expression","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing","mashr_splicing"],["lymphocytes","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","lymphocytes","lymphocytes","lymphocytes","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","prostate","prostate","prostate","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","prostate","prostate","prostate","prostate","prostate","prostate","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","prostate","prostate","lymphocytes","lymphocytes","lymphocytes","lymphocytes","prostate","prostate","prostate","lymphocytes","prostate","prostate","lymphocytes","prostate","prostate","prostate","prostate","lymphocytes","lymphocytes","lymphocytes","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","prostate","prostate","prostate","prostate","prostate","prostate","prostate","lymphocytes","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes"],["lymphocytes|mashr_expression","prostate|RefZ_expression","prostate|RefZ_expression","prostate|RefZ_expression","prostate|RefZ_expression","prostate|RefZ_expression","prostate|RefZ_expression","prostate|RefZ_expression","prostate|mashr_expression","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","prostate|RefZ_expression","prostate|RefZ_expression","prostate|RefZ_expression","prostate|mashr_splicing","prostate|mashr_expression","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","lymphocytes|mashr_expression","lymphocytes|mashr_expression","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","prostate|RefZ_expression","prostate|RefZ_expression","prostate|RefZ_expression","prostate|mashr_expression","prostate|mashr_expression","prostate|mashr_expression","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","lymphocytes|mashr_expression","lymphocytes|mashr_expression","lymphocytes|mashr_expression","lymphocytes|mashr_expression","lymphocytes|mashr_expression","lymphocytes|mashr_expression","lymphocytes|mashr_expression","lymphocytes|mashr_expression","lymphocytes|mashr_expression","lymphocytes|mashr_expression","lymphocytes|mashr_expression","lymphocytes|mashr_expression","lymphocytes|mashr_expression","lymphocytes|mashr_expression","lymphocytes|mashr_expression","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","prostate|RefZ_expression","prostate|RefZ_expression","prostate|RefZ_expression","prostate|RefZ_expression","prostate|RefZ_expression","prostate|RefZ_expression","prostate|RefZ_expression","prostate|RefZ_expression","prostate|RefZ_expression","prostate|RefZ_expression","prostate|RefZ_expression","prostate|RefZ_expression","prostate|RefZ_expression","prostate|RefZ_expression","prostate|RefZ_expression","prostate|RefZ_expression","prostate|RefZ_expression","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","prostate|RefZ_expression","prostate|mashr_splicing","prostate|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","prostate|RefZ_expression","prostate|RefZ_expression","prostate|RefZ_expression","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","prostate|RefZ_expression","prostate|RefZ_expression","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_expression","prostate|RefZ_expression","prostate|RefZ_expression","prostate|RefZ_expression","lymphocytes|mashr_expression","prostate|mashr_splicing","prostate|mashr_expression","lymphocytes|mashr_expression","prostate|RefZ_expression","prostate|mashr_expression","prostate|RefZ_expression","prostate|mashr_expression","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","prostate|RefZ_expression","prostate|mashr_expression","prostate|mashr_expression","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","lymphocytes|mashr_expression","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","prostate|mashr_expression","prostate|mashr_expression","prostate|mashr_expression","prostate|mashr_expression","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","lymphocytes|mashr_expression","lymphocytes|mashr_expression","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","prostate|RefZ_expression","prostate|RefZ_expression","prostate|RefZ_expression","prostate|RefZ_expression","prostate|RefZ_expression","prostate|RefZ_expression","prostate|mashr_expression","lymphocytes|mashr_expression","prostate|mashr_expression","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","prostate|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing","lymphocytes|mashr_splicing"],["2_10133_1777250","2_10133_1777250","2_10133_1777250","2_10133_1777250","2_10133_1777250","2_10133_1777250","2_10133_1777250","2_10133_1777250","2_8282017_10158342","2_8282017_10158342","2_8282017_10158342","2_8282017_10158342","2_8282017_10158342","2_19492643_20850730","2_19492643_20850730","2_19492643_20850730","2_19492643_20850730","2_19492643_20850730","2_19492643_20850730","2_19492643_20850730","2_35896940_37905569","2_35896940_37905569","2_65706310_66999034","2_68912432_70528066","2_68912432_70528066","2_68912432_70528066","2_68912432_70528066","2_68912432_70528066","2_68912432_70528066","2_68912432_70528066","2_68912432_70528066","2_68912432_70528066","2_68912432_70528066","2_68912432_70528066","2_68912432_70528066","2_68912432_70528066","2_68912432_70528066","2_68912432_70528066","2_68912432_70528066","2_68912432_70528066","2_68912432_70528066","2_70528066_72947719","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_98378738_101205867","2_109814855_113164279","2_109814855_113164279","2_117609890_120546207","2_132285211_134401007","2_150874948_151630268","2_150874948_151630268","2_150874948_151630268","2_150874948_151630268","2_150874948_151630268","2_150874948_151630268","2_150874948_151630268","2_150874948_151630268","2_150874948_151630268","2_150874948_151630268","2_150874948_151630268","2_150874948_151630268","2_150874948_151630268","2_150874948_151630268","2_150874948_151630268","2_150874948_151630268","2_150874948_151630268","2_150874948_151630268","2_150874948_151630268","2_150874948_151630268","2_150874948_151630268","2_172274177_174724201","2_172274177_174724201","2_172274177_174724201","2_172274177_174724201","2_172274177_174724201","2_172274177_174724201","2_172274177_174724201","2_172274177_174724201","2_174724201_176498908","2_174724201_176498908","2_174724201_176498908","2_189017339_191108631","2_189017339_191108631","2_189017339_191108631","2_189017339_191108631","2_189017339_191108631","2_189017339_191108631","2_189017339_191108631","2_189017339_191108631","2_189017339_191108631","2_189017339_191108631","2_200711561_201953914","2_200711561_201953914","2_205870980_207780675","2_213149558_214709071","2_230978674_232685293","2_230978674_232685293","2_230978674_232685293","2_236540389_237852338","2_240620667_241210506","2_241210506_242147200","2_241210506_242147200","2_241210506_242147200","22_17813322_19924835","22_17813322_19924835","22_29255810_31043932","22_29255810_31043932","22_29255810_31043932","22_29255810_31043932","22_29255810_31043932","22_37174229_38911889","22_37174229_38911889","22_37174229_38911889","22_37174229_38911889","22_37174229_38911889","22_37174229_38911889","22_37174229_38911889","22_37174229_38911889","22_37174229_38911889","22_37174229_38911889","22_37174229_38911889","22_37174229_38911889","22_37174229_38911889","22_37174229_38911889","22_37174229_38911889","22_37174229_38911889","22_37174229_38911889","22_37174229_38911889","22_37174229_38911889","22_37174229_38911889","22_37174229_38911889","22_37174229_38911889","22_37174229_38911889","22_37174229_38911889","22_37174229_38911889","22_40149793_42294812","22_40149793_42294812","22_40149793_42294812","22_40149793_42294812","22_40149793_42294812","22_40149793_42294812","22_40149793_42294812","22_40149793_42294812","22_40149793_42294812","22_40149793_42294812","22_40149793_42294812","22_40149793_42294812","22_40149793_42294812","22_40149793_42294812","22_40149793_42294812","22_40149793_42294812","22_40149793_42294812","22_40149793_42294812","22_40149793_42294812","22_40149793_42294812","22_40149793_42294812","22_40149793_42294812","22_40149793_42294812","22_40149793_42294812","22_40149793_42294812","22_40149793_42294812","22_40149793_42294812","22_40149793_42294812","22_40149793_42294812","22_40149793_42294812","22_40149793_42294812","22_40149793_42294812","22_40149793_42294812","22_40149793_42294812","22_40149793_42294812","22_40149793_42294812","22_40149793_42294812","22_40149793_42294812","22_40149793_42294812","22_40149793_42294812","22_40149793_42294812","22_40149793_42294812","22_40149793_42294812","22_40149793_42294812","22_40149793_42294812","22_40149793_42294812","22_40149793_42294812","22_40149793_42294812","22_40149793_42294812","22_40149793_42294812","22_40149793_42294812","22_40149793_42294812","22_40149793_42294812","22_40149793_42294812","22_40149793_42294812","22_40149793_42294812","22_40149793_42294812","22_40149793_42294812","22_40149793_42294812","22_40149793_42294812","22_40149793_42294812","22_40149793_42294812","22_40149793_42294812","22_40149793_42294812","22_40149793_42294812","22_40149793_42294812","22_40149793_42294812","22_40149793_42294812","22_40149793_42294812","22_40149793_42294812","22_40149793_42294812","22_40149793_42294812","22_40149793_42294812","22_40149793_42294812","22_40149793_42294812","22_40149793_42294812","22_40149793_42294812","22_40149793_42294812","22_40149793_42294812","22_40149793_42294812","22_40149793_42294812","22_42294812_43318194","22_42294812_43318194","22_44599428_46074615","22_44599428_46074615","22_44599428_46074615","22_44599428_46074615","22_44599428_46074615","22_44599428_46074615","22_44599428_46074615","22_44599428_46074615","22_44599428_46074615","22_44599428_46074615","22_44599428_46074615","22_44599428_46074615","22_44599428_46074615","22_44599428_46074615","22_44599428_46074615","22_44599428_46074615","22_44599428_46074615","22_44599428_46074615","22_44599428_46074615"],[1.373626373626374,-1.030495631211294,1.579251521503874,-1.916786308274207,-1.091008861075131,2.854402563457191,1.687296651688822,-0.4525866168029368,-8.040400242151156,7.735849056603774,7.735849056603774,7.735849056603774,7.97196261682243,4.868852459016393,4.868852459016393,4.868852459016393,4.868852459016393,4.868852459016393,4.868852459016393,13.30267040791562,3.613744814266075,4.461434652001224,-6.817073170731707,-3.44451277917954,-3.982456140350877,-3.982456140350877,-3.982456140350877,-4.258620689655173,-3.169491525423729,-3.016949152542373,-3.016949152542373,-3.016949152542373,4.017543859649122,4.017543859649122,-4.017543859649122,-4.017543859649122,-3.982456140350877,-3.982456140350877,-3.982456140350877,-2.928095119242708,3.193548387096617,4.610779079266881,-1.407801418439716,-3.518067328378075,2.935064935064935,1.982142857142857,2.035714285714286,-1.936708860759493,-1.936708860759493,-1.936708860759493,-2.5,-2.5,-2.5,1.872141587625006,1.872141587625006,1.872141587625006,-1.534653465346535,-1.534653465346535,-1.534653465346535,-2.328125,-2.328125,-2.328125,-2.375,-2.375,-2.375,2.2,2.2,2.2,-2.2,-2.2,-2.46875,-2.46875,2.15929203539823,2.15929203539823,2.15929203539823,2.202586206896552,2.202586206896552,2.202586206896552,2.202586206896552,2.202586206896552,2.202586206896552,-2.961538461538462,-2.961538461538462,-2.961538461538462,2.961538461538462,2.961538461538462,2.961538461538462,-2.829268292682926,1.484581247011968,1.484581247011968,0.809322033898305,-2.28125,-1.192727272727273,1.3625,-0.8571428571428571,-0.8571428571428572,0.8571428571428571,0.08620689655172414,-3.386196788391787,-2.451612903225806,-2.089285714285714,-0.1071428571428571,-1.943700488759019,0.5188573556171328,0.3923076923076924,2.357142857142857,2.071428571428571,1.258355052883815,1.258355052883815,-1.275967515697286,-1.275967515697286,1.207865168539326,1.207865168539326,1.207865168539326,-0.8245614035087719,-0.8245614035087719,0.8245614035087719,0.8245614035087719,0.7192982456140351,0.7192982456140351,-1.534653465346535,-1.534653465346535,-1.534653465346535,1.534653465346535,1.534653465346535,1.534653465346535,-2.5,-2.5,-2.5,1.613099929375361,1.613099929375361,1.613099929375361,-2.328125,-2.328125,-2.328125,2.075757575757576,-2.328125,-2.375,-2.375,-2.375,2.34375,2.34375,2.34375,-2.2,-2.2,2.46875,2.46875,-2.46875,-2.46875,-2.15929203539823,-2.15929203539823,-2.15929203539823,0.8571428571428571,0.8571428571428571,2.202586206896552,2.202586206896552,2.202586206896552,2.202586206896552,2.202586206896552,2.202586206896552,0.6751054852320676,0.6751054852320676,0.6751054852320676,-1.594202898550725,-1.594202898550725,-2.948717948717949,2.39344262295082,-2.884615384615385,-2.884615384615385,-2.961538461538462,-2.961538461538462,-2.961538461538462,-2.961538461538462,-2.961538461538462,-2.961538461538462,2.72587101138949,-0.5163541386799472,-2.000011175942571,-0.4335448212229179,-3.408434595735372,-0.5046329624345461,-0.9322054324189194,-0.6916647596737237,0.7244325301938512,-0.7719298245615333,0.6919801188423691,-0.7175255691749733,-0.9596352394403909,6.142446927625715,-6.119046039635228,6.255730973561826,5.115153450311609,4.75,4.75,-4.75,-4.75,-4.75,-4.75,-4.75,-4.75,4.88135593220339,4.88135593220339,4.88135593220339,-4.88135593220339,-4.88135593220339,-4.88135593220339,-4.75,-4.75,-4.75,-4.75,-4.75,-4.75,-5.218155791367211,-2.27027027027027,-2.27027027027027,7.316318369999597,7.316318369999597,7.316318369999597,-7.442289953978086,2.189189189189189,-2.243243243243243,4.567608087050005,4.409368513578522,4.655021482989551,4.368421052631579,4.368421052631579,4.368421052631579,4.368421052631579,4.368421052631579,4.368421052631579,-3.771929824561403,-3.771929824561403,-3.697809771746515,3.855945370707409,7.790322580645162,7.790322580645162,-6.192982456140351,-4.63076923076923,3.782802918723476,3.41328857416908,3.240898252714285,-10.35733908051552,13.791151879786,10.20768686024468,-9.837359853631796,5.618475411033651,9,8.99129145334058,-4.844827586206897,4.666666666666666,4.666666666666666,4.666666666666666,4.802289785995262,-4.597087378640777,4.892682926829268,-4.873170731707317,-4.873170731707317,-4.642512077294686,-4.642512077294686,-4.642512077294686,4.642512077294686,4.642512077294686,4.642512077294686,4.907317073170732,4.907317073170732,4.907317073170732,-4.763285024154589,-4.763285024154589,-4.597087378640777,-4.642512077294686,-4.642512077294686,-4.642512077294686,4.642512077294686,4.642512077294686,4.642512077294686,4.907317073170732,4.907317073170732,4.907317073170732,-4.044117647058823,2.708619341600757,3.557142857142857,-4.149253731343284,-4.059701492537313,-4.059701492537313,-4.059701492537313,-4.014705882352942,-4.014705882352942,3.579710144927536,-3.579710144927536,-3.940298507462686,3.940298507462687,3.940298507462687,3.529411764705883,3.529411764705883,3.529411764705883,-3.529411764705883,-3.529411764705883,3.347826086956521,-3.347826086956522,3.63768115942029,3.63768115942029,3.63768115942029,-3.63768115942029,-3.63768115942029,-3.941176470588236,-3.941176470588236,-3.941176470588236,3.608695652173913,3.608695652173913,-3.4,-3.4,3.840579710144927,3.840579710144927,3.840579710144927,3.342857142857143,3.342857142857143,-3.342857142857143,-3.294117647058824,3.281690140845071,-2.852459016393442,-2.852459016393442,-2.852459016393443,-2.852459016393443,2.887096774193548,2.887096774193548,2.887096774193548,-4.059701492537313,-4.059701492537313,-4.059701492537313,4.059701492537313,4.059701492537313,3.602941176470589,3.602941176470589,3.529411764705883,3.529411764705883,-3.529411764705883,-3.529411764705883,3.63768115942029,3.63768115942029,3.63768115942029,-3.63768115942029,-3.63768115942029,-3.941176470588236,-3.941176470588236,-3.941176470588236,-3.840579710144928,-3.840579710144928,-3.840579710144927,-3.840579710144927,-3.840579710144927,3.840579710144927,3.214285714285714,3.214285714285714,-3.200083889664115,3.303996297257279,2.175143656274173,-3.292175557532958,3.937107397636566,3.665734379153443,15.29545454545454,-15.29545454545455,-4.352941176470589,-5.096774193548388,-5.096774193548388,-5.096774193548388,4.622950819672131,4.622950819672131,4.622950819672131,4.721311475409836,4.721311475409836,4.721311475409836,-4.012442741418258,-4.012442741418258,-4.012442741418258,-4.622950819672131,-4.622950819672131,-4.622950819672131,4.721311475409836,4.721311475409836,4.721311475409836],[0.0007998629573082727,0.0015048177810848,0.002984921156163778,0.005248377382880087,0.001600103767011474,0.0445837497088295,0.00353376041138187,0.0009987751252215071,0.612535636916169,0.04226730178437821,0.0211336508921891,0.0211336508921891,0.2241241854144651,0.1011018089002711,0.1011018089002711,0.1011018089002711,0.2263947414917773,0.2263947414917773,0.2263947414917773,0.9706958178984322,0.00889282892700427,0.2348509632989821,0.2042298972344572,0.00789663726286749,0.01357277976677359,0.01357277976677359,0.01357277976677359,0.4982227232721812,0.009504365877010756,0.001144040542848298,0.001144040542848298,0.001144040542848298,0.05239248682403402,0.05239248682403402,0.05239248682403402,0.05239248682403402,0.03047660656267918,0.03047660656267918,0.03047660656267918,0.01198114368602832,0.0260622317153294,0.9962307126490195,0.0002708541893517991,0.04386167460215262,0.006957642297003797,0.0005356097514598313,0.000594636594298259,0.0001637455842236439,0.0001637455842236439,0.0001637455842236439,0.0005512408762424389,0.0005512408762424389,0.0005512408762424389,0.0001453094335751951,0.0001453094335751951,0.0001453094335751951,8.313143547411528e-05,8.313143547411528e-05,8.313143547411528e-05,0.0003683803690470351,0.0003683803690470351,0.0003683803690470351,0.0004100152704662833,0.0004100152704662833,0.0004100152704662833,0.0002779178430536063,0.0002779178430536063,0.0002779178430536063,0.0004168767645804095,0.0004168767645804095,0.0007667951201210665,0.0007667951201210665,0.0002549667289102331,0.0002549667289102331,0.0002549667289102331,0.000279459057320001,0.000279459057320001,0.000279459057320001,0.000279459057320001,0.000279459057320001,0.000279459057320001,0.001875250329125167,0.001875250329125167,0.001875250329125167,0.001875250329125167,0.001875250329125167,0.001875250329125167,0.003878028798804389,0.0001158688564266708,0.0001158688564266708,0.0004147687541766754,0.003843084963255361,0.0006038823529319615,0.0007467146431627825,0.0004312646463192626,0.0004312646463192626,0.0004312646463192626,0.000302113548413141,0.08235031327170617,0.005702343529227605,0.002548943422350236,0.0003027126453394313,0.001912351404032675,0.0003434074292086864,0.0003245652282951594,0.002650904910366902,0.00143380750584432,0.0001924736885483003,0.0001924736885483003,0.0001966920480996892,0.0001966920480996892,0.0001207852972285502,0.0001207852972285502,0.0001207852972285502,0.0001241010762155215,0.0001241010762155215,0.0001241010762155215,0.0001241010762155215,0.0001146820403524207,0.0001146820403524207,0.0001866650822801944,0.0001866650822801944,0.0001866650822801944,0.0001866650822801944,0.0001866650822801944,0.0001866650822801944,0.001237767914545662,0.001237767914545662,0.001237767914545662,0.0002104507381871512,0.0002104507381871512,0.0002104507381871512,0.000827169066748216,0.000827169066748216,0.000827169066748216,0.001446364951793733,0.002481507200244648,0.0009206569543905122,0.0009206569543905122,0.0009206569543905122,0.0008570229884241239,0.0008570229884241239,0.0008570229884241239,0.0009360638982990332,0.0009360638982990332,0.001721777969706739,0.001721777969706739,0.001721777969706739,0.001721777969706739,0.0005725076820735456,0.0005725076820735456,0.0005725076820735456,0.0001274481201332112,0.0001274481201332112,0.0006275032739548511,0.0006275032739548511,0.0006275032739548511,0.0006275032739548511,0.0006275032739548511,0.0006275032739548511,7.420027408237366e-05,7.420027408237366e-05,7.420027408237366e-05,0.0003065186988266966,0.0003065186988266966,0.01217572635120512,0.002882502393690478,0.005076774305661558,0.005076774305661558,0.004210726724321434,0.004210726724321434,0.004210726724321434,0.004210726724321434,0.004210726724321434,0.004210726724321434,0.02997890024440508,0.0009747883880545372,0.005812183536877513,0.0009387990205332875,0.2220564347076308,0.0009692253746416135,0.001300245333245909,0.001078689819609013,0.001102895363386147,0.001141027600347067,0.00107891494397272,0.001097654648013258,0.001332917904164788,0.4744387340846368,0.5014976863685081,0.2186255731814472,0.9112564228003263,0.004186114243144634,0.004186114243144634,0.00279074282876309,0.00279074282876309,0.00279074282876309,0.00279074282876309,0.00279074282876309,0.00279074282876309,0.005159257169954283,0.005159257169954283,0.005159257169954283,0.01158470509551009,0.01158470509551009,0.01158470509551009,0.006266392932864129,0.006266392932864129,0.006266392932864129,0.006266392932864129,0.006266392932864129,0.006266392932864129,0.7119184075009803,0.02510137923730799,0.02510137923730799,0.147838034013594,0.147838034013594,0.147838034013594,0.4503534838354996,0.0784480169905285,0.09681846105139846,0.3343245937752966,0.1694840877676714,0.4915996295614236,0.02924839930382113,0.02924839930382113,0.02924839930382113,0.06567497399116717,0.06567497399116717,0.06567497399116717,0.009316273618684145,0.009316273618684145,0.06184715693104714,0.1095015035659667,0.4853014467127603,0.4853014467127603,0.9779241600122774,0.9681320988989234,0.1270800622710035,0.03562812763725609,0.02058437276789071,0.9998799416003341,0.9999999999999998,0.8659218036626093,0.09416857474477469,0.9999999822813714,0.2408449103123504,0.7567924480544279,0.02880042554569773,0.00669834913195233,0.00669834913195233,0.00669834913195233,0.1198162029577823,0.03177421505210964,0.1261486882979953,0.04070646530926719,0.04070646530926719,0.009300012525750448,0.009300012525750448,0.009300012525750448,0.009300012525750448,0.009300012525750448,0.009300012525750448,0.0318539276223155,0.0318539276223155,0.0318539276223155,0.0239493138223224,0.0239493138223224,0.0931426139167284,0.02088198480898762,0.02088198480898762,0.02088198480898762,0.02088198480898762,0.02088198480898762,0.02088198480898762,0.07152386286643531,0.07152386286643531,0.07152386286643531,0.03598437791343567,0.001539457483221485,0.008344001768353482,0.03847862874754104,0.009211462870689266,0.009211462870689266,0.009211462870689266,0.01132531060630315,0.01132531060630315,0.007031421595352305,0.007031421595352305,0.02392982607668381,0.01196491303834191,0.01196491303834191,0.002838212964791198,0.002838212964791198,0.005676425929582396,0.002851484085012124,0.002851484085012124,0.00269661509797825,0.00269661509797825,0.002679873601419006,0.002679873601419006,0.002679873601419006,0.00401981040212851,0.00401981040212851,0.0106342834758294,0.0106342834758294,0.0106342834758294,0.00370882830445729,0.00370882830445729,0.002341960123352638,0.002341960123352638,0.002474859583481555,0.002474859583481555,0.002474859583481555,0.002225326799067173,0.002225326799067173,0.003606416954603286,0.003241130150904659,0.009010819266859538,0.001147885175876995,0.001147885175876995,0.001095702832545731,0.001095702832545731,0.0007943639837699005,0.0007943639837699005,0.0007943639837699005,0.02067766272838267,0.02067766272838267,0.02067766272838267,0.03101649409257412,0.03101649409257412,0.008556687799302409,0.008556687799302409,0.00637130713028361,0.00637130713028361,0.006401098164996288,0.006401098164996288,0.006015843022656416,0.006015843022656416,0.006015843022656416,0.009023764533984624,0.009023764533984624,0.02387155107266385,0.02387155107266385,0.02387155107266385,0.008333433467363316,0.008333433467363316,0.005555622311575507,0.005555622311575507,0.005555622311575507,0.01666686693472663,0.005248696138972497,0.005213018257648194,0.02030475930823583,0.02114994624393951,0.006733275678338924,0.01810561041029124,0.1511510125512489,0.116895274984169,0.2472585693659936,0.7248433561624132,0.02097156316756132,0.1532643570515896,0.1532643570515896,0.1532643570515896,0.01636712921675328,0.01636712921675328,0.01636712921675328,0.02557695457704405,0.02557695457704405,0.02557695457704405,0.002839232342801886,0.002839232342801886,0.002839232342801886,0.03675109787905258,0.03675109787905258,0.03675109787905258,0.05743103440198116,0.05743103440198116,0.05743103440198116],[2.786454377840715,1.928013625178972,3.238216721533721,4.317798773662129,2.045464237042236,8.410525343057646,3.561107214826965,1.14388790499691,64.8229888584266,59.50521748935806,59.50521748935806,59.50521748935806,62.85935566705867,115.4904925219845,115.4904925219845,115.4904925219845,115.4904925219845,115.4904925219845,115.4904925219845,251.2898389999756,12.90396036772698,19.1664951924472,44.82488165545335,12.34552901030424,15.93756138640288,15.93756138640288,15.93756138640288,18.35352499768825,10.60287581354087,9.560441233019166,9.560441233019166,9.560441233019166,16.20244382366288,16.20244382366288,16.20244382366288,16.20244382366288,15.93756138640288,15.93756138640288,15.93756138640288,8.800377624725101,10.28705627607394,20.40604302110722,2.877520557767307,12.83616565260694,9.231863920071529,4.678885757490045,4.88199783843668,4.510870853985327,4.510870853985327,4.510870853985327,6.869186257061246,6.869186257061246,6.869186257061246,4.2788033117071,4.2788033117071,4.2788033117071,3.193846283547517,3.193846283547517,3.193846283547517,6.086118659983859,6.086118659983859,6.086118659983859,6.294153387892327,6.294153387892327,6.294153387892327,5.538648664399624,5.538648664399624,5.538648664399624,5.538648664399624,5.538648664399624,6.722663458667242,6.722663458667242,5.371191632577346,5.371191632577346,5.371191632577346,5.549392990249238,5.549392990249238,5.549392990249238,5.549392990249238,5.549392990249238,5.549392990249238,9.247838380414519,9.247838380414519,9.247838380414519,9.247838380414519,9.247838380414519,9.247838380414519,8.525053570064571,3.051186439456416,3.051186439456416,1.606304683459149,5.964489704715702,2.341686773135885,2.757288837400828,1.682651943068409,1.682651943068409,1.682651943068409,0.9859110821044532,11.96390673610847,6.736955385093667,5.160713125826009,0.9897891619973301,4.598210859797924,1.236706097454328,1.126237641835651,6.21441308944661,5.020414960266979,2.465632849253701,2.465632849253701,2.507753009721538,2.507753009721538,2.348131117566842,2.348131117566842,2.348131117566842,1.61299800300041,1.61299800300041,1.61299800300041,1.61299800300041,1.45964501300778,1.45964501300778,3.193846283547517,3.193846283547517,3.193846283547517,3.193846283547517,3.193846283547517,3.193846283547517,6.869186257061246,6.869186257061246,6.869186257061246,3.426860334619636,3.426860334619636,3.426860334619636,6.086118659983859,6.086118659983859,6.086118659983859,5.037356371561066,6.086118659983859,6.294153387892327,6.294153387892327,6.294153387892327,6.155002805769719,6.155002805769719,6.155002805769719,5.538648664399624,5.538648664399624,6.722663458667242,6.722663458667242,6.722663458667242,6.722663458667242,5.371191632577346,5.371191632577346,5.371191632577346,1.664702476241973,1.664702476241973,5.549392990249238,5.549392990249238,5.549392990249238,5.549392990249238,5.549392990249238,5.549392990249238,1.401495283030376,1.401495283030376,1.401495283030376,3.369667506093829,3.369667506093829,9.176336122402921,6.377139856783407,8.823477907703607,8.823477907703607,9.247838380414521,9.247838380414521,9.247838380414521,9.247838380414519,9.247838380414519,9.247838380414519,7.754340436193624,1.20041514191603,4.616024582079966,1.128450758084552,11.58496436195918,1.18946669679832,1.751521486689892,1.394165694886292,1.436617970897105,1.501640916419021,1.394564895404169,1.427506245143247,1.798996850797778,36.47291865332837,36.56461450192378,35.28374789266439,22.71283666885676,22.26237383173694,22.26237383173694,22.26237383173694,22.26237383173694,22.26237383173694,22.26237383173694,22.26237383173694,22.26237383173694,23.45621117762927,23.45621117762927,23.45621117762927,23.45621117762927,23.45621117762927,23.45621117762927,22.26237383173694,22.26237383173694,22.26237383173694,22.26237383173694,22.26237383173694,22.26237383173694,25.86771467620457,30.09144647532742,30.09144647532742,58.28609308287062,58.28609308287062,58.28609308287062,58.40342570985894,28.8506143094779,29.65865775563,20.04353351654711,18.74394402542308,20.78108739656182,18.97906235459004,18.97906235459004,18.97906235459004,18.97906235459004,18.97906235459004,18.97906235459004,14.39706089602237,14.39706089602237,13.46628320082159,14.55911555672823,58.24032351633275,58.24032351633275,38.2287568345785,21.52286267535479,14.04796044433183,11.61525810434834,10.56579091871196,1194.110934979726,229.8562100579084,418.68690100592,208.095724815912,108.3804983368524,78.57942282003643,74.91789388383521,26.02513350236502,23.71716912244396,23.71716912244396,23.71716912244396,23.75686228789217,22.36422422009015,25.10761811165729,24.5579926526807,24.5579926526807,22.43653289977736,22.43653289977736,22.43653289977736,22.43653289977736,22.43653289977736,22.43653289977736,24.88234273973392,24.88234273973392,24.88234273973392,23.49654845808515,23.49654845808515,22.36422422009015,22.43653289977736,22.43653289977736,22.43653289977736,22.43653289977736,22.43653289977736,22.43653289977736,24.88234273973392,24.88234273973392,24.88234273973392,23.51066153118606,17.49557421786197,20.38254799651078,23.78904621559879,23.34987185995775,23.34987185995775,23.34987185995775,22.89052876809158,22.89052876809158,20.37986507777176,20.37986507777176,22.93601836434883,22.93601836434884,22.93601836434884,19.9529254238547,19.9529254238547,19.95292542385469,19.96241202612534,19.96241202612534,18.59279620940189,18.5927962094019,20.64556282155281,20.64556282155281,20.64556282155281,20.64556282155281,20.64556282155281,23.5108426153917,23.5108426153917,23.5108426153917,20.49120869067576,20.49120869067576,19.64428967459738,19.64428967459738,20.53910720567143,20.53910720567143,20.53910720567143,19.53392761108681,19.53392761108681,19.15240541165761,15.9526806725989,18.44994292910082,17.81096994269968,17.81096994269968,17.6472969745915,17.6472969745915,17.99354029917358,17.99354029917358,17.99354029917358,23.34987185995775,23.34987185995775,23.34987185995775,23.34987185995776,23.34987185995776,20.54257795244042,20.54257795244042,19.9529254238547,19.9529254238547,19.96241202612535,19.96241202612535,20.64556282155282,20.64556282155282,20.64556282155282,20.64556282155281,20.64556282155281,23.5108426153917,23.5108426153917,23.5108426153917,20.53910720567143,20.53910720567143,20.53910720567143,20.53910720567143,20.53910720567143,20.53910720567143,18.37544808632049,18.31892860375809,17.67058615612687,17.66596096509025,14.4707289114141,17.3722334571371,21.53007738779691,20.91233270334998,7366.605385987876,7366.605385987879,19.13168373121854,25.48454632619793,25.48454632619793,25.48454632619793,21.13865866486095,21.13865866486095,21.13865866486095,22.00596890269123,22.00596890269123,22.00596890269123,16.16379037507302,16.16379037507302,16.16379037507302,21.13865866486095,21.13865866486095,21.13865866486095,22.00596890269123,22.00596890269123,22.00596890269123],["L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L2","L2","L2","L2","L2","L2","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L3","L3","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L4","L4","L2","L2","L2","L2","L4","L4","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L3","L3","L2","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L2","L2","L2","L2","L2","L2","L2","L2","L2","L2","L2","L2","L2","L2","L2","L2","L2","L2","L2","L2","L2","L2","L2","L2","L2","L2","L2","L2","L2","L2","L2","L2","L2","L2","L2","L2","L2","L2","L2","L2","L2","L2","L2","L2","L2","L2","L2","L2","L2","L2","L2","L2","L2","L2","L2","L2","L2","L2","L2","L2","L2","L2","L2","L2","L2","L2","L2","L2","L2","L2","L2","L2","L2","L2","L2","L2","L2","L2","L2","L2","L2","L2","L2","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1"],[0.1695577048606165,0.3027774020291209,0.1142783766145096,0.05526508508027233,0.2752689835461062,0.004311785591378147,0.09154632451501454,0.6508464374962927,8.954550463628324e-16,1.027152711874732e-14,1.027152711874732e-14,1.027152711874732e-14,1.561740524743095e-15,1.12248173083929e-06,1.12248173083929e-06,1.12248173083929e-06,1.12248173083929e-06,1.12248173083929e-06,1.12248173083929e-06,2.233465266839708e-40,0.000301806115575035,8.141277331566858e-06,9.29139479828878e-12,0.0005720895916304435,6.820671469360064e-05,6.820671469360064e-05,6.820671469360064e-05,2.056921561651474e-05,0.001527059112856164,0.002553326376978714,0.002553326376978714,0.002553326376978714,5.880789216729941e-05,5.880789216729941e-05,5.880789216729941e-05,5.880789216729941e-05,6.820671469360064e-05,6.820671469360064e-05,6.820671469360064e-05,0.003410456922460035,0.001405357831750113,4.0116268606296e-06,0.1591898802538015,0.0004347020558679277,0.003334778932108975,0.04746325405912263,0.04177905374040929,0.05278094201794144,0.05278094201794144,0.05278094201794144,0.01241933065155227,0.01241933065155227,0.01241933065155227,0.0611870177490987,0.0611870177490987,0.0611870177490987,0.1248689721223146,0.1248689721223146,0.1248689721223146,0.01990546716634429,0.01990546716634429,0.01990546716634429,0.01754895019147672,0.01754895019147672,0.01754895019147672,0.02780689502699721,0.02780689502699721,0.02780689502699721,0.02780689502699721,0.02780689502699721,0.01355859060408913,0.01355859060408913,0.03082751765752535,0.03082751765752535,0.03082751765752535,0.02762392696408918,0.02762392696408918,0.02762392696408918,0.02762392696408918,0.02762392696408918,0.02762392696408918,0.003061062589505673,0.003061062589505673,0.003061062589505673,0.003061062589505673,0.003061062589505673,0.003061062589505673,0.004665456963142928,0.1376547861596125,0.1376547861596125,0.418329935464012,0.02253365757842013,0.2329762009478235,0.1730401441520869,0.391365938307552,0.391365938307552,0.391365938307552,0.9313019484642182,0.0007086854397753798,0.01422175630080085,0.03668201157598334,0.9146756477481529,0.05193157966069364,0.6038602175940774,0.6948308806421124,0.01841616057630397,0.0383187631494136,0.2082633794016829,0.2082633794016829,0.2019670024471856,0.2019670024471856,0.2270991293932391,0.2270991293932391,0.2270991293932391,0.4096206414910421,0.4096206414910421,0.4096206414910421,0.4096206414910421,0.4719571766409489,0.4719571766409489,0.1248689721223146,0.1248689721223146,0.1248689721223146,0.1248689721223146,0.1248689721223146,0.1248689721223146,0.01241933065155227,0.01241933065155227,0.01241933065155227,0.1067227992160384,0.1067227992160384,0.1067227992160384,0.01990546716634429,0.01990546716634429,0.01990546716634429,0.03791637790305684,0.01990546716634429,0.01754895019147672,0.01754895019147672,0.01754895019147672,0.01909096307277231,0.01909096307277231,0.01909096307277231,0.02780689502699721,0.02780689502699721,0.01355859060408913,0.01355859060408913,0.01355859060408913,0.01355859060408913,0.03082751765752535,0.03082751765752535,0.03082751765752535,0.391365938307552,0.391365938307552,0.02762392696408918,0.02762392696408918,0.02762392696408918,0.02762392696408918,0.02762392696408918,0.02762392696408918,0.4996087489361614,0.4996087489361614,0.4996087489361614,0.1108905975288928,0.1108905975288928,0.003190950516903307,0.01669109172107029,0.003918921181887043,0.003918921181887043,0.003061062589505668,0.003061062589505668,0.003061062589505668,0.003061062589505673,0.003061062589505673,0.003061062589505673,0.006413205540971835,0.6056070905042548,0.04549905710996328,0.6646190114524657,0.0006533674569581599,0.6138166537443088,0.3512303685487811,0.4891478825984291,0.4688002347166743,0.4401559918183308,0.4889498143404296,0.473049865243077,0.3372388269368112,8.125983267266091e-10,9.413720579370733e-10,3.956582863010298e-10,3.134860001018149e-07,2.034166485137407e-06,2.034166485137407e-06,2.034166485137407e-06,2.034166485137407e-06,2.034166485137407e-06,2.034166485137407e-06,2.034166485137407e-06,2.034166485137407e-06,1.053588804710521e-06,1.053588804710521e-06,1.053588804710521e-06,1.053588804710521e-06,1.053588804710521e-06,1.053588804710521e-06,2.034166485137407e-06,2.034166485137407e-06,2.034166485137407e-06,2.034166485137407e-06,2.034166485137407e-06,2.034166485137407e-06,1.807134359887006e-07,0.02319118971694384,0.02319118971694384,2.548665872790446e-13,2.548665872790446e-13,2.548665872790446e-13,9.895472460429287e-14,0.02858309208401334,0.02488113313563422,4.933213063195876e-06,1.036724805962332e-05,3.239469282694873e-06,1.25148040347494e-05,1.25148040347494e-05,1.25148040347494e-05,1.25148040347494e-05,1.25148040347494e-05,1.25148040347494e-05,0.0001619898194402904,0.0001619898194402904,0.0002174677569053365,0.0001152832330257802,6.683833199331785e-15,6.683833199331785e-15,5.903630251842007e-10,3.643097322721326e-06,0.0001550721962214991,0.0006418393901466842,0.001191537047805977,3.875947638287908e-25,2.881223371161483e-43,1.83179643941102e-24,7.772367699540733e-23,1.92649805251018e-08,2.257176811907682e-19,2.443421595084394e-19,1.267216739818367e-06,3.061253473062142e-06,3.061253473062142e-06,3.061253473062142e-06,1.568614594984664e-06,4.284379749814363e-06,9.947058967975402e-07,1.098212353481643e-06,1.098212353481643e-06,3.441985125168394e-06,3.441985125168394e-06,3.441985125168394e-06,3.441985125168394e-06,3.441985125168394e-06,3.441985125168394e-06,9.23307022194001e-07,9.23307022194001e-07,9.23307022194001e-07,1.904665092678306e-06,1.904665092678306e-06,4.284379749814363e-06,3.441985125168394e-06,3.441985125168394e-06,3.441985125168394e-06,3.441985125168394e-06,3.441985125168394e-06,3.441985125168394e-06,9.23307022194001e-07,9.23307022194001e-07,9.23307022194001e-07,5.252054315063649e-05,0.006756380824433248,0.0003749102968162596,3.335609238695986e-05,4.91354914331969e-05,4.91354914331969e-05,4.91354914331969e-05,5.951996939510207e-05,5.951996939510207e-05,0.0003439755369975595,0.0003439755369975595,8.13802803001112e-05,8.138028030011104e-05,8.138028030011104e-05,0.0004164845611232423,0.0004164845611232423,0.0004164845611232423,0.0004164845611232423,0.0004164845611232423,0.0008144810569890833,0.0008144810569890819,0.0002751036862878018,0.0002751036862878018,0.0002751036862878018,0.0002751036862878018,0.0002751036862878018,8.10829442417394e-05,8.10829442417394e-05,8.10829442417394e-05,0.0003077403809237178,0.0003077403809237178,0.0006738585313537621,0.0006738585313537621,0.0001227441077775071,0.0001227441077775071,0.0001227441077775071,0.0008292057593073198,0.0008292057593073198,0.0008292057593073198,0.0009873116567661749,0.001031869282272101,0.004338240615839009,0.004338240615839009,0.004338240615839001,0.004338240615839001,0.003888146206634663,0.003888146206634663,0.003888146206634663,4.91354914331969e-05,4.91354914331969e-05,4.91354914331969e-05,4.91354914331969e-05,4.91354914331969e-05,0.0003146367510366337,0.0003146367510366337,0.0004164845611232423,0.0004164845611232423,0.0004164845611232423,0.0004164845611232423,0.0002751036862878014,0.0002751036862878014,0.0002751036862878014,0.0002751036862878018,0.0002751036862878018,8.10829442417394e-05,8.10829442417394e-05,8.10829442417394e-05,0.0001227441077775068,0.0001227441077775068,0.0001227441077775071,0.0001227441077775071,0.0001227441077775071,0.0001227441077775071,0.001307694808109277,0.001307694808109276,0.001373875928799961,0.0009531709115678886,0.02961935285720874,0.0009941553167235903,8.246970349186445e-05,0.0002466298127928894,8.198640477343597e-53,8.19864047734315e-53,1.343232006231002e-05,3.454900177735935e-07,3.454900177735935e-07,3.454900177735935e-07,3.78319441323191e-06,3.78319441323191e-06,3.78319441323191e-06,2.343287678769628e-06,2.343287678769628e-06,2.343287678769628e-06,6.009365796829397e-05,6.009365796829397e-05,6.009365796829397e-05,3.78319441323191e-06,3.78319441323191e-06,3.78319441323191e-06,2.343287678769628e-06,2.343287678769628e-06,2.343287678769628e-06],["TMEM18","ACP1","FAM110C","PXDN","SH3YL1","SNTG2","TMEM18","TPO","GRHL1","GRHL1","ENSG00000289033","ENSG00000289033","GRHL1","LDAH","LDAH","LDAH","LDAH","LDAH","LDAH","GDF7","CRIM1","LOC100288911","MEIS1-AS2","FAM136A","TIA1","TIA1","TIA1","SNRPG","FAM136A","TIA1","TIA1","TIA1","TIA1","TIA1","TIA1","TIA1","TIA1","TIA1","TIA1","FAM136A","MXD1","TGFA","MGAT4A","LYG1","AFF3","REV1","REV1","INPP4A","INPP4A","INPP4A","INPP4A","INPP4A","INPP4A","INPP4A","INPP4A","INPP4A","INPP4A","INPP4A","INPP4A","COA5","COA5","COA5","UNC50","UNC50","UNC50","UNC50","UNC50","UNC50","UNC50","UNC50","UNC50","UNC50","TSGA10","TSGA10","TSGA10","LIPT1","LIPT1","LIPT1","MITD1","MITD1","MITD1","REV1","REV1","REV1","REV1","REV1","REV1","REV1","AFF3","AFF3","LYG2","UNC50","MGAT4A","C2orf15","TSGA10","LIPT1","MITD1","MRPL30","LYG1","EIF5B","TXNDC9","REV1","AFF3","CHST10","PDCL3","LYG1","REV1","TBC1D8","TBC1D8","RPL31","RPL31","CHST10","CHST10","CHST10","TSGA10","TSGA10","TSGA10","TSGA10","TSGA10","TSGA10","INPP4A","INPP4A","INPP4A","INPP4A","INPP4A","INPP4A","INPP4A","INPP4A","INPP4A","INPP4A","INPP4A","INPP4A","COA5","COA5","COA5","COA5","COA5","UNC50","UNC50","UNC50","UNC50","UNC50","UNC50","UNC50","UNC50","UNC50","UNC50","UNC50","UNC50","TSGA10","TSGA10","TSGA10","TSGA10","TSGA10","LIPT1","LIPT1","LIPT1","MITD1","MITD1","MITD1","MITD1","MITD1","MITD1","LYG1","LYG1","TXNDC9","REV1","REV1","REV1","REV1","REV1","REV1","REV1","REV1","REV1","AFF3","C2orf15","C2orf55","CHST10","EIF5B","LIPT1","LONRF2","LYG1","MITD1","MRPL30","PDCL3","TSGA10","TXNDC9","FLJ42351","SLC20A1","INHBB","NCKAP5","NEB","NEB","NEB","NEB","NEB","NEB","NEB","NEB","RIF1","RIF1","RIF1","RIF1","RIF1","RIF1","NEB","NEB","NEB","NEB","NEB","NEB","RIF1","ITGA6","ITGA6","CDCA7","CDCA7","CDCA7","CDCA7","ITGA6","ITGA6","HOXD10","HOXD11","HOXD9","GLS","GLS","GLS","GLS","GLS","GLS","GLS","GLS","GLS","NAB1","CASP8","CASP8","MIR7845","IKZF2","EFHD1","GIGYF2","NMUR1","MLPH","ANO7","SEPT2","HDLBP","FARP2","TBX1","TBX1","ASCC2","ASCC2","ASCC2","ASCC2","UQCR10","TOMM22","JOSD1","TOMM22-DT","TOMM22-DT","CBY1","CBY1","CBY1","CBY1","CBY1","CBY1","GTPBP1","GTPBP1","GTPBP1","GTPBP1","GTPBP1","TOMM22","CBY1","CBY1","CBY1","CBY1","CBY1","CBY1","GTPBP1","GTPBP1","GTPBP1","ACO2","XRCC6","SNU13","MEI1","TOB2","TOB2","TOB2","PHF5A","PHF5A","ACO2","ACO2","ACO2","ACO2","ACO2","POLR3H","POLR3H","POLR3H","POLR3H","POLR3H","CSDC2","CSDC2","PMM1","PMM1","PMM1","PMM1","PMM1","SNU13","SNU13","SNU13","SNU13","SNU13","RNU6-476P","RNU6-476P","MEI1","MEI1","MEI1","XRCC6","XRCC6","CSDC2","TEF","POLR3H","EP300","EP300","L3MBTL2","L3MBTL2","L3MBTL2","L3MBTL2","L3MBTL2","TOB2","TOB2","TOB2","TOB2","TOB2","POLR3H","POLR3H","POLR3H","POLR3H","POLR3H","POLR3H","PMM1","PMM1","PMM1","PMM1","PMM1","SNU13","SNU13","SNU13","MEI1","MEI1","MEI1","MEI1","MEI1","MEI1","MEI1","MEI1","ACO2","C22orf46","CSDC2","MEI1","NHP2L1","XRCC6","MCAT","MCAT","FAM118A","FAM118A","FAM118A","FAM118A","FAM118A","FAM118A","FAM118A","FAM118A","FAM118A","FAM118A","FAM118A","FAM118A","FAM118A","FAM118A","FAM118A","FAM118A","FAM118A","FAM118A","FAM118A"],["protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding"],["2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22","22"],["667335","10133","10133","10133","10133","10133","10133","10133","9951693","9993244","9996401","9996401","9962531","20740205","20740205","20740205","20740205","20740205","20740205","19492643","35896940","35896940","66437963","70295975","70229091","70229091","70229091","70281362","70295975","70230854","70230854","70230854","70229318","70229318","70229318","70229318","70229091","70229091","70229091","68912432","68912432","70528066","98619106","99284238","99545419","99464985","99403106","98555808","98555808","98555808","98572029","98572029","98572029","98559495","98559495","98559495","98555691","98555691","98555691","98600793","98600793","98600793","98616346","98616346","98616346","98616533","98616533","98616533","98616533","98616533","98610634","98610634","99154427","99154427","99154427","99155051","99155051","99155051","99155051","99155051","99155051","99406490","99406490","99406490","99406431","99406431","99406431","99429945","100008932","100008932","99242246","98608579","98619106","99141485","98997261","99154955","99161427","99181079","99284238","99337353","99318982","99400475","99545419","100391860","100562690","99303013","99408131","101006071","101006071","101006071","101006071","100406707","100406707","100406707","99127176","99127176","99127176","99127176","99109556","99109556","98555808","98555808","98555808","98555691","98555691","98555691","98572029","98572029","98572029","98559495","98559495","98559495","98600793","98600793","98600793","98602645","98604191","98616346","98616346","98616346","98616533","98616533","98616533","98616533","98616533","98610895","98610895","98610634","98610634","99154427","99154427","99154427","99148348","99148348","99155051","99155051","99155051","99155051","99155051","99155051","99171646","99171646","99171646","99298549","99298549","99306785","99442469","99424899","99424899","99406490","99406490","99406490","99406431","99406431","99406431","98378738","98378738","98378738","98378738","98378738","98378738","98378738","98378738","98378738","98378738","98378738","98378738","98378738","109814855","109814855","117609890","132285211","151514428","151514428","151514928","151514928","151514928","151514428","151514428","151514428","151423042","151423042","151423042","151423042","151423042","151423042","151514928","151514928","151514928","151514428","151514428","151514428","150874948","172489613","172489613","173363895","173363895","173363895","173363895","172481021","172481813","174724201","174724201","174724201","190920248","190920248","190920248","190920248","190920248","190920248","190910321","190910321","189017339","189017339","201260613","201260613","207165706","212999691","230978674","230978674","230978674","237485428","241195845","241315100","241227264","241210506","19756703","17813322","29788608","29814767","29814767","29814767","29255810","38681948","38685543","38670989","38670989","38656750","38656750","38656750","38656750","38656750","38656750","38706147","38706147","38706147","38721865","38721865","38681948","38656750","38656750","38656750","38656750","38656750","38656750","38706147","38706147","38706147","41469125","41621119","41673930","41699499","41437407","41437407","41437407","41467614","41467614","41517631","41517631","41515917","41515917","41515917","41532745","41532745","41532745","41533687","41533687","41572141","41572141","41586193","41586193","41586193","41586193","41586193","41682587","41682587","41682587","41680364","41680364","41675195","41675195","41784420","41784420","41784420","41621345","41621345","41573475","41367333","41525804","41141222","41141222","41219536","41219536","41217202","41217202","41217202","41437407","41437407","41437407","41437407","41437407","41532157","41532157","41532745","41532745","41533687","41533687","41586193","41586193","41586193","41586193","41586193","41682587","41682587","41682587","41784420","41784420","41784420","41784420","41784420","41784420","41770961","41794477","40149793","40149793","40149793","40149793","40149793","40149793","43132206","43132206","45308968","45330731","45330731","45330731","45322426","45322426","45322426","45322215","45322215","45322215","45330731","45330731","45330731","45322426","45322426","45322426","45322215","45322215","45322215"],["677439","1777250","1777250","1777250","1777250","1777250","1777250","1777250","10002277","9995879","9998965","9998965","9963886","20774810","20774810","20774810","20774810","20774810","20774810","20850730","37905569","37905569","66440562","70302090","70229264","70229264","70229264","70293771","70302090","70236079","70236079","70236079","70230761","70230761","70230756","70230756","70229264","70229264","70229264","70528066","70528066","72947719","98731126","99304742","100142739","99489817","99403695","98559463","98559463","98559463","98572815","98572815","98572815","98563465","98563465","98563465","98559463","98559463","98559463","98604108","98604108","98604108","98616432","98616432","98616432","98618146","98618146","98618146","98618168","98618168","98610775","98610775","99154693","99154693","99154693","99156301","99156301","99156301","99161957","99161957","99161957","99408029","99408029","99408029","99408029","99408029","99408029","99431741","100011497","100011497","99255282","98618515","98731126","99151487","99154964","99163157","99181058","99197626","99304742","99401326","99340702","99490035","100142739","100417656","100576735","99304640","99410695","101018998","101018998","101006350","101006350","100415041","100415041","100415041","99141428","99141428","99141083","99141083","99110850","99110850","98559463","98559463","98559463","98559463","98559463","98559463","98572815","98572815","98572815","98563465","98563465","98563465","98604108","98604108","98604108","98604108","98608263","98616432","98616432","98616432","98618146","98618146","98618146","98618168","98618168","98616432","98616432","98610775","98610775","99154693","99154693","99154693","99154693","99154693","99156301","99156301","99156301","99161957","99161957","99161957","99173414","99173414","99173414","99301050","99301050","99321955","99449336","99429840","99429840","99408029","99408029","99408029","99408029","99408029","99408029","101205867","101205867","101205867","101205867","101205867","101205867","101205867","101205867","101205867","101205867","101205867","101205867","101205867","113164279","113164279","120546207","134401007","151516459","151516459","151516459","151516459","151516459","151514818","151514818","151514818","151428784","151428784","151428784","151428784","151428784","151428784","151516459","151516459","151516459","151514818","151514818","151514818","151630268","172491024","172491024","173364795","173364795","173364795","173364000","172495375","172495375","176498908","176498908","176498908","190921024","190921024","190921024","190921024","190921024","190921024","190921024","190921024","191108631","191108631","201266461","201266461","207166757","213152427","232685293","232685293","232685293","237555318","241199316","241354027","241317061","242147200","19783593","19924835","29838304","29815172","29815172","29815172","31043932","38685421","38701556","38671076","38671076","38668017","38668017","38668017","38665546","38665546","38665546","38715907","38715907","38715907","38724297","38724297","38685421","38668017","38668017","38668017","38665546","38665546","38665546","38715907","38715907","38715907","41528989","41664048","41690504","41799456","41446379","41446379","41446379","41468020","41468020","41518481","41517943","41517297","41517527","41517527","41533522","41533522","41540699","41540699","41540699","41573655","41573382","41589719","41589719","41589719","41588659","41588659","41688794","41688794","41688794","41688794","41688794","41680244","41680244","41784608","41784608","41784608","41621990","41621990","41573655","41399326","41544606","41147837","41147837","41220734","41220734","41219419","41219419","41219419","41446379","41446379","41446379","41444112","41444112","41532604","41532604","41533522","41533522","41540699","41540699","41589719","41589719","41589719","41588659","41588659","41688794","41688794","41688794","41793829","41793829","41784608","41784608","41784608","41784668","41776102","41795735","42294812","42294812","42294812","42294812","42294812","42294812","43143394","43143394","45341955","45332425","45332425","45332425","45323175","45323175","45323175","45322371","45322371","45322371","45332425","45332425","45332425","45323175","45323175","45323175","45322371","45322371","45322371"],[672387,893692,893692,893692,893692,893692,893692,893692,9976985,9994562,9997683,9997683,9963208,20757508,20757508,20757508,20757508,20757508,20757508,20171686,36901254,36901254,66439262,70299032,70229178,70229178,70229178,70287566,70299032,70233466,70233466,70233466,70230040,70230040,70230037,70230037,70229178,70229178,70229178,69720249,69720249,71737892,98675116,99294490,99844079,99477401,99403400,98557636,98557636,98557636,98572422,98572422,98572422,98561480,98561480,98561480,98557577,98557577,98557577,98602450,98602450,98602450,98616389,98616389,98616389,98617340,98617340,98617340,98617350,98617350,98610704,98610704,99154560,99154560,99154560,99155676,99155676,99155676,99158504,99158504,99158504,99407260,99407260,99407260,99407230,99407230,99407230,99430843,100010214,100010214,99248764,98613547,98675116,99146486,99076112,99159056,99171242,99189352,99294490,99369340,99329842,99445255,99844079,100404758,100569712,99303826,99409413,101012534,101012534,101006210,101006210,100410874,100410874,100410874,99134302,99134302,99134130,99134130,99110203,99110203,98557636,98557636,98557636,98557577,98557577,98557577,98572422,98572422,98572422,98561480,98561480,98561480,98602450,98602450,98602450,98603376,98606227,98616389,98616389,98616389,98617340,98617340,98617340,98617350,98617350,98613664,98613664,98610704,98610704,99154560,99154560,99154560,99151520,99151520,99155676,99155676,99155676,99158504,99158504,99158504,99172530,99172530,99172530,99299800,99299800,99314370,99445902,99427370,99427370,99407260,99407260,99407260,99407230,99407230,99407230,99792302,99792302,99792302,99792302,99792302,99792302,99792302,99792302,99792302,99792302,99792302,99792302,99792302,111489567,111489567,119078048,133343109,151515444,151515444,151515694,151515694,151515694,151514623,151514623,151514623,151425913,151425913,151425913,151425913,151425913,151425913,151515694,151515694,151515694,151514623,151514623,151514623,151252608,172490318,172490318,173364345,173364345,173364345,173363948,172488198,172488594,175611554,175611554,175611554,190920636,190920636,190920636,190920636,190920636,190920636,190915672,190915672,190062985,190062985,201263537,201263537,207166232,213076059,231831984,231831984,231831984,237520373,241197580,241334564,241272162,241678853,19770148,18869078,29813456,29814970,29814970,29814970,30149871,38683684,38693550,38671032,38671032,38662384,38662384,38662384,38661148,38661148,38661148,38711027,38711027,38711027,38723081,38723081,38683684,38662384,38662384,38662384,38661148,38661148,38661148,38711027,38711027,38711027,41499057,41642584,41682217,41749478,41441893,41441893,41441893,41467817,41467817,41518056,41517787,41516607,41516722,41516722,41533134,41533134,41536722,41537193,41537193,41572898,41572762,41587956,41587956,41587956,41587426,41587426,41685690,41685690,41685690,41684579,41684579,41677720,41677720,41784514,41784514,41784514,41621668,41621668,41573565,41383330,41535205,41144530,41144530,41220135,41220135,41218310,41218310,41218310,41441893,41441893,41441893,41440760,41440760,41532380,41532380,41533134,41533134,41537193,41537193,41587956,41587956,41587956,41587426,41587426,41685690,41685690,41685690,41789124,41789124,41784514,41784514,41784514,41784544,41773532,41795106,41222302,41222302,41222302,41222302,41222302,41222302,43137800,43137800,45325462,45331578,45331578,45331578,45322800,45322800,45322800,45322293,45322293,45322293,45331578,45331578,45331578,45322800,45322800,45322800,45322293,45322293,45322293]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>id<\/th>\n      <th>molecular_id<\/th>\n      <th>type<\/th>\n      <th>context<\/th>\n      <th>group<\/th>\n      <th>region_id<\/th>\n      <th>z<\/th>\n      <th>susie_pip<\/th>\n      <th>mu2<\/th>\n      <th>cs<\/th>\n      <th>pval<\/th>\n      <th>gene_name<\/th>\n      <th>gene_type<\/th>\n      <th>chrom<\/th>\n      <th>start<\/th>\n      <th>end<\/th>\n      <th>pos<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"columnDefs":[{"className":"dt-right","targets":[7,8,9,11,17]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"id","targets":1},{"name":"molecular_id","targets":2},{"name":"type","targets":3},{"name":"context","targets":4},{"name":"group","targets":5},{"name":"region_id","targets":6},{"name":"z","targets":7},{"name":"susie_pip","targets":8},{"name":"mu2","targets":9},{"name":"cs","targets":10},{"name":"pval","targets":11},{"name":"gene_name","targets":12},{"name":"gene_type","targets":13},{"name":"chrom","targets":14},{"name":"start","targets":15},{"name":"end","targets":16},{"name":"pos","targets":17}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+<p>Next, we compute gene PIPs across different types of molecular
+traits.</p>
+<pre class="r"><code>library(dplyr)
+
+susie_alpha_res &lt;- ctwas_res$susie_alpha_res
+
+susie_alpha_res &lt;- anno_susie_alpha_res(susie_alpha_res,
+                                        mapping_table = mapping_table,
+                                        map_by = &quot;molecular_id&quot;,
+                                        drop_unmapped = TRUE)</code></pre>
+<p>Gene PIPs, only genes within credible sets are shown</p>
+<pre class="r"><code>library(dplyr)
+susie_alpha_res &lt;- anno_susie_alpha_res(susie_alpha_res,
+                                        mapping_table = mapping_table,
+                                        map_by = &quot;molecular_id&quot;,
+                                        drop_unmapped = TRUE)</code></pre>
+<pre class="r"><code>combined_pip_by_group &lt;- combine_gene_pips(susie_alpha_res,
+                                          group_by = &quot;gene_name&quot;,
+                                          by = &quot;group&quot;,
+                                          method = &quot;combine_cs&quot;,
+                                          filter_cs = TRUE,
+                                          include_cs_id = TRUE)
+combined_pip_table &lt;- subset(combined_pip_by_group, combined_pip &gt; 0.8)
+DT::datatable(combined_pip_table)</code></pre>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-2112c1f1dbc2c6427f4c" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-2112c1f1dbc2c6427f4c">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16"],["ANO7","FARP2","MLPH","TBX1","TGFA","LDAH","MIR7845","MCAT","GDF7","CASP8","IKZF2","NCKAP5","FAM118A","CDCA7","GRHL1","SEPT2"],["2_240620667_241210506.L1","2_241210506_242147200.L2","2_236540389_237852338.L1","22_17813322_19924835.L1","2_70528066_72947719.L1","2_19492643_20850730.L2","2_205870980_207780675.L1","22_42294812_43318194.L2","2_19492643_20850730.L1","2_200711561_201953914.L1","2_213149558_214709071.L1","2_132285211_134401007.L1","22_44599428_46074615.L1","2_172274177_174724201.L2","2_8282017_10158342.L1","2_241210506_242147200.L3"],[0.9999999999999998,0.9999999822813714,0.9998799416003341,0.9976373583667784,0.9962307126490195,0.9794983294500001,0.9779241600122774,0.9721019255284068,0.9706958178984322,0.9706028934255205,0.9681320988989234,0.9112564228003263,0.8976609795752294,0.8938577763919391,0.877854749359957,0.8659218036626093],[null,null,null,"22_17813322_19924835.L1",null,null,null,"22_42294812_43318194.L2",null,null,null,null,"22_44599428_46074615.L1",null,"2_8282017_10158342.L1","2_241210506_242147200.L3"],[null,null,null,0.2408449103123504,null,null,null,0.2472585693659936,null,null,null,null,0.02097156316756132,null,0.612535636916169,0.8659218036626093],["2_240620667_241210506.L1",null,null,null,null,"2_19492643_20850730.L2",null,null,null,null,null,null,"22_44599428_46074615.L1",null,"2_8282017_10158342.L1",null],[0.9999999999999998,null,null,null,null,0.3033054267008134,null,null,null,null,null,null,0.585625322536161,null,0.266238150642469,null],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],[null,null,"2_236540389_237852338.L1",null,null,null,null,"22_42294812_43318194.L2",null,null,"2_213149558_214709071.L1",null,null,null,null,null],[null,null,0.9998799416003341,null,null,null,null,0.7248433561624132,null,null,0.9681320988989234,null,null,null,null,null],[null,null,null,null,null,"2_19492643_20850730.L2","2_205870980_207780675.L1",null,null,"2_200711561_201953914.L1",null,null,"22_44599428_46074615.L1","2_172274177_174724201.L2",null,null],[null,null,null,null,null,0.6791842244753319,0.9779241600122774,null,null,0.9706028934255205,null,null,0.2910640938715069,0.8938577763919391,null,null],[null,"2_241210506_242147200.L2",null,"22_17813322_19924835.L1","2_70528066_72947719.L1",null,null,null,"2_19492643_20850730.L1",null,null,"2_132285211_134401007.L1",null,null,null,null],[null,0.9999999822813714,null,0.7567924480544279,0.9962307126490195,null,null,null,0.9706958178984322,null,null,0.9112564228003263,null,null,null,null]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>gene_name<\/th>\n      <th>combined_cs_id<\/th>\n      <th>combined_pip<\/th>\n      <th>prostate|mashr_expression_cs_id<\/th>\n      <th>prostate|mashr_expression_pip<\/th>\n      <th>prostate|mashr_splicing_cs_id<\/th>\n      <th>prostate|mashr_splicing_pip<\/th>\n      <th>testis|mashr_expression_cs_id<\/th>\n      <th>testis|mashr_expression_pip<\/th>\n      <th>testis|mashr_splicing_cs_id<\/th>\n      <th>testis|mashr_splicing_pip<\/th>\n      <th>lymphocytes|mashr_expression_cs_id<\/th>\n      <th>lymphocytes|mashr_expression_pip<\/th>\n      <th>lymphocytes|mashr_splicing_cs_id<\/th>\n      <th>lymphocytes|mashr_splicing_pip<\/th>\n      <th>prostate|RefZ_expression_cs_id<\/th>\n      <th>prostate|RefZ_expression_pip<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[3,5,7,9,11,13,15,17]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"gene_name","targets":1},{"name":"combined_cs_id","targets":2},{"name":"combined_pip","targets":3},{"name":"prostate|mashr_expression_cs_id","targets":4},{"name":"prostate|mashr_expression_pip","targets":5},{"name":"prostate|mashr_splicing_cs_id","targets":6},{"name":"prostate|mashr_splicing_pip","targets":7},{"name":"testis|mashr_expression_cs_id","targets":8},{"name":"testis|mashr_expression_pip","targets":9},{"name":"testis|mashr_splicing_cs_id","targets":10},{"name":"testis|mashr_splicing_pip","targets":11},{"name":"lymphocytes|mashr_expression_cs_id","targets":12},{"name":"lymphocytes|mashr_expression_pip","targets":13},{"name":"lymphocytes|mashr_splicing_cs_id","targets":14},{"name":"lymphocytes|mashr_splicing_pip","targets":15},{"name":"prostate|RefZ_expression_cs_id","targets":16},{"name":"prostate|RefZ_expression_pip","targets":17}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="gsea-analysis" class="section level2">
+<h2>GSEA Analysis</h2>
+<pre class="r"><code>library(enrichR)
+
+dbs &lt;- c(&quot;GO_Biological_Process_2021&quot;, &quot;GO_Cellular_Component_2021&quot;, &quot;GO_Molecular_Function_2021&quot;)
+genes &lt;- combined_pip_by_group$gene_name[combined_pip_by_group$combined_pip &gt;0.8]
+
+#number of genes for gene set enrichment
+sprintf(&quot;The number of genes used in enrichment analysis = %s&quot;, length(genes))</code></pre>
+<pre><code>[1] &quot;The number of genes used in enrichment analysis = 16&quot;</code></pre>
+<pre class="r"><code>GO_enrichment &lt;- enrichr(genes, dbs)</code></pre>
+<pre><code>Uploading data to Enrichr... Done.
+  Querying GO_Biological_Process_2021... Done.
+  Querying GO_Cellular_Component_2021... Done.
+  Querying GO_Molecular_Function_2021... Done.
+Parsing results... Done.</code></pre>
+<pre class="r"><code>print(&quot;GO_Biological_Process_2021&quot;)</code></pre>
+<pre><code>[1] &quot;GO_Biological_Process_2021&quot;</code></pre>
+<pre class="r"><code>db &lt;- &quot;GO_Biological_Process_2021&quot;
+df &lt;- GO_enrichment[[db]]
+print(plotEnrich(GO_enrichment[[db]]))</code></pre>
+<p><img src="figure/cTWAS_LD_european_combined_output.Rmd/GO_Biological_Process_2021-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>df &lt;- df[df$Adjusted.P.value&lt;0.05,c(&quot;Term&quot;, &quot;Overlap&quot;, &quot;Adjusted.P.value&quot;, &quot;Genes&quot;)]
+
+DT::datatable(df,caption = htmltools::tags$caption( style = &#39;caption-side: topleft; text-align = left; color:black;&#39;,&#39;Enriched pathways from GO_Biological_Process_2021&#39;),options = list(pageLength = 5) )</code></pre>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-57a5e797e447beab7be8" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-57a5e797e447beab7be8">{"x":{"filter":"none","vertical":false,"caption":"<caption style=\"caption-side: topleft; text-align = left; color:black;\">Enriched pathways from GO_Biological_Process_2021<\/caption>","data":[[],[],[],[],[]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Term<\/th>\n      <th>Overlap<\/th>\n      <th>Adjusted.P.value<\/th>\n      <th>Genes<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"columnDefs":[{"className":"dt-right","targets":3},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"Term","targets":1},{"name":"Overlap","targets":2},{"name":"Adjusted.P.value","targets":3},{"name":"Genes","targets":4}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+<pre class="r"><code>print(&quot;GO_Cellular_Component_2021&quot;)</code></pre>
+<pre><code>[1] &quot;GO_Cellular_Component_2021&quot;</code></pre>
+<pre class="r"><code>db &lt;- &quot;GO_Cellular_Component_2021&quot;
+df &lt;- GO_enrichment[[db]]
+print(plotEnrich(GO_enrichment[[db]]))</code></pre>
+<p><img src="figure/cTWAS_LD_european_combined_output.Rmd/GO_Cellular_Component_2021-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>df &lt;- df[df$Adjusted.P.value&lt;0.05,c(&quot;Term&quot;, &quot;Overlap&quot;, &quot;Adjusted.P.value&quot;, &quot;Genes&quot;)]
+
+DT::datatable(df,caption = htmltools::tags$caption( style = &#39;caption-side: topleft; text-align = left; color:black;&#39;,&#39;Enriched pathways from GO_Cellular_Component_2021&#39;),options = list(pageLength = 5) )</code></pre>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-0a34d9ca313023088b60" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-0a34d9ca313023088b60">{"x":{"filter":"none","vertical":false,"caption":"<caption style=\"caption-side: topleft; text-align = left; color:black;\">Enriched pathways from GO_Cellular_Component_2021<\/caption>","data":[[],[],[],[],[]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Term<\/th>\n      <th>Overlap<\/th>\n      <th>Adjusted.P.value<\/th>\n      <th>Genes<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"columnDefs":[{"className":"dt-right","targets":3},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"Term","targets":1},{"name":"Overlap","targets":2},{"name":"Adjusted.P.value","targets":3},{"name":"Genes","targets":4}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+<pre class="r"><code>print(&quot;GO_Molecular_Function_2021&quot;)</code></pre>
+<pre><code>[1] &quot;GO_Molecular_Function_2021&quot;</code></pre>
+<pre class="r"><code>db &lt;- &quot;GO_Molecular_Function_2021&quot;
+df &lt;- GO_enrichment[[db]]
+print(plotEnrich(GO_enrichment[[db]]))</code></pre>
+<pre><code>Warning in plotEnrich(GO_enrichment[[db]]): There are duplicated trimmed names
+in the plot, consider increasing the &#39;numChar&#39; setting.</code></pre>
+<p><img src="figure/cTWAS_LD_european_combined_output.Rmd/GO_Molecular_Function_2021-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>df &lt;- df[df$Adjusted.P.value&lt;0.05,c(&quot;Term&quot;, &quot;Overlap&quot;, &quot;Adjusted.P.value&quot;, &quot;Genes&quot;)]
+
+DT::datatable(df,caption = htmltools::tags$caption( style = &#39;caption-side: topleft; text-align = left; color:black;&#39;,&#39;Enriched pathways from GO_Molecular_Function_2021&#39;),options = list(pageLength = 5) )</code></pre>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-38f6575cbe0384702c9e" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-38f6575cbe0384702c9e">{"x":{"filter":"none","vertical":false,"caption":"<caption style=\"caption-side: topleft; text-align = left; color:black;\">Enriched pathways from GO_Molecular_Function_2021<\/caption>","data":[[],[],[],[],[]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Term<\/th>\n      <th>Overlap<\/th>\n      <th>Adjusted.P.value<\/th>\n      <th>Genes<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"columnDefs":[{"className":"dt-right","targets":3},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"Term","targets":1},{"name":"Overlap","targets":2},{"name":"Adjusted.P.value","targets":3},{"name":"Genes","targets":4}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+<br>
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
+<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+Session information
+</button>
+</p>
+<div id="workflowr-sessioninfo" class="collapse">
+<pre class="r"><code>sessionInfo()</code></pre>
+<pre><code>R version 4.4.1 (2024-06-14)
+Platform: aarch64-apple-darwin20
+Running under: macOS 15.0.1
+
+Matrix products: default
+BLAS:   /Library/Frameworks/R.framework/Versions/4.4-arm64/Resources/lib/libRblas.0.dylib 
+LAPACK: /Library/Frameworks/R.framework/Versions/4.4-arm64/Resources/lib/libRlapack.dylib;  LAPACK version 3.12.0
+
+locale:
+[1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+
+time zone: America/New_York
+tzcode source: internal
+
+attached base packages:
+[1] stats4    stats     graphics  grDevices utils     datasets  methods  
+[8] base     
+
+other attached packages:
+ [1] enrichR_3.2               data.table_1.16.2        
+ [3] lubridate_1.9.3           forcats_1.0.0            
+ [5] stringr_1.5.1             dplyr_1.1.4              
+ [7] purrr_1.0.2               tidyr_1.3.1              
+ [9] tibble_3.2.1              tidyverse_2.0.0          
+[11] ggrepel_0.9.6             ggplot2_3.5.1            
+[13] EnsDb.Hsapiens.v86_2.99.0 ensembldb_2.28.1         
+[15] AnnotationFilter_1.28.0   GenomicFeatures_1.56.0   
+[17] AnnotationDbi_1.66.0      Biobase_2.64.0           
+[19] GenomicRanges_1.56.1      GenomeInfoDb_1.40.1      
+[21] IRanges_2.38.1            S4Vectors_0.42.1         
+[23] BiocGenerics_0.50.0       ctwas_0.4.16             
+[25] readr_2.1.5               workflowr_1.7.1          
+
+loaded via a namespace (and not attached):
+  [1] RColorBrewer_1.1-3          rstudioapi_0.16.0          
+  [3] jsonlite_1.8.9              magrittr_2.0.3             
+  [5] farver_2.1.2                rmarkdown_2.28             
+  [7] fs_1.6.4                    BiocIO_1.14.0              
+  [9] zlibbioc_1.50.0             vctrs_0.6.5                
+ [11] memoise_2.0.1               Rsamtools_2.20.0           
+ [13] RCurl_1.98-1.16             mixsqp_0.3-54              
+ [15] htmltools_0.5.8.1           S4Arrays_1.4.1             
+ [17] curl_5.2.3                  SparseArray_1.4.8          
+ [19] sass_0.4.9                  bslib_0.8.0                
+ [21] htmlwidgets_1.6.4           plotly_4.10.4              
+ [23] zoo_1.8-12                  cachem_1.1.0               
+ [25] gggrid_0.2-0                GenomicAlignments_1.40.0   
+ [27] whisker_0.4.1               lifecycle_1.0.4            
+ [29] pkgconfig_2.0.3             Matrix_1.7-0               
+ [31] R6_2.5.1                    fastmap_1.2.0              
+ [33] GenomeInfoDbData_1.2.12     MatrixGenerics_1.16.0      
+ [35] digest_0.6.37               colorspace_2.1-1           
+ [37] ps_1.8.0                    rprojroot_2.0.4            
+ [39] irlba_2.3.5.1               crosstalk_1.2.1            
+ [41] RSQLite_2.3.7               WriteXLS_6.7.0             
+ [43] labeling_0.4.3              pgenlibr_0.3.7             
+ [45] timechange_0.3.0            fansi_1.0.6                
+ [47] httr_1.4.7                  abind_1.4-8                
+ [49] compiler_4.4.1              bit64_4.5.2                
+ [51] withr_3.0.1                 BiocParallel_1.38.0        
+ [53] DBI_1.2.3                   highr_0.11                 
+ [55] DelayedArray_0.30.1         rjson_0.2.23               
+ [57] tools_4.4.1                 httpuv_1.6.15              
+ [59] glue_1.8.0                  restfulr_0.0.15            
+ [61] callr_3.7.6                 promises_1.3.0             
+ [63] grid_4.4.1                  getPass_0.2-4              
+ [65] generics_0.1.3              LDlinkR_1.4.0              
+ [67] gtable_0.3.5                tzdb_0.4.0                 
+ [69] locuszoomr_0.3.5            hms_1.1.3                  
+ [71] utf8_1.2.4                  XVector_0.44.0             
+ [73] pillar_1.9.0                later_1.3.2                
+ [75] logging_0.10-108            lattice_0.22-6             
+ [77] rtracklayer_1.64.0          bit_4.5.0                  
+ [79] tidyselect_1.2.1            Biostrings_2.72.1          
+ [81] knitr_1.48                  git2r_0.33.0.9000          
+ [83] ProtGenerics_1.36.0         SummarizedExperiment_1.34.0
+ [85] xfun_0.48                   matrixStats_1.4.1          
+ [87] DT_0.33                     stringi_1.8.4              
+ [89] UCSC.utils_1.0.0            lazyeval_0.2.2             
+ [91] yaml_2.3.10                 evaluate_1.0.1             
+ [93] codetools_0.2-20            cli_3.6.3                  
+ [95] munsell_0.5.1               processx_3.8.4             
+ [97] jquerylib_0.1.4             Rcpp_1.0.13                
+ [99] png_0.1-8                   XML_3.99-0.17              
+[101] parallel_4.4.1              blob_1.2.4                 
+[103] bitops_1.0-9                viridisLite_0.4.2          
+[105] scales_1.3.0                crayon_1.5.3               
+[107] rlang_1.1.4                 cowplot_1.1.3              
+[109] KEGGREST_1.44.1            </code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<!-- Adjust MathJax settings so that all math formulae are shown using
+TeX fonts only; see
+https://docs.mathjax.org/en/latest/web/configuration.html. This will make
+the presentation more consistent at the cost of the webpage sometimes
+taking slightly longer to load. Note that this only works because the
+footer is added to webpages before the MathJax javascript. -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("hide" === "show");
+});
+</script>
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
