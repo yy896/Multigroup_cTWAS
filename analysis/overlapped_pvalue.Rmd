@@ -6,11 +6,14 @@ editor_options:
   chunk_output_type: console
 ---
 
+Did -log10 transformation for p-value
+
 ```{r echo=FALSE, eval=TRUE, message=FALSE, warning=FALSE}
 library(tidyverse)
 library(readxl)
 library(data.table)
 library(stringr)
+library(dplyr)
 
 ourdataset <- fread("~/Desktop/Prostate Cancer Project/GCST90274714.mod.tsv.gz")
 ourdataset_rsid_pvalue <- ourdataset[, c("rsid", "p_value")]
@@ -24,16 +27,17 @@ overlap_in_ourdataset <- ourdataset_rsid_pvalue %>% filter(rsid %in% overlap_res
 overlap_in_ourdataset <- overlap_in_ourdataset[!duplicated(overlap_in_ourdataset$rsid), ] 
 overlap_in_paperdataset <- paperdataset_rsid_pvalue %>% filter(rsid %in% overlap_res)
 
-overlapped_dataset <- cbind(overlap_in_ourdataset, overlap_in_paperdataset$p_value)
-colnames(overlapped_dataset) <- c("rsid", "our_pvalue", "paper_pvalue")
+overlapped_dataset <- cbind(overlap_in_ourdataset, overlap_in_paperdataset)
+colnames(overlapped_dataset) <- c("our_rsid", "our_pvalue", "paper_rsid", "paper_pvalue")
 
 overlapped_dataset[is.na(overlapped_dataset)] <- 0
 
 overlapped_dataset$paper_pvalue <- format(-log10(as.numeric(overlapped_dataset$paper_pvalue)),digits=2)
 overlapped_dataset$our_pvalue <- format(-log10(as.numeric(overlapped_dataset$our_pvalue)), digits=2)
+overlapped_dataset <- arrange(overlapped_dataset, our_rsid, paper_rsid)
 
-
-comparison <- ifelse(overlapped_dataset$paper_pvalue == overlapped_dataset$our_pvalue, TRUE, FALSE)
+overlapped_dataset <- read_delim("~/Desktop/1.csv")
+comparison <- ifelse(overlapped_dataset$our_pvalue == overlapped_dataset$paper_pvalue, TRUE, FALSE)
 overlapped_dataset <- cbind(overlapped_dataset, comparison)
 DT::datatable(overlapped_dataset)
 ```
