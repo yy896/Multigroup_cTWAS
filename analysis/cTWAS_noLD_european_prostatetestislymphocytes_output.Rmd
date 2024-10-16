@@ -337,7 +337,7 @@ DT::datatable(combined_pip_table)
 
 ## GSEA Analysis
 
-```{r pathway setup, echo=FALSE, eval=TRUE}
+```{r pathway setup, echo=TRUE, eval=TRUE, warning=FALSE, message=FALSE}
 library(enrichR)
 
 dbs <- c("GO_Biological_Process_2021", "GO_Cellular_Component_2021", "GO_Molecular_Function_2021")
@@ -347,53 +347,115 @@ genes <- combined_pip_by_group$gene_name[combined_pip_by_group$combined_pip >0.8
 sprintf("The number of genes used in enrichment analysis = %s", length(genes))
 ```
 
-```{r GO enrichment, echo=FALSE, eval=TRUE}
+```{r GO enrichment, echo=TRUE, eval=TRUE, warning=FALSE, message=FALSE}
 GO_enrichment <- enrichr(genes, dbs)
 ```
 
-```{r figure title1, echo=FALSE, eval=TRUE}
+```{r figure title1, echo=TRUE, eval=TRUE}
 print("GO_Biological_Process_2021")
 ```
 
-```{r GO_Biological_Process_2021, echo=FALSE, eval=TRUE}
+```{r GO_Biological_Process_2021, echo=TRUE, eval=TRUE}
 db <- "GO_Biological_Process_2021"
 df <- GO_enrichment[[db]]
 print(plotEnrich(GO_enrichment[[db]]))
 ```
 
-```{r echo=FALSE, eval=TRUE}
+```{r echo=TRUE, eval=TRUE}
 df <- df[df$Adjusted.P.value<0.05,c("Term", "Overlap", "Adjusted.P.value", "Genes")]
 
 DT::datatable(df,caption = htmltools::tags$caption( style = 'caption-side: topleft; text-align = left; color:black;','Enriched pathways from GO_Biological_Process_2021'),options = list(pageLength = 5) )
 ```
 
-```{r figure title2, echo=FALSE, eval=TRUE}
+```{r figure title2, echo=TRUE, eval=TRUE}
 print("GO_Cellular_Component_2021")
 ```
 
-```{r GO_Cellular_Component_2021, echo=FALSE, eval=TRUE}
+```{r GO_Cellular_Component_2021, echo=TRUE, eval=TRUE}
 db <- "GO_Cellular_Component_2021"
 df <- GO_enrichment[[db]]
 print(plotEnrich(GO_enrichment[[db]]))
 ```
 
-```{r echo=FALSE, eval=TRUE}
+```{r echo=TRUE, eval=TRUE}
 df <- df[df$Adjusted.P.value<0.05,c("Term", "Overlap", "Adjusted.P.value", "Genes")]
 
 DT::datatable(df,caption = htmltools::tags$caption( style = 'caption-side: topleft; text-align = left; color:black;','Enriched pathways from GO_Cellular_Component_2021'),options = list(pageLength = 5) )
 ```
 
-```{r figure title3, echo=FALSE, eval=TRUE}
+```{r figure title3, echo=TRUE, eval=TRUE}
 print("GO_Molecular_Function_2021")
 ```
 
-```{r GO_Molecular_Function_2021, echo=FALSE, eval=TRUE}
+```{r GO_Molecular_Function_2021, echo=TRUE, eval=TRUE}
 db <- "GO_Molecular_Function_2021"
 df <- GO_enrichment[[db]]
 print(plotEnrich(GO_enrichment[[db]]))
 ```
 
-```{r echo=FALSE, eval=TRUE}
+```{r echo=TRUE, eval=TRUE}
+df <- df[df$Adjusted.P.value<0.05,c("Term", "Overlap", "Adjusted.P.value", "Genes")]
+
+DT::datatable(df,caption = htmltools::tags$caption( style = 'caption-side: topleft; text-align = left; color:black;','Enriched pathways from GO_Molecular_Function_2021'),options = list(pageLength = 5) )
+```
+
+```{r echo=TRUE, eval=TRUE, warning=FALSE, message=FALSE}
+library(enrichR)
+
+dbs <- c("GO_Biological_Process_2021", "GO_Cellular_Component_2021", "GO_Molecular_Function_2021")
+genes <- combined_pip_by_group$gene_name[combined_pip_by_group$combined_pip >0.5]
+
+#number of genes for gene set enrichment
+sprintf("The number of genes used in enrichment analysis = %s", length(genes))
+```
+
+```{r echo=TRUE, eval=TRUE, warning=FALSE, message=FALSE}
+GO_enrichment <- enrichr(genes, dbs)
+```
+
+```{r echo=TRUE, eval=TRUE}
+print("GO_Biological_Process_2021")
+```
+
+```{r echo=TRUE, eval=TRUE}
+db <- "GO_Biological_Process_2021"
+df <- GO_enrichment[[db]]
+print(plotEnrich(GO_enrichment[[db]]))
+```
+
+```{r echo=TRUE, eval=TRUE}
+df <- df[df$Adjusted.P.value<0.05,c("Term", "Overlap", "Adjusted.P.value", "Genes")]
+
+DT::datatable(df,caption = htmltools::tags$caption( style = 'caption-side: topleft; text-align = left; color:black;','Enriched pathways from GO_Biological_Process_2021'),options = list(pageLength = 5) )
+```
+
+```{r echo=TRUE, eval=TRUE}
+print("GO_Cellular_Component_2021")
+```
+
+```{r echo=TRUE, eval=TRUE}
+db <- "GO_Cellular_Component_2021"
+df <- GO_enrichment[[db]]
+print(plotEnrich(GO_enrichment[[db]]))
+```
+
+```{r echo=TRUE, eval=TRUE}
+df <- df[df$Adjusted.P.value<0.05,c("Term", "Overlap", "Adjusted.P.value", "Genes")]
+
+DT::datatable(df,caption = htmltools::tags$caption( style = 'caption-side: topleft; text-align = left; color:black;','Enriched pathways from GO_Cellular_Component_2021'),options = list(pageLength = 5) )
+```
+
+```{r echo=TRUE, eval=TRUE}
+print("GO_Molecular_Function_2021")
+```
+
+```{r echo=TRUE, eval=TRUE}
+db <- "GO_Molecular_Function_2021"
+df <- GO_enrichment[[db]]
+print(plotEnrich(GO_enrichment[[db]]))
+```
+
+```{r echo=TRUE, eval=TRUE}
 df <- df[df$Adjusted.P.value<0.05,c("Term", "Overlap", "Adjusted.P.value", "Genes")]
 
 DT::datatable(df,caption = htmltools::tags$caption( style = 'caption-side: topleft; text-align = left; color:black;','Enriched pathways from GO_Molecular_Function_2021'),options = list(pageLength = 5) )

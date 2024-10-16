@@ -10,9 +10,9 @@ editor_options:
 
 Multigroup cTWAS analysis summary
 
-Prostate+Testis+Lymphocytes // eQTL+sQTL [link](cTWAS_noLD_european_prostatetestislymphocytes_output.html)
+Prostate+Testis+Lymphocytes // eQTL+sQTL [link](cTWAS_noLD_european_prostatetestislymphocytes_output.html) (+ GO analysis)
 
-Gene Summary for above analysis [link](cTWAS_noLD_european_GENE_SUMMARY.html)
+Gene Summary for above analysis [link](cTWAS_noLD_european_GENE_SUMMARY.html) (+ immune function)
 
 Overlapped rsid p-values comparison [link](overlapped_pvalue.html) (Edited)
 
