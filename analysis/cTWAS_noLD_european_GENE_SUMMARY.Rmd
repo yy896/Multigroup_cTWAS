@@ -10,6 +10,593 @@ editor_options:
 
 + CEP250, ANO7, PCAT19, TSEN34, PDLIM5, GEMIN4, PKNOX2, ZDHHC7, TBX1, MSMB, ARNT2, MLPH, CCDC88C, ADGRG1, PPP1R14A, TOR1A, TACC1, RAB13, MYO5C, BBC3, PIK3C2B, PXMP4, ZBTB38, MIR7845, CHMP4C, ZC3H12A, MAPKBP1, GRHL1, RPS6KL1, MFSD13A, MTERF2, FBXO38, HLA-DQB1, FAM118A, BCL2L14, LIAS, CASP8, CXXC1 (**38 in total**)
 
+https://www.perplexity.ai/search/what-is-the-immune-function-of-r09eNH66QGmp1naHIJbmkA
+
+## Immune Functions
+
+### CEP250
+
+CEP250, also known as C-Nap1 (Centrosomal Nek2-Associated Protein 1), plays a role in immune function, particularly in relation to immune cells. Here's what we know about its immune-related functions:
+
+**Immune Cell Expression**
+
+CEP250 is expressed in various immune cells and tissues:
+
+- It is found in bone marrow cells involved in innate immune responses[2].
+- The protein is present in immune-related tissues such as the tonsil, appendix, thymus, lymph node, and spleen[2].
+
+**T Cell Function**
+
+CEP250 appears to have a specific role in T cell function:
+
+- It is expressed in immune cells associated with T cell receptor signaling[8].
+- This suggests that CEP250 may be involved in T cell activation or regulation.
+
+**Centrosome-Related Immune Functions**
+
+As a centrosomal protein, CEP250 may indirectly influence immune cell function through its role in cell division and organization:
+
+- CEP250 is required for centriole-centriole cohesion during interphase of the cell cycle[4].
+- It plays a crucial role in centrosome duplication and organization during cell division[7].
+
+These centrosomal functions could be important for immune cell proliferation and the formation of the immunological synapse, which is critical for T cell activation and function.
+
+**Potential Impact on Immune Response**
+
+While not directly stated in the search results, the expression of CEP250 in various immune cells and tissues suggests it may have broader impacts on immune function:
+
+- Its presence in bone marrow cells involved in innate immune responses indicates a potential role in the development or function of innate immune cells[2].
+- The expression in multiple lymphoid tissues implies that CEP250 could be involved in various aspects of adaptive immunity, beyond just T cell function[2][8].
+
+It's important to note that while these findings suggest immune-related functions for CEP250, more research is needed to fully elucidate its specific roles in immune responses. The protein's primary known function remains centered on its centrosomal activities, which may indirectly influence immune cell behavior through effects on cell division and organization.
+
+Citations:
+[1] https://www.mdpi.com/2073-4409/12/18/2328
+[2] https://www.proteinatlas.org/ENSG00000126001-CEP250
+[3] https://www.informatics.jax.org/marker/MGI:108084
+[4] https://www.ncbi.nlm.nih.gov/gene/11190
+[5] https://www.ncbi.nlm.nih.gov/gene?Cmd=DetailsSearch&Db=gene&Term=11190
+[6] https://www.genecards.org/cgi-bin/carddisp.pl?gene=CEP250
+[7] https://www.rndsystems.com/products/human-phospho-cep250-cnap1-s2421-antibody-2739c_mab11339
+[8] https://www.proteinatlas.org/ENSG00000126001-CEP250/tissue
+
+### TBX1
+
+Based on the search results, TBX1 plays several important roles related to immune function:
+
+1. Thymus development:
+TBX1 is crucial for the normal development of the thymus, which is a primary lymphoid organ essential for T cell maturation and selection. Deficiency in TBX1 can lead to thymic hypoplasia or aplasia, affecting T cell development [3].
+
+2. T cell development:
+TBX1 deficiency can result in T cell immunodeficiency, ranging from an isolated reduction in T cell count to severe combined immunodeficiency (SCID) [3].
+
+3. Regulation of immune-related genes:
+As a transcription factor, TBX1 likely regulates the expression of genes involved in immune system development, though specific target genes are not fully elucidated [2].
+
+4. Association with DiGeorge Syndrome:
+TBX1 haploinsufficiency is associated with 22q11.2 deletion syndrome (DiGeorge Syndrome), which includes immune system abnormalities as part of its clinical presentation [2][3].
+
+5. Impact on other immune-related organs:
+TBX1 is necessary for the development of the parathyroid glands and is involved in the formation of the thymus, both of which play roles in the immune system [1][2].
+
+6. Potential impact on NK and B cells:
+While TBX1 deficiency primarily affects T cells, there may be functional compromises in NK and B cells as well, including impaired production of specific antibodies [3].
+
+7. Long-term immune effects:
+TBX1 haploinsufficiency can lead to persistent T cell abnormalities, including low CD8+ T cell counts and altered CD4+ T cell populations in adulthood [3].
+
+In summary, TBX1 is critical for proper immune system development, particularly in thymus formation and T cell maturation. Its deficiency can lead to various immunological abnormalities, primarily affecting T cell populations but potentially impacting other aspects of the immune system as well.
+
+Citations:
+[1] https://www.nature.com/articles/labinvest201788
+[2] https://medlineplus.gov/genetics/gene/tbx1/
+[3] https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7457079/
+[4] https://www.frontiersin.org/journals/cell-and-developmental-biology/articles/10.3389/fcell.2021.641891/full
+[5] https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7306890/
+[6] https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6756047/
+[7] https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5716718/
+[8] https://www.biorxiv.org/content/10.1101/2020.08.03.234229v1.full
+
+### MSMB
+
+Based on the search results, MSMB (microseminoprotein beta) has several immune-related functions:
+
+1. Immune modulation: MSMB has immune modulating properties, particularly through its interactions with other proteins. It binds to immunoglobulin G (IgG) and several Cysteine-rich secretory proteins (CRISP) family proteins, which are thought to be involved in immune modulation[1].
+
+2. Innate immunity: MSMB interacts with CRISP-3, which is present in neutrophils and may play a role in the innate immune system. Decreased levels of MSMB alongside increased CRISP-3 could be related to boosting innate immunity in prostate cancer cells[1].
+
+3. Natural killer cell and neutrophil activation: MSMB interacts with monoclonal natural killer-associated antibodies and anti-FcγRIII antibodies. It is considered a mediator of natural killer cells and an activator of neutrophils[1].
+
+4. Prevention of immune activation against allogeneic sperm: In the female reproductive tract, MSMB derived from human seminal plasma and cervical mucus interacts with IgG to prevent immune activation against allogeneic sperm[1].
+
+5. Regulation of IgG: In a normal prostate, the IgG binding nature of MSMB could support the control of free IgG and its downstream effects[1].
+
+6. Potential impact on immune cell infiltration: While not directly stated for MSMB, the study mentions that obesity-related genes (which include MSMB) may lead to prostate cancer by affecting immune cell infiltration[2].
+
+7. Association with immune cells: MSMB expression was found to correlate with macrophages and purity in prostate cancer[2].
+
+It's important to note that while MSMB has these immune-related functions, its primary roles appear to be related to prostate cancer development and progression. Its expression is often decreased in prostate cancer, and it has been studied as a potential biomarker for prostate cancer diagnosis and prognosis[1][2].
+
+Citations:
+[1] https://www.wjgnet.com/2219-2816/full/v3/i1/20.htm
+[2] https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10164797/
+[3] https://www.frontiersin.org/journals/cell-and-developmental-biology/articles/10.3389/fcell.2021.641891/full
+[4] https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5716718/
+[5] https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5861365/
+[6] https://www.nature.com/articles/s41392-024-01804-5
+[7] https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2020.00975/full
+[8] https://www.frontiersin.org/journals/cellular-neuroscience/articles/10.3389/fncel.2024.1315941/full
+
+### ARNT2
+
+Based on the search results, ARNT2 (Aryl Hydrocarbon Receptor Nuclear Translocator 2) appears to have several indirect roles related to immune function:
+
+1. Regulation of immune-related pathways:
+ARNT2 expression is negatively correlated with immune-related pathways in nasopharyngeal carcinoma (NPC). This suggests that ARNT2 may play a role in modulating immune responses in cancer[1].
+
+2. Correlation with immune cell infiltration:
+In NPC, ARNT2 expression was found to be correlated with the infiltration of five different immune cell types. This indicates that ARNT2 may influence the tumor immune microenvironment[1].
+
+3. Potential role in inflammation:
+ARNT2 may regulate PTGS2 (prostaglandin-endoperoxide synthase 2), an inflammatory factor, suggesting a possible role in inflammatory processes[1].
+
+4. Impact on oligodendrocyte immune responses:
+In models of multiple sclerosis, ARNT2 expression in oligodendrocytes is altered. This change may affect oligodendrocyte viability and differentiation, potentially influencing immune responses in the central nervous system[2].
+
+5. Protection against apoptosis:
+ARNT2 has been thought to protect against apoptosis in some cell types. This anti-apoptotic function could indirectly affect immune responses by influencing cell survival[2].
+
+6. Involvement in thymic development:
+ARNT2 knockout in mice leads to thymic defects, suggesting a role in the development of this crucial immune organ[2].
+
+While ARNT2 does not appear to have a direct immune function, its involvement in regulating gene expression, cell survival, and tissue development indirectly impacts immune processes. Its roles in modulating immune cell infiltration, inflammatory pathways, and the development of immune-related organs suggest that ARNT2 is an important factor in the broader context of immune system function and regulation.
+
+Citations:
+[1] https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9532129/
+[2] https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7251514/
+[3] https://pmc.ncbi.nlm.nih.gov/articles/PMC9681662/
+[4] https://www.frontiersin.org/journals/cell-and-developmental-biology/articles/10.3389/fcell.2021.641891/full
+[5] https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6756047/
+[6] https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2020.00975/full
+[7] https://www.nature.com/articles/s41392-024-01804-5
+[8] https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7306890/
+
+### ADGRG1
+
+Based on the search results, ADGRG1 (also known as GPR56) has several important immune functions:
+
+1. Regulation of NK cell function:
+- ADGRG1 acts as an inhibitory receptor on human NK cells, negatively regulating their immediate effector functions [1][3].
+- It inhibits inflammatory cytokine and cytolytic protein production, degranulation, and target cell killing in mature NK cells [3].
+
+2. T cell regulation:
+- ADGRG1 is expressed in various T cell subsets, including cytotoxic T cells, T helper cells, and regulatory T cells [2].
+- Its expression is upregulated in T cell subsets in rheumatoid arthritis, juvenile idiopathic arthritis, and various cancer types [2].
+
+3. Hematopoietic development:
+- ADGRG1 plays a role in hematopoietic stem and progenitor cell (HSPC) development [2].
+
+4. Immune cell migration:
+- It is involved in regulating immune cell migration, though the specific details are not provided in the search results [1].
+
+5. Interaction with other immune-related molecules:
+- ADGRG1 associates with the tetraspanin CD81, which contributes to its negative regulation of NK cell functions [3].
+- It can interact with CD9/CD81, transglutaminase 2 (TG2), collagen III, laminin, heparin/heparan sulfate, and phosphatidylserine, which may influence its immune functions [2].
+
+6. Potential role in anti-tumor immunity:
+- ADGRG1 is expressed in tumor-infiltrating lymphocytes (TILs), suggesting a potential role in anti-tumor immune responses [2].
+
+7. Involvement in acute myeloid leukemia (AML):
+- ADGRG1 has been implicated in the tumorigenesis of AML and is expressed in leukemic stem cells [2].
+
+In summary, ADGRG1 appears to play important roles in regulating NK cell function, T cell activity, hematopoietic development, and potentially anti-tumor immunity. Its primary function seems to be as an inhibitory receptor in NK cells, modulating their effector functions.
+
+Citations:
+[1] https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8640549/
+[2] https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10055975/
+[3] https://www.guidetopharmacology.org/GRAC/ObjectDisplayForward?objectId=186
+[4] https://pmc.ncbi.nlm.nih.gov/articles/PMC9532129/
+[5] https://pmc.ncbi.nlm.nih.gov/articles/PMC4267237/
+[6] https://www.nature.com/articles/s41467-017-01381-y
+[7] https://www.frontiersin.org/journals/cell-and-developmental-biology/articles/10.3389/fcell.2021.641891/full
+[8] https://www.nature.com/articles/s42003-023-05751-9
+
+### RAB13
+
+Based on the search results, RAB13 appears to have several important immune-related functions:
+
+1. Regulation of immune cell infiltration:
+- RAB13 expression positively correlates with infiltration of various immune cells, including B cells, CD8+ T cells, CD4+ T cells, macrophages, neutrophils, and dendritic cells in liver hepatocellular carcinoma (LIHC) [1].
+
+2. Correlation with immune checkpoint molecules:
+- RAB13 expression shows a positive correlation with immune checkpoint molecules like PD1, PDL1, and CTLA4 in LIHC [1].
+
+3. Impact on macrophage polarization:
+- In sepsis, knockdown of RAB13 promotes the polarization of macrophages towards the M2 phenotype [3].
+
+4. Regulation of inflammatory responses:
+- RAB13 is involved in inflammatory response-related pathways and immune response-related pathways like TNFA signaling via NF-κB [1].
+
+5. Role in immune cell function:
+- RAB13 is predominantly localized in monocytes, as shown by single-cell sequencing [3].
+- It is involved in regulating the structure and function of tight junctions, which are important for immune cell barrier function [4].
+
+6. Potential biomarker for immune-related conditions:
+- RAB13 expression is positively correlated with sepsis severity and negatively correlated with survival in sepsis patients [3].
+- It shows potential as a biomarker for identifying sepsis severity [3].
+
+7. Involvement in immune-related signaling pathways:
+- RAB13 is associated with various signaling pathways important for immune function, including MTORC1 signaling, P53 pathway, and PI3K-AKT-MTOR signaling [1].
+
+8. Regulation of cytokine secretion:
+- As a member of the Rab GTPase family, RAB13 may be involved in regulating the secretion of chemokines and cytokines, though this is not explicitly stated for RAB13 specifically [4].
+
+In summary, RAB13 appears to play significant roles in regulating immune cell infiltration, macrophage polarization, inflammatory responses, and immune cell function. Its expression levels correlate with various immune-related processes and conditions, suggesting its potential as a biomarker and therapeutic target in immune-related diseases and cancer.
+
+Citations:
+[1] https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10558570/
+[2] https://www.frontiersin.org/journals/immunology/articles/10.3389/fimmu.2024.1403008/full
+[3] https://www.nature.com/articles/s41598-024-71771-y
+[4] https://www.frontiersin.org/journals/cellular-and-infection-microbiology/articles/10.3389/fcimb.2017.00435/full
+[5] https://pmc.ncbi.nlm.nih.gov/articles/PMC4267237/
+[6] https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10055975/
+[7] https://bmcgenomics.biomedcentral.com/articles/10.1186/1471-2164-13-572
+[8] https://pmc.ncbi.nlm.nih.gov/articles/PMC9532129/
+
+### BBC3
+
+Based on the search results, BBC3 (also known as PUMA - p53 upregulated modulator of apoptosis) has several important functions related to the immune system and inflammatory responses, particularly in pancreatic beta cells:
+
+1. Marker of beta cell stress:
+- BBC3 mRNA serves as a molecular marker to detect early TNF-α-induced beta cell stress in pancreatic islets.
+
+2. Apoptosis regulation:
+- BBC3 initiates apoptotic responses in beta cells, either directly activated by p53-responsive elements or independently through other transcription factors.
+- It can be activated in response to TNF-α stimulation via the NF-κB pathway.
+
+3. Response to inflammatory cytokines:
+- BBC3 mRNA is upregulated in pancreatic islets exposed to TNF-α alone or in combination with IFN-γ.
+- IL-1β, together with IFN-γ, activates BBC3 through NF-κB activation, leading to mitochondrial BAX translocation and induction of beta cell apoptosis.
+
+4. Correlation with islet function:
+- Higher BBC3 mRNA expression in islets correlates with decreased graft function when transplanted into diabetic mice.
+
+5. Indicator of beta cell damage:
+- BBC3 mRNA levels can reflect beta cell damage/apoptosis mediated by inflammatory cytokines like TNF-α.
+
+6. Potential therapeutic target:
+- As a marker of beta cell stress, BBC3 may help identify islet-protective compounds for the treatment of diabetes.
+
+7. Regulation of insulin biosynthesis:
+- BBC3 mRNA upregulation is inversely associated with the abrogation of preproinsulin precursor mRNA synthesis in response to high glucose stimulation.
+
+In summary, BBC3 plays a crucial role in the immune-mediated stress response of pancreatic beta cells, particularly in the context of inflammatory cytokine exposure. Its expression levels can serve as an indicator of beta cell stress and potential dysfunction, making it a valuable marker for studying diabetes and developing protective therapies.
+
+Citations:
+[1] https://link.springer.com/article/10.1007/s00125-011-2183-8
+[2] https://www.nature.com/articles/s41467-017-01381-y
+[3] https://pmc.ncbi.nlm.nih.gov/articles/PMC4267237/
+[4] https://bmcgenomics.biomedcentral.com/articles/10.1186/1471-2164-13-572
+[5] https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10055975/
+[6] https://www.frontiersin.org/journals/cellular-and-infection-microbiology/articles/10.3389/fcimb.2017.00435/full
+[7] https://pmc.ncbi.nlm.nih.gov/articles/PMC9038433/
+[8] https://www.frontiersin.org/journals/immunology/articles/10.3389/fimmu.2024.1403008/full
+
+### ZC3H12A
+
+The gene **ZC3H12A** (also known as Regnase-1) plays a significant role in the immune system, particularly in regulating inflammatory responses. Here are the key immune functions associated with ZC3H12A:
+
+1. **Regulation of Inflammatory Cytokines**:
+   - ZC3H12A is an RNase that destabilizes mRNAs of pro-inflammatory cytokines, such as interleukin-6 (IL-6) and IL-12. This function is crucial for controlling the duration and intensity of immune responses, preventing excessive inflammation and potential autoimmune disorders [1][2][3].
+
+2. **Response to Toll-like Receptor (TLR) Stimulation**:
+   - The expression of ZC3H12A is induced by TLR signaling, which is essential for recognizing microbial components and initiating immune responses. In ZC3H12A-deficient mice, the production of IL-6 and IL-12 is significantly increased upon TLR stimulation, indicating that ZC3H12A normally acts to limit these cytokine levels [1][2].
+
+3. **Prevention of Autoimmunity**:
+   - Mice lacking ZC3H12A develop severe autoimmune symptoms, including splenomegaly, lymphadenopathy, and increased serum immunoglobulin levels. This suggests that ZC3H12A is vital for maintaining immune homeostasis and preventing autoimmune diseases [1][2][3].
+
+4. **Impact on Macrophage Function**:
+   - In macrophages from ZC3H12A-deficient mice, there is an exaggerated production of inflammatory cytokines like IL-6 and IL-12 in response to TLR ligands, further illustrating its role in regulating macrophage activation and function [1][2].
+
+5. **Role in B Cell Activation**:
+   - The absence of ZC3H12A leads to an increase in plasma cells and autoantibody production, highlighting its importance in B cell regulation during immune responses [1].
+
+In summary, ZC3H12A functions as a critical regulator of immune responses by controlling the stability of mRNAs for inflammatory cytokines. Its activity helps prevent excessive inflammation and autoimmunity, making it essential for maintaining immune balance.
+
+Citations:
+[1] https://pubmed.ncbi.nlm.nih.gov/19322177/
+[2] https://www.nature.com/articles/nri2552
+[3] https://pubmed.ncbi.nlm.nih.gov/24163394/
+[4] https://bmcgenomics.biomedcentral.com/articles/10.1186/1471-2164-13-572
+[5] https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7505459/
+[6] https://www.nature.com/articles/s41467-017-01381-y
+[7] https://pmc.ncbi.nlm.nih.gov/articles/PMC9038433/
+[8] https://pmc.ncbi.nlm.nih.gov/articles/PMC9532129/
+
+### MAPKBP1
+
+The gene **MAPKBP1** (Mitogen-Activated Protein Kinase Binding Protein 1) has several important roles related to immune function, particularly through its involvement in the NF-κB signaling pathway:
+
+1. **Key Role in NF-κB Signaling**:
+   - MAPKBP1 is identified as a crucial transcription factor in the NF-κB signaling pathway, which is vital for regulating immune responses, inflammation, and cell survival. This pathway plays a significant role in both innate and adaptive immunity.
+
+2. **Facilitation of Cytokine Production**:
+   - By interacting with proteins such as TRAF2 and TAK1, MAPKBP1 can facilitate the activation of NF-κB, leading to the production of pro-inflammatory cytokines. This process is essential for mounting an effective immune response against pathogens.
+
+3. **Association with Hematologic Malignancies**:
+   - High expression levels of MAPKBP1 have been linked to poorer outcomes in patients with cytogenetically normal acute myeloid leukemia (CN-AML). The upregulation of MAPKBP1 correlates with the downregulation of pathways related to apoptosis and natural killer (NK) cell-mediated cytotoxicity, indicating its potential role in immune evasion by tumors.
+
+4. **Impact on Immune Cell Function**:
+   - The regulation of NF-κB by MAPKBP1 may influence various immune cell functions, including T cell activation and differentiation, as well as the overall inflammatory response.
+
+5. **Potential as a Therapeutic Target**:
+   - Given its role in regulating immune responses and its association with cancer prognosis, MAPKBP1 may serve as a potential target for therapeutic interventions aimed at modulating immune responses in cancer or inflammatory diseases.
+
+In summary, MAPKBP1 plays a significant role in the immune system primarily through its involvement in the NF-κB signaling pathway, influencing cytokine production and immune cell function. Its expression levels can also have implications for cancer prognosis and therapeutic strategies.
+
+Citations:
+[1] https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10055975/
+[2] https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4480741/
+[3] https://pmc.ncbi.nlm.nih.gov/articles/PMC9038433/
+[4] https://bmcgenomics.biomedcentral.com/articles/10.1186/1471-2164-13-572
+[5] https://pmc.ncbi.nlm.nih.gov/articles/PMC5992134/
+[6] https://www.frontiersin.org/journals/cellular-and-infection-microbiology/articles/10.3389/fcimb.2017.00435/full
+[7] https://pmc.ncbi.nlm.nih.gov/articles/PMC4267237/
+[8] https://www.nature.com/articles/s41467-017-01381-y
+
+### GRHL1
+
+The gene **GRHL1** (Grainyhead-like 1) has several immune-related functions, particularly in the context of skin immunity and barrier function:
+
+1. **Epidermal Barrier Regulation**:
+   - GRHL1 is crucial for maintaining the integrity of the epidermal barrier. It regulates the expression of desmosomal cadherins, such as desmoglein 1, which are important for cell-cell adhesion in the skin. Disruption of GRHL1 leads to impaired skin barrier function, resulting in increased susceptibility to inflammation and infection.
+
+2. **Inflammatory Response**:
+   - In GRHL1-deficient mice, there is an increase in inflammatory markers and immune cell infiltration in the skin. This suggests that GRHL1 plays a protective role by preventing chronic inflammation associated with compromised barrier function.
+
+3. **Cytokine Production**:
+   - The loss of GRHL1 is associated with elevated levels of cytokines like TSLP (thymic stromal lymphopoietin), which is linked to allergic responses and skin inflammation. This indicates that GRHL1 may help regulate cytokine expression to maintain immune homeostasis.
+
+4. **Pathogen Resistance**:
+   - Studies in *Caenorhabditis elegans* have shown that increased expression of the homologous gene (grh-1) promotes pathogen resistance, suggesting a conserved role for GRHL1 in enhancing immune responses against infections.
+
+5. **Potential Role in Cancer Immunity**:
+   - While primarily studied in the context of cancer cell proliferation and survival, GRHL1's regulation of epithelial integrity may also influence tumor microenvironments and immune interactions.
+
+In summary, GRHL1 plays a significant role in regulating skin barrier function, modulating inflammatory responses, and enhancing resistance to pathogens. Its functions highlight its importance in both innate immunity and maintaining overall immune homeostasis.
+
+Citations:
+[1] https://www.nature.com/articles/s41467-021-27732-4
+[2] https://www.nature.com/articles/s41419-021-03721-9
+[3] https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3930704/
+[4] https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10055975/
+[5] https://www.frontiersin.org/journals/cellular-and-infection-microbiology/articles/10.3389/fcimb.2017.00435/full
+[6] https://bmcgenomics.biomedcentral.com/articles/10.1186/1471-2164-13-572
+[7] https://www.genecards.org/cgi-bin/carddisp.pl?gene=GRHL1
+[8] https://pubmed.ncbi.nlm.nih.gov/19322177/
+
+### MTERF2
+
+The gene **MTERF2** (Mitochondrial Transcription Termination Factor 2) has several important functions related to the immune system, primarily through its role in mitochondrial function and regulation of oxidative stress:
+
+1. **Regulation of Mitochondrial Function**:
+   - MTERF2 is involved in the regulation of mitochondrial transcription and oxidative phosphorylation (OXPHOS). By modulating mitochondrial function, MTERF2 plays a crucial role in energy production, which is vital for the activation and function of immune cells, particularly lymphocytes that require high energy levels during immune responses [1].
+
+2. **Impact on Reactive Oxygen Species (ROS)**:
+   - MTERF2 has been implicated in controlling ROS levels within cells. ROS are critical signaling molecules in the immune response, influencing processes such as inflammation and apoptosis. By regulating mitochondrial transcription and OXPHOS, MTERF2 may help maintain appropriate ROS levels, thereby influencing immune cell activation and responses [1].
+
+3. **Potential Role in Inflammation**:
+   - Although specific studies directly linking MTERF2 to inflammation are limited, its regulation of mitochondrial function suggests it could play a role in modulating inflammatory responses. Mitochondrial dysfunction is often associated with chronic inflammation, and proper mitochondrial function is essential for resolving inflammation effectively.
+
+4. **Role in Immune Cell Metabolism**:
+   - The metabolic state of immune cells is crucial for their function. MTERF2's involvement in mitochondrial transcription suggests it may influence the metabolic pathways that are essential for immune cell proliferation and differentiation.
+
+In summary, while the direct immune functions of MTERF2 are not extensively characterized, its role in regulating mitochondrial function, energy metabolism, and ROS levels indicates that it likely contributes to immune responses by supporting the metabolic needs of immune cells and modulating inflammatory processes. Further research would be necessary to elucidate its specific roles within the immune system.
+
+Citations:
+[1] https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2778471/
+[2] https://pmc.ncbi.nlm.nih.gov/articles/PMC9532129/
+[3] https://pmc.ncbi.nlm.nih.gov/articles/PMC9038433/
+[4] https://bmcgenomics.biomedcentral.com/articles/10.1186/1471-2164-13-572
+[5] https://pubmed.ncbi.nlm.nih.gov/19322177/
+[6] https://www.nature.com/articles/s41467-021-27732-4
+[7] https://www.frontiersin.org/journals/plant-science/articles/10.3389/fpls.2021.684619/full
+[8] https://pmc.ncbi.nlm.nih.gov/articles/PMC5992134/
+
+### FBXO38
+
+The gene **FBXO38** (F-box protein 38) has several important immune functions, particularly related to the regulation of immune cell activity and antitumor immunity:
+
+1. **Regulation of NK Cell Function**:
+   - FBXO38 enhances natural killer (NK) cell-mediated antitumor immunity by maintaining the strength of IL-15 signaling. Its expression is crucial for the proliferation and survival of tumor-infiltrating NK (TINK) cells. Conditional knockout of FBXO38 in NK cells leads to impaired proliferation and survival, resulting in accelerated tumor growth and metastasis in mouse models[1].
+
+2. **Modulation of PD-1 Levels**:
+   - FBXO38 acts as an E3 ubiquitin ligase for PD-1, a checkpoint protein that negatively regulates T cell activation. By mediating the polyubiquitination and subsequent degradation of PD-1, FBXO38 helps to enhance T cell cytotoxicity against tumors. In T cells lacking FBXO38, PD-1 levels are elevated, leading to reduced antitumor activity and faster tumor progression[3][5].
+
+3. **Influence on Macrophage Polarization**:
+   - FBXO38 promotes the immunosuppressive function of macrophages by upregulating M2-like genes through MAPK and IRF4 signaling pathways. This suggests that FBXO38 can influence macrophage polarization, potentially contributing to a tumor-promoting environment[2].
+
+4. **Impact on Tumor Development**:
+   - Deletion of FBXO38 in macrophages has been shown to block tumor development and protect against colitis-induced inflammation, indicating its role in regulating immune responses that can affect cancer progression and inflammatory diseases[2].
+
+5. **Therapeutic Implications**:
+   - Given its roles in regulating NK cell function and PD-1 levels, targeting FBXO38 could have therapeutic implications for enhancing NK cell-based cancer immunotherapy or improving responses to PD-1 blockade therapies[1][3].
+
+In summary, FBXO38 plays a critical role in modulating immune responses by regulating NK cell activity, influencing T cell checkpoint dynamics via PD-1 degradation, and affecting macrophage polarization. These functions highlight its potential as a target for therapeutic strategies in cancer immunotherapy.
+
+Citations:
+[1] https://aacrjournals.org/cancerimmunolres/article-abstract/12/10/1438/748724/The-E3-Ubiquitin-Ligase-FBXO38-Maintains-the?redirectedFrom=fulltext
+[2] https://www.nature.com/articles/s41423-023-01081-2
+[3] https://pubmed.ncbi.nlm.nih.gov/30487606/
+[4] https://www.nature.com/articles/s41467-017-01381-y
+[5] https://www.nature.com/articles/s41586-018-0756-0
+[6] https://pmc.ncbi.nlm.nih.gov/articles/PMC4267237/
+[7] https://bmcgenomics.biomedcentral.com/articles/10.1186/1471-2164-13-572
+[8] https://www.frontiersin.org/journals/cellular-and-infection-microbiology/articles/10.3389/fcimb.2017.00435/full
+
+### HLA-DQB1
+
+The gene **HLA-DQB1** (Human Leukocyte Antigen DQ beta 1) plays a crucial role in the immune system, particularly in the context of antigen presentation and immune responses. Here are the key immune functions associated with HLA-DQB1:
+
+1. **Antigen Presentation**:
+   - HLA-DQB1 is part of the Major Histocompatibility Complex (MHC) class II molecules, which are essential for presenting peptides derived from extracellular proteins to CD4+ T cells. This process is vital for initiating adaptive immune responses against pathogens, such as viruses and bacteria [1][2].
+
+2. **Formation of the DQ Heterodimer**:
+   - HLA-DQB1 combines with another MHC class II protein, HLA-DQA1, to form a functional heterodimer (DQαβ). This complex is expressed on the surface of antigen-presenting cells (APCs), including B lymphocytes, dendritic cells, and macrophages, facilitating the recognition of foreign antigens by T cells [1][2].
+
+3. **Polymorphism and Immune Diversity**:
+   - The HLA-DQB1 gene exhibits significant polymorphism, resulting in various alleles that can bind different peptide fragments. This diversity allows the immune system to recognize a wide range of antigens, enhancing its ability to respond to diverse pathogens [2].
+
+4. **Association with Autoimmune Diseases**:
+   - Certain alleles of HLA-DQB1 are linked to increased susceptibility to autoimmune diseases such as type 1 diabetes, celiac disease, and multiple sclerosis. For example, alleles like DQB1*0201 and DQB1*0302 have been associated with a higher risk of developing these conditions, indicating that variations in HLA-DQB1 can influence immune tolerance and self-reactivity [1][2].
+
+5. **Role in Immune Regulation**:
+   - Variations in HLA-DQB1 may also affect regulatory T cell populations and cytokine production, influencing overall immune regulation and response to therapies such as interferon-beta in multiple sclerosis patients [5].
+
+In summary, HLA-DQB1 is essential for effective immune function through its role in antigen presentation, contributing to both protective immunity and susceptibility to autoimmune diseases. Its polymorphic nature enhances the immune system's ability to respond to various pathogens while also playing a role in self-tolerance mechanisms.
+
+Citations:
+[1] https://en.wikipedia.org/wiki/HLA-DQB1
+[2] https://medlineplus.gov/genetics/gene/hla-dqb1/
+[3] https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10055975/
+[4] https://bmcgenomics.biomedcentral.com/articles/10.1186/1471-2164-13-572
+[5] https://www.frontiersin.org/journals/immunology/articles/10.3389/fimmu.2021.628375/full
+[6] https://www.frontiersin.org/journals/cellular-and-infection-microbiology/articles/10.3389/fcimb.2017.00435/full
+[7] https://www.nature.com/articles/s41467-021-27732-4
+[8] https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8185344/
+
+### BCL2L14
+
+The gene **BCL2L14** (BCL2-like 14) has several important immune functions, particularly related to the regulation of apoptosis and immune responses:
+
+1. **Regulation of Apoptosis**:
+   - BCL2L14 is part of the BCL-2 family of proteins, which are critical in regulating cell survival and apoptosis. It plays a role in promoting cell death in certain contexts, which is essential for maintaining homeostasis in immune responses and eliminating autoreactive or infected cells.
+
+2. **Influence on T Cell Function**:
+   - Studies have shown that BCL2L14 expression is upregulated in CD4+ T cells from patients with systemic lupus erythematosus, indicating its involvement in T cell regulation under pathological conditions. Its modulation can affect T cell proliferation and survival, impacting overall immune responses.
+
+3. **Cytokine Secretion**:
+   - BCL2L14 has been implicated in the regulation of inflammatory cytokines. For example, its depletion has been linked to altered secretion of chemokines like CCL5 and CCL20, suggesting a role in mediating immune responses and inflammation.
+
+4. **Role in Inflammatory Diseases**:
+   - The expression of BCL2L14 has been connected to various inflammatory conditions. For instance, it has been shown to influence gut homeostasis and may play a role in colitis-associated cancer progression by regulating immune cell interactions in the gut.
+
+5. **Response to Cytokines**:
+   - BCL2L14 expression can be induced by cytokines such as IFN-γ and TNF-α, which are crucial for activating immune responses. This indicates that BCL2L14 may have a role in modulating responses to inflammatory signals.
+
+6. **Potential as a Therapeutic Target**:
+   - Given its regulatory role in apoptosis and immune responses, BCL2L14 could be a potential target for therapeutic interventions aimed at modulating immune function in diseases characterized by dysregulated apoptosis or inflammation.
+
+In summary, BCL2L14 plays a multifaceted role in the immune system by regulating apoptosis, influencing T cell function, modulating cytokine secretion, and participating in inflammatory processes. Its involvement in various immune-related pathways highlights its importance in maintaining immune homeostasis and responding to pathological conditions.
+
+Citations:
+[1] https://www.nature.com/articles/s41467-017-01381-y
+[2] https://www.frontiersin.org/journals/immunology/articles/10.3389/fimmu.2021.628375/full
+[3] https://pmc.ncbi.nlm.nih.gov/articles/PMC8185344/
+[4] https://www.nature.com/articles/s41418-023-01158-5
+[5] https://pmc.ncbi.nlm.nih.gov/articles/PMC9532129/
+[6] https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10055975/
+[7] https://pmc.ncbi.nlm.nih.gov/articles/PMC4267237/
+[8] https://pubmed.ncbi.nlm.nih.gov/19322177/
+
+### LIAS
+
+The gene **LIAS** (Lipoic Acid Synthetase) has several immune-related functions, particularly in the context of inflammation and atherosclerosis:
+
+1. **Antioxidant Role**:
+   - LIAS is responsible for synthesizing lipoic acid, a potent antioxidant that helps reduce oxidative stress in cells. This antioxidant capacity is crucial for maintaining immune homeostasis and preventing excessive inflammation.
+
+2. **Regulation of Immune Responses**:
+   - Overexpression of LIAS has been shown to significantly alleviate atherosclerosis in mouse models. This effect is associated with an increase in regulatory T cells (Tregs) and a reduction in T cell infiltrates in aortic walls, suggesting that LIAS modulates the immune response to promote a more anti-inflammatory environment.
+
+3. **Impact on T Cell Subsets**:
+   - The presence of higher levels of lipoic acid, facilitated by LIAS, appears to promote the generation of Treg cells. This indicates that LIAS may play a role in influencing T cell differentiation and function, particularly in the context of chronic inflammatory conditions like atherosclerosis.
+
+4. **Autoantibody Production**:
+   - In the context of atherosclerosis, increased levels of anti-oxidized LDL autoantibodies were observed alongside enhanced regulatory T cell numbers in mice with elevated LIAS expression. This suggests that LIAS may help regulate both the adaptive immune response and antibody production.
+
+5. **Therapeutic Implications**:
+   - The findings indicate that enhancing antioxidant capacity through LIAS may represent a novel therapeutic strategy for managing inflammatory diseases, including cardiovascular conditions characterized by chronic inflammation.
+
+In summary, LIAS plays an important role in regulating immune responses through its antioxidant functions, influencing T cell dynamics, and potentially modulating inflammatory processes, particularly in the context of atherosclerosis.
+
+Citations:
+[1] https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8020442/
+[2] https://pubmed.ncbi.nlm.nih.gov/19322177/
+[3] https://bmcgenomics.biomedcentral.com/articles/10.1186/1471-2164-13-572
+[4] https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10055975/
+[5] https://pmc.ncbi.nlm.nih.gov/articles/PMC8185344/
+[6] https://www.frontiersin.org/journals/immunology/articles/10.3389/fimmu.2021.628375/full
+[7] https://en.wikipedia.org/wiki/HLA-DQB1
+[8] https://pmc.ncbi.nlm.nih.gov/articles/PMC9038433/
+
+### CASP8
+
+The gene **CASP8** (Caspase-8) plays several critical roles in the immune system, primarily through its functions in apoptosis, inflammation, and immune cell signaling:
+
+1. **Apoptosis Regulation**:
+   - CASP8 is an initiator caspase involved in the extrinsic pathway of apoptosis, which is triggered by death receptors such as Fas and TRAIL receptors. Its activation leads to the execution of programmed cell death, a vital process for eliminating damaged or infected cells, thereby maintaining tissue homeostasis and preventing autoimmune reactions [1][4].
+
+2. **Inflammation and Necroptosis**:
+   - Beyond its role in apoptosis, CASP8 also regulates necroptosis, a form of programmed cell death that can induce inflammation. CASP8 inhibits necroptosis mediated by RIPK3 and MLKL, thus preventing excessive inflammatory responses that could lead to tissue damage [2][4]. When CASP8 is dysfunctional or absent, cells may undergo necroptosis instead of apoptosis, releasing pro-inflammatory cytokines and damage-associated molecular patterns (DAMPs) into the surrounding environment [1].
+
+3. **Cytokine Production**:
+   - CASP8 is involved in the regulation of pro-inflammatory cytokine expression. It participates in the activation of inflammasomes and the cleavage of interleukin-1β (IL-1β), a key cytokine in inflammatory responses. This indicates that CASP8 has roles beyond cell death, contributing to immune signaling and inflammation [2][5].
+
+4. **Immune Cell Activation**:
+   - CASP8 is essential for optimal transcription of certain inflammatory cytokines independently of its apoptotic function. It plays a role in T cell activation and signaling pathways involving NF-κB, which is crucial for the adaptive immune response [5]. The deficiency of CASP8 can lead to impaired lymphocyte activation and increased susceptibility to infections due to its role in promoting immune cell responses.
+
+5. **Caspase-8 Deficiency State (CEDS)**:
+   - Mutations or deficiencies in CASP8 can lead to immunodeficient phenotypes, characterized by recurrent infections and lymphadenopathy, as seen in conditions like Caspase Eight Deficiency State (CEDS). This highlights the importance of CASP8 in maintaining effective immune function [5].
+
+In summary, CASP8 is integral to regulating apoptosis and inflammation within the immune system. Its functions extend beyond cell death to include roles in cytokine production, immune cell activation, and the regulation of inflammatory responses, making it a critical component of both innate and adaptive immunity.
+
+Citations:
+[1] https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5417704/
+[2] https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8664275/
+[3] https://academic.oup.com/mbe/article/31/12/3282/2925714
+[4] https://www.nature.com/articles/s41586-019-1770-6
+[5] https://en.wikipedia.org/wiki/Caspase_8
+[6] https://www.nature.com/articles/s41418-023-01158-5
+[7] https://pmc.ncbi.nlm.nih.gov/articles/PMC4267237/
+[8] https://www.nature.com/articles/s41586-018-0756-0
+
+### CXXC1
+
+The gene **CXXC1** (CXXC finger protein 1) has several important immune functions, particularly related to T regulatory (Treg) cell development and function:
+
+1. **Regulation of Treg Cell Homeostasis**:
+   - CXXC1 is critical for the maintenance of Treg cells. Deletion of CXXC1 in Treg cells leads to a rapid onset of autoimmune disorders characterized by systemic inflammation and tissue damage. This indicates that CXXC1 is essential for preventing excessive immune activation and maintaining tolerance in the immune system [1].
+
+2. **Interaction with FOXP3**:
+   - CXXC1 interacts with the transcription factor FOXP3, which is crucial for Treg cell function. This interaction helps regulate target genes by modulating histone modifications, specifically H3K4me3, which is important for the expression of genes that maintain Treg cell identity and suppressive functions [1][2].
+
+3. **Epigenetic Regulation**:
+   - As a transcriptional regulator, CXXC1 binds to genomic regions of Treg-specific genes, influencing their expression through epigenetic mechanisms. This includes maintaining H3K4me3 modifications at key regulatory regions, which are essential for the proper functioning of Treg cells [2][3].
+
+4. **Thymocyte Development**:
+   - CXXC1 also plays a role in thymocyte development, controlling the expression of key survival genes necessary for T-cell receptor signaling and overall thymocyte viability. This function is crucial for developing a functional adaptive immune system [2].
+
+5. **Influence on Inflammatory Responses**:
+   - The absence of CXXC1 results in increased expression of inflammatory markers and genes associated with Th1-type inflammation, suggesting that it helps regulate the balance between immune activation and tolerance [1].
+
+6. **Potential Therapeutic Target**:
+   - Given its critical role in Treg cell function and autoimmunity, CXXC1 presents itself as a potential therapeutic target for autoimmune diseases, where enhancing Treg function could help restore immune balance [1].
+
+In summary, CXXC1 is essential for maintaining Treg cell homeostasis and function through its interactions with FOXP3 and its role in epigenetic regulation. Its functions are crucial for preventing autoimmune diseases and ensuring proper immune responses.
+
+Citations:
+[1] https://www.biorxiv.org/content/10.1101/2024.09.30.615805v1.full
+[2] https://www.nature.com/articles/ncomms11687
+[3] https://pubmed.ncbi.nlm.nih.gov/33433611/
+[4] https://bmcgenomics.biomedcentral.com/articles/10.1186/1471-2164-13-572
+[5] https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10055975/
+[6] https://pmc.ncbi.nlm.nih.gov/articles/PMC8185344/
+[7] https://pmc.ncbi.nlm.nih.gov/articles/PMC4267237/
+[8] https://www.nature.com/articles/s41467-017-01381-y
+
+## Basic Functions
+
 ### CEP250
 
 CEP250, also known as C-Nap1, is a centrosomal protein involved in centrosome cohesion and cell cycle regulation. Here’s what is known about its potential role in prostate cancer:
