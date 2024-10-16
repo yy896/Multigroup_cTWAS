@@ -16,17 +16,15 @@ library(ggplot2)
 library(ggrepel)
 library(tidyverse)
 library(data.table)
-library(fgsea)
-library(enrichplot)
-library(ggsci)
-library(ReactomePA)
+library(dplyr)
 
 ens_db <- EnsDb.Hsapiens.v86
 weights <- readRDS(system.file("extdata/project_data", "European.prostate_testis_lymphocytes.weights.RDS", package = "ctwas"))
 ctwas_res <- readRDS(system.file("extdata/project_data", "European.prostate_testis_lymphocytes.ctwas_noLD_allchrs.RDS", package = "ctwas"))
 gwas_n <- 726828
 finemap_res <- readRDS("~/Desktop/Prostate Cancer Project/European.prostate_testis_lymphocytes.finemap_res.RDS")
-finemap_res_sub <- subset(finemap_res, group != "SNP" & gene_type == "protein_coding" & susie_pip > 0.8 & cs_index != 0)
+#finemap_res_sub <- subset(finemap_res, group != "SNP" & susie_pip > 0.8 & !is.na(cs))
+susie_alpha_res <- readRDS("~/Desktop/Prostate Cancer Project/European.prostate_testis_lymphocytes.susie_alpha_res.RDS")
 ```
 
 We present a sample cTWAS report based on real data analysis. The analyzed trait is prostate cancer, the prediction models are Prostate & Testis & Lymphocytes gene expression and splicing models trained on GTEx v8 in the PredictDB format.
@@ -243,13 +241,13 @@ print("The number of genes/introns/SNPs used in the analysis is:")
 ctwas_parameters$group_size
 ```
 
-`ctwas_parameters$attributable_pve` contains the proportion of heritability mediated by molecular traits and variants, we visualize it using pie chart.
+`ctwas_parameters$prop_heritability` contains the proportion of heritability mediated by molecular traits and variants, we visualize it using pie chart.
 
 ```{r piechart, echo=TRUE, eval=TRUE, fig.height=7, fig.width=7}
 ctwas_parameters <- summarize_param(param, gwas_n)
 data <- data.frame(
-  category = names(ctwas_parameters$attributable_pve),
-  percentage = ctwas_parameters$attributable_pve
+  category = names(ctwas_parameters$prop_heritability),
+  percentage = ctwas_parameters$prop_heritability
 )
 # Calculate percentage labels for the chart
 data$percentage_label <- paste0(round(data$percentage * 100, 1), "%")
@@ -297,20 +295,42 @@ finemap_res <- anno_finemap_res(finemap_res,
 
 The annotated fine-mapping results, ones within credible sets are shown
 
-```{r echo=FALSE, eval=TRUE}
-DT::datatable(finemap_res_sub)
+```{r echo=TRUE, eval=TRUE}
+finemap_res_show <- finemap_res[!is.na(finemap_res$cs) &finemap_res$type !="SNP",]
+
+DT::datatable(finemap_res_show,caption = htmltools::tags$caption( style = 'caption-side: topleft; text-align = left; color:black;','The annotated fine-mapping results, ones within credible sets are shown'),options = list(pageLength = 5) )
 ```
 
 Next, we compute gene PIPs across different types of molecular traits.
 
-### Combined PIPs
-```{r echo=TRUE, eval=TRUE, message=FALSE, warning=FALSE}
+```{r echo=TRUE, eval=FALSE}
 library(dplyr)
-combined_pip_by_group <- combine_gene_pips(finemap_res, 
-                                             group_by = "gene_name",
-                                             by = "group",
-                                             method = "combine_cs",
-                                             filter_cs = TRUE)
+
+susie_alpha_res <- ctwas_res$susie_alpha_res
+
+susie_alpha_res <- anno_susie_alpha_res(susie_alpha_res,
+                                        mapping_table = mapping_table,
+                                        map_by = "molecular_id",
+                                        drop_unmapped = TRUE)
+```
+
+Gene PIPs, only genes within credible sets are shown
+
+```{r echo=TRUE, eval=FALSE}
+library(dplyr)
+susie_alpha_res <- anno_susie_alpha_res(susie_alpha_res,
+                                        mapping_table = mapping_table,
+                                        map_by = "molecular_id",
+                                        drop_unmapped = TRUE)
+```
+
+```{r echo=TRUE, eval=TRUE}
+combined_pip_by_group <- combine_gene_pips(susie_alpha_res,
+                                          group_by = "gene_name",
+                                          by = "group",
+                                          method = "combine_cs",
+                                          filter_cs = TRUE,
+                                          include_cs_id = TRUE)
 combined_pip_table <- subset(combined_pip_by_group, combined_pip > 0.8)
 DT::datatable(combined_pip_table)
 ```
@@ -318,111 +338,65 @@ DT::datatable(combined_pip_table)
 ## GSEA Analysis
 
 ```{r pathway setup, echo=FALSE, eval=TRUE}
-pathways.hallmark <- gmtPathways("~/Desktop/Prostate Cancer Project/Pathways/h.all.v2024.1.Hs.symbols.gmt.txt")
-pathways.c2cpkegg <- append(gmtPathways("~/Desktop/Prostate Cancer Project/Pathways/c2.cp.kegg_legacy.v2024.1.Hs.symbols.gmt.txt"), gmtPathways("~/Desktop/Prostate Cancer Project/Pathways/c2.cp.kegg_medicus.v2024.1.Hs.symbols.gmt.txt"))
-pathways.c2cpreactome <- gmtPathways("~/Desktop/Prostate Cancer Project/Pathways/c2.cp.reactome.v2024.1.Hs.symbols.gmt.txt")
-pathways.c2cpbiocarta <- gmtPathways("~/Desktop/Prostate Cancer Project/Pathways/c2.cp.biocarta.v2024.1.Hs.symbols.gmt.txt")
+library(enrichR)
+
+dbs <- c("GO_Biological_Process_2021", "GO_Cellular_Component_2021", "GO_Molecular_Function_2021")
+genes <- combined_pip_by_group$gene_name[combined_pip_by_group$combined_pip >0.8]
+
+#number of genes for gene set enrichment
+sprintf("The number of genes used in enrichment analysis = %s", length(genes))
 ```
 
-```{r 38 genes Hallmark, echo=FALSE, eval=TRUE, warning=FALSE, fig.width=8, fig.height=6}
-res_stat <- combined_pip_table %>% 
-  as_tibble() %>% 
-  dplyr::select(gene_name, combined_pip) %>% 
-  na.omit() %>% 
-  distinct() %>% 
-  group_by(gene_name)
-
-stats <- deframe(res_stat)
-
-### Hallmark
-fgseaRes1_hallmark <- fgsea(pathways=pathways.hallmark, stats=stats)
-
-list <- fgseaRes1_hallmark$leadingEdge
-
-names(list) <- fgseaRes1_hallmark$pathway
-
-fgseaResTidy_stat <- as_tibble(fgseaRes1_hallmark) %>% 
-  arrange() %>% 
-  arrange(desc(NES))  %>% #enrichment score
-  dplyr::select(-leadingEdge, -ES) %>% 
-  arrange(padj) 
-
-(gsea_hallmark_plot <- ggplot(fgseaResTidy_stat, aes(reorder(pathway, NES), NES)) +
-  geom_col(aes(fill=padj<0.05)) +
-  coord_flip() +
-  labs(x="Pathways from GSEA", y="Normalized Enrichment Score") + 
-  theme_minimal() + 
-  ggtitle("Hallmark Pathway of 38 combined-PIP genes") +
-  scale_fill_nejm())
+```{r GO enrichment, echo=FALSE, eval=TRUE}
+GO_enrichment <- enrichr(genes, dbs)
 ```
 
-```{r 38 genes KEGG, echo=FALSE, eval=TRUE, warning=FALSE, fig.width=14, fig.height=10}
-### KEGG
-fgseaRes1_kegg <- fgsea(pathways=pathways.c2cpkegg, stats=stats)
-
-list <- fgseaRes1_kegg$leadingEdge
-
-names(list) <- fgseaRes1_kegg$pathway
-
-fgseaResTidy_stat <- as_tibble(fgseaRes1_kegg) %>% 
-  arrange() %>% 
-  arrange(desc(NES))  %>% #enrichment score
-  dplyr::select(-leadingEdge, -ES) %>% 
-  arrange(padj) 
-
-(gsea_hallmark_plot <- ggplot(fgseaResTidy_stat, aes(reorder(pathway, NES), NES)) +
-  geom_col(aes(fill=padj<0.05)) +
-  coord_flip() +
-  labs(x="Pathways from GSEA", y="Normalized Enrichment Score") + 
-  theme_minimal() + 
-  ggtitle("KEGG Pathway of 38 combined-PIP genes") +
-  scale_fill_nejm())
+```{r figure title1, echo=FALSE, eval=TRUE}
+print("GO_Biological_Process_2021")
 ```
 
-```{r 38 genes Reactome, echo=FALSE, eval=TRUE, warning=FALSE, fig.width=18, fig.height=16}
-### Reactome
-fgseaRes1_reactome <- fgsea(pathways=pathways.c2cpreactome, stats=stats)
-
-list <- fgseaRes1_reactome$leadingEdge
-
-names(list) <- fgseaRes1_reactome$pathway
-
-fgseaResTidy_stat <- as_tibble(fgseaRes1_reactome) %>% 
-  arrange() %>% 
-  arrange(desc(NES))  %>% #enrichment score
-  dplyr::select(-leadingEdge, -ES) %>% 
-  arrange(padj) 
-
-(gsea_hallmark_plot <- ggplot(fgseaResTidy_stat, aes(reorder(pathway, NES), NES)) +
-  geom_col(aes(fill=padj<0.05)) +
-  coord_flip() +
-  labs(x="Pathways from GSEA", y="Normalized Enrichment Score") + 
-  theme_minimal() +   
-  ggtitle("Reactome Pathway of 38 combined-PIP genes") +
-  scale_fill_nejm())
+```{r GO_Biological_Process_2021, echo=FALSE, eval=TRUE}
+db <- "GO_Biological_Process_2021"
+df <- GO_enrichment[[db]]
+print(plotEnrich(GO_enrichment[[db]]))
 ```
 
-```{r 38 genes BioCarta, echo=FALSE, eval=TRUE, warning=FALSE, fig.width=8, fig.height=6}
-### BioCarta
-fgseaRes1_biocarta <- fgsea(pathways=pathways.c2cpbiocarta, stats=stats)
+```{r echo=FALSE, eval=TRUE}
+df <- df[df$Adjusted.P.value<0.05,c("Term", "Overlap", "Adjusted.P.value", "Genes")]
 
-list <- fgseaRes1_biocarta$leadingEdge
+DT::datatable(df,caption = htmltools::tags$caption( style = 'caption-side: topleft; text-align = left; color:black;','Enriched pathways from GO_Biological_Process_2021'),options = list(pageLength = 5) )
+```
 
-names(list) <- fgseaRes1_biocarta$pathway
+```{r figure title2, echo=FALSE, eval=TRUE}
+print("GO_Cellular_Component_2021")
+```
 
-fgseaResTidy_stat <- as_tibble(fgseaRes1_biocarta) %>% 
-  arrange() %>% 
-  arrange(desc(NES))  %>% #enrichment score
-  dplyr::select(-leadingEdge, -ES) %>% 
-  arrange(padj) 
+```{r GO_Cellular_Component_2021, echo=FALSE, eval=TRUE}
+db <- "GO_Cellular_Component_2021"
+df <- GO_enrichment[[db]]
+print(plotEnrich(GO_enrichment[[db]]))
+```
 
-(gsea_hallmark_plot <- ggplot(fgseaResTidy_stat, aes(reorder(pathway, NES), NES)) +
-  geom_col(aes(fill=padj<0.05)) +
-  coord_flip() +
-  labs(x="Pathways from GSEA", y="Normalized Enrichment Score") + 
-  theme_minimal() +   
-  ggtitle("BioCarta Pathway of 38 combined-PIP genes") +
-  scale_fill_nejm())
+```{r echo=FALSE, eval=TRUE}
+df <- df[df$Adjusted.P.value<0.05,c("Term", "Overlap", "Adjusted.P.value", "Genes")]
+
+DT::datatable(df,caption = htmltools::tags$caption( style = 'caption-side: topleft; text-align = left; color:black;','Enriched pathways from GO_Cellular_Component_2021'),options = list(pageLength = 5) )
+```
+
+```{r figure title3, echo=FALSE, eval=TRUE}
+print("GO_Molecular_Function_2021")
+```
+
+```{r GO_Molecular_Function_2021, echo=FALSE, eval=TRUE}
+db <- "GO_Molecular_Function_2021"
+df <- GO_enrichment[[db]]
+print(plotEnrich(GO_enrichment[[db]]))
+```
+
+```{r echo=FALSE, eval=TRUE}
+df <- df[df$Adjusted.P.value<0.05,c("Term", "Overlap", "Adjusted.P.value", "Genes")]
+
+DT::datatable(df,caption = htmltools::tags$caption( style = 'caption-side: topleft; text-align = left; color:black;','Enriched pathways from GO_Molecular_Function_2021'),options = list(pageLength = 5) )
 ```
 
 ## Locus plots (from highest PIP to lowest 0.8 cutoff)
