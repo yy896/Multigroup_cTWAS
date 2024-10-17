@@ -24,6 +24,7 @@ ctwas_res <- readRDS(system.file("extdata/project_data", "European.combined.ctwa
 gwas_n <- 726828
 finemap_res <- readRDS("~/Desktop/Prostate Cancer Project/European.combined.finemap_reschr2_22.RDS")
 susie_alpha_res <- readRDS("~/Desktop/Prostate Cancer Project/European.combined.susie_alpha_res_chr2_22.RDS")
+#finemap_res_sub <- subset(finemap_res, group != "SNP" & gene_type == "protein_coding" & susie_pip > 0.8 & !is.na(cs))
 ```
 
 We present a sample cTWAS report based on real data analysis. The analyzed trait is prostate cancer, the prediction models are Prostate & Testis & Lymphocytes gene expression and splicing models trained on GTEx v8 in the PredictDB format.
@@ -427,3 +428,95 @@ df <- df[df$Adjusted.P.value<0.05,c("Term", "Overlap", "Adjusted.P.value", "Gene
 DT::datatable(df,caption = htmltools::tags$caption( style = 'caption-side: topleft; text-align = left; color:black;','Enriched pathways from GO_Molecular_Function_2021'),options = list(pageLength = 5) )
 ```
 
+## Locus plots (from highest PIP to lowest 0.8 cutoff)
+```{r locus plot, echo=TRUE, eval=TRUE, fig.height=6, fig.width=10}
+make_locusplot(finemap_res,
+               region_id = "2_240620667_241210506",
+               ens_db = ens_db,
+               weights = weights,
+               highlight_pip = 0.8,
+               filter_protein_coding_genes = TRUE,
+               filter_cs = TRUE,
+               color_pval_by = "cs",
+               color_pip_by = "cs")
+
+make_locusplot(finemap_res,
+               region_id = "2_241210506_242147200",
+               ens_db = ens_db,
+               weights = weights,
+               highlight_pip = 0.8,
+               filter_protein_coding_genes = TRUE,
+               filter_cs = TRUE,
+               color_pval_by = "cs",
+               color_pip_by = "cs")
+
+make_locusplot(finemap_res,
+               region_id = "2_236540389_237852338",
+               ens_db = ens_db,
+               weights = weights,
+               highlight_pip = 0.8,
+               filter_protein_coding_genes = TRUE,
+               filter_cs = TRUE,
+               color_pval_by = "cs",
+               color_pip_by = "cs")
+
+make_locusplot(finemap_res,
+               region_id = "2_70528066_72947719",
+               ens_db = ens_db,
+               weights = weights,
+               highlight_pip = 0.8,
+               filter_protein_coding_genes = TRUE,
+               filter_cs = TRUE,
+               color_pval_by = "cs",
+               color_pip_by = "cs")
+
+make_locusplot(finemap_res,
+               region_id = "2_205870980_207780675",
+               ens_db = ens_db,
+               weights = weights,
+               highlight_pip = 0.8,
+               filter_protein_coding_genes = TRUE,
+               filter_cs = TRUE,
+               color_pval_by = "cs",
+               color_pip_by = "cs")
+
+make_locusplot(finemap_res,
+               region_id = "2_19492643_20850730",
+               ens_db = ens_db,
+               weights = weights,
+               highlight_pip = 0.8,
+               filter_protein_coding_genes = TRUE,
+               filter_cs = TRUE,
+               color_pval_by = "cs",
+               color_pip_by = "cs")
+
+make_locusplot(finemap_res,
+               region_id = "2_213149558_214709071",
+               ens_db = ens_db,
+               weights = weights,
+               highlight_pip = 0.8,
+               filter_protein_coding_genes = TRUE,
+               filter_cs = TRUE,
+               color_pval_by = "cs",
+               color_pip_by = "cs")
+
+make_locusplot(finemap_res,
+               region_id = "2_132285211_134401007",
+               ens_db = ens_db,
+               weights = weights,
+               highlight_pip = 0.8,
+               filter_protein_coding_genes = TRUE,
+               filter_cs = TRUE,
+               color_pval_by = "cs",
+               color_pip_by = "cs")
+
+make_locusplot(finemap_res,
+               region_id = "2_241210506_242147200",
+               ens_db = ens_db,
+               weights = weights,
+               highlight_pip = 0.8,
+               filter_protein_coding_genes = TRUE,
+               filter_cs = TRUE,
+               color_pval_by = "cs",
+               color_pip_by = "cs")
+```
