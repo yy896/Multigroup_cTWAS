@@ -27,7 +27,7 @@ susie_alpha_res <- readRDS("~/Desktop/Prostate Cancer Project/European.combined.
 #finemap_res_sub <- subset(finemap_res, group != "SNP" & gene_type == "protein_coding" & susie_pip > 0.8 & !is.na(cs))
 ```
 
-We present a sample cTWAS report based on real data analysis. The analyzed trait is prostate cancer, the prediction models are Prostate & Testis & Lymphocytes gene expression and splicing models trained on GTEx v8 in the PredictDB format.
+Here presenting a cTWAS results report based on real data analysis. The analyzed trait is prostate cancer, the prediction models are Prostate & Testis & Lymphocytes gene expression and splicing models trained on GTEx v8 in the PredictDB format, and RefZ FUSION weights expression data under NIH accession number phs000985.v2.p1.
 
 ## Analysis Settings
 
@@ -45,11 +45,11 @@ print("gwas_n = 726828")
 
 * Prediction models
 
-The prediction models used in this analysis are prostate & testis & lymphocytes gene expression and splicing models, trained on GTEx v8 in the PredictDB format. These models can be downloaded from https://predictdb.org/post/2021/07/21/gtex-v8-models-on-eqtl-and-sqtl/
+The prediction models used in this analysis are prostate & testis & lymphocytes gene expression and splicing models, trained on GTEx v8 in the PredictDB format. These models can be downloaded from https://predictdb.org/post/2021/07/21/gtex-v8-models-on-eqtl-and-sqtl/. The RefZ weights model can be downloaded from https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/study.cgi?study_id=phs000985.v2.p1.
 
 * Reference data
 
-We did not include LD reference in the analysis.
+We did include ukb38 whole genome LD reference in the analysis.
 
 ### Data processing and harmonization
 
@@ -91,15 +91,20 @@ ncore <- 6
 * Preprocessing GWAS
 
 ```{r echo=TRUE, eval=FALSE}
-### Preprocess SNP_map
-ref_snp_info_file <- system.file("extdata/project_data", "ukb_b38_0.1_var_info.Rvar.gz", package = "ctwas")
+### Preprocess SNP_map and LD_map
+LD_dir <- "~/Desktop/Prostate Cancer Project/LD_b38"
+genome_version <- "b38"
 
-ref_snp_info <- data.table::fread(ref_snp_info_file, sep = "\t")
-class(ref_snp_info) <- "data.frame"
+LD_filestem <- sprintf("ukb_%s_0.1_chr%s.R_snp.%s_%s", genome_version, region_info$chrom, region_info$start, region_info$stop)
 
-res <- create_snp_map(region_info, ref_snp_info)
+region_metatable <- region_info
+region_metatable$LD_file <- file.path(LD_dir, paste0(LD_filestem, ".RDS"))
+region_metatable$SNP_file <- file.path(LD_dir, paste0(LD_filestem, ".Rvar"))
+
+res <- create_snp_LD_map(region_metatable)
 region_info <- res$region_info
 snp_map <- res$snp_map
+LD_map <- res$LD_map
 
 ### Preprocess GWAS z-scores
 z_snp <- preprocess_z_snp(z_snp, snp_map, 
@@ -208,6 +213,23 @@ weights_RefZ_prostate <- preprocess_weights("~/Desktop/Prostate Cancer Project/M
                               load_predictdb_LD = FALSE,
                               ncore = 4)
 
+weights_RefZ_prostate <- preprocess_weights("~/Desktop/Prostate Cancer Project/MAYO/weights",
+                              region_info,
+                              gwas_snp_ids = z_snp$id,
+                              snp_map = snp_map,
+                              LD_map = LD_map,
+                              type = "RefZ_expression",
+                              context = "prostate",                         
+                              weight_format = "FUSION",
+                              fusion_method = "lasso",
+                              fusion_genome_version = "b38",
+                              top_n_snps = NULL,
+                              drop_strand_ambig = TRUE,
+                              filter_protein_coding_genes = FALSE,
+                              scale_predictdb_weights = FALSE,
+                              load_predictdb_LD = FALSE,
+                              ncore = 4)
+
 weights <- c(
   weights_prostate_expression,
   weights_prostate_splicing,
@@ -220,7 +242,7 @@ weights <- c(
 
 ## Running cTWAS analysis
 
-We use the ctwas main function `ctwas_sumstats_noLD` to run the cTWAS analysis without LD. For more details on this function, refer to the cTWAS tutorial: https://xinhe-lab.github.io/multigroup_ctwas/articles/minimal_tutorial.html
+We use the ctwas main function `ctwas_sumstats` to run the cTWAS analysis without LD. For more details on this function, refer to the cTWAS tutorial: https://xinhe-lab.github.io/multigroup_ctwas/articles/running_ctwas_analysis.html
 
 All arguments are set to their default values.
 
@@ -309,7 +331,7 @@ We process the fine-mapping results here.
 
 We first add gene annotations to cTWAS results.
 
-`mapping_table` is the combination of both expression and splicing data.
+`mapping_table` is a combination of expression, splicing models and RefZ expression data.
 
 ```{r echo=TRUE, eval=FALSE}
 finemap_res <- anno_finemap_res(finemap_res,
@@ -364,7 +386,7 @@ combined_pip_table <- subset(combined_pip_by_group, combined_pip > 0.8)
 DT::datatable(combined_pip_table)
 ```
 
-## GSEA Analysis
+## GSEA-Gene Ontology
 
 ```{r pathway setup, echo=TRUE, eval=TRUE, warning=FALSE, message=FALSE}
 library(enrichR)
