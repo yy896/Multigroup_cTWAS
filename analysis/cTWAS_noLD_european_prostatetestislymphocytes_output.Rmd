@@ -335,6 +335,21 @@ combined_pip_table <- subset(combined_pip_by_group, combined_pip > 0.8)
 DT::datatable(combined_pip_table)
 ```
 
+## Ideogram
+
+```{r Ideogram, echo=FALSE, eval=TRUE, fig.height=20, fig.width=20}
+library(karyoploteR)
+
+kp <- plotKaryotype(genome="hg38", chromosomes="autosomal")
+kpAddCytobandLabels(kp, force.all = TRUE)
+
+tmp <- as.data.frame(str_split_fixed(combined_pip_table$combined_cs_id, "_", 3))
+names(tmp) <- c("chrom", "start", "end")
+tmp$start <- as.numeric(tmp$start)
+tmp$chrom <- sub("^","chr", tmp$chrom)
+kpPlotMarkers(kp, chr=tmp$chrom, x=tmp$start, labels=combined_pip_table$gene_name, text.orientation = "horizontal")
+```
+
 ## GSEA Analysis
 
 ```{r pathway setup, echo=TRUE, eval=TRUE, warning=FALSE, message=FALSE}

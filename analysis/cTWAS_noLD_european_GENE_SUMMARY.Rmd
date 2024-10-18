@@ -127,40 +127,6 @@ Citations:
 [7] https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2020.00975/full
 [8] https://www.frontiersin.org/journals/cellular-neuroscience/articles/10.3389/fncel.2024.1315941/full
 
-### ARNT2
-
-Based on the search results, ARNT2 (Aryl Hydrocarbon Receptor Nuclear Translocator 2) appears to have several indirect roles related to immune function:
-
-1. Regulation of immune-related pathways:
-ARNT2 expression is negatively correlated with immune-related pathways in nasopharyngeal carcinoma (NPC). This suggests that ARNT2 may play a role in modulating immune responses in cancer[1].
-
-2. Correlation with immune cell infiltration:
-In NPC, ARNT2 expression was found to be correlated with the infiltration of five different immune cell types. This indicates that ARNT2 may influence the tumor immune microenvironment[1].
-
-3. Potential role in inflammation:
-ARNT2 may regulate PTGS2 (prostaglandin-endoperoxide synthase 2), an inflammatory factor, suggesting a possible role in inflammatory processes[1].
-
-4. Impact on oligodendrocyte immune responses:
-In models of multiple sclerosis, ARNT2 expression in oligodendrocytes is altered. This change may affect oligodendrocyte viability and differentiation, potentially influencing immune responses in the central nervous system[2].
-
-5. Protection against apoptosis:
-ARNT2 has been thought to protect against apoptosis in some cell types. This anti-apoptotic function could indirectly affect immune responses by influencing cell survival[2].
-
-6. Involvement in thymic development:
-ARNT2 knockout in mice leads to thymic defects, suggesting a role in the development of this crucial immune organ[2].
-
-While ARNT2 does not appear to have a direct immune function, its involvement in regulating gene expression, cell survival, and tissue development indirectly impacts immune processes. Its roles in modulating immune cell infiltration, inflammatory pathways, and the development of immune-related organs suggest that ARNT2 is an important factor in the broader context of immune system function and regulation.
-
-Citations:
-[1] https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9532129/
-[2] https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7251514/
-[3] https://pmc.ncbi.nlm.nih.gov/articles/PMC9681662/
-[4] https://www.frontiersin.org/journals/cell-and-developmental-biology/articles/10.3389/fcell.2021.641891/full
-[5] https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6756047/
-[6] https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2020.00975/full
-[7] https://www.nature.com/articles/s41392-024-01804-5
-[8] https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7306890/
-
 ### ADGRG1
 
 Based on the search results, ADGRG1 (also known as GPR56) has several important immune functions:
