@@ -543,15 +543,15 @@ project makes it easier to run your code on other machines.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomyy896MultigroupcTWAStreeef52ab8047e8346bdd24f388f12838a1a5e4f2aatargetblankef52ab8a">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomyy896MultigroupcTWAStree73e272fed8159669f0142387ab0346854d2af7c9targetblank73e272fa">
 <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span> <strong>Repository version:</strong>
-<a href="https://github.com/yy896/Multigroup_cTWAS/tree/ef52ab8047e8346bdd24f388f12838a1a5e4f2aa" target="_blank">ef52ab8</a>
+<a href="https://github.com/yy896/Multigroup_cTWAS/tree/73e272fed8159669f0142387ab0346854d2af7c9" target="_blank">73e272f</a>
 </a>
 </p>
 </div>
 <div
-id="strongRepositoryversionstrongahrefhttpsgithubcomyy896MultigroupcTWAStreeef52ab8047e8346bdd24f388f12838a1a5e4f2aatargetblankef52ab8a"
+id="strongRepositoryversionstrongahrefhttpsgithubcomyy896MultigroupcTWAStree73e272fed8159669f0142387ab0346854d2af7c9targetblank73e272fa"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -561,7 +561,7 @@ reproducibility.
 </p>
 <p>
 The results in this page were generated with repository version
-<a href="https://github.com/yy896/Multigroup_cTWAS/tree/ef52ab8047e8346bdd24f388f12838a1a5e4f2aa" target="_blank">ef52ab8</a>.
+<a href="https://github.com/yy896/Multigroup_cTWAS/tree/73e272fed8159669f0142387ab0346854d2af7c9" target="_blank">73e272f</a>.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -626,6 +626,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/yy896/Multigroup_cTWAS/blob/73e272fed8159669f0142387ab0346854d2af7c9/analysis/cTWAS_noLD_european_prostatetestislymphocytes_output.Rmd" target="_blank">73e272f</a>
+</td>
+<td>
+yy896
+</td>
+<td>
+2024-10-21
+</td>
+<td>
+Add my first analysis
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/yy896/Multigroup_cTWAS/5c4974115721c650f78c35e27dd2f94123f0d393/docs/cTWAS_noLD_european_prostatetestislymphocytes_output.html" target="_blank">5c49741</a>
+</td>
+<td>
+yy896
+</td>
+<td>
+2024-10-21
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -1371,7 +1405,7 @@ splicing data.</p>
                                 use_gene_pos = &quot;mid&quot;)</code></pre>
 <p>The annotated fine-mapping results, ones within credible sets are
 shown</p>
-<pre class="r"><code>finemap_res_show &lt;- subset(finemap_res, group != &quot;SNP&quot; &amp; gene_type == &quot;protein_coding&quot; &amp; susie_pip &gt; 0.8 &amp; !is.na(cs))
+<pre class="r"><code>finemap_res_show &lt;- subset(finemap_res, group != &quot;SNP&quot; &amp; gene_type == &quot;protein_coding&quot; &amp; susie_pip &gt;= 0.8 &amp; !is.na(cs))
 
 DT::datatable(finemap_res_show,caption = htmltools::tags$caption( style = &#39;caption-side: topleft; text-align = left; color:black;&#39;,&#39;The annotated fine-mapping results, ones within credible sets are shown&#39;),options = list(pageLength = 5) )</code></pre>
 <div class="datatables html-widget html-fill-item" id="htmlwidget-232a8e63d6aacd296363" style="width:100%;height:auto;"></div>
@@ -1620,14 +1654,14 @@ class="section level2">
                filter_cs = TRUE,
                color_pval_by = &quot;cs&quot;,
                color_pip_by = &quot;cs&quot;)</code></pre>
-<pre><code>2024-10-21 13:21:07.795894 INFO::Limit to protein coding genes
-2024-10-21 13:21:07.800261 INFO::focal id: ENSG00000126001.15|testis_expression
-2024-10-21 13:21:07.804797 INFO::focal molecular trait: CEP250 testis expression
-2024-10-21 13:21:07.80525 INFO::Range of locus: chr20:34225783-36331600</code></pre>
+<pre><code>2024-10-21 16:24:30.638446 INFO::Limit to protein coding genes
+2024-10-21 16:24:30.642754 INFO::focal id: ENSG00000126001.15|testis_expression
+2024-10-21 16:24:30.64664 INFO::focal molecular trait: CEP250 testis expression
+2024-10-21 16:24:30.646935 INFO::Range of locus: chr20:34225783-36331600</code></pre>
 <pre><code>chromosome 20, position 34225783 to 36331600</code></pre>
 <pre><code>4318 SNPs/datapoints</code></pre>
-<pre><code>2024-10-21 13:21:08.027691 INFO::focal molecular trait QTL positions: 35445740,35454222,35456125
-2024-10-21 13:21:08.045012 INFO::Limit PIPs to credible sets</code></pre>
+<pre><code>2024-10-21 16:24:30.914888 INFO::focal molecular trait QTL positions: 35445740,35454222,35456125
+2024-10-21 16:24:30.9313 INFO::Limit PIPs to credible sets</code></pre>
 <pre><code>Warning: ggrepel: 880 unlabeled data points (too many overlaps). Consider
 increasing max.overlaps</code></pre>
 <p><img src="figure/cTWAS_noLD_european_prostatetestislymphocytes_output.Rmd/locus%20plot-1.png" width="960" style="display: block; margin: auto;" /></p>
@@ -1710,14 +1744,14 @@ yy896
                filter_cs = TRUE,
                color_pval_by = &quot;cs&quot;,
                color_pip_by = &quot;cs&quot;)</code></pre>
-<pre><code>2024-10-21 13:21:09.593811 INFO::Limit to protein coding genes
-2024-10-21 13:21:09.594392 INFO::focal id: intron_2_241195845_241199316|prostate_splicing
-2024-10-21 13:21:09.594624 INFO::focal molecular trait: ANO7 prostate splicing
-2024-10-21 13:21:09.594887 INFO::Range of locus: chr2:240618245-241608572</code></pre>
+<pre><code>2024-10-21 16:24:32.501302 INFO::Limit to protein coding genes
+2024-10-21 16:24:32.501891 INFO::focal id: intron_2_241195845_241199316|prostate_splicing
+2024-10-21 16:24:32.502118 INFO::focal molecular trait: ANO7 prostate splicing
+2024-10-21 16:24:32.502374 INFO::Range of locus: chr2:240618245-241608572</code></pre>
 <pre><code>chromosome 2, position 240618245 to 241608572</code></pre>
 <pre><code>2174 SNPs/datapoints</code></pre>
-<pre><code>2024-10-21 13:21:09.737241 INFO::focal molecular trait QTL positions: 241195850,241202304
-2024-10-21 13:21:09.750586 INFO::Limit PIPs to credible sets</code></pre>
+<pre><code>2024-10-21 16:24:32.653785 INFO::focal molecular trait QTL positions: 241195850,241202304
+2024-10-21 16:24:32.666903 INFO::Limit PIPs to credible sets</code></pre>
 <pre><code>Warning: ggrepel: 213 unlabeled data points (too many overlaps). Consider
 increasing max.overlaps</code></pre>
 <p><img src="figure/cTWAS_noLD_european_prostatetestislymphocytes_output.Rmd/locus%20plot-2.png" width="960" style="display: block; margin: auto;" /></p>
@@ -1800,14 +1834,14 @@ yy896
                filter_cs = TRUE,
                color_pval_by = &quot;cs&quot;,
                color_pip_by = &quot;cs&quot;)</code></pre>
-<pre><code>2024-10-21 13:21:10.617293 INFO::Limit to protein coding genes
-2024-10-21 13:21:10.617992 INFO::focal id: ENSG00000170892.10|testis_expression
-2024-10-21 13:21:10.618258 INFO::focal molecular trait: TSEN34 testis expression
-2024-10-21 13:21:10.618547 INFO::Range of locus: chr19:54098580-55244488</code></pre>
+<pre><code>2024-10-21 16:24:33.538296 INFO::Limit to protein coding genes
+2024-10-21 16:24:33.538971 INFO::focal id: ENSG00000170892.10|testis_expression
+2024-10-21 16:24:33.539252 INFO::focal molecular trait: TSEN34 testis expression
+2024-10-21 16:24:33.539531 INFO::Range of locus: chr19:54098580-55244488</code></pre>
 <pre><code>chromosome 19, position 54098580 to 55244488</code></pre>
 <pre><code>4136 SNPs/datapoints</code></pre>
-<pre><code>2024-10-21 13:21:10.736975 INFO::focal molecular trait QTL positions: 54189591,54190017
-2024-10-21 13:21:10.91832 INFO::Limit PIPs to credible sets</code></pre>
+<pre><code>2024-10-21 16:24:33.842128 INFO::focal molecular trait QTL positions: 54189591,54190017
+2024-10-21 16:24:33.855727 INFO::Limit PIPs to credible sets</code></pre>
 <pre><code>Warning: ggrepel: 388 unlabeled data points (too many overlaps). Consider
 increasing max.overlaps</code></pre>
 <p><img src="figure/cTWAS_noLD_european_prostatetestislymphocytes_output.Rmd/locus%20plot-3.png" width="960" style="display: block; margin: auto;" /></p>
@@ -1890,14 +1924,14 @@ yy896
                filter_cs = TRUE,
                color_pval_by = &quot;cs&quot;,
                color_pip_by = &quot;cs&quot;)</code></pre>
-<pre><code>2024-10-21 13:21:11.837694 INFO::Limit to protein coding genes
-2024-10-21 13:21:11.838371 INFO::focal id: ENSG00000179409.10|prostate_expression
-2024-10-21 13:21:11.838645 INFO::focal molecular trait: GEMIN4 prostate expression
-2024-10-21 13:21:11.838941 INFO::Range of locus: chr17:150409-1727661</code></pre>
+<pre><code>2024-10-21 16:24:34.777871 INFO::Limit to protein coding genes
+2024-10-21 16:24:34.7785 INFO::focal id: ENSG00000179409.10|prostate_expression
+2024-10-21 16:24:34.778765 INFO::focal molecular trait: GEMIN4 prostate expression
+2024-10-21 16:24:34.779044 INFO::Range of locus: chr17:150409-1727661</code></pre>
 <pre><code>chromosome 17, position 150409 to 1727661</code></pre>
 <pre><code>4317 SNPs/datapoints</code></pre>
-<pre><code>2024-10-21 13:21:11.926693 INFO::focal molecular trait QTL positions: 715725
-2024-10-21 13:21:11.940742 INFO::Limit PIPs to credible sets</code></pre>
+<pre><code>2024-10-21 16:24:34.863499 INFO::focal molecular trait QTL positions: 715725
+2024-10-21 16:24:34.877115 INFO::Limit PIPs to credible sets</code></pre>
 <pre><code>Warning: ggrepel: 210 unlabeled data points (too many overlaps). Consider
 increasing max.overlaps</code></pre>
 <p><img src="figure/cTWAS_noLD_european_prostatetestislymphocytes_output.Rmd/locus%20plot-4.png" width="960" style="display: block; margin: auto;" /></p>
@@ -1980,14 +2014,14 @@ yy896
                filter_cs = TRUE,
                color_pval_by = &quot;cs&quot;,
                color_pip_by = &quot;cs&quot;)</code></pre>
-<pre><code>2024-10-21 13:21:12.913425 INFO::Limit to protein coding genes
-2024-10-21 13:21:12.914126 INFO::focal id: ENSG00000165495.15|prostate_expression
-2024-10-21 13:21:12.914395 INFO::focal molecular trait: PKNOX2 prostate expression
-2024-10-21 13:21:12.914682 INFO::Range of locus: chr11:124627414-126441118</code></pre>
+<pre><code>2024-10-21 16:24:35.869191 INFO::Limit to protein coding genes
+2024-10-21 16:24:35.869877 INFO::focal id: ENSG00000165495.15|prostate_expression
+2024-10-21 16:24:35.870152 INFO::focal molecular trait: PKNOX2 prostate expression
+2024-10-21 16:24:35.87043 INFO::Range of locus: chr11:124627414-126441118</code></pre>
 <pre><code>chromosome 11, position 124627414 to 126441118</code></pre>
 <pre><code>5527 SNPs/datapoints</code></pre>
-<pre><code>2024-10-21 13:21:13.002275 INFO::focal molecular trait QTL positions: 125184897
-2024-10-21 13:21:13.015371 INFO::Limit PIPs to credible sets</code></pre>
+<pre><code>2024-10-21 16:24:35.956097 INFO::focal molecular trait QTL positions: 125184897
+2024-10-21 16:24:35.969251 INFO::Limit PIPs to credible sets</code></pre>
 <pre><code>Warning: ggrepel: 542 unlabeled data points (too many overlaps). Consider
 increasing max.overlaps</code></pre>
 <p><img src="figure/cTWAS_noLD_european_prostatetestislymphocytes_output.Rmd/locus%20plot-5.png" width="960" style="display: block; margin: auto;" /></p>
@@ -2070,14 +2104,14 @@ yy896
                filter_cs = TRUE,
                color_pval_by = &quot;cs&quot;,
                color_pip_by = &quot;cs&quot;)</code></pre>
-<pre><code>2024-10-21 13:21:14.153735 INFO::Limit to protein coding genes
-2024-10-21 13:21:14.154367 INFO::focal id: ENSG00000153786.12|prostate_expression
-2024-10-21 13:21:14.154619 INFO::focal molecular trait: ZDHHC7 prostate expression
-2024-10-21 13:21:14.154891 INFO::Range of locus: chr16:84412178-85114834</code></pre>
+<pre><code>2024-10-21 16:24:37.143535 INFO::Limit to protein coding genes
+2024-10-21 16:24:37.144128 INFO::focal id: ENSG00000153786.12|prostate_expression
+2024-10-21 16:24:37.144373 INFO::focal molecular trait: ZDHHC7 prostate expression
+2024-10-21 16:24:37.144639 INFO::Range of locus: chr16:84412178-85114834</code></pre>
 <pre><code>chromosome 16, position 84412178 to 85114834</code></pre>
 <pre><code>3456 SNPs/datapoints</code></pre>
-<pre><code>2024-10-21 13:21:14.210012 INFO::focal molecular trait QTL positions: 85011497,85011520,85018213
-2024-10-21 13:21:14.223067 INFO::Limit PIPs to credible sets</code></pre>
+<pre><code>2024-10-21 16:24:37.200328 INFO::focal molecular trait QTL positions: 85011497,85011520,85018213
+2024-10-21 16:24:37.21418 INFO::Limit PIPs to credible sets</code></pre>
 <pre><code>Warning: ggrepel: 155 unlabeled data points (too many overlaps). Consider
 increasing max.overlaps</code></pre>
 <p><img src="figure/cTWAS_noLD_european_prostatetestislymphocytes_output.Rmd/locus%20plot-6.png" width="960" style="display: block; margin: auto;" /></p>
@@ -2160,14 +2194,14 @@ yy896
                filter_cs = TRUE,
                color_pval_by = &quot;cs&quot;,
                color_pip_by = &quot;cs&quot;)</code></pre>
-<pre><code>2024-10-21 13:21:14.98021 INFO::Limit to protein coding genes
-2024-10-21 13:21:14.981028 INFO::focal id: ENSG00000115648.13|lymphocytes_expression
-2024-10-21 13:21:14.981327 INFO::focal molecular trait: MLPH lymphocytes expression
-2024-10-21 13:21:14.981605 INFO::Range of locus: chr2:236541810-237851575</code></pre>
+<pre><code>2024-10-21 16:24:37.976642 INFO::Limit to protein coding genes
+2024-10-21 16:24:37.977235 INFO::focal id: ENSG00000115648.13|lymphocytes_expression
+2024-10-21 16:24:37.977499 INFO::focal molecular trait: MLPH lymphocytes expression
+2024-10-21 16:24:37.977774 INFO::Range of locus: chr2:236541810-237851575</code></pre>
 <pre><code>chromosome 2, position 236541810 to 237851575</code></pre>
 <pre><code>4211 SNPs/datapoints</code></pre>
-<pre><code>2024-10-21 13:21:15.047721 INFO::focal molecular trait QTL positions: 237484645,237484791
-2024-10-21 13:21:15.061947 INFO::Limit PIPs to credible sets</code></pre>
+<pre><code>2024-10-21 16:24:38.357616 INFO::focal molecular trait QTL positions: 237484645,237484791
+2024-10-21 16:24:38.371234 INFO::Limit PIPs to credible sets</code></pre>
 <pre><code>Warning: ggrepel: 130 unlabeled data points (too many overlaps). Consider
 increasing max.overlaps</code></pre>
 <p><img src="figure/cTWAS_noLD_european_prostatetestislymphocytes_output.Rmd/locus%20plot-7.png" width="960" style="display: block; margin: auto;" /></p>
@@ -2250,14 +2284,14 @@ yy896
                filter_cs = TRUE,
                color_pval_by = &quot;cs&quot;,
                color_pip_by = &quot;cs&quot;)</code></pre>
-<pre><code>2024-10-21 13:21:16.091761 INFO::Limit to protein coding genes
-2024-10-21 13:21:16.092421 INFO::focal id: ENSG00000143545.8|lymphocytes_expression
-2024-10-21 13:21:16.092673 INFO::focal molecular trait: RAB13 lymphocytes expression
-2024-10-21 13:21:16.092945 INFO::Range of locus: chr1:153208786-154797763</code></pre>
+<pre><code>2024-10-21 16:24:39.099839 INFO::Limit to protein coding genes
+2024-10-21 16:24:39.100448 INFO::focal id: ENSG00000143545.8|lymphocytes_expression
+2024-10-21 16:24:39.100696 INFO::focal molecular trait: RAB13 lymphocytes expression
+2024-10-21 16:24:39.100964 INFO::Range of locus: chr1:153208786-154797763</code></pre>
 <pre><code>chromosome 1, position 153208786 to 154797763</code></pre>
 <pre><code>3641 SNPs/datapoints</code></pre>
-<pre><code>2024-10-21 13:21:16.178115 INFO::focal molecular trait QTL positions: 153985724,153989308
-2024-10-21 13:21:16.191426 INFO::Limit PIPs to credible sets</code></pre>
+<pre><code>2024-10-21 16:24:39.186756 INFO::focal molecular trait QTL positions: 153985724,153989308
+2024-10-21 16:24:39.199703 INFO::Limit PIPs to credible sets</code></pre>
 <pre><code>Warning: ggrepel: 432 unlabeled data points (too many overlaps). Consider
 increasing max.overlaps</code></pre>
 <p><img src="figure/cTWAS_noLD_european_prostatetestislymphocytes_output.Rmd/locus%20plot-8.png" width="960" style="display: block; margin: auto;" /></p>
@@ -2340,14 +2374,14 @@ yy896
                filter_cs = TRUE,
                color_pval_by = &quot;cs&quot;,
                color_pip_by = &quot;cs&quot;)</code></pre>
-<pre><code>2024-10-21 13:21:17.404339 INFO::Limit to protein coding genes
-2024-10-21 13:21:17.405092 INFO::focal id: ENSG00000105327.17|prostate_expression
-2024-10-21 13:21:17.405395 INFO::focal molecular trait: BBC3 prostate expression
-2024-10-21 13:21:17.405693 INFO::Range of locus: chr19:46646725-48778681</code></pre>
+<pre><code>2024-10-21 16:24:40.41755 INFO::Limit to protein coding genes
+2024-10-21 16:24:40.418297 INFO::focal id: ENSG00000105327.17|prostate_expression
+2024-10-21 16:24:40.418596 INFO::focal molecular trait: BBC3 prostate expression
+2024-10-21 16:24:40.418887 INFO::Range of locus: chr19:46646725-48778681</code></pre>
 <pre><code>chromosome 19, position 46646725 to 48778681</code></pre>
 <pre><code>6583 SNPs/datapoints</code></pre>
-<pre><code>2024-10-21 13:21:17.496059 INFO::focal molecular trait QTL positions: 47232618
-2024-10-21 13:21:17.510636 INFO::Limit PIPs to credible sets</code></pre>
+<pre><code>2024-10-21 16:24:40.502008 INFO::focal molecular trait QTL positions: 47232618
+2024-10-21 16:24:40.515057 INFO::Limit PIPs to credible sets</code></pre>
 <pre><code>Warning: ggrepel: 738 unlabeled data points (too many overlaps). Consider
 increasing max.overlaps</code></pre>
 <p><img src="figure/cTWAS_noLD_european_prostatetestislymphocytes_output.Rmd/locus%20plot-9.png" width="960" style="display: block; margin: auto;" /></p>
@@ -2430,14 +2464,14 @@ yy896
                filter_cs = TRUE,
                color_pval_by = &quot;cs&quot;,
                color_pip_by = &quot;cs&quot;)</code></pre>
-<pre><code>2024-10-21 13:21:19.072613 INFO::Limit to protein coding genes
-2024-10-21 13:21:19.073223 INFO::focal id: ENSG00000133056.13|lymphocytes_expression
-2024-10-21 13:21:19.073493 INFO::focal molecular trait: PIK3C2B lymphocytes expression
-2024-10-21 13:21:19.073758 INFO::Range of locus: chr1:203365611-204711982</code></pre>
+<pre><code>2024-10-21 16:24:42.252732 INFO::Limit to protein coding genes
+2024-10-21 16:24:42.253373 INFO::focal id: ENSG00000133056.13|lymphocytes_expression
+2024-10-21 16:24:42.253629 INFO::focal molecular trait: PIK3C2B lymphocytes expression
+2024-10-21 16:24:42.253891 INFO::Range of locus: chr1:203365611-204711982</code></pre>
 <pre><code>chromosome 1, position 203365611 to 204711982</code></pre>
 <pre><code>3607 SNPs/datapoints</code></pre>
-<pre><code>2024-10-21 13:21:19.183178 INFO::focal molecular trait QTL positions: 204495053
-2024-10-21 13:21:19.359608 INFO::Limit PIPs to credible sets</code></pre>
+<pre><code>2024-10-21 16:24:42.319613 INFO::focal molecular trait QTL positions: 204495053
+2024-10-21 16:24:42.332739 INFO::Limit PIPs to credible sets</code></pre>
 <pre><code>Warning: ggrepel: 137 unlabeled data points (too many overlaps). Consider
 increasing max.overlaps</code></pre>
 <p><img src="figure/cTWAS_noLD_european_prostatetestislymphocytes_output.Rmd/locus%20plot-10.png" width="960" style="display: block; margin: auto;" /></p>
@@ -2520,14 +2554,14 @@ yy896
                filter_cs = TRUE,
                color_pval_by = &quot;cs&quot;,
                color_pip_by = &quot;cs&quot;)</code></pre>
-<pre><code>2024-10-21 13:21:20.127862 INFO::Limit to protein coding genes
-2024-10-21 13:21:20.128492 INFO::focal id: ENSG00000184058.12|prostate_expression
-2024-10-21 13:21:20.128754 INFO::focal molecular trait: TBX1 prostate expression
-2024-10-21 13:21:20.129032 INFO::Range of locus: chr22:17813372-19925414</code></pre>
+<pre><code>2024-10-21 16:24:43.105455 INFO::Limit to protein coding genes
+2024-10-21 16:24:43.106079 INFO::focal id: ENSG00000184058.12|prostate_expression
+2024-10-21 16:24:43.106352 INFO::focal molecular trait: TBX1 prostate expression
+2024-10-21 16:24:43.106627 INFO::Range of locus: chr22:17813372-19925414</code></pre>
 <pre><code>chromosome 22, position 17813372 to 19925414</code></pre>
 <pre><code>4739 SNPs/datapoints</code></pre>
-<pre><code>2024-10-21 13:21:20.245967 INFO::focal molecular trait QTL positions: 19762002
-2024-10-21 13:21:20.258847 INFO::Limit PIPs to credible sets</code></pre>
+<pre><code>2024-10-21 16:24:43.178075 INFO::focal molecular trait QTL positions: 19762002
+2024-10-21 16:24:43.191282 INFO::Limit PIPs to credible sets</code></pre>
 <pre><code>Warning: ggrepel: 262 unlabeled data points (too many overlaps). Consider
 increasing max.overlaps</code></pre>
 <p><img src="figure/cTWAS_noLD_european_prostatetestislymphocytes_output.Rmd/locus%20plot-11.png" width="960" style="display: block; margin: auto;" /></p>
@@ -2610,14 +2644,14 @@ yy896
                filter_cs = TRUE,
                color_pval_by = &quot;cs&quot;,
                color_pip_by = &quot;cs&quot;)</code></pre>
-<pre><code>2024-10-21 13:21:21.352498 INFO::Limit to protein coding genes
-2024-10-21 13:21:21.35307 INFO::focal id: ENSG00000101417.11|lymphocytes_expression
-2024-10-21 13:21:21.3533 INFO::focal molecular trait: PXMP4 lymphocytes expression
-2024-10-21 13:21:21.353568 INFO::Range of locus: chr20:33027532-34224952</code></pre>
+<pre><code>2024-10-21 16:24:44.329724 INFO::Limit to protein coding genes
+2024-10-21 16:24:44.330269 INFO::focal id: ENSG00000101417.11|lymphocytes_expression
+2024-10-21 16:24:44.330494 INFO::focal molecular trait: PXMP4 lymphocytes expression
+2024-10-21 16:24:44.330746 INFO::Range of locus: chr20:33027532-34224952</code></pre>
 <pre><code>chromosome 20, position 33027532 to 34224952</code></pre>
 <pre><code>1953 SNPs/datapoints</code></pre>
-<pre><code>2024-10-21 13:21:21.422468 INFO::focal molecular trait QTL positions: 33720469
-2024-10-21 13:21:21.435579 INFO::Limit PIPs to credible sets</code></pre>
+<pre><code>2024-10-21 16:24:44.434234 INFO::focal molecular trait QTL positions: 33720469
+2024-10-21 16:24:44.447316 INFO::Limit PIPs to credible sets</code></pre>
 <pre><code>Warning: ggrepel: 123 unlabeled data points (too many overlaps). Consider
 increasing max.overlaps</code></pre>
 <p><img src="figure/cTWAS_noLD_european_prostatetestislymphocytes_output.Rmd/locus%20plot-12.png" width="960" style="display: block; margin: auto;" /></p>
@@ -2700,14 +2734,14 @@ yy896
                filter_cs = TRUE,
                color_pval_by = &quot;cs&quot;,
                color_pip_by = &quot;cs&quot;)</code></pre>
-<pre><code>2024-10-21 13:21:22.170221 INFO::Limit to protein coding genes
-2024-10-21 13:21:22.170843 INFO::focal id: intron_2_207165706_207166757|lymphocytes_splicing
-2024-10-21 13:21:22.171102 INFO::focal molecular trait: MIR7845 lymphocytes splicing
-2024-10-21 13:21:22.17138 INFO::Range of locus: chr2:205871698-207779797</code></pre>
+<pre><code>2024-10-21 16:24:45.20675 INFO::Limit to protein coding genes
+2024-10-21 16:24:45.207367 INFO::focal id: intron_2_207165706_207166757|lymphocytes_splicing
+2024-10-21 16:24:45.207632 INFO::focal molecular trait: MIR7845 lymphocytes splicing
+2024-10-21 16:24:45.207918 INFO::Range of locus: chr2:205871698-207779797</code></pre>
 <pre><code>chromosome 2, position 205871698 to 207779797</code></pre>
 <pre><code>4879 SNPs/datapoints</code></pre>
-<pre><code>2024-10-21 13:21:22.24752 INFO::focal molecular trait QTL positions: 207166747
-2024-10-21 13:21:22.260766 INFO::Limit PIPs to credible sets</code></pre>
+<pre><code>2024-10-21 16:24:45.311787 INFO::focal molecular trait QTL positions: 207166747
+2024-10-21 16:24:45.32542 INFO::Limit PIPs to credible sets</code></pre>
 <pre><code>Warning: ggrepel: 199 unlabeled data points (too many overlaps). Consider
 increasing max.overlaps</code></pre>
 <p><img src="figure/cTWAS_noLD_european_prostatetestislymphocytes_output.Rmd/locus%20plot-13.png" width="960" style="display: block; margin: auto;" /></p>
@@ -2790,14 +2824,14 @@ yy896
                filter_cs = TRUE,
                color_pval_by = &quot;cs&quot;,
                color_pip_by = &quot;cs&quot;)</code></pre>
-<pre><code>2024-10-21 13:21:23.200677 INFO::Limit to protein coding genes
-2024-10-21 13:21:23.201321 INFO::focal id: ENSG00000138111.14|prostate_expression
-2024-10-21 13:21:23.201582 INFO::focal molecular trait: MFSD13A prostate expression
-2024-10-21 13:21:23.201842 INFO::Range of locus: chr10:101190250-102621720</code></pre>
+<pre><code>2024-10-21 16:24:46.300089 INFO::Limit to protein coding genes
+2024-10-21 16:24:46.30068 INFO::focal id: ENSG00000138111.14|prostate_expression
+2024-10-21 16:24:46.300916 INFO::focal molecular trait: MFSD13A prostate expression
+2024-10-21 16:24:46.301172 INFO::Range of locus: chr10:101190250-102621720</code></pre>
 <pre><code>chromosome 10, position 101190250 to 102621720</code></pre>
 <pre><code>2735 SNPs/datapoints</code></pre>
-<pre><code>2024-10-21 13:21:23.270959 INFO::focal molecular trait QTL positions: 102462097,102463206,102466080
-2024-10-21 13:21:23.283999 INFO::Limit PIPs to credible sets</code></pre>
+<pre><code>2024-10-21 16:24:46.381104 INFO::focal molecular trait QTL positions: 102462097,102463206,102466080
+2024-10-21 16:24:46.394081 INFO::Limit PIPs to credible sets</code></pre>
 <pre><code>Warning: ggrepel: 412 unlabeled data points (too many overlaps). Consider
 increasing max.overlaps</code></pre>
 <p><img src="figure/cTWAS_noLD_european_prostatetestislymphocytes_output.Rmd/locus%20plot-14.png" width="960" style="display: block; margin: auto;" /></p>
@@ -2880,14 +2914,14 @@ yy896
                filter_cs = TRUE,
                color_pval_by = &quot;cs&quot;,
                color_pip_by = &quot;cs&quot;)</code></pre>
-<pre><code>2024-10-21 13:21:24.333568 INFO::Limit to protein coding genes
-2024-10-21 13:21:24.334119 INFO::focal id: ENSG00000164695.4|prostate_expression
-2024-10-21 13:21:24.334347 INFO::focal molecular trait: CHMP4C prostate expression
-2024-10-21 13:21:24.334601 INFO::Range of locus: chr8:81039839-81781010</code></pre>
+<pre><code>2024-10-21 16:24:47.487568 INFO::Limit to protein coding genes
+2024-10-21 16:24:47.488098 INFO::focal id: ENSG00000164695.4|prostate_expression
+2024-10-21 16:24:47.488325 INFO::focal molecular trait: CHMP4C prostate expression
+2024-10-21 16:24:47.488572 INFO::Range of locus: chr8:81039839-81781010</code></pre>
 <pre><code>chromosome 8, position 81039839 to 81781010</code></pre>
 <pre><code>1855 SNPs/datapoints</code></pre>
-<pre><code>2024-10-21 13:21:24.391566 INFO::focal molecular trait QTL positions: 81741409
-2024-10-21 13:21:24.404456 INFO::Limit PIPs to credible sets</code></pre>
+<pre><code>2024-10-21 16:24:47.547182 INFO::focal molecular trait QTL positions: 81741409
+2024-10-21 16:24:47.560357 INFO::Limit PIPs to credible sets</code></pre>
 <pre><code>Warning: ggrepel: 64 unlabeled data points (too many overlaps). Consider
 increasing max.overlaps</code></pre>
 <p><img src="figure/cTWAS_noLD_european_prostatetestislymphocytes_output.Rmd/locus%20plot-15.png" width="960" style="display: block; margin: auto;" /></p>
@@ -2970,14 +3004,14 @@ yy896
                filter_cs = TRUE,
                color_pval_by = &quot;cs&quot;,
                color_pip_by = &quot;cs&quot;)</code></pre>
-<pre><code>2024-10-21 13:21:25.115693 INFO::Limit to protein coding genes
-2024-10-21 13:21:25.116296 INFO::focal id: ENSG00000163874.10|prostate_expression
-2024-10-21 13:21:25.116531 INFO::focal molecular trait: ZC3H12A prostate expression
-2024-10-21 13:21:25.116793 INFO::Range of locus: chr1:37083938-38266050</code></pre>
+<pre><code>2024-10-21 16:24:48.316248 INFO::Limit to protein coding genes
+2024-10-21 16:24:48.316855 INFO::focal id: ENSG00000163874.10|prostate_expression
+2024-10-21 16:24:48.317106 INFO::focal molecular trait: ZC3H12A prostate expression
+2024-10-21 16:24:48.317384 INFO::Range of locus: chr1:37083938-38266050</code></pre>
 <pre><code>chromosome 1, position 37083938 to 38266050</code></pre>
 <pre><code>3063 SNPs/datapoints</code></pre>
-<pre><code>2024-10-21 13:21:25.181037 INFO::focal molecular trait QTL positions: 37475037,37499397
-2024-10-21 13:21:25.194201 INFO::Limit PIPs to credible sets</code></pre>
+<pre><code>2024-10-21 16:24:48.390029 INFO::focal molecular trait QTL positions: 37475037,37499397
+2024-10-21 16:24:48.404028 INFO::Limit PIPs to credible sets</code></pre>
 <pre><code>Warning: ggrepel: 227 unlabeled data points (too many overlaps). Consider
 increasing max.overlaps</code></pre>
 <pre><code>Warning: ggrepel: 46 unlabeled data points (too many overlaps). Consider
@@ -3062,14 +3096,14 @@ yy896
                filter_cs = TRUE,
                color_pval_by = &quot;cs&quot;,
                color_pip_by = &quot;cs&quot;)</code></pre>
-<pre><code>2024-10-21 13:21:26.203836 INFO::Limit to protein coding genes
-2024-10-21 13:21:26.204421 INFO::focal id: ENSG00000121380.12|prostate_expression
-2024-10-21 13:21:26.204669 INFO::focal molecular trait: BCL2L14 prostate expression
-2024-10-21 13:21:26.20493 INFO::Range of locus: chr12:11034257-12580271</code></pre>
+<pre><code>2024-10-21 16:24:49.470813 INFO::Limit to protein coding genes
+2024-10-21 16:24:49.47141 INFO::focal id: ENSG00000121380.12|prostate_expression
+2024-10-21 16:24:49.471657 INFO::focal molecular trait: BCL2L14 prostate expression
+2024-10-21 16:24:49.471926 INFO::Range of locus: chr12:11034257-12580271</code></pre>
 <pre><code>chromosome 12, position 11034257 to 12580271</code></pre>
 <pre><code>2897 SNPs/datapoints</code></pre>
-<pre><code>2024-10-21 13:21:26.269189 INFO::focal molecular trait QTL positions: 12052195,12052348
-2024-10-21 13:21:26.282362 INFO::Limit PIPs to credible sets</code></pre>
+<pre><code>2024-10-21 16:24:49.541022 INFO::focal molecular trait QTL positions: 12052195,12052348
+2024-10-21 16:24:49.554817 INFO::Limit PIPs to credible sets</code></pre>
 <pre><code>Warning: ggrepel: 62 unlabeled data points (too many overlaps). Consider
 increasing max.overlaps</code></pre>
 <p><img src="figure/cTWAS_noLD_european_prostatetestislymphocytes_output.Rmd/locus%20plot-17.png" width="960" style="display: block; margin: auto;" /></p>
@@ -3152,14 +3186,14 @@ yy896
                filter_cs = TRUE,
                color_pval_by = &quot;cs&quot;,
                color_pip_by = &quot;cs&quot;)</code></pre>
-<pre><code>2024-10-21 13:21:26.940798 INFO::Limit to protein coding genes
-2024-10-21 13:21:26.941433 INFO::focal id: ENSG00000120832.9|testis_expression
-2024-10-21 13:21:26.941708 INFO::focal molecular trait: MTERF2 testis expression
-2024-10-21 13:21:26.941994 INFO::Range of locus: chr12:106564986-108631756</code></pre>
+<pre><code>2024-10-21 16:24:50.429681 INFO::Limit to protein coding genes
+2024-10-21 16:24:50.430368 INFO::focal id: ENSG00000120832.9|testis_expression
+2024-10-21 16:24:50.430653 INFO::focal molecular trait: MTERF2 testis expression
+2024-10-21 16:24:50.43096 INFO::Range of locus: chr12:106564986-108631756</code></pre>
 <pre><code>chromosome 12, position 106564986 to 108631756</code></pre>
 <pre><code>5509 SNPs/datapoints</code></pre>
-<pre><code>2024-10-21 13:21:27.004658 INFO::focal molecular trait QTL positions: 106988381
-2024-10-21 13:21:27.018333 INFO::Limit PIPs to credible sets</code></pre>
+<pre><code>2024-10-21 16:24:50.496793 INFO::focal molecular trait QTL positions: 106988381
+2024-10-21 16:24:50.510052 INFO::Limit PIPs to credible sets</code></pre>
 <pre><code>Warning: ggrepel: 212 unlabeled data points (too many overlaps). Consider
 increasing max.overlaps</code></pre>
 <pre><code>Warning: ggrepel: 13 unlabeled data points (too many overlaps). Consider
@@ -3244,14 +3278,14 @@ yy896
                filter_cs = TRUE,
                color_pval_by = &quot;cs&quot;,
                color_pip_by = &quot;cs&quot;)</code></pre>
-<pre><code>2024-10-21 13:21:28.050794 INFO::Limit to protein coding genes
-2024-10-21 13:21:28.051411 INFO::focal id: ENSG00000121897.14|prostate_expression
-2024-10-21 13:21:28.051677 INFO::focal molecular trait: LIAS prostate expression
-2024-10-21 13:21:28.051946 INFO::Range of locus: chr4:38905595-40200074</code></pre>
+<pre><code>2024-10-21 16:24:51.400171 INFO::Limit to protein coding genes
+2024-10-21 16:24:51.400785 INFO::focal id: ENSG00000121897.14|prostate_expression
+2024-10-21 16:24:51.401063 INFO::focal molecular trait: LIAS prostate expression
+2024-10-21 16:24:51.40134 INFO::Range of locus: chr4:38905595-40200074</code></pre>
 <pre><code>chromosome 4, position 38905595 to 40200074</code></pre>
 <pre><code>3803 SNPs/datapoints</code></pre>
-<pre><code>2024-10-21 13:21:28.116835 INFO::focal molecular trait QTL positions: 39465159
-2024-10-21 13:21:28.13002 INFO::Limit PIPs to credible sets</code></pre>
+<pre><code>2024-10-21 16:24:51.471074 INFO::focal molecular trait QTL positions: 39465159
+2024-10-21 16:24:51.48506 INFO::Limit PIPs to credible sets</code></pre>
 <pre><code>Warning: ggrepel: 256 unlabeled data points (too many overlaps). Consider
 increasing max.overlaps</code></pre>
 <p><img src="figure/cTWAS_noLD_european_prostatetestislymphocytes_output.Rmd/locus%20plot-19.png" width="960" style="display: block; margin: auto;" /></p>
@@ -3365,7 +3399,7 @@ other attached packages:
 [19] AnnotationDbi_1.66.0      Biobase_2.64.0           
 [21] GenomicRanges_1.56.2      GenomeInfoDb_1.40.1      
 [23] IRanges_2.38.1            S4Vectors_0.42.1         
-[25] BiocGenerics_0.50.0       ctwas_0.4.16             
+[25] BiocGenerics_0.50.0       ctwas_0.4.17             
 [27] readr_2.1.5              
 
 loaded via a namespace (and not attached):
