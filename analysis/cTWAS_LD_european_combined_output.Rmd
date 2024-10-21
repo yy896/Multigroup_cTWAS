@@ -347,7 +347,7 @@ finemap_res <- anno_finemap_res(finemap_res,
 The annotated fine-mapping results, ones within credible sets are shown
 
 ```{r echo=TRUE, eval=TRUE}
-finemap_res_show <- finemap_res[!is.na(finemap_res$cs) &finemap_res$type !="SNP",]
+finemap_res_show <- subset(finemap_res, group != "SNP" & gene_type == "protein_coding" & susie_pip > 0.8 & !is.na(cs))
 
 DT::datatable(finemap_res_show,caption = htmltools::tags$caption( style = 'caption-side: topleft; text-align = left; color:black;','The annotated fine-mapping results, ones within credible sets are shown'),options = list(pageLength = 5) )
 ```
