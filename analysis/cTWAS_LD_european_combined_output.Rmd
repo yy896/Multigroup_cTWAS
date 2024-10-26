@@ -9,10 +9,13 @@ output:
 ---
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(readr)
+library(data.table)
+library(stringr)
 library(ctwas)
+library(GenomicRanges)
 library(EnsDb.Hsapiens.v86)
-library(ggplot2)
-library(dplyr)
 library(enrichR)
 library(DT)
 library(htmltools)
@@ -355,6 +358,22 @@ combined_pip_table <- subset(combined_pip_by_group, combined_pip > 0.8)
 DT::datatable(combined_pip_table)
 ```
 
+## Ideogram
+
+```{r Ideogram, eval=TRUE, echo=FALSE, fig.height=22.5, fig.width=40, message=FALSE, warning=FALSE}
+library(karyoploteR)
+library(biomaRt)
+library(regioneR)
+gene.symbols <- combined_pip_table$gene_name
+ensembl <- useEnsembl(biomart="ensembl", dataset="hsapiens_gene_ensembl")
+genes <- toGRanges(getBM(attributes=c('chromosome_name', 'start_position', 'end_position', 'hgnc_symbol'), filters = 'hgnc_symbol', values =gene.symbols, mart = ensembl))
+seqlevelsStyle(genes) <- "UCSC"
+
+kp <- plotKaryotype(genome="hg38", chromosomes="autosomal")
+kpPlotMarkers(kp, data=genes, labels=genes$hgnc_symbol, #text.orientation = "horizontal",
+              r1=0.7, cex=0.8, adjust.label.position = TRUE)
+```
+
 ## GSEA-Gene Ontology
 
 ```{r pathway setup, echo=TRUE, eval=TRUE, warning=FALSE, message=FALSE}
@@ -417,7 +436,119 @@ df <- df[df$Adjusted.P.value<0.05,c("Term", "Overlap", "Adjusted.P.value", "Gene
 DT::datatable(df,caption = htmltools::tags$caption( style = 'caption-side: topleft; text-align = left; color:black;','Enriched pathways from GO_Molecular_Function_2021'),options = list(pageLength = 5) )
 ```
 
+## GSEA msigdb database
+
+```{r pathway plot, eval=TRUE, echo=FALSE, fig.height=6, fig.width=16, message=FALSE, warning=FALSE}
+library(GO.db)
+library(Seurat)
+library(dplyr)
+library(tibble)
+library(readr)
+library(msigdb)
+library(fgsea)
+library(stats)
+library(ggalt)
+library(enrichplot)
+library(ggsci)
+library(ReactomePA)
+
+all_gene_sets_C2 <- msigdbr::msigdbr(species = "Homo sapiens",category = "C2")
+apoptosis_gene_sets <- all_gene_sets_C2[grep(pattern = "APOPTOSIS",x = all_gene_sets_C2$gs_name,ignore.case = TRUE),]
+nfkb_gene_sets <- all_gene_sets_C2[grep(pattern = "NFKB",x = all_gene_sets_C2$gs_name,ignore.case = TRUE),]
+mapk_gene_sets <- all_gene_sets_C2[grep(pattern = "MAPK",x = all_gene_sets_C2$gs_name,ignore.case = TRUE),]
+signaling_gene_sets <- all_gene_sets_C2[grep(pattern = "SIGNALING",x = all_gene_sets_C2$gs_name,ignore.case = TRUE),]
+
+apoptosis_pathway <- split(x = apoptosis_gene_sets$gene_symbol,f=apoptosis_gene_sets$gs_name)
+nfkb_pathway <- split(x = nfkb_gene_sets$gene_symbol,f=nfkb_gene_sets$gs_name)
+mapk_pathway <- split(x = mapk_gene_sets$gene_symbol,f=mapk_gene_sets$gs_name)
+signaling_pathway <- split(x = signaling_gene_sets$gene_symbol,f=signaling_gene_sets$gs_name)
+
+finemap_res_stat <- finemap_res %>% 
+  as_tibble() %>% 
+  dplyr::select(gene_name, susie_pip) %>% 
+  na.omit() %>% 
+  distinct() %>% 
+  group_by(gene_name)
+stats <- deframe(finemap_res_stat)
+
+### grep APOPTOSIS
+fgseaRes_stat <- fgsea(pathways=apoptosis_pathway, stats=stats)#, nperm=100000)
+
+fgseaResTidy_stat <- as_tibble(fgseaRes_stat) %>% 
+  arrange() %>% 
+  arrange(desc(NES))  %>% #enrichment score
+  dplyr::select(-leadingEdge, -ES) %>% 
+  arrange(padj)
+
+(gsea_plot1 <- ggplot(fgseaResTidy_stat, aes(reorder(pathway, NES), NES)) +
+  geom_col(aes(fill=padj<0.05)) +
+  coord_flip() +
+  labs(x="Pathways", y="Normalized Enrichment Score", title="Apotosis Pathways") +
+  theme_minimal() +   
+  theme(axis.text.y = element_text(size=8),
+        axis.text.x = element_text(size=8),
+        axis.title = element_text(size=10)) +
+  scale_fill_nejm())
+
+### grep NFKB
+fgseaRes_stat <- fgsea(pathways=nfkb_pathway, stats=stats)#, nperm=100000)
+
+fgseaResTidy_stat <- as_tibble(fgseaRes_stat) %>% 
+  arrange() %>% 
+  arrange(desc(NES))  %>% #enrichment score
+  dplyr::select(-leadingEdge, -ES) %>% 
+  arrange(padj) 
+
+(gsea_plot2 <- ggplot(fgseaResTidy_stat, aes(reorder(pathway, NES), NES)) +
+  geom_col(aes(fill=padj<0.05)) +
+  coord_flip() +
+  labs(x="Pathways", y="Normalized Enrichment Score", title="NFKB Pathways") +
+  theme_minimal() +   
+  theme(axis.text.y = element_text(size=8),
+        axis.text.x = element_text(size=8),
+        axis.title = element_text(size=10)) +
+  scale_fill_nejm())
+
+### grep MAPK
+fgseaRes_stat <- fgsea(pathways=mapk_pathway, stats=stats)#, nperm=100000)
+
+fgseaResTidy_stat <- as_tibble(fgseaRes_stat) %>% 
+  arrange() %>% 
+  arrange(desc(NES))  %>% #enrichment score
+  dplyr::select(-leadingEdge, -ES) %>% 
+  arrange(padj) 
+
+(gsea_plot3 <- ggplot(fgseaResTidy_stat, aes(reorder(pathway, NES), NES)) +
+  geom_col(aes(fill=padj<0.05)) +
+  coord_flip() +
+  labs(x="Pathways", y="Normalized Enrichment Score", title="MAPK Pathways") +
+  theme_minimal() +   
+  theme(axis.text.y = element_text(size=8),
+        axis.text.x = element_text(size=8),
+        axis.title = element_text(size=10)) +
+  scale_fill_nejm())
+
+### grep SIGNALING
+fgseaRes_stat <- fgsea(pathways=signaling_pathway, stats=stats)#, nperm=100000)
+
+fgseaResTidy_stat <- as_tibble(fgseaRes_stat) %>% 
+  arrange() %>% 
+  arrange(desc(NES))  %>% #enrichment score
+  dplyr::select(-leadingEdge, -ES) %>% 
+  arrange(padj) 
+
+fgseaResTidy_stat <- subset(fgseaResTidy_stat, padj <= 0.2)
+
+(gsea_plot4 <- ggplot(fgseaResTidy_stat, aes(reorder(pathway, NES), NES)) +
+  geom_col(aes(fill=padj<0.05)) +
+  coord_flip() +
+  labs(x="Pathways", y="Normalized Enrichment Score", title="Signaling Pathways") + 
+  theme_minimal())
+```
+
+
 ## Locus plots (ONLY showing top 10 here)
+
 ```{r locus plot, echo=TRUE, eval=TRUE, fig.height=6, fig.width=10}
 make_locusplot(finemap_res,
                region_id = "6_30830391_31603441",
