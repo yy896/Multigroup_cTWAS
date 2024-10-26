@@ -336,9 +336,7 @@ finemap_res_show <- subset(finemap_res, group != "SNP" & gene_type == "protein_c
 DT::datatable(finemap_res_show,caption = htmltools::tags$caption( style = 'caption-side: topleft; text-align = left; color:black;','The annotated fine-mapping results, ones within credible sets are shown'),options = list(pageLength = 5) )
 ```
 
-Next, we compute gene PIPs across different types of molecular traits.
-
-Gene PIPs, only genes within credible sets are shown
+Next, we compute gene combined-PIPs across different types of molecular traits, where only genes within credible sets are shown.
 
 ```{r echo=TRUE, eval=FALSE}
 susie_alpha_res <- anno_susie_alpha_res(susie_alpha_res,
@@ -372,6 +370,110 @@ seqlevelsStyle(genes) <- "UCSC"
 kp <- plotKaryotype(genome="hg38", chromosomes="autosomal")
 kpPlotMarkers(kp, data=genes, labels=genes$hgnc_symbol, #text.orientation = "horizontal",
               r1=0.7, cex=0.8, adjust.label.position = TRUE)
+```
+
+## Locus plots (ONLY showing top 10 here)
+
+```{r locus plot, echo=TRUE, eval=TRUE, fig.height=6, fig.width=10}
+make_locusplot(finemap_res,
+               region_id = "6_30830391_31603441",
+               ens_db = ens_db,
+               weights = weights,
+               highlight_pip = 0.8,
+               filter_protein_coding_genes = TRUE,
+               filter_cs = TRUE,
+               color_pval_by = "cs",
+               color_pip_by = "cs")
+
+make_locusplot(finemap_res,
+               region_id = "20_24737088_25363595",
+               ens_db = ens_db,
+               weights = weights,
+               highlight_pip = 0.8,
+               filter_protein_coding_genes = TRUE,
+               filter_cs = TRUE,
+               color_pval_by = "cs",
+               color_pip_by = "cs")
+
+make_locusplot(finemap_res,
+               region_id = "2_240620667_241210506",
+               ens_db = ens_db,
+               weights = weights,
+               highlight_pip = 0.8,
+               filter_protein_coding_genes = TRUE,
+               filter_cs = TRUE,
+               color_pval_by = "cs",
+               color_pip_by = "cs")
+
+make_locusplot(finemap_res,
+               region_id = "5_982137_2132328",
+               ens_db = ens_db,
+               weights = weights,
+               highlight_pip = 0.8,
+               filter_protein_coding_genes = TRUE,
+               filter_cs = TRUE,
+               color_pval_by = "cs",
+               color_pip_by = "cs")
+
+make_locusplot(finemap_res,
+               region_id = "10_101189482_102620653",
+               ens_db = ens_db,
+               weights = weights,
+               highlight_pip = 0.8,
+               filter_protein_coding_genes = TRUE,
+               filter_cs = TRUE,
+               color_pval_by = "cs",
+               color_pip_by = "cs")
+
+make_locusplot(finemap_res,
+               region_id = "2_241210506_242147200",
+               ens_db = ens_db,
+               weights = weights,
+               highlight_pip = 0.8,
+               filter_protein_coding_genes = TRUE,
+               filter_cs = TRUE,
+               color_pval_by = "cs",
+               color_pip_by = "cs")
+
+make_locusplot(finemap_res,
+               region_id = "20_63558827_64333810",
+               ens_db = ens_db,
+               weights = weights,
+               highlight_pip = 0.8,
+               filter_protein_coding_genes = TRUE,
+               filter_cs = TRUE,
+               color_pval_by = "cs",
+               color_pip_by = "cs")
+
+make_locusplot(finemap_res,
+               region_id = "11_101460390_104088908",
+               ens_db = ens_db,
+               weights = weights,
+               highlight_pip = 0.8,
+               filter_protein_coding_genes = TRUE,
+               filter_cs = TRUE,
+               color_pval_by = "cs",
+               color_pip_by = "cs")
+
+make_locusplot(finemap_res,
+               region_id = "20_34225635_36332043",
+               ens_db = ens_db,
+               weights = weights,
+               highlight_pip = 0.8,
+               filter_protein_coding_genes = TRUE,
+               filter_cs = TRUE,
+               color_pval_by = "cs",
+               color_pip_by = "cs")
+
+make_locusplot(finemap_res,
+               region_id = "11_68238358_69701362",
+               ens_db = ens_db,
+               weights = weights,
+               highlight_pip = 0.8,
+               filter_protein_coding_genes = TRUE,
+               filter_cs = TRUE,
+               color_pval_by = "cs",
+               color_pip_by = "cs")
 ```
 
 ## GSEA-Gene Ontology
@@ -544,109 +646,4 @@ fgseaResTidy_stat <- subset(fgseaResTidy_stat, padj <= 0.2)
   coord_flip() +
   labs(x="Pathways", y="Normalized Enrichment Score", title="Signaling Pathways") + 
   theme_minimal())
-```
-
-
-## Locus plots (ONLY showing top 10 here)
-
-```{r locus plot, echo=TRUE, eval=TRUE, fig.height=6, fig.width=10}
-make_locusplot(finemap_res,
-               region_id = "6_30830391_31603441",
-               ens_db = ens_db,
-               weights = weights,
-               highlight_pip = 0.8,
-               filter_protein_coding_genes = TRUE,
-               filter_cs = TRUE,
-               color_pval_by = "cs",
-               color_pip_by = "cs")
-
-make_locusplot(finemap_res,
-               region_id = "20_24737088_25363595",
-               ens_db = ens_db,
-               weights = weights,
-               highlight_pip = 0.8,
-               filter_protein_coding_genes = TRUE,
-               filter_cs = TRUE,
-               color_pval_by = "cs",
-               color_pip_by = "cs")
-
-make_locusplot(finemap_res,
-               region_id = "2_240620667_241210506",
-               ens_db = ens_db,
-               weights = weights,
-               highlight_pip = 0.8,
-               filter_protein_coding_genes = TRUE,
-               filter_cs = TRUE,
-               color_pval_by = "cs",
-               color_pip_by = "cs")
-
-make_locusplot(finemap_res,
-               region_id = "5_982137_2132328",
-               ens_db = ens_db,
-               weights = weights,
-               highlight_pip = 0.8,
-               filter_protein_coding_genes = TRUE,
-               filter_cs = TRUE,
-               color_pval_by = "cs",
-               color_pip_by = "cs")
-
-make_locusplot(finemap_res,
-               region_id = "10_101189482_102620653",
-               ens_db = ens_db,
-               weights = weights,
-               highlight_pip = 0.8,
-               filter_protein_coding_genes = TRUE,
-               filter_cs = TRUE,
-               color_pval_by = "cs",
-               color_pip_by = "cs")
-
-make_locusplot(finemap_res,
-               region_id = "2_241210506_242147200",
-               ens_db = ens_db,
-               weights = weights,
-               highlight_pip = 0.8,
-               filter_protein_coding_genes = TRUE,
-               filter_cs = TRUE,
-               color_pval_by = "cs",
-               color_pip_by = "cs")
-
-make_locusplot(finemap_res,
-               region_id = "20_63558827_64333810",
-               ens_db = ens_db,
-               weights = weights,
-               highlight_pip = 0.8,
-               filter_protein_coding_genes = TRUE,
-               filter_cs = TRUE,
-               color_pval_by = "cs",
-               color_pip_by = "cs")
-
-make_locusplot(finemap_res,
-               region_id = "11_101460390_104088908",
-               ens_db = ens_db,
-               weights = weights,
-               highlight_pip = 0.8,
-               filter_protein_coding_genes = TRUE,
-               filter_cs = TRUE,
-               color_pval_by = "cs",
-               color_pip_by = "cs")
-
-make_locusplot(finemap_res,
-               region_id = "20_34225635_36332043",
-               ens_db = ens_db,
-               weights = weights,
-               highlight_pip = 0.8,
-               filter_protein_coding_genes = TRUE,
-               filter_cs = TRUE,
-               color_pval_by = "cs",
-               color_pip_by = "cs")
-
-make_locusplot(finemap_res,
-               region_id = "11_68238358_69701362",
-               ens_db = ens_db,
-               weights = weights,
-               highlight_pip = 0.8,
-               filter_protein_coding_genes = TRUE,
-               filter_cs = TRUE,
-               color_pval_by = "cs",
-               color_pip_by = "cs")
 ```
