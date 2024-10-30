@@ -6,56 +6,7 @@ editor_options:
   chunk_output_type: console
 ---
 
-**Genelist**
-
-*mashr + RefZ*
-
-[1] "LY6G6D"       "NINL"         "ANO7"         "IRX4"         "LDB1"         "FARP2"       
-  [7] "TNFRSF6B"     "MMP7"         "UQCC1"        "CCND1"        "USP28"        "CFAP44"      
- [13] "RAB13"        "RGS17"        "MYO9B"        "FLOT1"        "PKNOX2"       "LGR4"        
- [19] "COL23A1"      "PHC3"         "ITPK1"        "LOC100506779" "GDF7"         "C9orf152"    
- [25] "LOC100505545" "TRIM24"       "ZDHHC7"       "ARNT2"        "ZSCAN12P1"    "RTEL1"       
- [31] "IGF1R"        "WTAP"         "STXBP1"       "ZNF395"       "SEPT2"        "TGFA"        
- [37] "BHLHA15"      "CDCA7L"       "EGF"          "COL2A1"       "AGPAT3"       "EVI5"        
- [43] "GEMIN4"       "IRX3"         "RHOD"         "FOXJ1"        "ADGRG1"       "SATB1"       
- [49] "MYO5C"        "HLA-DPB1"     "SIPA1L3"      "PDLIM5"       "BCL2L14"      "UBE2E2"      
- [55] "LMO4"         "PPP1R14A"     "TBX5"         "DDX52"        "IQGAP1"       "CCDC88C"     
- [61] "CHMP4C"       "ZNF217"       "LOC283070"    "PYGB"         "TXN"          "TBX1"        
- [67] "WNT2"         "RPS6KL1"      "MLPH"         "DMRTA1"       "TACC1"        "FBXO38"      
- [73] "WIPI1"        "OSBPL5"       "NUCKS1"       "SYNJ2BP"      "RFC5"         "MBNL1"       
- [79] "RP11-77H9.1"  "UQCC"         "NANP"         "GMEB2"        "TGM2"         "ZBTB38"      
- [85] "PXMP4"        "PIK3C2B"      "STK25"        "ARAP1"        "PWWP2A"       "BTBD2"       
- [91] "LDAH"         "BBC3"         "BCL2L11"      "ZNF568"       "GPBP1L1"      "ZNF236"      
- [97] "SYCP2L"       "MSMB"         "IL11RA"       "MAPKBP1"      "KLF7"         "CHD3"        
-[103] "C1orf64"      "SLC18A2"      "GRHL1"        "ACPP"         "RAP1GAP"      "CTBP2"       
-[109] "FAM118A"      "GATA2"        "SLC38A6"
-
 https://www.perplexity.ai/search/what-is-the-immune-function-of-V1KXq8E9Rhqng5pP5n8Rww
-
-*mashr + RefZ + TCGA*
-
-[1] "LY6G6D"       "SLC22A3"      "UHRF1BP1"     "UQCC1"        "NINL"         "CCND1"       
-  [7] "SKIL"         "ANO7"         "IRX4"         "LDB1"         "PHC3"         "UQCC"        
- [13] "TNFRSF6B"     "CFAP44"       "MMP7"         "FARP2"        "RAB13"        "USP28"       
- [19] "EVI5"         "BHLHA15"      "TBX5"         "MYO9B"        "PKNOX2"       "GDF7"        
- [25] "ARPM1"        "ACPP"         "COL23A1"      "LOC100506779" "ZSCAN12P1"    "RGS17"       
- [31] "ITPK1"        "PPP1R14A"     "C9orf152"     "LOC100505545" "AGPAT3"       "TRIM24"      
- [37] "COL2A1"       "GEMIN4"       "IGF1R"        "RTEL1"        "STXBP1"       "WTAP"        
- [43] "RHOD"         "CDCA7L"       "GRHL3"        "PYGB"         "ARNT2"        "EGF"         
- [49] "CHMP4C"       "ZNF395"       "TGM2"         "TGFA"         "LGR4"         "KPNA3"       
- [55] "OSBPL5"       "IRX3"         "ADGRG1"       "TXN"          "SEPT2"        "SIPA1L3"     
- [61] "SECTM1"       "MYO5C"        "BCL2L14"      "FMN1"         "MOB2"         "ZNF217"      
- [67] "UBE2E2"       "MLPH"         "LMO4"         "EBF2"         "CCDC88C"      "IQGAP1"      
- [73] "SATB1"        "TBX1"         "ZNF774"       "PWWP2A"       "RPS6KL1"      "TACC1"       
- [79] "DDX52"        "SYCP2L"       "SMAD2"        "LOC283070"    "SYNJ2BP"      "GPBP1L1"     
- [85] "FBXO38"       "PIK3C2B"      "DPF2"         "CPNE4"        "ZNF568"       "WIPI1"       
- [91] "TOMM7"        "WNT2"         "RFC5"         "GDI2"         "FOXJ1"        "ZBTB38"      
- [97] "PXMP4"        "MBNL1"        "TMPRSS2"      "RP11-77H9.1"  "ARAP1"        "ZNF236"      
-[103] "HAUS6"        "BCL2L11"      "ZDHHC7"       "CHD3"         "UBE2R2"       "BBC3"        
-[109] "DNASE2B"      "GRHL1"        "KLF7"         "CTBP2"        "BTBD2"        "MAPKBP1"     
-[115] "EFHD1"        "FAM118A"      "PIM1"         "RCCD1"        "POLI"         "CASP8" 
-
-Union two lists **136 in total**
 
 ## Immune Functions
 
@@ -2889,3 +2840,240 @@ Citations:
 [6] https://www.buffalo.edu/news/releases/2024/04/Uniquely-human-gene-enhances-immune-function.html
 [7] https://pmc.ncbi.nlm.nih.gov/articles/PMC10999208/
 [8] https://pmc.ncbi.nlm.nih.gov/articles/PMC9439891/
+
+### SKIL
+
+Based on the search results, the immune function of the gene SKIL (SKI-like proto-oncogene) is primarily related to its role as a negative regulator of TGF-β signaling. Here are the key points about SKIL's immune functions:
+
+1. Negative regulation of TGF-β signaling:
+- SKIL, like its homolog SKI, acts as a transcriptional co-repressor that inhibits TGF-β signaling by binding to SMAD proteins and recruiting other co-repressors and histone deacetylases (HDACs) to repress target gene expression.
+
+2. Interaction with SMAD proteins:
+- SKIL interacts with phosphorylated SMAD2 and SMAD3 (R-SMADs) as well as SMAD4, forming complexes that prevent the activation of TGF-β target genes.
+
+3. Regulation of immune cell function:
+- By modulating TGF-β signaling, SKIL likely influences various immune processes, including cell proliferation, differentiation, and apoptosis in immune cells.
+
+4. Dynamic regulation during TGF-β signaling:
+- SKIL is rapidly degraded upon TGF-β stimulation, which allows for the initial activation of the pathway. However, SKIL expression is then induced by TGF-β, creating a negative feedback loop to limit the duration and intensity of TGF-β signaling.
+
+5. Potential role in immune-related diseases:
+- Dysregulation of SKIL could contribute to immune-related disorders or cancers by altering the balance of TGF-β signaling, which is crucial for maintaining immune homeostasis.
+
+6. Involvement in transcriptional regulation:
+- SKIL can act as both a co-repressor and co-activator for various transcription factors, potentially influencing the expression of immune-related genes beyond just TGF-β targets.
+
+While the specific immune functions of SKIL are not as extensively characterized as those of SKI, its role as a key regulator of TGF-β signaling suggests that it plays an important part in modulating immune responses and maintaining immune system balance. Further research is needed to fully elucidate its specific mechanisms and roles in different immune contexts.
+
+Citations:
+[1] https://medlineplus.gov/genetics/gene/ski/
+[2] https://atlasgeneticsoncology.org/gene/42303/ski-(ski-proto-oncogene)
+[3] https://elifesciences.org/articles/63545
+[4] https://www.nature.com/articles/s41392-018-0015-8
+[5] https://dmd.aspetjournals.org/content/50/9/1228
+[6] https://www.frontiersin.org/journals/immunology/articles/10.3389/fimmu.2018.01168/full
+[7] https://www.frontiersin.org/journals/immunology/articles/10.3389/fimmu.2019.00861/full
+[8] https://www.buffalo.edu/news/releases/2024/04/Uniquely-human-gene-enhances-immune-function.html
+
+### SMAD2
+
+Based on the search results, SMAD2 plays several important roles in immune function, particularly in T cell responses and differentiation:
+
+1. T helper 17 (Th17) cell differentiation:
+- SMAD2 is essential for promoting Th17 differentiation. It acts as a transcription cofactor of STAT3 to induce expression of RORγt and IL-17A, which are critical for Th17 cells [2].
+- Phosphorylation of SMAD2 at the linker region (Ser255) is required for its interaction with STAT3 and promotion of Th17 differentiation [2].
+
+2. T helper 9 (Th9) cell differentiation:
+- SMAD2 and SMAD3 are redundantly essential for IL-9 production and Th9 differentiation [4].
+- In an ovalbumin-induced asthma model, T cell-specific deletion of SMAD2 reduced IL-9 levels, indicating SMAD2 is important for Th9 responses in vivo [4].
+
+3. TGF-β signaling in T cells:
+- SMAD2 mediates TGF-β signaling in T cells, which is important for various T cell functions and differentiation processes [2][4].
+- SMAD2 and SMAD3 cooperate to induce histone modifications at the Il9 promoter in response to TGF-β signaling [4].
+
+4. Regulation of autoimmune and allergic responses:
+- Through its roles in Th17 and Th9 differentiation, SMAD2 is involved in regulating autoimmune and allergic responses [2][4].
+
+5. Interaction with other transcription factors:
+- SMAD2 cooperates with IRF4 to regulate IL-9 production in CD4+ T cells [4].
+
+6. Potential role in cancer immunology:
+- While not directly stated for SMAD2, the SMAD family genes were found to be associated with immune cell infiltration scores in breast cancer, suggesting a potential role in tumor immunology [1].
+
+In summary, SMAD2 plays crucial roles in T cell differentiation and function, particularly in Th17 and Th9 responses, by mediating TGF-β signaling and cooperating with other transcription factors. These functions have implications for autoimmune diseases, allergic responses, and potentially cancer immunology.
+
+Citations:
+[1] https://www.nature.com/articles/s41598-024-57189-6
+[2] https://www.nature.com/articles/ncomms8600
+[3] https://www.nature.com/articles/s41467-023-37592-9
+[4] https://journals.aai.org/jimmunol/article/191/5/2360/43188/Smad2-3-and-IRF4-Play-a-Cooperative-Role-in-IL-9
+[5] https://journals.aai.org/jimmunol/article/185/2/842/82974/Smad2-and-Smad3-Are-Redundantly-Essential-for-the
+[6] https://www.frontiersin.org/journals/immunology/articles/10.3389/fimmu.2020.00912/full
+[7] https://www.buffalo.edu/news/releases/2024/04/Uniquely-human-gene-enhances-immune-function.html
+[8] https://www.nature.com/articles/s41420-023-01489-9
+
+### TMPRSS2
+
+Based on the search results, TMPRSS2 (Transmembrane Serine Protease 2) plays several important roles in immune function, particularly related to viral infections:
+
+1. Viral entry mediator:
+- TMPRSS2 is essential for mediating viral entry into host cells for several viruses, including SARS-CoV-2, SARS-CoV, and influenza viruses [1][2].
+- It processes the spike protein of SARS-CoV-2, facilitating viral entry into host cells [1].
+
+2. Role in SARS-CoV-2 infection:
+- TMPRSS2 is crucial for SARS-CoV-2-driven entry into host cells [1][2].
+- Knockout of TMPRSS2 in mice significantly reduced SARS-CoV-2 infection and associated immune responses [1][2].
+
+3. Broad distribution in tissues:
+- TMPRSS2 is widely expressed in various cell types and organs, suggesting a universal function in mediating viral entry across multiple tissues [1][2].
+
+4. Impact on inflammatory responses:
+- TMPRSS2 knockout mice showed reduced immune cell infiltration and lower expression of inflammatory cytokines (e.g., Il6, Cxcl10, Ifnb, Ifng) in response to SARS-CoV-2 infection [1].
+
+5. Interaction with other proteins:
+- TMPRSS2 works in conjunction with ACE2 (Angiotensin Converting Enzyme 2) to facilitate SARS-CoV-2 entry into cells [1][3].
+
+6. Potential therapeutic target:
+- Due to its role in viral entry, modulating TMPRSS2 expression or its protease activity is considered a potential method for antiviral intervention [1].
+
+7. Expression in immune-related tissues:
+- TMPRSS2 is expressed in various tissues, including those of the immune system, though its expression is generally higher in epithelial cells rather than immune cells themselves [3].
+
+8. Variant-specific effects:
+- Different SARS-CoV-2 variants may rely on TMPRSS2 to varying degrees for cell entry, with some variants like Omicron using it less efficiently [2].
+
+In summary, TMPRSS2 plays a critical role in facilitating viral entry, particularly for coronaviruses and influenza viruses, and its presence or absence significantly impacts the severity of infection and subsequent immune responses. This makes it an important factor in understanding viral pathogenesis and a potential target for therapeutic interventions.
+
+Citations:
+[1] https://www.nature.com/articles/s41467-021-21171-x
+[2] https://www.nature.com/articles/s41467-022-33911-8
+[3] https://jitc.bmj.com/content/8/2/e001020
+[4] https://www.nature.com/articles/s41467-024-53621-7
+[5] https://www.remedypublications.com/open-access/the-novel-role-of-gdi2-a-mini-review-10110.pdf
+[6] https://journals.aai.org/jimmunol/article/185/2/842/82974/Smad2-and-Smad3-Are-Redundantly-Essential-for-the
+[7] https://www.nature.com/articles/s41467-023-37592-9
+[8] https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11242344/
+
+### EFHD1
+
+Based on the search results, EFHD1 (EF-hand domain-containing protein 1) has several functions related to the immune system and cellular processes:
+
+1. Mitochondrial regulation:
+- EFHD1 is localized in the mitochondria and plays a role in regulating mitochondrial energy metabolism and morphology [1][2].
+- It can inhibit the opening of the mitochondrial membrane permeability transition pore (mPTP), which helps maintain mitochondrial function [1].
+
+2. Cell survival and drug resistance:
+- In osteosarcoma cells, EFHD1 promotes cell survival and chemoresistance by inhibiting mPTP opening and maintaining mitochondrial function [1].
+- It binds to adenine nucleotide translocase-3 (ANT3) and inhibits its conformational change, which prevents mPTP opening [1].
+
+3. Calcium signaling:
+- EFHD1 can sense mitochondrial Ca2+ concentration and activate mitoflashes, which are transient increases in mitochondrial permeability [1][2].
+
+4. Actin interaction:
+- EFHD1 has Ca2+-independent β-actin-binding and Ca2+-dependent β-actin-bundling activities [2].
+- This interaction with actin may be involved in regulating mitochondrial morphology [2].
+
+5. Immune cell development:
+- EFHD1 is involved in the differentiation of pro-/pre-B cells and can induce metabolic changes during their development [2].
+
+6. Neuronal function:
+- It plays a role in neuronal differentiation and apoptosis [2].
+- EFHD1 affects mitochondrial morphology and energy production in dorsal root ganglion neurons [2].
+
+While not directly involved in classical immune functions, EFHD1's roles in mitochondrial regulation, cell survival, and B cell development suggest it has important indirect effects on immune system function. Its ability to promote cell survival and drug resistance in cancer cells also indicates a potential role in modulating immune responses to tumors.
+
+Citations:
+[1] https://link.springer.com/article/10.1007/s00018-024-05254-8
+[2] https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7848108/
+[3] https://journals.aai.org/jimmunol/article/185/2/842/82974/Smad2-and-Smad3-Are-Redundantly-Essential-for-the
+[4] https://www.buffalo.edu/news/releases/2024/04/Uniquely-human-gene-enhances-immune-function.html
+[5] https://www.nature.com/articles/s41598-022-26277-w
+[6] https://www.nature.com/articles/s41598-023-34779-4
+[7] https://www.nature.com/articles/s41467-023-37592-9
+[8] https://www.rcsb.org/structure/7CLT
+
+### PIM1
+
+Based on the search results, PIM1 (Proviral Integration Site for Moloney Murine Leukemia Virus 1) plays several important roles in immune function:
+
+1. T cell regulation:
+- PIM1 promotes T lymphocyte proliferation and survival by suppressing apoptosis [3].
+- It enhances CD8+ T cell survival and memory formation [3].
+- PIM1 promotes Th1 cell differentiation from precursor T helper cells [3].
+
+2. B cell function:
+- PIM1 fosters B cell proliferation [3].
+- It plays a role in B cell development and differentiation [4].
+
+3. Cytokine production:
+- PIM1 enhances NFATc activity and IL-2 production, promoting the proliferation and survival of IL-2-dependent lymphocytes [4].
+
+4. Innate immune responses:
+- PIM1 plays an essential role in the production of interferon-β (IFN-β) by macrophages after Toll-like receptor (TLR) pathway activation [3].
+- It promotes IRF3 phosphorylation and nuclear translocation, enhancing IFN-β signaling [3].
+
+5. Inflammatory regulation:
+- PIM1 is involved in inflammatory signal transduction by phosphorylating multiple inflammatory protein substrates [1].
+- It mediates macrophage activation and T lymphocyte cell specification [1].
+
+6. Th17/Treg balance:
+- PIM1 regulates the balance between Th17 cells and regulatory T cells (Tregs) [2].
+
+7. Autoimmune diseases:
+- PIM1 is implicated in the pathogenesis of various autoimmune and inflammatory diseases, including autoimmune uveitis, inflammatory bowel disease, asthma, and rheumatoid arthritis [1].
+
+8. Signaling pathways:
+- PIM1 is involved in the crosstalk between the JAK2-STAT3/5 pathway and the NF-κB–IL-6 pathway [1].
+- It can modulate the AKT/FOXO1 pathway, affecting T cell differentiation [2].
+
+9. Antiviral responses:
+- PIM1 participates in TLR-mediated IFN-β production, playing a role in antiviral innate immune responses [3].
+
+In summary, PIM1 is a multifaceted regulator of immune function, affecting both innate and adaptive immunity through various mechanisms, including cell proliferation, survival, differentiation, and cytokine production. Its involvement in multiple immune processes makes it a potential therapeutic target for immunoinflammatory diseases.
+
+Citations:
+[1] https://www.frontiersin.org/journals/immunology/articles/10.3389/fimmu.2024.1443784/full
+[2] https://www.nature.com/articles/s41467-022-33502-7
+[3] https://www.nature.com/articles/s12276-022-00893-y
+[4] https://pmc.ncbi.nlm.nih.gov/articles/PMC7783746/
+[5] https://www.frontiersin.org/journals/immunology/articles/10.3389/fimmu.2021.629922/full
+[6] https://en.wikipedia.org/wiki/PIM1
+[7] https://journals.aai.org/jimmunol/article/185/2/842/82974/Smad2-and-Smad3-Are-Redundantly-Essential-for-the
+[8] https://www.nature.com/articles/s41598-022-26277-w
+
+### CASP8
+
+Caspase-8 (CASP8) is a critical gene involved in various immune functions, primarily related to apoptosis (programmed cell death) and cell survival mechanisms. Here are the key aspects of its immune function:
+
+1. **Apoptosis Regulation**: 
+   - CASP8 is known as an initiator caspase that plays a vital role in the extrinsic apoptotic pathway, particularly in response to death receptor signaling (e.g., Fas and TNF receptors) [1]. This function is crucial for eliminating unwanted or damaged cells during immune responses.
+
+2. **Pro-Survival Functions**:
+   - Interestingly, CASP8 also has pro-survival functions. It is involved in protecting cells from necroptosis (a form of programmed necrosis) by inhibiting pathways that lead to this type of cell death. This dual role highlights its importance in maintaining the balance between cell death and survival in immune cells [1].
+
+3. **T and B Cell Homeostasis**:
+   - CASP8 is essential for the proliferation and homeostasis of T and B lymphocytes. Conditional deletion of CASP8 in mice leads to impaired T cell proliferation and increased apoptosis, indicating its crucial role in lymphocyte survival and clonal expansion [1]. Specifically, it is required for normal responses to T cell receptor (TCR) stimulation.
+
+4. **Clonal Expansion**:
+   - The activity of CASP8 is necessary for clonal expansion of T cells following antigen receptor stimulation. This function is essential for effective adaptive immune responses, as it allows for the proliferation of specific immune cells that can target pathogens [1].
+
+5. **Interaction with cFLIP**:
+   - CASP8 interacts with cFLIP (cellular FLICE-inhibitory protein), which modulates its activity. This interaction helps determine whether a cell will undergo apoptosis or survive, thereby influencing immune responses during infections or inflammation [1].
+
+6. **Role in Autophagy**:
+   - CASP8 has been implicated in modulating autophagy, a process that can impact immune responses by regulating the turnover of cellular components and influencing inflammation [1].
+
+7. **Impact on Immune Activation**:
+   - Mutations or deficiencies in CASP8 can lead to decreased activation of naive lymphocytes, affecting the overall immune response to infections [1]. 
+
+In summary, CASP8 plays a multifaceted role in the immune system by regulating apoptosis, promoting cell survival, facilitating lymphocyte proliferation, and interacting with other proteins to modulate immune responses. Its balance between pro-apoptotic and pro-survival functions is critical for maintaining immune homeostasis and effective responses to pathogens.
+
+Citations:
+[1] https://pmc.ncbi.nlm.nih.gov/articles/PMC4099255/
+[2] https://www.nature.com/articles/s41598-023-34779-4
+[3] https://www.nature.com/articles/s12276-022-00893-y
+[4] https://www.buffalo.edu/news/releases/2024/04/Uniquely-human-gene-enhances-immune-function.html
+[5] https://www.nature.com/articles/s41598-022-26277-w
+[6] https://pmc.ncbi.nlm.nih.gov/articles/PMC7783746/
+[7] https://www.nature.com/articles/s41467-023-37592-9
+[8] https://journals.aai.org/jimmunol/article/185/2/842/82974/Smad2-and-Smad3-Are-Redundantly-Essential-for-the
