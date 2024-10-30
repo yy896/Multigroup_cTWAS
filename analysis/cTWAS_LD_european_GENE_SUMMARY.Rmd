@@ -8,6 +8,8 @@ editor_options:
 
 **Genelist**
 
+*mashr + RefZ*
+
 [1] "LY6G6D"       "NINL"         "ANO7"         "IRX4"         "LDB1"         "FARP2"       
   [7] "TNFRSF6B"     "MMP7"         "UQCC1"        "CCND1"        "USP28"        "CFAP44"      
  [13] "RAB13"        "RGS17"        "MYO9B"        "FLOT1"        "PKNOX2"       "LGR4"        
@@ -29,6 +31,31 @@ editor_options:
 [109] "FAM118A"      "GATA2"        "SLC38A6"
 
 https://www.perplexity.ai/search/what-is-the-immune-function-of-V1KXq8E9Rhqng5pP5n8Rww
+
+*mashr + RefZ + TCGA*
+
+[1] "LY6G6D"       "SLC22A3"      "UHRF1BP1"     "UQCC1"        "NINL"         "CCND1"       
+  [7] "SKIL"         "ANO7"         "IRX4"         "LDB1"         "PHC3"         "UQCC"        
+ [13] "TNFRSF6B"     "CFAP44"       "MMP7"         "FARP2"        "RAB13"        "USP28"       
+ [19] "EVI5"         "BHLHA15"      "TBX5"         "MYO9B"        "PKNOX2"       "GDF7"        
+ [25] "ARPM1"        "ACPP"         "COL23A1"      "LOC100506779" "ZSCAN12P1"    "RGS17"       
+ [31] "ITPK1"        "PPP1R14A"     "C9orf152"     "LOC100505545" "AGPAT3"       "TRIM24"      
+ [37] "COL2A1"       "GEMIN4"       "IGF1R"        "RTEL1"        "STXBP1"       "WTAP"        
+ [43] "RHOD"         "CDCA7L"       "GRHL3"        "PYGB"         "ARNT2"        "EGF"         
+ [49] "CHMP4C"       "ZNF395"       "TGM2"         "TGFA"         "LGR4"         "KPNA3"       
+ [55] "OSBPL5"       "IRX3"         "ADGRG1"       "TXN"          "SEPT2"        "SIPA1L3"     
+ [61] "SECTM1"       "MYO5C"        "BCL2L14"      "FMN1"         "MOB2"         "ZNF217"      
+ [67] "UBE2E2"       "MLPH"         "LMO4"         "EBF2"         "CCDC88C"      "IQGAP1"      
+ [73] "SATB1"        "TBX1"         "ZNF774"       "PWWP2A"       "RPS6KL1"      "TACC1"       
+ [79] "DDX52"        "SYCP2L"       "SMAD2"        "LOC283070"    "SYNJ2BP"      "GPBP1L1"     
+ [85] "FBXO38"       "PIK3C2B"      "DPF2"         "CPNE4"        "ZNF568"       "WIPI1"       
+ [91] "TOMM7"        "WNT2"         "RFC5"         "GDI2"         "FOXJ1"        "ZBTB38"      
+ [97] "PXMP4"        "MBNL1"        "TMPRSS2"      "RP11-77H9.1"  "ARAP1"        "ZNF236"      
+[103] "HAUS6"        "BCL2L11"      "ZDHHC7"       "CHD3"         "UBE2R2"       "BBC3"        
+[109] "DNASE2B"      "GRHL1"        "KLF7"         "CTBP2"        "BTBD2"        "MAPKBP1"     
+[115] "EFHD1"        "FAM118A"      "PIM1"         "RCCD1"        "POLI"         "CASP8" 
+
+Union two lists **136 in total**
 
 ## Immune Functions
 
