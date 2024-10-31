@@ -320,7 +320,7 @@ data <- data.frame(
   percentage = ctwas_parameters$prop_heritability
 )
 # Calculate percentage labels for the chart
-data$percentage_label <- paste0(round(data$percentage * 100, 1), "%")
+data$percentage_label <- paste0(round(data$percentage * 100), "%")
 
 ggplot(data, aes(x = "", y = percentage, fill = category)) +
   geom_bar(stat = "identity", width = 1) +
@@ -387,8 +387,23 @@ combined_pip_by_group <- combine_gene_pips(susie_alpha_res,
                                           method = "combine_cs",
                                           filter_cs = TRUE,
                                           include_cs_id = TRUE)
+combined_pip_by_group$sQTL_pip_partition <- sapply(combined_pip_by_group$gene_name, function(gene) {
+  # Find rows in finemap_res_show matching the gene_name
+  matching_rows <- finemap_res_show %>%
+    dplyr::filter(gene_name == gene, type == "sQTL")  # Match gene_name and filter by type == "sQTL"
+  # If no matching rows, return NA
+  if (nrow(matching_rows) == 0) {
+    return(NA)
+  }
+  # Create the desired string format: molecular_id-round(susie_pip, digits = 4)
+  paste(matching_rows$molecular_id, ":PIP=", round(matching_rows$susie_pip, digits = 4), sep = "", collapse = ", ")
+})
+
 combined_pip_table <- subset(combined_pip_by_group, combined_pip > 0.8)
-DT::datatable(combined_pip_table)
+DT::datatable(combined_pip_table, caption = htmltools::tags$caption(
+                style = 'caption-side: topleft; text-align = left; color:black;',
+                'Gene PIPs, only genes within credible sets are shown'),
+              options = list(pageLength = 5))
 ```
 
 ## Ideogram
