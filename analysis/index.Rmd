@@ -22,9 +22,10 @@ Multigroup cTWAS analysis summary
 
 + Gene Summary for above analysis [link](cTWAS_noLD_european_GENE_SUMMARY.html)
 
-**IV** Munro et.al **with LD** [link](cTWAS_LD_european_munro7_output.html)
+*IV* Munro et.al **with LD** [link](cTWAS_LD_european_munro7_output.html)
 
 + Gene Summary (...ing)
+
 ---
 
 Overlapped rsid p-values comparison [link](overlapped_pvalue.html)
