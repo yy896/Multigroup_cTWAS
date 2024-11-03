@@ -11,7 +11,7 @@
 
 <meta name="author" content="Nina Yifan Yang" />
 
-<meta name="date" content="2024-10-31" />
+<meta name="date" content="2024-11-03" />
 
 <title>Prostate Cancer ~ Predictdb eQTL&amp;sQTL (Prostate,Testis,Lymphocytes) &amp; RefZ prostate cohort &amp; TCGA prostate tumor cohort</title>
 
@@ -384,7 +384,7 @@ div.tocify {
 (Prostate,Testis,Lymphocytes) &amp; RefZ prostate cohort &amp; TCGA
 prostate tumor cohort</h1>
 <h4 class="author">Nina Yifan Yang</h4>
-<h4 class="date">2024-10-31</h4>
+<h4 class="date">2024-11-03</h4>
 
 </div>
 
@@ -413,7 +413,7 @@ class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2024-10-31
+<strong>Last updated:</strong> 2024-11-03
 </p>
 <p>
 <strong>Checks:</strong> <span
@@ -544,15 +544,15 @@ project makes it easier to run your code on other machines.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomyy896MultigroupcTWAStree4c2b617fc0ebf92e5a16eaaf495d6266d7d9880dtargetblank4c2b617a">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomyy896MultigroupcTWAStree6c7cf9df8d3916c6f29d86e893f8cf8479f6f772targetblank6c7cf9da">
 <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span> <strong>Repository version:</strong>
-<a href="https://github.com/yy896/Multigroup_cTWAS/tree/4c2b617fc0ebf92e5a16eaaf495d6266d7d9880d" target="_blank">4c2b617</a>
+<a href="https://github.com/yy896/Multigroup_cTWAS/tree/6c7cf9df8d3916c6f29d86e893f8cf8479f6f772" target="_blank">6c7cf9d</a>
 </a>
 </p>
 </div>
 <div
-id="strongRepositoryversionstrongahrefhttpsgithubcomyy896MultigroupcTWAStree4c2b617fc0ebf92e5a16eaaf495d6266d7d9880dtargetblank4c2b617a"
+id="strongRepositoryversionstrongahrefhttpsgithubcomyy896MultigroupcTWAStree6c7cf9df8d3916c6f29d86e893f8cf8479f6f772targetblank6c7cf9da"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -562,7 +562,7 @@ reproducibility.
 </p>
 <p>
 The results in this page were generated with repository version
-<a href="https://github.com/yy896/Multigroup_cTWAS/tree/4c2b617fc0ebf92e5a16eaaf495d6266d7d9880d" target="_blank">4c2b617</a>.
+<a href="https://github.com/yy896/Multigroup_cTWAS/tree/6c7cf9df8d3916c6f29d86e893f8cf8479f6f772" target="_blank">6c7cf9d</a>.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -626,6 +626,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/yy896/Multigroup_cTWAS/blob/6c7cf9df8d3916c6f29d86e893f8cf8479f6f772/analysis/cTWAS_LD_european_combined3_output.Rmd" target="_blank">6c7cf9d</a>
+</td>
+<td>
+yy896
+</td>
+<td>
+2024-11-03
+</td>
+<td>
+UPDATED RESULTS
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/yy896/Multigroup_cTWAS/075e972669362b36a4f002a7cb77a7efed609c0a/docs/cTWAS_LD_european_combined3_output.html" target="_blank">075e972</a>
+</td>
+<td>
+yy896
+</td>
+<td>
+2024-10-31
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -792,84 +826,81 @@ z_snp &lt;- preprocess_z_snp(z_snp, snp_map,
                                                   region_info,
                                                   gwas_snp_ids = z_snp$id,
                                                   snp_map = snp_map,
-                                                  LD_map = LD_map,
                                                   type = &quot;eQTL&quot;,
                                                   context = &quot;prostate&quot;,
                                                   weight_format = &quot;PredictDB&quot;,
                                                   drop_strand_ambig = TRUE,
                                                   scale_predictdb_weights = TRUE,
-                                                  load_predictdb_LD = FALSE,
+                                                  load_predictdb_LD = TRUE,
                                                   filter_protein_coding_genes = TRUE,
-                                                  ncore = ncore)
+                                                  ncore = 5)
+
 weights_prostate_splicing &lt;- preprocess_weights(weight_files[2],
                                                 region_info,
                                                 gwas_snp_ids = z_snp$id,
                                                 snp_map = snp_map,
-                                                LD_map = LD_map,
                                                 type = &quot;sQTL&quot;,
                                                 context = &quot;prostate&quot;,
                                                 weight_format = &quot;PredictDB&quot;,
                                                 drop_strand_ambig = TRUE,
                                                 scale_predictdb_weights = TRUE,
-                                                load_predictdb_LD = FALSE,
+                                                load_predictdb_LD = TRUE,
                                                 filter_protein_coding_genes = TRUE,
-                                                ncore = ncore)
+                                                ncore = 5)
 
 weights_testis_expression &lt;- preprocess_weights(weight_files[3],
                                                 region_info,
                                                 gwas_snp_ids = z_snp$id,
                                                 snp_map = snp_map,
-                                                LD_map = LD_map,
                                                 type = &quot;eQTL&quot;,
                                                 context = &quot;testis&quot;,
                                                 weight_format = &quot;PredictDB&quot;,
                                                 drop_strand_ambig = TRUE,
                                                 scale_predictdb_weights = TRUE,
-                                                load_predictdb_LD = FALSE,
+                                                load_predictdb_LD = TRUE,
                                                 filter_protein_coding_genes = TRUE,
-                                                ncore = ncore)
+                                                ncore = 5)
+
 weights_testis_splicing &lt;- preprocess_weights(weight_files[4],
                                               region_info,
                                               gwas_snp_ids = z_snp$id,
                                               snp_map = snp_map,
-                                              LD_map = LD_map,
                                               type = &quot;sQTL&quot;,
                                               context = &quot;testis&quot;,
                                               weight_format = &quot;PredictDB&quot;,
                                               drop_strand_ambig = TRUE,
                                               scale_predictdb_weights = TRUE,
-                                              load_predictdb_LD = FALSE,
+                                              load_predictdb_LD = TRUE,
                                               filter_protein_coding_genes = TRUE,
-                                              ncore = ncore)
+                                              ncore = 5)
 
 weights_lymphocytes_expression &lt;- preprocess_weights(weight_files[5],
                                                      region_info,
                                                      gwas_snp_ids = z_snp$id,
                                                      snp_map = snp_map,
-                                                     LD_map = LD_map,
                                                      type = &quot;eQTL&quot;,
                                                      context = &quot;lymphocytes&quot;,
                                                      weight_format = &quot;PredictDB&quot;,
                                                      drop_strand_ambig = TRUE,
                                                      scale_predictdb_weights = TRUE,
-                                                     load_predictdb_LD = FALSE,
+                                                     load_predictdb_LD = TRUE,
                                                      filter_protein_coding_genes = TRUE,
-                                                     ncore = ncore)
+                                                     ncore = 5)
+
 weights_lymphocytes_splicing &lt;- preprocess_weights(weight_files[6],
                                                    region_info,
                                                    gwas_snp_ids = z_snp$id,
                                                    snp_map = snp_map,
-                                                   LD_map = LD_map,
                                                    type = &quot;sQTL&quot;,
                                                    context = &quot;lymphocytes&quot;,
                                                    weight_format = &quot;PredictDB&quot;,
                                                    drop_strand_ambig = TRUE,
                                                    scale_predictdb_weights = TRUE,
-                                                   load_predictdb_LD = FALSE,
+                                                   load_predictdb_LD = TRUE,
                                                    filter_protein_coding_genes = TRUE,
-                                                   ncore = ncore)
+                                                   ncore = 5)
 
-weights_RefZ_prostate &lt;- preprocess_weights(&quot;/project2/xinhe/yifany/MAYO/weights&quot;,
+weights_RefZ_prostate &lt;- preprocess_weights(&quot;/project2/xinhe/yifany/RefZ_prostate/weights&quot;,
                                             region_info,
                                             gwas_snp_ids = z_snp$id,
                                             snp_map = snp_map,
@@ -884,7 +915,7 @@ weights_RefZ_prostate &lt;- preprocess_weights(&quot;/project2/xinhe/yifany/MAYO
                                             filter_protein_coding_genes = FALSE,
                                             scale_predictdb_weights = FALSE,
                                             load_predictdb_LD = FALSE,
-                                            ncore = ncore)
+                                            ncore = 5)
 
 weights_TCGA_prostate &lt;- preprocess_weights(&quot;/project2/xinhe/yifany/TCGA_prostate/TCGA-PRAD.TUMOR&quot;,
                                             region_info,
@@ -901,24 +932,7 @@ weights_TCGA_prostate &lt;- preprocess_weights(&quot;/project2/xinhe/yifany/TCGA
                                             filter_protein_coding_genes = FALSE,
                                             scale_predictdb_weights = FALSE,
                                             load_predictdb_LD = FALSE,
-                                            ncore = ncore)
-
-weights_TCGA_prostate &lt;- preprocess_weights(&quot;/project2/xinhe/yifany/TCGA_prostate/TCGA-PRAD.TUMOR&quot;,
-                                            region_info,
-                                            gwas_snp_ids = z_snp$id,
-                                            snp_map = snp_map,
-                                            LD_map = LD_map,
-                                            type = &quot;TCGA&quot;,
-                                            context = &quot;prostate&quot;,                         
-                                            weight_format = &quot;FUSION&quot;,
-                                            fusion_method = &quot;lasso&quot;,
-                                            fusion_genome_version = &quot;b38&quot;,
-                                            top_n_snps = NULL,
-                                            drop_strand_ambig = TRUE,
-                                            filter_protein_coding_genes = FALSE,
-                                            scale_predictdb_weights = FALSE,
-                                            load_predictdb_LD = FALSE,
-                                            ncore = ncore)
+                                            ncore = 5)
 
 weights &lt;- c(
   weights_prostate_expression,
@@ -940,20 +954,12 @@ href="https://xinhe-lab.github.io/multigroup_ctwas/articles/running_ctwas_analys
 class="uri">https://xinhe-lab.github.io/multigroup_ctwas/articles/running_ctwas_analysis.html</a></p>
 <p>Users can expand the code snippets below to view the exact code
 used.</p>
-<pre class="r"><code>thin &lt;- 0.1
-maxSNP &lt;- 20000
-ctwas_res &lt;- ctwas_sumstats(z_snp, 
-                            weights, 
-                            region_info, 
-                            LD_map, 
-                            snp_map, 
-                            thin = thin,
-                            maxSNP = maxSNP,
-                            group_prior_var_structure = &quot;shared_type&quot;, 
-                            filter_L = TRUE,
-                            ncore = ncore, 
-                            save_cor = TRUE, 
-                            cor_dir = file.path(outputdir, &quot;cor_matrix&quot;))</code></pre>
+<pre class="r"><code>ctwas_res &lt;- ctwas_sumstats_noLD(z_snp,
+                                 weights,
+                                 region_info,
+                                 snp_map,
+                                 thin = 0.1, 
+                                 ncore = 5)</code></pre>
 </div>
 <div id="parameter-estimation" class="section level2">
 <h2>Parameter estimation</h2>
@@ -1015,7 +1021,7 @@ estimated parameters (from the last iteration) and to compute the PVE by
 variants and molecular traits.</p>
 <pre><code>[1] &quot;The number of genes/introns/SNPs used in the analysis is:&quot;</code></pre>
 <pre><code>   prostate|eQTL    prostate|sQTL      testis|eQTL      testis|sQTL 
-            9693            27939            11362            41889 
+            9693            27939            11361            41889 
 lymphocytes|eQTL lymphocytes|sQTL    prostate|RefZ    prostate|TCGA 
             8478            24989            12731             4650 
              SNP 
@@ -1063,6 +1069,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/yy896/Multigroup_cTWAS/blob/075e972669362b36a4f002a7cb77a7efed609c0a/docs/figure/cTWAS_LD_european_combined3_output.Rmd/piechart-1.png" target="_blank">075e972</a>
+</td>
+<td>
+yy896
+</td>
+<td>
+2024-10-31
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/yy896/Multigroup_cTWAS/blob/099102dbbcddba5380e899c2d37db5ecfc27e20d/docs/figure/cTWAS_LD_european_combined3_output.Rmd/piechart-1.png" target="_blank">099102d</a>
@@ -1146,7 +1163,7 @@ shown</p>
 
 DT::datatable(finemap_res_show,caption = htmltools::tags$caption( style = &#39;caption-side: topleft; text-align = left; color:black;&#39;,&#39;The annotated fine-mapping results, ones within credible sets are shown&#39;),options = list(pageLength = 5) )</code></pre>
 <div class="datatables html-widget html-fill-item" id="htmlwidget-232a8e63d6aacd296363" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-232a8e63d6aacd296363">{"x":{"filter":"none","vertical":false,"caption":"<caption style=\"caption-side: topleft; text-align = left; color:black;\">The annotated fine-mapping results, ones within credible sets are shown<\/caption>","data":[["2371","3106","4532","5932","6682","7473","8809","8936","9231","9286","9864","12183","12192","12947","13159","15735","16623","19785","20338","20913","20966","21714","22966","23542","25004","26111","30121","31696","34227","37523","40157","42336","44055","47462","48686","52254","53387","54827","54921","55296","55334"],["LMO4|prostate_RefZ","ENSG00000143545.8|lymphocytes_eQTL","ENSG00000133056.13|lymphocytes_eQTL","GDF7|prostate_RefZ","TGFA|prostate_RefZ","intron_2_111124139_111128627|testis_sQTL","intron_2_201260613_201266461|lymphocytes_sQTL","intron_2_207165706_207166757|lymphocytes_sQTL","ENSG00000115648.13|lymphocytes_eQTL","intron_2_241195845_241199316|prostate_sQTL","SATB1|prostate_RefZ","ARPM1|prostate_RefZ","SKIL|prostate_RefZ","EGF|prostate_RefZ","LOC100505545|prostate_RefZ","ZSCAN12P1|prostate_RefZ","LY6G6D|prostate_RefZ","ENSG00000146477.5|prostate_eQTL","CDCA7L|prostate_RefZ","WNT2|prostate_RefZ","TRIM24|prostate_RefZ","ZNF395|prostate_RefZ","UBE2R2|prostate_TCGA","C9orf152|prostate_RefZ","LOC283070|prostate_RefZ","LDB1|prostate_RefZ","ENSG00000110092.3|lymphocytes_eQTL","PKNOX2|prostate_RefZ","TBX5|prostate_RefZ","ITPK1|prostate_RefZ","IGF1R|prostate_RefZ","ENSG00000177508.11|testis_eQTL","ENSG00000179409.10|prostate_eQTL","LOC100506779|prostate_RefZ","FOXJ1|prostate_RefZ","ENSG00000198453.12|lymphocytes_eQTL","ENSG00000105327.17|prostate_eQTL","intron_20_25288225_25288425|prostate_sQTL","NINL|prostate_RefZ","ENSG00000101417.11|lymphocytes_eQTL","ENSG00000101019.21|prostate_eQTL"],["LMO4","ENSG00000143545.8","ENSG00000133056.13","GDF7","TGFA","intron_2_111124139_111128627","intron_2_201260613_201266461","intron_2_207165706_207166757","ENSG00000115648.13","intron_2_241195845_241199316","SATB1","ARPM1","SKIL","EGF","LOC100505545","ZSCAN12P1","LY6G6D","ENSG00000146477.5","CDCA7L","WNT2","TRIM24","ZNF395","UBE2R2","C9orf152","LOC283070","LDB1","ENSG00000110092.3","PKNOX2","TBX5","ITPK1","IGF1R","ENSG00000177508.11","ENSG00000179409.10","LOC100506779","FOXJ1","ENSG00000198453.12","ENSG00000105327.17","intron_20_25288225_25288425","NINL","ENSG00000101417.11","ENSG00000101019.21"],["RefZ","eQTL","eQTL","RefZ","RefZ","sQTL","sQTL","sQTL","eQTL","sQTL","RefZ","RefZ","RefZ","RefZ","RefZ","RefZ","RefZ","eQTL","RefZ","RefZ","RefZ","RefZ","TCGA","RefZ","RefZ","RefZ","eQTL","RefZ","RefZ","RefZ","RefZ","eQTL","eQTL","RefZ","RefZ","eQTL","eQTL","sQTL","RefZ","eQTL","eQTL"],["prostate","lymphocytes","lymphocytes","prostate","prostate","testis","lymphocytes","lymphocytes","lymphocytes","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","lymphocytes","prostate","prostate","prostate","prostate","testis","prostate","prostate","prostate","lymphocytes","prostate","prostate","prostate","lymphocytes","prostate"],["prostate|RefZ","lymphocytes|eQTL","lymphocytes|eQTL","prostate|RefZ","prostate|RefZ","testis|sQTL","lymphocytes|sQTL","lymphocytes|sQTL","lymphocytes|eQTL","prostate|sQTL","prostate|RefZ","prostate|RefZ","prostate|RefZ","prostate|RefZ","prostate|RefZ","prostate|RefZ","prostate|RefZ","prostate|eQTL","prostate|RefZ","prostate|RefZ","prostate|RefZ","prostate|RefZ","prostate|TCGA","prostate|RefZ","prostate|RefZ","prostate|RefZ","lymphocytes|eQTL","prostate|RefZ","prostate|RefZ","prostate|RefZ","prostate|RefZ","testis|eQTL","prostate|eQTL","prostate|RefZ","prostate|RefZ","lymphocytes|eQTL","prostate|eQTL","prostate|sQTL","prostate|RefZ","lymphocytes|eQTL","prostate|eQTL"],["1_87662948_89600744","1_153208353_154797927","1_203365606_204711940","2_19492643_20850730","2_70528066_72947719","2_109814855_113164279","2_200711561_201953914","2_205870980_207780675","2_236540389_237852338","2_240620667_241210506","3_17849626_19083652","3_168863172_171247120","3_168863172_171247120","4_107894192_110335411","4_145257035_147600722","6_26791023_28050041","6_30830391_31603441","6_160159465_161748532","7_20085285_22468010","7_117140124_118711527","7_137191815_139059933","8_28304875_29470379","9_33578336_34642246","9_110015744_112068802","10_10207433_12544798","10_101189482_102620653","11_68238358_69701362","11_124625632_126441425","12_113548904_114598797","14_92665954_93858939","15_97487680_98700830","16_53348660_55869862","17_150263_1269105","17_57280180_59410151","17_74676064_76379479","19_35978393_37036131","19_46646825_48778970","20_24737088_25363595","20_24737088_25363595","20_33027017_34225635","20_34225635_36332043"],[8.87652774617216,11.9941813616066,14.4444444444382,13.30267040791562,4.61077907926688,-6.333333333334664,7.790322580646245,-6.192982456140569,-10.18140152733309,13.50159680552035,5.475864119276906,-6.051401369121348,-22.02239742761866,3.910714285715014,5.652693739574281,-5.719925452438602,9.625973155319066,-4.722349451716448,6.10193119672504,-5.593138590979815,-5.594993758786543,-5.214984046812426,7.625322933995303,-6.156709167079851,4.912402169448627,4.990964808360135,-16.44599317899371,10.11848170491887,13.45393968764112,5.262154828528049,-6.21189016706335,5.769208979874522,14.40350877192866,-7.383055621966613,4.993475117543033,-6.326330037383199,5.136986301372026,-2.339699001523426,-6.319460177448664,-6.141025641021984,-2.832258064515217],[0.9643631812391286,0.9998313978315393,0.9300449881501245,0.9991516524878735,0.9819731604750709,0.8850279456769137,0.8018536477593515,0.8606465780458128,0.9648500482600985,0.9999999999991087,0.9581518797222186,0.9990175807836614,0.9999999999991783,0.9721588907104233,0.9923289182946542,0.9954409230775969,1,1,0.9865996215569316,0.918103772116778,0.9910192572513428,0.9834109697418919,0.8728646275447293,0.9927465924671508,0.936269144927671,0.9999999999816905,0.999999999999945,0.9457075414566229,0.9994773604489406,0.9951326061398057,0.9892427350021,0.9780735483534247,0.9900771634240131,0.9969879143473273,0.9121139753503335,0.9146929774610026,0.8715321685661526,0.8433046557514339,0.9999999999999596,0.9073141954046301,0.9999999999999971],[68.05234027957779,178.9016331672315,136.7447433228852,626.9285682665833,21.31028119837968,56.98772660913483,52.82661577653383,34.81553317733196,104.286904663777,198.4780621806785,27.26073106636989,187.0412135655986,5153.249317454459,57.98780190005817,31.53767337666294,68.70702708253154,8442.555935967677,10272.92210584977,40.62752649448906,30.89712882571745,30.91697968079612,26.98819775904489,49.36541038428681,35.16149958491881,24.05744818903206,2321.954061433737,9681.922636336771,98.89744194708706,222.0813880303735,27.46086357921062,37.88301961342639,31.77755132541346,193.3747898538021,54.14555490907424,24.82552974025286,38.08225149267992,25.43743190466251,306.9927266047337,400.3468334771936,35.93958270551055,5083.189681526544],["L1","L1","L1","L1","L1","L2","L1","L1","L1","L1","L1","L3","L1","L1","L1","L1","L2","L4","L3","L1","L1","L1","L1","L1","L1","L2","L4","L1","L1","L1","L1","L2","L1","L1","L1","L1","L1","L3","L1","L1","L2"],["LMO4","RAB13","PIK3C2B","GDF7","TGFA","BCL2L11","CASP8","KLF7","MLPH","ANO7","SATB1","ARPM1","SKIL","EGF","LOC100505545","ZSCAN12P1","LY6G6D","SLC22A3","CDCA7L","WNT2","TRIM24","ZNF395","UBE2R2","C9orf152","LOC283070","LDB1","CCND1","PKNOX2","TBX5","ITPK1","IGF1R","IRX3","GEMIN4","LOC100506779","FOXJ1","ZNF568","BBC3","PYGB","NINL","PXMP4","UQCC1"],["protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding"],["1","1","1","2","2","2","2","2","2","2","3","3","3","4","4","6","6","6","7","7","7","8","9","9","10","10","11","11","12","14","15","16","17","17","17","19","19","20","20","20","20"],["87662948","153981617","204422628","19492643","70528066","111124139","201260613","207165706","237485428","241195845","17849626","168863172","168863172","107894192","145257035","26791023","30830391","160348268","20085285","117140124","137191815","28304875","33578336","110015744","10207433","101189482","69641087","124625632","113548904","92665954","97487680","54283304","744414","57280180","74676064","36916329","47220824","25288225","24737088","33702754","35302566"],["89600744","153986358","204494724","20850730","72947719","111128627","201266461","207166757","237555318","241199316","19083652","171247120","171247120","110335411","147600722","28050041","31603441","160452581","22468010","118711527","139059933","29470379","34642246","112068802","12544798","102620653","69654474","126441425","114598797","93858939","98700830","54286763","752659","59410151","76379479","36997932","47232766","25288425","25363595","33720319","35412141"],[88631846,153983988,204458676,20171686,71737892,111126383,201263537,207166232,237520373,241197580,18466639,170055146,170055146,109114802,146428878,27420532,31216916,160400424,21276648,117925826,138125874,28887627,34110291,111042273,11376116,101905068,69647780,125533528,114073850,93262446,98094255,54285034,748536,58345166,75527772,36957130,47226795,25288325,25050342,33711536,35357354]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>id<\/th>\n      <th>molecular_id<\/th>\n      <th>type<\/th>\n      <th>context<\/th>\n      <th>group<\/th>\n      <th>region_id<\/th>\n      <th>z<\/th>\n      <th>susie_pip<\/th>\n      <th>mu2<\/th>\n      <th>cs<\/th>\n      <th>gene_name<\/th>\n      <th>gene_type<\/th>\n      <th>chrom<\/th>\n      <th>start<\/th>\n      <th>end<\/th>\n      <th>pos<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"columnDefs":[{"className":"dt-right","targets":[7,8,9,16]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"id","targets":1},{"name":"molecular_id","targets":2},{"name":"type","targets":3},{"name":"context","targets":4},{"name":"group","targets":5},{"name":"region_id","targets":6},{"name":"z","targets":7},{"name":"susie_pip","targets":8},{"name":"mu2","targets":9},{"name":"cs","targets":10},{"name":"gene_name","targets":11},{"name":"gene_type","targets":12},{"name":"chrom","targets":13},{"name":"start","targets":14},{"name":"end","targets":15},{"name":"pos","targets":16}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-232a8e63d6aacd296363">{"x":{"filter":"none","vertical":false,"caption":"<caption style=\"caption-side: topleft; text-align = left; color:black;\">The annotated fine-mapping results, ones within credible sets are shown<\/caption>","data":[["5372","9353","10980","12615","15171","16235","16580","17900","20192","24963","25511","30544","37063","37459","38486","40891","42263","44797","53864","58391","63210","67078","72350","78234","79495","89279","90630","93227","93396"],["LMO4|prostate_RefZ","ENSG00000133056.13|lymphocytes_eQTL","GDF7|prostate_RefZ","TGFA|prostate_RefZ","intron_2_207165706_207166757|lymphocytes_sQTL","ENSG00000115648.13|lymphocytes_eQTL","intron_2_241195845_241199316|prostate_sQTL","SATB1|prostate_RefZ","CHMP2B|prostate_RefZ","intron_4_94654640_94657427|lymphocytes_sQTL","LOC100505545|prostate_RefZ","HLA-DPB1|prostate_RefZ","WNT2|prostate_RefZ","TRIM24|prostate_RefZ","ZNF395|prostate_RefZ","UBE2R2|prostate_TCGA","C9orf152|prostate_RefZ","LOC283070|prostate_RefZ","PKNOX2|prostate_RefZ","TBX5|prostate_RefZ","ITPK1|prostate_RefZ","IGF1R|prostate_RefZ","ENSG00000179409.10|prostate_eQTL","LOC100506779|prostate_RefZ","FOXJ1|prostate_RefZ","ENSG00000105327.17|prostate_eQTL","ENSG00000170892.10|testis_eQTL","ENSG00000101417.11|lymphocytes_eQTL","ENSG00000126001.15|testis_eQTL"],["LMO4","ENSG00000133056.13","GDF7","TGFA","intron_2_207165706_207166757","ENSG00000115648.13","intron_2_241195845_241199316","SATB1","CHMP2B","intron_4_94654640_94657427","LOC100505545","HLA-DPB1","WNT2","TRIM24","ZNF395","UBE2R2","C9orf152","LOC283070","PKNOX2","TBX5","ITPK1","IGF1R","ENSG00000179409.10","LOC100506779","FOXJ1","ENSG00000105327.17","ENSG00000170892.10","ENSG00000101417.11","ENSG00000126001.15"],["RefZ","eQTL","RefZ","RefZ","sQTL","eQTL","sQTL","RefZ","RefZ","sQTL","RefZ","RefZ","RefZ","RefZ","RefZ","TCGA","RefZ","RefZ","RefZ","RefZ","RefZ","RefZ","eQTL","RefZ","RefZ","eQTL","eQTL","eQTL","eQTL"],["prostate","lymphocytes","prostate","prostate","lymphocytes","lymphocytes","prostate","prostate","prostate","lymphocytes","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","prostate","testis","lymphocytes","testis"],["prostate|RefZ","lymphocytes|eQTL","prostate|RefZ","prostate|RefZ","lymphocytes|sQTL","lymphocytes|eQTL","prostate|sQTL","prostate|RefZ","prostate|RefZ","lymphocytes|sQTL","prostate|RefZ","prostate|RefZ","prostate|RefZ","prostate|RefZ","prostate|RefZ","prostate|TCGA","prostate|RefZ","prostate|RefZ","prostate|RefZ","prostate|RefZ","prostate|RefZ","prostate|RefZ","prostate|eQTL","prostate|RefZ","prostate|RefZ","prostate|eQTL","testis|eQTL","lymphocytes|eQTL","testis|eQTL"],["1_87662948_89600744","1_203365606_204711940","2_19492643_20850730","2_70528066_72947719","2_205870980_207780675","2_236540389_237852338","2_240620667_241210506","3_17849626_19083652","3_85533081_87360582","4_93312148_95261037","4_145257035_147600722","6_32714887_33268720","7_117140124_118711527","7_137191815_139059933","8_28304875_29470379","9_33578336_34642246","9_110015744_112068802","10_10207433_12544798","11_124625632_126441425","12_113548904_114598797","14_92665954_93858939","15_97487680_98700830","17_150263_1269105","17_57280180_59410151","17_74676064_76379479","19_46646825_48778970","19_54099074_55216712","20_33027017_34225635","20_34225635_36332043"],[8.87652774617216,14.44444444444444,13.30267040791562,4.61077907926688,-6.192982456140351,-10.35733908051552,13.791151879786,5.475864119276906,-20.74844613061263,-14.33072946069555,5.652693739574281,6.383922732319628,-5.593138590979815,-5.594993758786543,-5.214984046812426,7.625322933995303,-6.156709167079851,4.912402169448627,10.11848170491887,13.45393968764112,5.262154828528049,-6.21189016706335,14.40350877192982,-7.383055621966613,4.993475117543033,5.136986301369863,-5.317204335134762,-6.141025641025641,23.11759293172035],[0.9969149804224952,0.94979148733383,0.9991410378341971,0.9814497003902883,0.8822241365813874,0.9872055572673457,0.9999999999089298,0.8530623066560352,1,0.9951631824960016,0.9920512926102973,0.8401216835536892,0.9178035879617265,0.9909848564343262,0.9833551181363075,0.8743292579789752,0.986215721553089,0.9355791174654586,0.9415083194307692,0.9979144404841779,0.9951165125355645,0.9892004245510464,0.9905754108786723,0.9957559259072205,0.910736586491682,0.8806524761640139,0.9926430082705089,0.9068377806513906,1],[76.36521426906259,194.489770509355,170.2903545445792,21.31853757025626,33.71691821977918,100.4659498934163,163.54416143862,29.66718390374582,412.8686338031247,176.5180388434354,31.5499852751521,39.97107759804948,30.90918672539366,30.929045452046,26.99870562781476,49.41350748846637,37.24483637653737,24.06679391082752,98.93646440182478,174.1628635156612,27.47155887687527,37.897847668535,193.3944125133435,53.13158059659626,24.83518003384114,25.43997061992937,27.18751337805008,35.9431897844289,496.6693207268939],["L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1"],["LMO4","PIK3C2B","GDF7","TGFA","KLF7","MLPH","ANO7","SATB1","CHMP2B","PDLIM5","LOC100505545","HLA-DPB1","WNT2","TRIM24","ZNF395","UBE2R2","C9orf152","LOC283070","PKNOX2","TBX5","ITPK1","IGF1R","GEMIN4","LOC100506779","FOXJ1","BBC3","TSEN34","PXMP4","CEP250"],["protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding"],["1","1","2","2","2","2","2","3","3","4","4","6","7","7","8","9","9","10","11","12","14","15","17","17","17","19","19","20","20"],["87662948","204422628","19492643","70528066","207165706","237485428","241195845","17849626","85533081","94654640","145257035","32714887","117140124","137191815","28304875","33578336","110015744","10207433","124625632","113548904","92665954","97487680","744414","57280180","74676064","47220824","54189938","33702754","35455164"],["89600744","204494724","20850730","72947719","207166757","237555318","241199316","19083652","87360582","94657427","147600722","33268720","118711527","139059933","29470379","34642246","112068802","12544798","126441425","114598797","93858939","98700830","752659","59410151","76379479","47232766","54194536","33720319","35519280"],[88631846,204458676,20171686,71737892,207166232,237520373,241197580,18466639,86446832,94656034,146428878,32991804,117925826,138125874,28887627,34110291,111042273,11376116,125533528,114073850,93262446,98094255,748536,58345166,75527772,47226795,54192237,33711536,35487222]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>id<\/th>\n      <th>molecular_id<\/th>\n      <th>type<\/th>\n      <th>context<\/th>\n      <th>group<\/th>\n      <th>region_id<\/th>\n      <th>z<\/th>\n      <th>susie_pip<\/th>\n      <th>mu2<\/th>\n      <th>cs<\/th>\n      <th>gene_name<\/th>\n      <th>gene_type<\/th>\n      <th>chrom<\/th>\n      <th>start<\/th>\n      <th>end<\/th>\n      <th>pos<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"columnDefs":[{"className":"dt-right","targets":[7,8,9,16]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"id","targets":1},{"name":"molecular_id","targets":2},{"name":"type","targets":3},{"name":"context","targets":4},{"name":"group","targets":5},{"name":"region_id","targets":6},{"name":"z","targets":7},{"name":"susie_pip","targets":8},{"name":"mu2","targets":9},{"name":"cs","targets":10},{"name":"gene_name","targets":11},{"name":"gene_type","targets":12},{"name":"chrom","targets":13},{"name":"start","targets":14},{"name":"end","targets":15},{"name":"pos","targets":16}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
 <p>Next, we compute gene combined-PIPs across different types of
 molecular traits, where only genes within credible sets are shown.</p>
 <pre class="r"><code>susie_alpha_res &lt;- anno_susie_alpha_res(susie_alpha_res,
@@ -1177,7 +1194,7 @@ DT::datatable(combined_pip_table, caption = htmltools::tags$caption(
                 &#39;Gene PIPs, only genes within credible sets are shown&#39;),
               options = list(pageLength = 5))</code></pre>
 <div class="datatables html-widget html-fill-item" id="htmlwidget-2112c1f1dbc2c6427f4c" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-2112c1f1dbc2c6427f4c">{"x":{"filter":"none","vertical":false,"caption":"<caption style=\"caption-side: topleft; text-align = left; color:black;\">Gene PIPs, only genes within credible sets are shown<\/caption>","data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60","61","62","63","64","65","66","67","68","69","70","71","72","73","74","75","76","77","78","79","80","81","82","83","84","85","86","87","88","89","90","91","92","93","94","95","96","97","98","99","100","101","102","103","104","105","106","107","108","109","110","111","112","113","114","115","116","117","118","119","120"],["LY6G6D","SLC22A3","UHRF1BP1","UQCC1","NINL","CCND1","SKIL","ANO7","IRX4","LDB1","PHC3","UQCC","TNFRSF6B","CFAP44","MMP7","FARP2","RAB13","USP28","EVI5","BHLHA15","TBX5","MYO9B","PKNOX2","GDF7","ARPM1","ACPP","COL23A1","LOC100506779","ZSCAN12P1","RGS17","ITPK1","PPP1R14A","C9orf152","LOC100505545","AGPAT3","TRIM24","COL2A1","GEMIN4","IGF1R","RTEL1","STXBP1","WTAP","RHOD","CDCA7L","GRHL3","PYGB","ARNT2","EGF","CHMP4C","ZNF395","TGM2","TGFA","LGR4","KPNA3","OSBPL5","IRX3","ADGRG1","TXN","SEPT2","SIPA1L3","SECTM1","MYO5C","BCL2L14","FMN1","MOB2","ZNF217","UBE2E2","MLPH","LMO4","EBF2","CCDC88C","IQGAP1","SATB1","TBX1","ZNF774","PWWP2A","RPS6KL1","TACC1","DDX52","SYCP2L","SMAD2","LOC283070","SYNJ2BP","GPBP1L1","FBXO38","PIK3C2B","DPF2","CPNE4","ZNF568","WIPI1","TOMM7","WNT2","RFC5","GDI2","FOXJ1","ZBTB38","PXMP4","MBNL1","TMPRSS2","RP11-77H9.1","ARAP1","ZNF236","HAUS6","BCL2L11","ZDHHC7","CHD3","UBE2R2","BBC3","DNASE2B","GRHL1","KLF7","CTBP2","BTBD2","MAPKBP1","EFHD1","FAM118A","PIM1","RCCD1","POLI","CASP8"],["6_30830391_31603441.L2","6_160159465_161748532.L4","6_33268720_35487979.L1","20_34225635_36332043.L2","20_24737088_25363595.L1","11_68238358_69701362.L4","3_168863172_171247120.L1","2_240620667_241210506.L1","5_982137_2132328.L2","10_101189482_102620653.L2","3_168863172_171247120.L4","20_34225635_36332043.L1","20_63558827_64333810.L3","3_113096852_114229016.L3","11_101460390_104088908.L1","2_241210506_242147200.L2","1_153208353_154797927.L1","11_112588765_114387006.L2","1_91420760_93070902.L1,L2","7_97470258_99117851.L1","12_113548904_114598797.L1","19_16263605_18299052.L1","11_124625632_126441425.L1","2_19492643_20850730.L1","3_168863172_171247120.L3","3_132117672_133533329.L2,3_132117672_133533329.L1","5_177824506_178986463.L2,5_177824506_178986463.L1","17_57280180_59410151.L1","6_26791023_28050041.L1","6_152773361_154652986.L1","14_92665954_93858939.L1","19_37036131_39679979.L1","9_110015744_112068802.L1","4_145257035_147600722.L1","21_43086158_44757190.L1","7_137191815_139059933.L1","12_47321010_48608083.L1,12_47321010_48608083.L2","17_150263_1269105.L1","15_97487680_98700830.L1","20_63558827_64333810.L4,20_63558827_64333810.L2","9_127293231_129403191.L1","6_157797687_160159465.L3,6_157797687_160159465.L1","11_66131160_68238358.L2","7_20085285_22468010.L3","1_23594100_25190354.L1","20_24737088_25363595.L2,20_24737088_25363595.L3","15_78223711_80568637.L1","4_107894192_110335411.L2,4_107894192_110335411.L1","8_81044160_81781504.L1","8_28304875_29470379.L1","20_36332043_38281128.L1","2_70528066_72947719.L1","11_26998914_28460046.L1","13_48809826_51016955.L3","11_1192365_3644251.L2","16_53348660_55869862.L2","16_55869862_57630418.L1,16_57630418_59011501.L1","9_110015744_112068802.L2","2_241210506_242147200.L3","19_37036131_39679979.L2","17_82076532_83247139.L1","15_51385363_52776899.L1","12_11601912_12580594.L1","15_32149610_33723224.L1","11_1192365_3644251.L3","20_50623121_53856010.L3","3_22162752_23763374.L1","2_236540389_237852338.L1","1_87662948_89600744.L1","8_25625938_26825008.L1","14_90830516_92665954.L1","15_89932319_91621162.L2","3_17849626_19083652.L1","22_17813322_19924835.L1","15_89932319_91621162.L3","5_159398690_160546937.L1","14_72422907_75978424.L1","8_37521871_39081287.L1","17_36141651_38653091.L5","6_10540084_11790583.L2","18_46719283_48413361.L1","10_10207433_12544798.L1","14_67525600_70665240.L2","1_44503511_46433829.L1","5_147802435_149283061.L1","1_203365606_204711940.L1","11_64037097_66131160.L1","3_132117672_133533329.L2","19_35978393_37036131.L1","17_66804312_69862629.L1","7_22468010_23431823.L1","7_117140124_118711527.L1","12_117697570_119316305.L1","10_4530082_5941799.L2","17_74676064_76379479.L1","3_140235755_141620255.L1","20_33027017_34225635.L1","3_151630942_153538782.L1","21_40017600_41901419.L1","16_8288517_9705562.L1","11_72574973_74701306.L1","18_75815032_77101859.L1","9_18661053_20463536.L1","2_109814855_113164279.L2,2_109814855_113164279.L1","16_84412277_85115079.L1","17_7414079_8403107.L3,17_7414079_8403107.L1","9_33578336_34642246.L1","19_46646825_48778970.L1","1_84378812_85989068.L1","2_8282017_10158342.L1","2_205870980_207780675.L1","10_124109830_126312529.L1","19_610729_2098397.L1","15_40885316_42484201.L1","2_230978674_232685293.L1","22_44599428_46074615.L1","6_35487979_37604820.L1","15_89932319_91621162.L1","18_54027805_57546606.L1","2_200711561_201953914.L1"],[1,1,1,0.9999999999999971,0.9999999999999596,0.999999999999945,0.9999999999991783,0.9999999999991087,0.9999999999990116,0.9999999999816905,0.9999999999761182,0.9999999966431627,0.9999999914792509,0.9999999147030505,0.9999994263544335,0.9999943514278923,0.9998313978315393,0.9998313422278028,0.9996527494841624,0.9995336398772499,0.9994773604489406,0.9993698001233634,0.9992515422174068,0.9991516524878735,0.9990175807836614,0.9985200427255274,0.9971463156517357,0.9969879143473273,0.9954409230775969,0.9951377239855622,0.9951326061398057,0.995098509499972,0.9927465924671508,0.9923289182946542,0.9918104316532239,0.9910192572513428,0.9903450153137574,0.9900771634240131,0.9892427350021,0.9890231221771439,0.9890104207428081,0.9888031159488645,0.9867688774675502,0.9865996215569316,0.9859903273478052,0.985711586712997,0.984802908106699,0.9842744425140045,0.9840435607097427,0.9834109697418919,0.9831255161020733,0.9819731604750709,0.9807381300065559,0.9790906677142251,0.9783266837966584,0.9780735483534247,0.9764302272643973,0.9749812267316885,0.9732171590067453,0.9720433396560326,0.9709014322334388,0.9698386612446573,0.9672973565036592,0.966909494334768,0.9661509969555995,0.9655937858422003,0.9653855878158525,0.9648500482600985,0.9643631812391286,0.9642734513361872,0.9637675991214214,0.9633415813958588,0.9581518797222186,0.9572951637115692,0.957113962278652,0.9566303051969142,0.9544454386782792,0.9523902676222088,0.9511155085250743,0.9465724330054713,0.9412301534370844,0.936269144927671,0.9329841773514056,0.9326067053768303,0.9325878839070789,0.9300449881501245,0.9221185349879335,0.922008290690407,0.9212022241932158,0.9188880988783149,0.9181695879711766,0.918103772116778,0.9156220019225275,0.914793790785948,0.9121139753503335,0.91099652950383,0.9073141954046301,0.9066509115049114,0.90251543912736,0.9023999262886105,0.9021524272264434,0.8911111432987195,0.8906414700909193,0.8905358474296828,0.8887740021873081,0.8772452328206959,0.8728646275447293,0.8715321685661526,0.8646349883581194,0.8632852754116458,0.8606465780458128,0.8569885796349717,0.856712027093796,0.8554887335973924,0.8546574507705423,0.826095030253713,0.8056629412535294,0.8038726006729252,0.8027874247408826,0.8018536477593515],[null,"6_160159465_161748532.L4",null,"20_34225635_36332043.L2",null,null,null,null,null,null,"3_168863172_171247120.L4",null,"20_63558827_64333810.L3","3_113096852_114229016.L3",null,null,null,null,"1_91420760_93070902.L1,L2",null,null,null,"11_124625632_126441425.L1",null,null,null,null,null,null,null,null,null,null,null,null,null,null,"17_150263_1269105.L1",null,null,null,"6_157797687_160159465.L3","11_66131160_68238358.L2",null,null,"20_24737088_25363595.L2","15_78223711_80568637.L1",null,"8_81044160_81781504.L1",null,null,null,null,null,null,null,null,"9_110015744_112068802.L2",null,null,null,null,null,null,null,"20_50623121_53856010.L3",null,null,null,null,null,null,null,"22_17813322_19924835.L1","15_89932319_91621162.L3",null,"14_72422907_75978424.L1",null,"17_36141651_38653091.L5",null,null,null,null,null,"5_147802435_149283061.L1",null,null,null,null,null,"7_22468010_23431823.L1",null,null,"10_4530082_5941799.L2",null,null,null,null,"21_40017600_41901419.L1",null,null,"18_75815032_77101859.L1",null,null,"16_84412277_85115079.L1",null,null,"19_46646825_48778970.L1",null,"2_8282017_10158342.L1",null,null,"19_610729_2098397.L1",null,null,"22_44599428_46074615.L1",null,null,null,null],[null,1,null,0.9999999999999971,null,null,null,null,null,null,0.4413044097787281,null,0.3749249802809935,0.4413043721479357,null,null,null,null,0.2724553021061785,null,null,null,0.05354400076078381,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0.9900771634240131,null,null,null,0.133409027969131,0.1034719379614571,null,null,0.05236301563335566,0.2293464298220738,null,0.03589807885128837,null,null,null,null,null,null,null,null,0.1391368906087947,null,null,null,null,null,null,null,0.6544454292518225,null,null,null,null,null,null,null,0.2076642678551694,0.01711329532263162,null,0.07897791264325293,null,0.2104514447795743,null,null,null,null,null,0.06395392868959537,null,null,null,null,null,0.02206294469744985,null,null,0.01490100933898564,null,null,null,null,0.1639398298745319,null,null,0.006327557792772387,null,null,0.1160480097484191,null,null,0.8715321685661526,null,0.4929636932256581,null,null,0.07377906920397459,null,null,0.0149426488564447,null,null,null,null],[null,null,null,null,null,null,null,"2_240620667_241210506.L1",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,"5_177824506_178986463.L2",null,null,null,null,null,null,null,null,null,null,null,null,"20_63558827_64333810.L4",null,"6_157797687_160159465.L1",null,null,null,"20_24737088_25363595.L3",null,null,null,null,null,null,null,null,null,null,"16_57630418_59011501.L1",null,null,null,null,null,null,null,null,"20_50623121_53856010.L3",null,null,null,null,"14_90830516_92665954.L1","15_89932319_91621162.L2",null,null,null,"5_159398690_160546937.L1","14_72422907_75978424.L1","8_37521871_39081287.L1",null,null,null,null,null,null,"5_147802435_149283061.L1",null,null,"3_132117672_133533329.L2",null,null,"7_22468010_23431823.L1",null,"12_117697570_119316305.L1",null,null,"3_140235755_141620255.L1",null,null,null,null,"11_72574973_74701306.L1",null,null,null,null,"17_7414079_8403107.L3,17_7414079_8403107.L1",null,null,"1_84378812_85989068.L1","2_8282017_10158342.L1",null,null,null,"15_40885316_42484201.L1",null,"22_44599428_46074615.L1",null,null,null,null],[null,null,null,null,null,null,null,0.9999999999991087,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0.4276556546343996,null,null,null,null,null,null,null,null,null,null,null,null,0.3512837678272169,null,0.3694160537524133,null,null,null,0.9830029802322408,null,null,null,null,null,null,null,null,null,null,0.3586882602637088,null,null,null,null,null,null,null,null,0.3120097249049015,null,null,null,null,0.5949846574380662,0.1504307071030133,null,null,null,0.041475141645549,0.04580611890305775,0.3087464669134841,null,null,null,null,null,null,0.05854573884026371,null,null,0.03131582461240268,null,null,0.03365367435290023,null,0.4418868945990031,null,null,0.03718911911469891,null,null,null,null,0.1246447210612499,null,null,null,null,0.4929742417434114,null,null,0.06947054450051804,0.1359942303781618,null,null,null,0.460966334074892,null,0.3563029931737624,null,null,null,null],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,"1_91420760_93070902.L1,L2",null,null,null,null,null,null,"3_132117672_133533329.L2",null,null,null,null,null,"19_37036131_39679979.L1",null,null,null,null,null,null,null,null,null,null,"11_66131160_68238358.L2",null,null,null,"15_78223711_80568637.L1","4_107894192_110335411.L2",null,null,null,null,null,null,null,"16_53348660_55869862.L2",null,"9_110015744_112068802.L2",null,null,null,null,null,null,null,null,null,null,null,null,null,"15_89932319_91621162.L2",null,null,null,null,"14_72422907_75978424.L1",null,null,null,"18_46719283_48413361.L1",null,null,null,"5_147802435_149283061.L1",null,null,null,null,null,null,null,null,null,null,null,null,null,null,"16_8288517_9705562.L1",null,null,null,null,null,null,null,null,null,null,null,null,"19_610729_2098397.L1",null,null,"22_44599428_46074615.L1",null,null,"18_54027805_57546606.L1",null],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0.2128070259773589,null,null,null,null,null,null,0.001485602908030903,null,null,null,null,null,0.09516935810889049,null,null,null,null,null,null,null,null,null,null,0.06358792655308987,null,null,null,0.1771371614238753,0.4351676979134582,null,null,null,null,null,null,null,0.9780735483534247,null,0.1074632556786518,null,null,null,null,null,null,null,null,null,null,null,null,null,0.1855771470442517,null,null,null,null,0.06099917949903211,null,null,null,0.02184129373031185,null,null,null,0.01905597981626517,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0.5389327275123432,null,null,null,null,null,null,null,null,null,null,null,null,0.01781828454513301,null,null,0.01222568818834457,null,null,0.02488168111338218,null],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,"5_177824506_178986463.L2",null,null,null,null,null,null,null,null,null,null,null,null,"20_63558827_64333810.L4",null,"6_157797687_160159465.L1",null,null,null,"20_24737088_25363595.L2",null,null,null,null,null,null,null,null,null,null,"16_55869862_57630418.L1,16_57630418_59011501.L1",null,null,null,null,null,null,null,null,null,null,null,null,null,null,"15_89932319_91621162.L2",null,null,null,"5_159398690_160546937.L1","14_72422907_75978424.L1","8_37521871_39081287.L1",null,null,"18_46719283_48413361.L1",null,null,null,"5_147802435_149283061.L1",null,null,"3_132117672_133533329.L2",null,"17_66804312_69862629.L1",null,null,"12_117697570_119316305.L1","10_4530082_5941799.L2",null,"3_140235755_141620255.L1",null,null,null,"16_8288517_9705562.L1","11_72574973_74701306.L1","18_75815032_77101859.L1",null,"2_109814855_113164279.L2",null,"17_7414079_8403107.L3,17_7414079_8403107.L1",null,null,null,null,null,null,"19_610729_2098397.L1","15_40885316_42484201.L1",null,"22_44599428_46074615.L1",null,null,null,null],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0.5387375600338068,null,null,null,null,null,null,null,null,null,null,null,null,0.2833457245416212,null,0.2144949200516988,null,null,null,0.04069824571485936,null,null,null,null,null,null,null,null,null,null,0.6677443994888281,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0.1287523656031273,null,null,null,0.07099378498161302,0.0125851756473081,0.280372476468818,null,null,0.006616051919323906,null,null,null,0.02128618778910818,null,null,0.8906924667554488,null,0.0339246328398185,null,null,0.4737697756147412,0.09114434150867823,null,0.5217622852715469,null,null,null,0.3634671987762673,0.67543763877981,0.08803615727431946,null,0.8850279456769137,null,0.366650922911482,null,null,null,null,null,null,0.004306399041741238,0.3945223995225005,null,0.3568172736404464,null,null,null,null],[null,null,null,null,null,"11_68238358_69701362.L4",null,null,null,null,"3_168863172_171247120.L4",null,"20_63558827_64333810.L3","3_113096852_114229016.L3",null,null,"1_153208353_154797927.L1",null,"1_91420760_93070902.L1,L2",null,null,null,null,null,null,"3_132117672_133533329.L2",null,null,null,null,null,"19_37036131_39679979.L1",null,null,null,null,null,null,null,null,null,null,"11_66131160_68238358.L2",null,null,"20_24737088_25363595.L2",null,null,null,null,null,null,null,null,null,null,null,"9_110015744_112068802.L2",null,null,null,null,null,null,null,null,null,"2_236540389_237852338.L1",null,null,null,"15_89932319_91621162.L2",null,null,null,null,null,null,null,null,null,null,null,null,"5_147802435_149283061.L1","1_203365606_204711940.L1",null,null,"19_35978393_37036131.L1",null,null,null,null,null,null,null,"20_33027017_34225635.L1","3_151630942_153538782.L1",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,"15_89932319_91621162.L1","18_54027805_57546606.L1",null],[null,null,null,null,null,0.999999999999945,null,null,null,null,0.5586955901973905,null,0.6250750111983171,0.5586955425551148,null,null,0.9998313978315393,null,0.6024015751783943,null,null,null,null,null,null,0.001852046964960996,null,null,null,null,null,0.1559970621268336,null,null,null,null,null,null,null,null,null,null,0.1309964584914225,null,null,0.06629207702325368,null,null,null,null,null,null,null,null,null,null,null,0.1476980794437277,null,null,null,null,null,null,null,null,null,0.9648500482600985,null,null,null,0.3041508669498907,null,null,null,null,null,null,null,null,null,null,null,null,0.1102642414400636,0.9300449881501245,null,null,0.9146929774610026,null,null,null,null,null,null,null,0.9073141954046301,0.08501713250516063,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0.08819215667730562,0.04078486143387006,null],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,"20_63558827_64333810.L4,20_63558827_64333810.L2",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,"14_90830516_92665954.L1",null,null,null,null,"5_159398690_160546937.L1",null,"8_37521871_39081287.L1",null,null,null,null,null,null,"5_147802435_149283061.L1",null,null,null,"19_35978393_37036131.L1","17_66804312_69862629.L1",null,null,null,null,null,"3_140235755_141620255.L1",null,"3_151630942_153538782.L1",null,null,"11_72574973_74701306.L1","18_75815032_77101859.L1",null,null,null,"17_7414079_8403107.L1",null,null,null,null,"2_205870980_207780675.L1",null,null,null,null,"22_44599428_46074615.L1",null,null,null,"2_200711561_201953914.L1"],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0.6500357818094258,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0.3687829416833552,null,null,null,null,0.04319828776916068,null,0.3215737956827844,null,null,null,null,null,null,0.04051006252017075,null,null,null,0.006509246732213203,0.09667642498888718,null,null,null,null,null,0.3520451251175841,null,0.03919416351496341,null,null,0.1020700673853835,0.1071364558746122,null,null,null,0.2130679844334428,null,null,null,null,0.8606465780458128,null,null,null,null,0.08580642639471492,null,null,null,0.8018536477593515],["6_30830391_31603441.L2",null,"6_33268720_35487979.L1",null,"20_24737088_25363595.L1",null,"3_168863172_171247120.L1",null,"5_982137_2132328.L2","10_101189482_102620653.L2",null,"20_34225635_36332043.L1",null,null,"11_101460390_104088908.L1","2_241210506_242147200.L2",null,"11_112588765_114387006.L2",null,"7_97470258_99117851.L1","12_113548904_114598797.L1","19_16263605_18299052.L1","11_124625632_126441425.L1","2_19492643_20850730.L1","3_168863172_171247120.L3",null,"5_177824506_178986463.L1","17_57280180_59410151.L1","6_26791023_28050041.L1","6_152773361_154652986.L1","14_92665954_93858939.L1","19_37036131_39679979.L1","9_110015744_112068802.L1","4_145257035_147600722.L1","21_43086158_44757190.L1","7_137191815_139059933.L1","12_47321010_48608083.L1",null,"15_97487680_98700830.L1",null,"9_127293231_129403191.L1","6_157797687_160159465.L3","11_66131160_68238358.L2","7_20085285_22468010.L3",null,null,"15_78223711_80568637.L1","4_107894192_110335411.L1","8_81044160_81781504.L1","8_28304875_29470379.L1","20_36332043_38281128.L1","2_70528066_72947719.L1","11_26998914_28460046.L1",null,"11_1192365_3644251.L2",null,null,"9_110015744_112068802.L2",null,"19_37036131_39679979.L2",null,null,"12_11601912_12580594.L1",null,null,null,"3_22162752_23763374.L1",null,"1_87662948_89600744.L1",null,null,"15_89932319_91621162.L2","3_17849626_19083652.L1","22_17813322_19924835.L1","15_89932319_91621162.L3","5_159398690_160546937.L1","14_72422907_75978424.L1","8_37521871_39081287.L1","17_36141651_38653091.L5","6_10540084_11790583.L2",null,"10_10207433_12544798.L1","14_67525600_70665240.L2","1_44503511_46433829.L1","5_147802435_149283061.L1",null,null,null,null,"17_66804312_69862629.L1","7_22468010_23431823.L1","7_117140124_118711527.L1",null,null,"17_74676064_76379479.L1",null,null,"3_151630942_153538782.L1","21_40017600_41901419.L1",null,null,"18_75815032_77101859.L1","9_18661053_20463536.L1",null,"16_84412277_85115079.L1",null,null,null,"1_84378812_85989068.L1",null,null,"10_124109830_126312529.L1","19_610729_2098397.L1",null,null,null,"6_35487979_37604820.L1","15_89932319_91621162.L1","18_54027805_57546606.L1",null],[1,null,1,null,0.9999999999999596,null,0.9999999999991783,null,0.9999999999990116,0.9999999999816905,null,0.9999999966431627,null,null,0.07956732004323841,0.9999943514278923,null,0.9998313422278028,null,0.9995336398772499,0.9994773604489406,0.9993698001233634,0.9457075414566229,0.9991516524878735,0.9990175807836614,null,0.9151238491896978,0.9969879143473273,0.9954409230775969,0.9951377239855622,0.9951326061398057,0.743932089305717,0.9927465924671508,0.9923289182946542,0.4343518791686823,0.9910192572513428,0.9666901716935881,null,0.9892427350021,null,0.9059605486672584,0.8396811424358909,0.2006209025118787,0.9865996215569316,null,null,0.5783193168607499,0.9721588907104233,0.1300826914213647,0.9834109697418919,0.09260552109090447,0.9819731604750709,0.9807381300065559,null,0.1944858194891004,null,null,0.03284435196509194,null,0.8300592379224396,null,null,0.1169340782474313,null,null,null,0.9653855878158525,null,0.9643631812391286,null,null,0.1571764506533786,0.9581518797222186,0.7496308958563997,0.02001492465639154,0.1136256573754241,0.2548940188201551,0.0205040308566018,0.3842229026459011,0.07287775076205494,null,0.936269144927671,0.9061274510441664,0.9326067053768303,0.618971744811612,null,null,null,null,0.7883011463781913,0.06760642519851556,0.918103772116778,null,null,0.9121139753503335,null,null,0.7780223844723377,0.07390688694642622,null,null,0.2989628441924148,0.1324685637815508,null,0.7727259924388891,null,null,null,0.009266206777430286,null,null,0.8569885796349717,0.586537236984726,null,null,null,0.1117191307060139,0.0098625621447197,0.067862442002942,null],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,"11_101460390_104088908.L1",null,null,null,null,null,null,null,null,null,null,"3_132117672_133533329.L1",null,null,null,null,null,null,null,null,"21_43086158_44757190.L1",null,"12_47321010_48608083.L2",null,null,null,"9_127293231_129403191.L1",null,"11_66131160_68238358.L2",null,"1_23594100_25190354.L1",null,null,null,"8_81044160_81781504.L1",null,"20_36332043_38281128.L1",null,null,"13_48809826_51016955.L3","11_1192365_3644251.L2",null,null,"9_110015744_112068802.L2","2_241210506_242147200.L3","19_37036131_39679979.L2","17_82076532_83247139.L1","15_51385363_52776899.L1","12_11601912_12580594.L1","15_32149610_33723224.L1","11_1192365_3644251.L3",null,null,null,null,"8_25625938_26825008.L1",null,"15_89932319_91621162.L2",null,null,"15_89932319_91621162.L3","5_159398690_160546937.L1","14_72422907_75978424.L1","8_37521871_39081287.L1","17_36141651_38653091.L5","6_10540084_11790583.L2","18_46719283_48413361.L1",null,"14_67525600_70665240.L2",null,null,null,"11_64037097_66131160.L1",null,null,null,"7_22468010_23431823.L1",null,null,"10_4530082_5941799.L2",null,null,null,"3_151630942_153538782.L1","21_40017600_41901419.L1",null,null,"18_75815032_77101859.L1","9_18661053_20463536.L1","2_109814855_113164279.L1",null,null,"9_33578336_34642246.L1",null,"1_84378812_85989068.L1","2_8282017_10158342.L1",null,null,"19_610729_2098397.L1",null,"2_230978674_232685293.L1",null,"6_35487979_37604820.L1","15_89932319_91621162.L1","18_54027805_57546606.L1",null],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,0.9269371844172669,null,null,null,null,null,null,null,null,null,null,0.998515080538771,null,null,null,null,null,null,null,null,0.5574585524845416,null,0.7101173616035259,null,null,null,0.0830498720755497,null,0.4880921374067473,null,0.9859903273478052,null,null,null,0.8180627904370896,null,0.8905199950111687,null,null,0.9790906677142251,0.7838410456126308,null,null,0.5478389951986667,0.9732171590067453,0.141984101733593,0.9709014322334388,0.9698386612446573,0.8513504272405121,0.966909494334768,0.9661509969555995,null,null,null,null,0.9642734513361872,null,0.04227727192882658,null,null,0.9208598190964213,0.6873374334251674,0.5012635358238549,0.02119349770052048,0.3564411610996081,0.8739542261051353,0.9127728077874486,null,0.02685677604647152,null,null,null,0.9221185349879335,null,null,null,0.794846543722311,null,null,0.8131105105998926,null,null,null,0.004417231012449729,0.6649380657397795,null,null,0.3906481281646008,0.7581729063093684,0.04790643910745707,null,null,0.8728646275447293,null,0.785898237080171,0.2375632833326004,null,null,0.1742710373182209,null,0.8546574507705423,null,0.6939438105475155,0.7070208026929323,0.66925864564298,null],[null,null,null,null,null,null,null,"intron_2_241195845_241199316:PIP=1",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,"intron_20_25288225_25288425:PIP=0.8433",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,"intron_2_111124139_111128627:PIP=0.885",null,null,null,null,null,null,"intron_2_207165706_207166757:PIP=0.8606",null,null,null,null,null,null,null,null,"intron_2_201260613_201266461:PIP=0.8019"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>gene_name<\/th>\n      <th>combined_cs_id<\/th>\n      <th>combined_pip<\/th>\n      <th>prostate|eQTL_cs_id<\/th>\n      <th>prostate|eQTL_pip<\/th>\n      <th>prostate|sQTL_cs_id<\/th>\n      <th>prostate|sQTL_pip<\/th>\n      <th>testis|eQTL_cs_id<\/th>\n      <th>testis|eQTL_pip<\/th>\n      <th>testis|sQTL_cs_id<\/th>\n      <th>testis|sQTL_pip<\/th>\n      <th>lymphocytes|eQTL_cs_id<\/th>\n      <th>lymphocytes|eQTL_pip<\/th>\n      <th>lymphocytes|sQTL_cs_id<\/th>\n      <th>lymphocytes|sQTL_pip<\/th>\n      <th>prostate|RefZ_cs_id<\/th>\n      <th>prostate|RefZ_pip<\/th>\n      <th>prostate|TCGA_cs_id<\/th>\n      <th>prostate|TCGA_pip<\/th>\n      <th>sQTL_pip_partition<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"columnDefs":[{"className":"dt-right","targets":[3,5,7,9,11,13,15,17,19]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"gene_name","targets":1},{"name":"combined_cs_id","targets":2},{"name":"combined_pip","targets":3},{"name":"prostate|eQTL_cs_id","targets":4},{"name":"prostate|eQTL_pip","targets":5},{"name":"prostate|sQTL_cs_id","targets":6},{"name":"prostate|sQTL_pip","targets":7},{"name":"testis|eQTL_cs_id","targets":8},{"name":"testis|eQTL_pip","targets":9},{"name":"testis|sQTL_cs_id","targets":10},{"name":"testis|sQTL_pip","targets":11},{"name":"lymphocytes|eQTL_cs_id","targets":12},{"name":"lymphocytes|eQTL_pip","targets":13},{"name":"lymphocytes|sQTL_cs_id","targets":14},{"name":"lymphocytes|sQTL_pip","targets":15},{"name":"prostate|RefZ_cs_id","targets":16},{"name":"prostate|RefZ_pip","targets":17},{"name":"prostate|TCGA_cs_id","targets":18},{"name":"prostate|TCGA_pip","targets":19},{"name":"sQTL_pip_partition","targets":20}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-2112c1f1dbc2c6427f4c">{"x":{"filter":"none","vertical":false,"caption":"<caption style=\"caption-side: topleft; text-align = left; color:black;\">Gene PIPs, only genes within credible sets are shown<\/caption>","data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60","61","62","63","64","65","66","67","68","69","70","71","72","73","74","75","76","77","78","79","80","81","82","83","84","85","86"],["CEP250","CHMP2B","ANO7","MMP7","BHLHA15","MYO9B","PKNOX2","GDF7","TBX5","LMO4","LOC100506779","TMPRSS2","PDLIM5","ITPK1","RGS17","PPP1R14A","LGR4","TSEN34","LOC100505545","AGPAT3","TRIM24","GEMIN4","IGF1R","STXBP1","MLPH","C9orf152","GRHL3","CHMP4C","ARNT2","ZNF395","TGM2","ACPP","TGFA","EBF2","ADGRG1","SECTM1","CCDC88C","MYO5C","FMN1","UBE2E2","BCL2L14","SLC39A8","TBX1","PWWP2A","RPS6KL1","TACC1","PIK3C2B","SMAD2","LOC283070","FBXO38","CAPN9","TOMM7","WNT2","FOXJ1","ZDHHC7","ZBTB38","PXMP4","MBNL1","ARAP1","RP11-77H9.1","COL2A1","ZNF236","HAUS6","MAPKBP1","KLF7","BBC3","UBE2R2","GRHL1","DNASE2B","FAM162A","EFHD1","SATB1","BTBD2","HMGCS1","HLA-DPB1","FAM118A","GIGYF2","ZNF568","C9orf64","SENP5","SLC38A1","RCCD1","CHD3","ARMC1","PIM1","CTBP2"],["20_34225635_36332043.L1","3_85533081_87360582.L1","2_240620667_241210506.L1","11_101460390_104088908.L1","7_97470258_99117851.L1","19_16263605_18299052.L1","11_124625632_126441425.L1","2_19492643_20850730.L1","12_113548904_114598797.L1","1_85989068_87662948.L1,1_87662948_89600744.L1","17_57280180_59410151.L1","21_40017600_41901419.L1","4_93312148_95261037.L1","14_92665954_93858939.L1","6_152773361_154652986.L1","19_37036131_39679979.L1","11_26998914_28460046.L1","19_54099074_55216712.L1","4_145257035_147600722.L1","21_43086158_44757190.L1","7_137191815_139059933.L1","17_150263_1269105.L1","15_97487680_98700830.L1","9_127293231_129403191.L1","2_236540389_237852338.L1","9_110015744_112068802.L1","1_23594100_25190354.L1","8_81044160_81781504.L1","15_78223711_80568637.L1","8_26825008_28304875.L1,8_28304875_29470379.L1","20_36332043_38281128.L1","3_132117672_133533329.L1","2_70528066_72947719.L1","8_25625938_26825008.L1","16_57630418_59011501.L1","17_82076532_83247139.L1","14_90830516_92665954.L1","15_51385363_52776899.L1","15_32149610_33723224.L1","3_22162752_23763374.L1","12_11601912_12580594.L1","4_102300199_104384137.L1","22_17813322_19924835.L1","5_159398690_160546937.L1","14_72422907_75978424.L1","8_37521871_39081287.L1","1_203365606_204711940.L1","18_46719283_48413361.L1","10_10207433_12544798.L1","5_147802435_149283061.L1","1_230549509_231954506.L1","7_22468010_23431823.L1","7_117140124_118711527.L1","17_74676064_76379479.L1","16_84412277_85115079.L1","3_140235755_141620255.L1","20_33027017_34225635.L1","3_151630942_153538782.L1","11_72574973_74701306.L1","16_8288517_9705562.L1","12_47321010_48608083.L1","18_75815032_77101859.L1","9_18661053_20463536.L1","15_40885316_42484201.L1","2_205870980_207780675.L1","19_46646825_48778970.L1","9_33578336_34642246.L1","2_8282017_10158342.L1","1_84378812_85989068.L1","3_122255250_123798921.L1","2_230978674_232685293.L1","3_17849626_19083652.L1","19_610729_2098397.L1","5_41888608_43983397.L1","6_32714887_33268720.L1","22_44599428_46074615.L1","2_232685293_234242343.L1","19_35978393_37036131.L1","9_82825886_84323281.L1","3_196244537_197349116.L1","12_45630446_47321010.L1","15_89932319_91621162.L1","17_7414079_8403107.L1","8_65576855_68950822.L1","6_35487979_37604820.L1","10_124109830_126312529.L1"],[1,1,0.9999999999089298,0.9999997938817149,0.9995172877299063,0.9993578577226783,0.9992465069088894,0.9991410378341971,0.9979144404841779,0.9969571999716287,0.9957559259072205,0.9952046732283537,0.9951631824960016,0.9951165125355645,0.9950524210688071,0.9947748760007911,0.9939811849880033,0.9926430082705089,0.9920512926102973,0.9916082933787448,0.9909848564343262,0.9905754108786723,0.9892004245510464,0.9888455778071907,0.9872055572673457,0.986215721553089,0.9862076294233734,0.9852574769381721,0.9851152080393533,0.983386809145084,0.9826844955893879,0.9825853733857625,0.9814497003902883,0.9724708598003707,0.9723761313146767,0.9705890865480412,0.9697345618709604,0.9695358049967499,0.9670502616325477,0.965097562634179,0.9617544715106918,0.96056706905232,0.9581971811971841,0.9569582869898468,0.9562140622048158,0.9529601409810315,0.94979148733383,0.9413379526391698,0.9355791174654586,0.9318374336538175,0.9284074300191616,0.920281130443382,0.9178035879617265,0.910736586491682,0.9105744555071841,0.9093302527348391,0.9068377806513906,0.9059389146426077,0.9040744656449466,0.9031451134244735,0.9020100211904601,0.8909050878134713,0.8905265670797509,0.8899867765699263,0.8822241365813874,0.8806524761640139,0.8743292579789752,0.867649911360909,0.8670391029572899,0.8668698164297988,0.8546676115409579,0.8530623066560352,0.8481474290771971,0.8455204946756157,0.8401216835536892,0.8370825696901748,0.8310672081639633,0.8271828527143636,0.8127926771754768,0.8104532179494045,0.8102161027083427,0.8097814828817715,0.8093960650432177,0.8058822486302315,0.8055643571028663,0.8007839667505662],[null,null,null,null,null,null,"11_124625632_126441425.L1",null,null,null,null,null,null,null,null,null,null,null,null,null,null,"17_150263_1269105.L1",null,null,null,null,null,"8_81044160_81781504.L1","15_78223711_80568637.L1",null,null,null,null,null,null,null,null,null,null,null,null,null,"22_17813322_19924835.L1",null,"14_72422907_75978424.L1",null,null,null,null,"5_147802435_149283061.L1",null,"7_22468010_23431823.L1",null,null,"16_84412277_85115079.L1",null,null,null,null,null,null,"18_75815032_77101859.L1",null,null,null,"19_46646825_48778970.L1",null,"2_8282017_10158342.L1",null,null,null,null,"19_610729_2098397.L1",null,null,"22_44599428_46074615.L1",null,null,null,null,null,null,null,"8_65576855_68950822.L1",null,null],[null,null,null,null,null,null,0.05773818747812021,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0.9905754108786723,null,null,null,null,null,0.03890038156208908,0.2439161018791921,null,null,null,null,null,null,null,null,null,null,null,null,null,0.2214309367088567,null,0.08021733529108332,null,null,null,null,0.07029274524210338,null,0.03812463481028028,null,null,0.2924804497256203,null,null,null,null,null,null,0.01158500163367626,null,null,null,0.8806524761640139,null,0.5165207914544616,null,null,null,null,0.03471985193407112,null,null,0.01506482690066291,null,null,null,null,null,null,null,0.0002971929417111552,null,null],[null,null,"2_240620667_241210506.L1",null,null,null,null,null,null,"1_85989068_87662948.L1",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,"16_57630418_59011501.L1",null,"14_90830516_92665954.L1",null,null,null,null,null,null,"5_159398690_160546937.L1","14_72422907_75978424.L1","8_37521871_39081287.L1",null,null,null,"5_147802435_149283061.L1",null,"7_22468010_23431823.L1",null,null,null,"3_140235755_141620255.L1",null,null,"11_72574973_74701306.L1",null,null,null,null,"15_40885316_42484201.L1",null,null,null,"2_8282017_10158342.L1","1_84378812_85989068.L1","3_122255250_123798921.L1",null,null,null,null,null,"22_44599428_46074615.L1","2_232685293_234242343.L1","19_35978393_37036131.L1",null,"3_196244537_197349116.L1","12_45630446_47321010.L1",null,"17_7414079_8403107.L1",null,null,null],[null,null,0.9999999999089298,null,null,null,null,null,null,0.006535978686597721,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0.4073987581915592,null,0.5504842307630851,null,null,null,null,null,null,0.05074845241556147,0.0528437448106629,0.3602867665882177,null,null,null,0.07314856991356478,null,0.04052209069805357,null,null,null,0.04629834563259194,null,null,0.1502575859175613,null,null,null,null,0.5255632789653809,null,null,null,0.1421300106871762,0.08435618587031635,0.04172071952804968,null,null,null,null,null,0.4082828775795692,0.009427041393616609,0.02052910804720165,null,0.373979748234569,0.0008208854331668292,null,0.4092904726583009,null,null,null],["20_34225635_36332043.L1",null,null,null,null,null,null,null,null,null,null,null,null,null,null,"19_37036131_39679979.L1",null,"19_54099074_55216712.L1",null,null,null,null,null,null,null,null,null,null,"15_78223711_80568637.L1",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,"14_72422907_75978424.L1",null,null,"18_46719283_48413361.L1",null,"5_147802435_149283061.L1",null,null,null,null,null,null,null,null,null,"16_8288517_9705562.L1",null,null,null,null,null,null,null,null,null,null,null,null,"19_610729_2098397.L1",null,null,"22_44599428_46074615.L1",null,null,null,null,null,null,null,null,null,null],[1,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0.09526426138477573,null,0.9926430082705089,null,null,null,null,null,null,null,null,null,null,0.176511390077594,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0.0580497689634385,null,null,0.02211153509114372,null,0.01430254537633202,null,null,null,null,null,null,null,null,null,0.5439482964160625,null,null,null,null,null,null,null,null,null,null,null,null,0.01164139111460438,null,null,0.0115485035031978,null,null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,"1_85989068_87662948.L1",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,"16_57630418_59011501.L1",null,null,null,null,null,null,null,null,"5_159398690_160546937.L1","14_72422907_75978424.L1","8_37521871_39081287.L1",null,"18_46719283_48413361.L1",null,"5_147802435_149283061.L1",null,null,null,null,null,"3_140235755_141620255.L1",null,null,"11_72574973_74701306.L1","16_8288517_9705562.L1",null,"18_75815032_77101859.L1",null,"15_40885316_42484201.L1",null,null,null,null,null,"3_122255250_123798921.L1",null,null,"19_610729_2098397.L1",null,null,"22_44599428_46074615.L1","2_232685293_234242343.L1","19_35978393_37036131.L1",null,"3_196244537_197349116.L1",null,null,"17_7414079_8403107.L1","8_65576855_68950822.L1",null,null],[null,null,null,null,null,null,null,null,null,0.004532021753741233,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0.5649773731231174,null,null,null,null,null,null,null,null,0.07037755211400509,0.01224611746001503,0.2647683863354146,null,0.006574038505188229,null,0.02154833411948598,null,null,null,null,null,0.5260825526360882,null,null,0.6615121900907103,0.359196817008411,null,0.08798534877340547,null,0.3644234976045455,null,null,null,null,null,0.09136299639550305,null,null,0.003278030054515768,null,null,0.3265666673706527,0.006420701838719678,0.02029040146182071,null,0.1333360298184747,null,null,0.2111801800858664,0.007921490293497979,null,null],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,"19_37036131_39679979.L1",null,null,null,null,null,null,null,null,"2_236540389_237852338.L1",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,"14_72422907_75978424.L1",null,"1_203365606_204711940.L1",null,null,"5_147802435_149283061.L1",null,null,null,null,null,null,"20_33027017_34225635.L1","3_151630942_153538782.L1",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,"19_35978393_37036131.L1","9_82825886_84323281.L1",null,null,"15_89932319_91621162.L1",null,"8_65576855_68950822.L1",null,null],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0.1530184571299622,null,null,null,null,null,null,null,null,0.9872055572673457,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0.007536161620041448,null,0.94979148733383,null,null,0.08900452453118268,null,null,null,null,null,null,0.9068377806513906,0.08498606092982142,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0.7699215223769088,0.03610842717617391,null,null,0.08280594319482504,null,0.0007489397160256317,null,null],[null,null,null,null,null,null,null,null,null,"1_85989068_87662948.L1",null,null,"4_93312148_95261037.L1",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,"8_26825008_28304875.L1",null,null,null,null,null,null,"14_90830516_92665954.L1",null,null,null,null,null,null,"5_159398690_160546937.L1",null,"8_37521871_39081287.L1",null,null,null,"5_147802435_149283061.L1",null,null,null,null,null,"3_140235755_141620255.L1",null,"3_151630942_153538782.L1","11_72574973_74701306.L1",null,null,"18_75815032_77101859.L1",null,null,"2_205870980_207780675.L1",null,null,null,null,"3_122255250_123798921.L1",null,null,null,null,null,"22_44599428_46074615.L1","2_232685293_234242343.L1","19_35978393_37036131.L1",null,"3_196244537_197349116.L1","12_45630446_47321010.L1",null,"17_7414079_8403107.L1","8_65576855_68950822.L1",null,null],[null,null,null,null,null,null,null,null,null,0.002617341928748407,null,null,0.9951631824960016,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0.001903949156029539,null,null,null,null,null,null,0.4192503311078754,null,null,null,null,null,null,0.04064457939518862,null,0.2885546926577855,null,null,null,0.03892280247783142,null,null,null,null,null,0.3369493544661591,null,0.03721680332985478,0.09230468963667493,null,null,0.1016269360446366,null,null,0.8822241365813874,null,null,null,null,0.005870998341226286,null,null,null,null,null,0.07561969433609228,0.003952476864602428,0.01644182082843249,null,0.299521440473554,0.0003287247351849709,null,0.1889254122990505,0.009002776192427286,null,null],[null,"3_85533081_87360582.L1",null,"11_101460390_104088908.L1","7_97470258_99117851.L1","19_16263605_18299052.L1","11_124625632_126441425.L1","2_19492643_20850730.L1","12_113548904_114598797.L1","1_87662948_89600744.L1","17_57280180_59410151.L1",null,null,"14_92665954_93858939.L1","6_152773361_154652986.L1","19_37036131_39679979.L1","11_26998914_28460046.L1",null,"4_145257035_147600722.L1","21_43086158_44757190.L1","7_137191815_139059933.L1",null,"15_97487680_98700830.L1","9_127293231_129403191.L1",null,"9_110015744_112068802.L1",null,"8_81044160_81781504.L1","15_78223711_80568637.L1","8_28304875_29470379.L1","20_36332043_38281128.L1","3_132117672_133533329.L1","2_70528066_72947719.L1",null,null,null,null,null,null,"3_22162752_23763374.L1","12_11601912_12580594.L1",null,"22_17813322_19924835.L1","5_159398690_160546937.L1","14_72422907_75978424.L1","8_37521871_39081287.L1",null,null,"10_10207433_12544798.L1","5_147802435_149283061.L1","1_230549509_231954506.L1","7_22468010_23431823.L1","7_117140124_118711527.L1","17_74676064_76379479.L1","16_84412277_85115079.L1",null,null,"3_151630942_153538782.L1",null,null,"12_47321010_48608083.L1","18_75815032_77101859.L1","9_18661053_20463536.L1",null,null,null,null,null,"1_84378812_85989068.L1",null,null,"3_17849626_19083652.L1","19_610729_2098397.L1","5_41888608_43983397.L1","6_32714887_33268720.L1",null,null,null,null,"3_196244537_197349116.L1","12_45630446_47321010.L1","15_89932319_91621162.L1",null,"8_65576855_68950822.L1","6_35487979_37604820.L1","10_124109830_126312529.L1"],[null,1,null,0.1549992034629429,0.9995172877299063,0.9993578577226783,0.9415083194307692,0.9991410378341971,0.9979144404841779,0.9969149804224952,0.9957559259072205,null,null,0.9951165125355645,0.9950524210688071,0.7464921574860531,0.8912417851716635,null,0.9920512926102973,0.4329220945063733,0.9909848564343262,null,0.9892004245510464,0.9053443463527049,null,0.986215721553089,null,0.1293907077289669,0.5646877160825672,0.9833551181363075,0.0922468748559464,0.05950100026463645,0.9814497003902883,null,null,null,null,null,null,0.965097562634179,0.1069543818417863,null,0.7367662444883274,0.112360706725559,0.2626283198666179,0.01932341535544113,null,null,0.9355791174654586,0.6246179119933175,0.06443285756849704,0.0657285706652202,0.9178035879617265,0.910736586491682,0.6180940057815638,null,null,0.7792899251866459,null,null,0.8757337893240539,0.2982466590358102,0.131398401948982,null,null,null,null,null,0.009081475948130913,null,null,0.8530623066560352,0.6152422665320409,0.8455204946756157,0.8401216835536892,null,null,null,null,0.003615999422806659,0.01966804657103294,0.00713241173794843,null,0.7879118494865693,0.1110839190167932,0.8007839667505662],[null,null,null,"11_101460390_104088908.L1",null,null,null,null,null,null,null,"21_40017600_41901419.L1",null,null,null,null,"11_26998914_28460046.L1",null,null,"21_43086158_44757190.L1",null,null,null,"9_127293231_129403191.L1",null,null,"1_23594100_25190354.L1","8_81044160_81781504.L1",null,null,"20_36332043_38281128.L1","3_132117672_133533329.L1",null,"8_25625938_26825008.L1",null,"17_82076532_83247139.L1",null,"15_51385363_52776899.L1","15_32149610_33723224.L1",null,"12_11601912_12580594.L1","4_102300199_104384137.L1",null,"5_159398690_160546937.L1","14_72422907_75978424.L1","8_37521871_39081287.L1",null,"18_46719283_48413361.L1",null,null,"1_230549509_231954506.L1","7_22468010_23431823.L1",null,null,null,null,null,"3_151630942_153538782.L1",null,null,"12_47321010_48608083.L1","18_75815032_77101859.L1","9_18661053_20463536.L1",null,null,null,"9_33578336_34642246.L1","2_8282017_10158342.L1","1_84378812_85989068.L1","3_122255250_123798921.L1","2_230978674_232685293.L1",null,"19_610729_2098397.L1",null,null,null,"2_232685293_234242343.L1",null,"9_82825886_84323281.L1",null,"12_45630446_47321010.L1","15_89932319_91621162.L1",null,null,"6_35487979_37604820.L1",null],[null,null,null,0.845000590418772,null,null,null,null,null,null,null,0.9952046732283537,null,null,null,null,0.1027393998163397,null,null,0.5586861988723715,null,null,null,0.08350123145448585,null,null,0.9862076294233734,0.8169663876471159,null,null,0.8904376207334416,0.923084373121126,null,0.9724708598003707,null,0.9705890865480412,null,0.9695358049967499,0.9670502616325477,null,0.8548000896689055,0.96056706905232,null,0.6828269963395325,0.4826926141929566,0.02002688004417263,null,0.9126523790428378,null,null,0.8639745724506646,0.7759058342698278,null,null,null,null,null,0.004446125196285511,null,null,0.02627623186640626,0.3914611423259429,0.7591281651307689,null,null,null,0.8743292579789752,0.2089991092192711,0.7736014411388425,0.7279151021650198,0.8546676115409579,null,0.1832658894419648,null,null,null,0.8112669880670246,null,0.7766842499993029,null,0.789398445968958,0.7198431279489982,null,null,0.6944804380860731,null],[null,null,"intron_2_241195845_241199316:PIP=1",null,null,null,null,null,null,null,null,null,"intron_4_94654640_94657427:PIP=0.9952",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,"intron_2_207165706_207166757:PIP=0.8822",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>gene_name<\/th>\n      <th>combined_cs_id<\/th>\n      <th>combined_pip<\/th>\n      <th>prostate|eQTL_cs_id<\/th>\n      <th>prostate|eQTL_pip<\/th>\n      <th>prostate|sQTL_cs_id<\/th>\n      <th>prostate|sQTL_pip<\/th>\n      <th>testis|eQTL_cs_id<\/th>\n      <th>testis|eQTL_pip<\/th>\n      <th>testis|sQTL_cs_id<\/th>\n      <th>testis|sQTL_pip<\/th>\n      <th>lymphocytes|eQTL_cs_id<\/th>\n      <th>lymphocytes|eQTL_pip<\/th>\n      <th>lymphocytes|sQTL_cs_id<\/th>\n      <th>lymphocytes|sQTL_pip<\/th>\n      <th>prostate|RefZ_cs_id<\/th>\n      <th>prostate|RefZ_pip<\/th>\n      <th>prostate|TCGA_cs_id<\/th>\n      <th>prostate|TCGA_pip<\/th>\n      <th>sQTL_pip_partition<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"columnDefs":[{"className":"dt-right","targets":[3,5,7,9,11,13,15,17,19]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"gene_name","targets":1},{"name":"combined_cs_id","targets":2},{"name":"combined_pip","targets":3},{"name":"prostate|eQTL_cs_id","targets":4},{"name":"prostate|eQTL_pip","targets":5},{"name":"prostate|sQTL_cs_id","targets":6},{"name":"prostate|sQTL_pip","targets":7},{"name":"testis|eQTL_cs_id","targets":8},{"name":"testis|eQTL_pip","targets":9},{"name":"testis|sQTL_cs_id","targets":10},{"name":"testis|sQTL_pip","targets":11},{"name":"lymphocytes|eQTL_cs_id","targets":12},{"name":"lymphocytes|eQTL_pip","targets":13},{"name":"lymphocytes|sQTL_cs_id","targets":14},{"name":"lymphocytes|sQTL_pip","targets":15},{"name":"prostate|RefZ_cs_id","targets":16},{"name":"prostate|RefZ_pip","targets":17},{"name":"prostate|TCGA_cs_id","targets":18},{"name":"prostate|TCGA_pip","targets":19},{"name":"sQTL_pip_partition","targets":20}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="ideogram" class="section level2">
 <h2>Ideogram</h2>
@@ -1223,7 +1240,7 @@ yy896
 <div id="locus-plots-only-showing-top-10-here" class="section level2">
 <h2>Locus plots (ONLY showing top 10 here)</h2>
 <pre class="r"><code>make_locusplot(finemap_res,
-               region_id = &quot;6_30830391_31603441&quot;,
+               region_id = &quot;20_34225635_36332043&quot;,
                ens_db = ens_db,
                weights = weights,
                highlight_pip = 0.8,
@@ -1231,15 +1248,15 @@ yy896
                filter_cs = TRUE,
                color_pval_by = &quot;cs&quot;,
                color_pip_by = &quot;cs&quot;)</code></pre>
-<pre><code>2024-10-31 14:11:51.850014 INFO::Limit to protein coding genes
-2024-10-31 14:11:51.855331 INFO::focal id: LY6G6D|prostate_RefZ
-2024-10-31 14:11:51.85913 INFO::focal molecular trait: LY6G6D prostate RefZ
-2024-10-31 14:11:51.859458 INFO::Range of locus: chr6:29888246-31603254</code></pre>
-<pre><code>chromosome 6, position 29888246 to 31603254</code></pre>
-<pre><code>9962 SNPs/datapoints</code></pre>
-<pre><code>2024-10-31 14:11:52.070613 INFO::focal molecular trait QTL positions: 31276008
-2024-10-31 14:11:52.085921 INFO::Limit PIPs to credible sets</code></pre>
-<pre><code>Warning: ggrepel: 360 unlabeled data points (too many overlaps). Consider
+<pre><code>2024-11-03 13:54:10.484952 INFO::Limit to protein coding genes
+2024-11-03 13:54:10.489316 INFO::focal id: ENSG00000126001.15|testis_eQTL
+2024-11-03 13:54:10.493374 INFO::focal molecular trait: CEP250 testis eQTL
+2024-11-03 13:54:10.493646 INFO::Range of locus: chr20:34225783-36331600</code></pre>
+<pre><code>chromosome 20, position 34225783 to 36331600</code></pre>
+<pre><code>3896 SNPs/datapoints</code></pre>
+<pre><code>2024-11-03 13:54:10.759109 INFO::focal molecular trait QTL positions: 35445740,35454222,35456125
+2024-11-03 13:54:10.775387 INFO::Limit PIPs to credible sets</code></pre>
+<pre><code>Warning: ggrepel: 458 unlabeled data points (too many overlaps). Consider
 increasing max.overlaps</code></pre>
 <p><img src="figure/cTWAS_LD_european_combined3_output.Rmd/locus%20plot-1.png" width="960" style="display: block; margin: auto;" /></p>
 <p>
@@ -1280,7 +1297,7 @@ yy896
 </div>
 </div>
 <pre class="r"><code>make_locusplot(finemap_res,
-               region_id = &quot;6_160159465_161748532&quot;,
+               region_id = &quot;3_85533081_87360582&quot;,
                ens_db = ens_db,
                weights = weights,
                highlight_pip = 0.8,
@@ -1288,15 +1305,17 @@ yy896
                filter_cs = TRUE,
                color_pval_by = &quot;cs&quot;,
                color_pip_by = &quot;cs&quot;)</code></pre>
-<pre><code>2024-10-31 14:11:53.289927 INFO::Limit to protein coding genes
-2024-10-31 14:11:53.29053 INFO::focal id: ENSG00000146477.5|prostate_eQTL
-2024-10-31 14:11:53.290794 INFO::focal molecular trait: SLC22A3 prostate eQTL
-2024-10-31 14:11:53.291054 INFO::Range of locus: chr6:160160242-161748511</code></pre>
-<pre><code>chromosome 6, position 160160242 to 161748511</code></pre>
-<pre><code>4977 SNPs/datapoints</code></pre>
-<pre><code>2024-10-31 14:11:53.403692 INFO::focal molecular trait QTL positions: 160160511,160348391
-2024-10-31 14:11:53.417365 INFO::Limit PIPs to credible sets</code></pre>
-<pre><code>Warning: ggrepel: 48 unlabeled data points (too many overlaps). Consider
+<pre><code>2024-11-03 13:54:11.8094 INFO::Limit to protein coding genes
+2024-11-03 13:54:11.81 INFO::focal id: CHMP2B|prostate_RefZ
+2024-11-03 13:54:11.810271 INFO::focal molecular trait: CHMP2B prostate RefZ
+2024-11-03 13:54:11.810539 INFO::Range of locus: chr3:85532981-87360172</code></pre>
+<pre><code>chromosome 3, position 85532981 to 87360172</code></pre>
+<pre><code>4787 SNPs/datapoints</code></pre>
+<pre><code>2024-11-03 13:54:11.930319 INFO::focal molecular trait QTL positions: 87122674,87149239,87149381,87155929,87159999,87160086,87172220,87214347,87235251,87246499,87252295
+2024-11-03 13:54:11.944524 INFO::Limit PIPs to credible sets</code></pre>
+<pre><code>Warning: ggrepel: 7 unlabeled data points (too many overlaps). Consider
+increasing max.overlaps</code></pre>
+<pre><code>Warning: ggrepel: 11 unlabeled data points (too many overlaps). Consider
 increasing max.overlaps</code></pre>
 <p><img src="figure/cTWAS_LD_european_combined3_output.Rmd/locus%20plot-2.png" width="960" style="display: block; margin: auto;" /></p>
 <p>
@@ -1337,7 +1356,7 @@ yy896
 </div>
 </div>
 <pre class="r"><code>make_locusplot(finemap_res,
-               region_id = &quot;6_33268720_35487979&quot;,
+               region_id = &quot;2_240620667_241210506&quot;,
                ens_db = ens_db,
                weights = weights,
                highlight_pip = 0.8,
@@ -1345,17 +1364,15 @@ yy896
                filter_cs = TRUE,
                color_pval_by = &quot;cs&quot;,
                color_pip_by = &quot;cs&quot;)</code></pre>
-<pre><code>2024-10-31 14:11:54.096291 INFO::Limit to protein coding genes
-2024-10-31 14:11:54.096973 INFO::focal id: UHRF1BP1|prostate_RefZ
-2024-10-31 14:11:54.097261 INFO::focal molecular trait: UHRF1BP1,UHRF1BP1 prostate,prostate RefZ,RefZ
-2024-10-31 14:11:54.097536 INFO::Range of locus: chr6:33067083-35487821</code></pre>
-<pre><code>chromosome 6, position 33067083 to 35487821</code></pre>
-<pre><code>6614 SNPs/datapoints</code></pre>
-<pre><code>2024-10-31 14:11:54.205469 INFO::focal molecular trait QTL positions: 34580341,34603418,34687223,34688945,34690303,34713998,34768776,34770426,34771949,34774672,34777905,34787347,34797145,34829979,34836170,34937839
-2024-10-31 14:11:54.218632 INFO::Limit PIPs to credible sets</code></pre>
-<pre><code>Warning: ggrepel: 409 unlabeled data points (too many overlaps). Consider
-increasing max.overlaps</code></pre>
-<pre><code>Warning: ggrepel: 13 unlabeled data points (too many overlaps). Consider
+<pre><code>2024-11-03 13:54:12.622044 INFO::Limit to protein coding genes
+2024-11-03 13:54:12.622624 INFO::focal id: intron_2_241195845_241199316|prostate_sQTL
+2024-11-03 13:54:12.622874 INFO::focal molecular trait: ANO7 prostate sQTL
+2024-11-03 13:54:12.623102 INFO::Range of locus: chr2:240618245-241608572</code></pre>
+<pre><code>chromosome 2, position 240618245 to 241608572</code></pre>
+<pre><code>2092 SNPs/datapoints</code></pre>
+<pre><code>2024-11-03 13:54:12.730194 INFO::focal molecular trait QTL positions: 241195850,241202304
+2024-11-03 13:54:12.743983 INFO::Limit PIPs to credible sets</code></pre>
+<pre><code>Warning: ggrepel: 133 unlabeled data points (too many overlaps). Consider
 increasing max.overlaps</code></pre>
 <p><img src="figure/cTWAS_LD_european_combined3_output.Rmd/locus%20plot-3.png" width="960" style="display: block; margin: auto;" /></p>
 <p>
@@ -1396,7 +1413,7 @@ yy896
 </div>
 </div>
 <pre class="r"><code>make_locusplot(finemap_res,
-               region_id = &quot;20_34225635_36332043&quot;,
+               region_id = &quot;11_101460390_104088908&quot;,
                ens_db = ens_db,
                weights = weights,
                highlight_pip = 0.8,
@@ -1404,15 +1421,17 @@ yy896
                filter_cs = TRUE,
                color_pval_by = &quot;cs&quot;,
                color_pip_by = &quot;cs&quot;)</code></pre>
-<pre><code>2024-10-31 14:11:55.195232 INFO::Limit to protein coding genes
-2024-10-31 14:11:55.195877 INFO::focal id: ENSG00000101019.21|prostate_eQTL
-2024-10-31 14:11:55.196126 INFO::focal molecular trait: UQCC1 prostate eQTL
-2024-10-31 14:11:55.196385 INFO::Range of locus: chr20:34225783-36331600</code></pre>
-<pre><code>chromosome 20, position 34225783 to 36331600</code></pre>
-<pre><code>3896 SNPs/datapoints</code></pre>
-<pre><code>2024-10-31 14:11:55.287317 INFO::focal molecular trait QTL positions: 35412662
-2024-10-31 14:11:55.300404 INFO::Limit PIPs to credible sets</code></pre>
-<pre><code>Warning: ggrepel: 459 unlabeled data points (too many overlaps). Consider
+<pre><code>2024-11-03 13:54:13.355854 INFO::Limit to protein coding genes
+2024-11-03 13:54:13.356567 INFO::focal id: MMP7|prostate_TCGA
+2024-11-03 13:54:13.356899 INFO::focal molecular trait: MMP7,MMP7 prostate,prostate TCGA,TCGA
+2024-11-03 13:54:13.357211 INFO::Range of locus: chr11:101460301-104087928</code></pre>
+<pre><code>chromosome 11, position 101460301 to 104087928</code></pre>
+<pre><code>8434 SNPs/datapoints</code></pre>
+<pre><code>2024-11-03 13:54:13.646554 INFO::focal molecular trait QTL positions: 102474543,102518756,102530930,102536460,102553159,102553897,102557982,102559377,102573296,102573400,102577525,102579220
+2024-11-03 13:54:13.659889 INFO::Limit PIPs to credible sets</code></pre>
+<pre><code>Warning: ggrepel: 80 unlabeled data points (too many overlaps). Consider
+increasing max.overlaps</code></pre>
+<pre><code>Warning: ggrepel: 12 unlabeled data points (too many overlaps). Consider
 increasing max.overlaps</code></pre>
 <p><img src="figure/cTWAS_LD_european_combined3_output.Rmd/locus%20plot-4.png" width="960" style="display: block; margin: auto;" /></p>
 <p>
@@ -1453,7 +1472,7 @@ yy896
 </div>
 </div>
 <pre class="r"><code>make_locusplot(finemap_res,
-               region_id = &quot;20_24737088_25363595&quot;,
+               region_id = &quot;7_97470258_99117851&quot;,
                ens_db = ens_db,
                weights = weights,
                highlight_pip = 0.8,
@@ -1461,15 +1480,17 @@ yy896
                filter_cs = TRUE,
                color_pval_by = &quot;cs&quot;,
                color_pip_by = &quot;cs&quot;)</code></pre>
-<pre><code>2024-10-31 14:11:56.259547 INFO::Limit to protein coding genes
-2024-10-31 14:11:56.260098 INFO::focal id: NINL|prostate_RefZ
-2024-10-31 14:11:56.260327 INFO::focal molecular trait: NINL prostate RefZ
-2024-10-31 14:11:56.260552 INFO::Range of locus: chr20:24736988-25363553</code></pre>
-<pre><code>chromosome 20, position 24736988 to 25363553</code></pre>
-<pre><code>2137 SNPs/datapoints</code></pre>
-<pre><code>2024-10-31 14:11:56.312367 INFO::focal molecular trait QTL positions: 25221872,25295661
-2024-10-31 14:11:56.325834 INFO::Limit PIPs to credible sets</code></pre>
-<pre><code>Warning: ggrepel: 120 unlabeled data points (too many overlaps). Consider
+<pre><code>2024-11-03 13:54:14.254081 INFO::Limit to protein coding genes
+2024-11-03 13:54:14.255366 INFO::focal id: BHLHA15|prostate_RefZ
+2024-11-03 13:54:14.255682 INFO::focal molecular trait: BHLHA15,BHLHA15 prostate,prostate RefZ,RefZ
+2024-11-03 13:54:14.255949 INFO::Range of locus: chr7:97470327-99117511</code></pre>
+<pre><code>chromosome 7, position 97470327 to 99117511</code></pre>
+<pre><code>4641 SNPs/datapoints</code></pre>
+<pre><code>2024-11-03 13:54:14.330652 INFO::focal molecular trait QTL positions: 97925967,98028065,98028141,98046947,98144500,98145547,98149264,98154749,98156188,98156970,98160039,98320338,98349597,98391265,98490538
+2024-11-03 13:54:14.344255 INFO::Limit PIPs to credible sets</code></pre>
+<pre><code>Warning: ggrepel: 92 unlabeled data points (too many overlaps). Consider
+increasing max.overlaps</code></pre>
+<pre><code>Warning: ggrepel: 8 unlabeled data points (too many overlaps). Consider
 increasing max.overlaps</code></pre>
 <p><img src="figure/cTWAS_LD_european_combined3_output.Rmd/locus%20plot-5.png" width="960" style="display: block; margin: auto;" /></p>
 <p>
@@ -1510,7 +1531,7 @@ yy896
 </div>
 </div>
 <pre class="r"><code>make_locusplot(finemap_res,
-               region_id = &quot;11_68238358_69701362&quot;,
+               region_id = &quot;19_16263605_18299052&quot;,
                ens_db = ens_db,
                weights = weights,
                highlight_pip = 0.8,
@@ -1518,15 +1539,17 @@ yy896
                filter_cs = TRUE,
                color_pval_by = &quot;cs&quot;,
                color_pip_by = &quot;cs&quot;)</code></pre>
-<pre><code>2024-10-31 14:11:56.907081 INFO::Limit to protein coding genes
-2024-10-31 14:11:56.907659 INFO::focal id: ENSG00000110092.3|lymphocytes_eQTL
-2024-10-31 14:11:56.907915 INFO::focal molecular trait: CCND1 lymphocytes eQTL
-2024-10-31 14:11:56.908184 INFO::Range of locus: chr11:68238604-69701357</code></pre>
-<pre><code>chromosome 11, position 68238604 to 69701357</code></pre>
-<pre><code>3855 SNPs/datapoints</code></pre>
-<pre><code>2024-10-31 14:11:57.153927 INFO::focal molecular trait QTL positions: 69264019,69640683
-2024-10-31 14:11:57.167169 INFO::Limit PIPs to credible sets</code></pre>
-<pre><code>Warning: ggrepel: 156 unlabeled data points (too many overlaps). Consider
+<pre><code>2024-11-03 13:54:15.130492 INFO::Limit to protein coding genes
+2024-11-03 13:54:15.131835 INFO::focal id: MYO9B|prostate_RefZ
+2024-11-03 13:54:15.13215 INFO::focal molecular trait: MYO9B,MYO9B prostate,prostate RefZ,RefZ
+2024-11-03 13:54:15.132423 INFO::Range of locus: chr19:16263732-18298377</code></pre>
+<pre><code>chromosome 19, position 16263732 to 18298377</code></pre>
+<pre><code>6504 SNPs/datapoints</code></pre>
+<pre><code>2024-11-03 13:54:15.237553 INFO::focal molecular trait QTL positions: 16744454,17030435,17096346,17097041,17099048,17100758,17101372,17101600,17104392,17108295,17117744,17118629,17118822,17415324,17537541,17554084,17554444,17649423
+2024-11-03 13:54:15.250853 INFO::Limit PIPs to credible sets</code></pre>
+<pre><code>Warning: ggrepel: 516 unlabeled data points (too many overlaps). Consider
+increasing max.overlaps</code></pre>
+<pre><code>Warning: ggrepel: 12 unlabeled data points (too many overlaps). Consider
 increasing max.overlaps</code></pre>
 <p><img src="figure/cTWAS_LD_european_combined3_output.Rmd/locus%20plot-6.png" width="960" style="display: block; margin: auto;" /></p>
 <p>
@@ -1567,7 +1590,7 @@ yy896
 </div>
 </div>
 <pre class="r"><code>make_locusplot(finemap_res,
-               region_id = &quot;3_168863172_171247120&quot;,
+               region_id = &quot;11_124625632_126441425&quot;,
                ens_db = ens_db,
                weights = weights,
                highlight_pip = 0.8,
@@ -1575,15 +1598,15 @@ yy896
                filter_cs = TRUE,
                color_pval_by = &quot;cs&quot;,
                color_pip_by = &quot;cs&quot;)</code></pre>
-<pre><code>2024-10-31 14:11:57.826163 INFO::Limit to protein coding genes
-2024-10-31 14:11:57.826845 INFO::focal id: SKIL|prostate_RefZ
-2024-10-31 14:11:57.827137 INFO::focal molecular trait: SKIL prostate RefZ
-2024-10-31 14:11:57.827412 INFO::Range of locus: chr3:168863072-171246385</code></pre>
-<pre><code>chromosome 3, position 168863072 to 171246385</code></pre>
-<pre><code>5823 SNPs/datapoints</code></pre>
-<pre><code>2024-10-31 14:11:57.902254 INFO::focal molecular trait QTL positions: 170270498,170281428,170348551,170537717
-2024-10-31 14:11:57.915982 INFO::Limit PIPs to credible sets</code></pre>
-<pre><code>Warning: ggrepel: 91 unlabeled data points (too many overlaps). Consider
+<pre><code>2024-11-03 13:54:16.572134 INFO::Limit to protein coding genes
+2024-11-03 13:54:16.573295 INFO::focal id: PKNOX2|prostate_RefZ
+2024-11-03 13:54:16.573568 INFO::focal molecular trait: PKNOX2 prostate RefZ
+2024-11-03 13:54:16.573834 INFO::Range of locus: chr11:124627414-126441118</code></pre>
+<pre><code>chromosome 11, position 124627414 to 126441118</code></pre>
+<pre><code>5331 SNPs/datapoints</code></pre>
+<pre><code>2024-11-03 13:54:16.648119 INFO::focal molecular trait QTL positions: 125184897,125274530
+2024-11-03 13:54:16.661113 INFO::Limit PIPs to credible sets</code></pre>
+<pre><code>Warning: ggrepel: 345 unlabeled data points (too many overlaps). Consider
 increasing max.overlaps</code></pre>
 <p><img src="figure/cTWAS_LD_european_combined3_output.Rmd/locus%20plot-7.png" width="960" style="display: block; margin: auto;" /></p>
 <p>
@@ -1624,7 +1647,7 @@ yy896
 </div>
 </div>
 <pre class="r"><code>make_locusplot(finemap_res,
-               region_id = &quot;2_240620667_241210506&quot;,
+               region_id = &quot;2_19492643_20850730&quot;,
                ens_db = ens_db,
                weights = weights,
                highlight_pip = 0.8,
@@ -1632,15 +1655,15 @@ yy896
                filter_cs = TRUE,
                color_pval_by = &quot;cs&quot;,
                color_pip_by = &quot;cs&quot;)</code></pre>
-<pre><code>2024-10-31 14:11:58.683718 INFO::Limit to protein coding genes
-2024-10-31 14:11:58.684276 INFO::focal id: intron_2_241195845_241199316|prostate_sQTL
-2024-10-31 14:11:58.684511 INFO::focal molecular trait: ANO7 prostate sQTL
-2024-10-31 14:11:58.68474 INFO::Range of locus: chr2:240618245-241608572</code></pre>
-<pre><code>chromosome 2, position 240618245 to 241608572</code></pre>
-<pre><code>2092 SNPs/datapoints</code></pre>
-<pre><code>2024-10-31 14:11:58.77532 INFO::focal molecular trait QTL positions: 241195850,241202304
-2024-10-31 14:11:58.789034 INFO::Limit PIPs to credible sets</code></pre>
-<pre><code>Warning: ggrepel: 133 unlabeled data points (too many overlaps). Consider
+<pre><code>2024-11-03 13:54:17.866917 INFO::Limit to protein coding genes
+2024-11-03 13:54:17.867525 INFO::focal id: GDF7|prostate_RefZ
+2024-11-03 13:54:17.867778 INFO::focal molecular trait: GDF7 prostate RefZ
+2024-11-03 13:54:17.868024 INFO::Range of locus: chr2:19352676-20849469</code></pre>
+<pre><code>chromosome 2, position 19352676 to 20849469</code></pre>
+<pre><code>4125 SNPs/datapoints</code></pre>
+<pre><code>2024-11-03 13:54:17.963925 INFO::focal molecular trait QTL positions: 20241617,20677676,20678345,20678393,20681073
+2024-11-03 13:54:17.977211 INFO::Limit PIPs to credible sets</code></pre>
+<pre><code>Warning: ggrepel: 82 unlabeled data points (too many overlaps). Consider
 increasing max.overlaps</code></pre>
 <p><img src="figure/cTWAS_LD_european_combined3_output.Rmd/locus%20plot-8.png" width="960" style="display: block; margin: auto;" /></p>
 <p>
@@ -1681,7 +1704,7 @@ yy896
 </div>
 </div>
 <pre class="r"><code>make_locusplot(finemap_res,
-               region_id = &quot;5_982137_2132328&quot;,
+               region_id = &quot;12_113548904_114598797&quot;,
                ens_db = ens_db,
                weights = weights,
                highlight_pip = 0.8,
@@ -1689,15 +1712,15 @@ yy896
                filter_cs = TRUE,
                color_pval_by = &quot;cs&quot;,
                color_pip_by = &quot;cs&quot;)</code></pre>
-<pre><code>2024-10-31 14:11:59.557623 INFO::Limit to protein coding genes
-2024-10-31 14:11:59.558226 INFO::focal id: IRX4|prostate_RefZ
-2024-10-31 14:11:59.558498 INFO::focal molecular trait: IRX4,IRX4 prostate,prostate RefZ,RefZ
-2024-10-31 14:11:59.558754 INFO::Range of locus: chr5:293494-2132093</code></pre>
-<pre><code>chromosome 5, position 293494 to 2132093</code></pre>
-<pre><code>4562 SNPs/datapoints</code></pre>
-<pre><code>2024-10-31 14:11:59.635838 INFO::focal molecular trait QTL positions: 1653722,1730915,1844177,1890280,1890763,1891707,1895715
-2024-10-31 14:11:59.649414 INFO::Limit PIPs to credible sets</code></pre>
-<pre><code>Warning: ggrepel: 87 unlabeled data points (too many overlaps). Consider
+<pre><code>2024-11-03 13:54:18.555406 INFO::Limit to protein coding genes
+2024-11-03 13:54:18.556038 INFO::focal id: TBX5|prostate_RefZ
+2024-11-03 13:54:18.55632 INFO::focal molecular trait: TBX5 prostate RefZ
+2024-11-03 13:54:18.556599 INFO::Range of locus: chr12:113550218-114597138</code></pre>
+<pre><code>chromosome 12, position 113550218 to 114597138</code></pre>
+<pre><code>3483 SNPs/datapoints</code></pre>
+<pre><code>2024-11-03 13:54:18.624949 INFO::focal molecular trait QTL positions: 114070107,114247766
+2024-11-03 13:54:18.639712 INFO::Limit PIPs to credible sets</code></pre>
+<pre><code>Warning: ggrepel: 31 unlabeled data points (too many overlaps). Consider
 increasing max.overlaps</code></pre>
 <p><img src="figure/cTWAS_LD_european_combined3_output.Rmd/locus%20plot-9.png" width="960" style="display: block; margin: auto;" /></p>
 <p>
@@ -1738,7 +1761,7 @@ yy896
 </div>
 </div>
 <pre class="r"><code>make_locusplot(finemap_res,
-               region_id = &quot;10_101189482_102620653&quot;,
+               region_id = &quot;1_85989068_87662948&quot;,
                ens_db = ens_db,
                weights = weights,
                highlight_pip = 0.8,
@@ -1746,15 +1769,17 @@ yy896
                filter_cs = TRUE,
                color_pval_by = &quot;cs&quot;,
                color_pip_by = &quot;cs&quot;)</code></pre>
-<pre><code>2024-10-31 14:12:00.409103 INFO::Limit to protein coding genes
-2024-10-31 14:12:00.410061 INFO::focal id: LDB1|prostate_RefZ
-2024-10-31 14:12:00.410298 INFO::focal molecular trait: LDB1 prostate RefZ
-2024-10-31 14:12:00.410521 INFO::Range of locus: chr10:101190250-102621720</code></pre>
-<pre><code>chromosome 10, position 101190250 to 102621720</code></pre>
-<pre><code>2557 SNPs/datapoints</code></pre>
-<pre><code>2024-10-31 14:12:00.496923 INFO::focal molecular trait QTL positions: 102103939,102454510,102461782,102516236,102529019,102609566
-2024-10-31 14:12:00.510119 INFO::Limit PIPs to credible sets</code></pre>
-<pre><code>Warning: ggrepel: 227 unlabeled data points (too many overlaps). Consider
+<pre><code>2024-11-03 13:54:19.299301 INFO::Limit to protein coding genes
+2024-11-03 13:54:19.300422 INFO::focal id: LOC339524|prostate_TCGA
+2024-11-03 13:54:19.30073 INFO::focal molecular trait: LOC339524,LOC339524 prostate,prostate TCGA,TCGA
+2024-11-03 13:54:19.300982 INFO::Range of locus: chr1:85942988-87662356</code></pre>
+<pre><code>chromosome 1, position 85942988 to 87662356</code></pre>
+<pre><code>4622 SNPs/datapoints</code></pre>
+<pre><code>2024-11-03 13:54:19.397865 INFO::focal molecular trait QTL positions: 87118956,87134014,87148492
+2024-11-03 13:54:19.411571 INFO::Limit PIPs to credible sets</code></pre>
+<pre><code>Warning: ggrepel: 87 unlabeled data points (too many overlaps). Consider
+increasing max.overlaps</code></pre>
+<pre><code>Warning: ggrepel: 92 unlabeled data points (too many overlaps). Consider
 increasing max.overlaps</code></pre>
 <p><img src="figure/cTWAS_LD_european_combined3_output.Rmd/locus%20plot-10.png" width="960" style="display: block; margin: auto;" /></p>
 <p>
@@ -1802,7 +1827,7 @@ genes &lt;- combined_pip_by_group$gene_name[combined_pip_by_group$combined_pip &
 
 #number of genes for gene set enrichment
 sprintf(&quot;The number of genes used in enrichment analysis = %s&quot;, length(genes))</code></pre>
-<pre><code>[1] &quot;The number of genes used in enrichment analysis = 120&quot;</code></pre>
+<pre><code>[1] &quot;The number of genes used in enrichment analysis = 86&quot;</code></pre>
 <pre class="r"><code>GO_enrichment &lt;- enrichr(genes, dbs)</code></pre>
 <pre><code>Uploading data to Enrichr... Done.
   Querying GO_Biological_Process_2021... Done.
@@ -1814,8 +1839,6 @@ Parsing results... Done.</code></pre>
 <pre class="r"><code>db &lt;- &quot;GO_Biological_Process_2021&quot;
 df &lt;- GO_enrichment[[db]]
 print(plotEnrich(GO_enrichment[[db]]))</code></pre>
-<pre><code>Warning in plotEnrich(GO_enrichment[[db]]): There are duplicated trimmed names
-in the plot, consider increasing the &#39;numChar&#39; setting.</code></pre>
 <p><img src="figure/cTWAS_LD_european_combined3_output.Rmd/GO_Biological_Process_2021-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>
 <button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-GO_Biological_Process_2021-1">
@@ -1858,7 +1881,7 @@ yy896
 
 DT::datatable(df,caption = htmltools::tags$caption( style = &#39;caption-side: topleft; text-align = left; color:black;&#39;,&#39;Enriched pathways from GO_Biological_Process_2021&#39;),options = list(pageLength = 5) )</code></pre>
 <div class="datatables html-widget html-fill-item" id="htmlwidget-57a5e797e447beab7be8" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-57a5e797e447beab7be8">{"x":{"filter":"none","vertical":false,"caption":"<caption style=\"caption-side: topleft; text-align = left; color:black;\">Enriched pathways from GO_Biological_Process_2021<\/caption>","data":[["1","2"],["regulation of transcription, DNA-templated (GO:0006355)","regulation of transcription by RNA polymerase II (GO:0006357)"],["29/2244","28/2206"],[0.04482577023729441,0.04482577023729441],["ZNF395;CTBP2;LDB1;SATB1;TGFA;CHD3;DPF2;ZNF568;GPBP1L1;PKNOX2;SMAD2;TBX1;ARNT2;EGF;ZBTB38;IRX3;IRX4;EBF2;FOXJ1;GRHL3;BHLHA15;TBX5;GRHL1;PHC3;GDF7;KLF7;ZNF217;ZNF236;ZNF774","ZNF395;CTBP2;LDB1;SATB1;TGFA;CHD3;CCND1;DPF2;ZNF568;SKIL;WNT2;PKNOX2;SMAD2;TBX1;ARNT2;ZBTB38;IRX3;IRX4;EBF2;FOXJ1;GRHL3;BHLHA15;TBX5;GRHL1;KLF7;ZNF217;ZNF236;ZNF774"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Term<\/th>\n      <th>Overlap<\/th>\n      <th>Adjusted.P.value<\/th>\n      <th>Genes<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"columnDefs":[{"className":"dt-right","targets":3},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"Term","targets":1},{"name":"Overlap","targets":2},{"name":"Adjusted.P.value","targets":3},{"name":"Genes","targets":4}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-57a5e797e447beab7be8">{"x":{"filter":"none","vertical":false,"caption":"<caption style=\"caption-side: topleft; text-align = left; color:black;\">Enriched pathways from GO_Biological_Process_2021<\/caption>","data":[[],[],[],[],[]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Term<\/th>\n      <th>Overlap<\/th>\n      <th>Adjusted.P.value<\/th>\n      <th>Genes<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"columnDefs":[{"className":"dt-right","targets":3},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"Term","targets":1},{"name":"Overlap","targets":2},{"name":"Adjusted.P.value","targets":3},{"name":"Genes","targets":4}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
 <pre class="r"><code>print(&quot;GO_Cellular_Component_2021&quot;)</code></pre>
 <pre><code>[1] &quot;GO_Cellular_Component_2021&quot;</code></pre>
 <pre class="r"><code>db &lt;- &quot;GO_Cellular_Component_2021&quot;
@@ -1954,7 +1977,7 @@ yy896
 
 DT::datatable(df,caption = htmltools::tags$caption( style = &#39;caption-side: topleft; text-align = left; color:black;&#39;,&#39;Enriched pathways from GO_Molecular_Function_2021&#39;),options = list(pageLength = 5) )</code></pre>
 <div class="datatables html-widget html-fill-item" id="htmlwidget-38f6575cbe0384702c9e" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-38f6575cbe0384702c9e">{"x":{"filter":"none","vertical":false,"caption":"<caption style=\"caption-side: topleft; text-align = left; color:black;\">Enriched pathways from GO_Molecular_Function_2021<\/caption>","data":[["1","2","3","4"],["RNA polymerase II cis-regulatory region sequence-specific DNA binding (GO:0000978)","cis-regulatory region sequence-specific DNA binding (GO:0000987)","RNA polymerase II transcription regulatory region sequence-specific DNA binding (GO:0000977)","GTPase activator activity (GO:0005096)"],["22/1149","21/1149","21/1359","8/336"],[0.0002045156410134297,0.0003849451061848114,0.003171284022485822,0.04180955088215108],["SMAD2;TBX1;ARNT2;ZNF395;SATB1;ZBTB38;IRX3;IRX4;EBF2;FOXJ1;GRHL3;BHLHA15;TBX5;GRHL1;KLF7;TRIM24;ZNF217;ZNF568;ZNF236;SKIL;ZNF774;PKNOX2","SMAD2;TBX1;ARNT2;ZNF395;SATB1;ZBTB38;IRX3;IRX4;EBF2;FOXJ1;GRHL3;BHLHA15;TBX5;GRHL1;KLF7;ZNF217;ZNF568;ZNF236;SKIL;ZNF774;PKNOX2","SMAD2;TBX1;ARNT2;ZNF395;SATB1;ZBTB38;IRX3;IRX4;EBF2;FOXJ1;GRHL3;BHLHA15;TBX5;GRHL1;KLF7;ZNF217;ZNF568;ZNF236;SKIL;ZNF774;PKNOX2","FARP2;EGF;CCDC88C;MYO9B;IQGAP1;ARAP1;EVI5;SIPA1L3"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Term<\/th>\n      <th>Overlap<\/th>\n      <th>Adjusted.P.value<\/th>\n      <th>Genes<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"columnDefs":[{"className":"dt-right","targets":3},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"Term","targets":1},{"name":"Overlap","targets":2},{"name":"Adjusted.P.value","targets":3},{"name":"Genes","targets":4}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-38f6575cbe0384702c9e">{"x":{"filter":"none","vertical":false,"caption":"<caption style=\"caption-side: topleft; text-align = left; color:black;\">Enriched pathways from GO_Molecular_Function_2021<\/caption>","data":[["1","2","3","4"],["RNA polymerase II cis-regulatory region sequence-specific DNA binding (GO:0000978)","cis-regulatory region sequence-specific DNA binding (GO:0000987)","RNA polymerase II transcription regulatory region sequence-specific DNA binding (GO:0000977)","DNA-binding transcription activator activity, RNA polymerase II-specific (GO:0001228)"],["17/1149","16/1149","16/1359","7/333"],[0.001044343674859992,0.002147871543011444,0.01037234400610471,0.02293438435546223],["TBX1;SMAD2;ARNT2;ZNF395;SATB1;ZBTB38;EBF2;FOXJ1;GRHL3;BHLHA15;TBX5;GRHL1;KLF7;TRIM24;ZNF568;ZNF236;PKNOX2","TBX1;SMAD2;ARNT2;ZNF395;SATB1;ZBTB38;EBF2;FOXJ1;GRHL3;BHLHA15;TBX5;GRHL1;KLF7;ZNF568;ZNF236;PKNOX2","TBX1;SMAD2;ARNT2;ZNF395;SATB1;ZBTB38;EBF2;FOXJ1;GRHL3;BHLHA15;TBX5;GRHL1;KLF7;ZNF568;ZNF236;PKNOX2","SMAD2;KLF7;ZNF395;FOXJ1;GRHL3;TBX5;GRHL1"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Term<\/th>\n      <th>Overlap<\/th>\n      <th>Adjusted.P.value<\/th>\n      <th>Genes<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"columnDefs":[{"className":"dt-right","targets":3},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"Term","targets":1},{"name":"Overlap","targets":2},{"name":"Adjusted.P.value","targets":3},{"name":"Genes","targets":4}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
