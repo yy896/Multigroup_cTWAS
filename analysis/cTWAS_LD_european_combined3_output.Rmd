@@ -21,11 +21,11 @@ library(DT)
 library(htmltools)
 
 ens_db <- EnsDb.Hsapiens.v86
-weights <- readRDS(system.file("extdata/project_data", "European.mashr_RefZ_TCGA.weights.RDS", package = "ctwas"))
-ctwas_res <- readRDS(system.file("extdata/project_data", "European.combined_3_weights.ctwas_LD_allchrs.RDS", package = "ctwas"))
+weights <- readRDS(system.file("extdata/project_data", "European.final_weights.RDS", package = "ctwas"))
+ctwas_res <- readRDS(system.file("extdata/project_data", "European.ctwas_noLD_allchrs.RDS", package = "ctwas"))
 gwas_n <- 726828
-finemap_res <- readRDS("~/Desktop/Prostate Cancer Project/European.combined_3_weights.with_LD.finemap_res.RDS")
-susie_alpha_res <- readRDS("~/Desktop/Prostate Cancer Project/European.combined_3_weights.with_LD.susie_alpha_res.RDS")
+finemap_res <- readRDS("~/Desktop/Prostate Cancer Project/European.noLD.finemap_res.RDS")
+susie_alpha_res <- readRDS("~/Desktop/Prostate Cancer Project/European.noLD.susie_alpha_res.RDS")
 #finemap_res_sub <- subset(finemap_res, group != "SNP" & gene_type == "protein_coding" & susie_pip > 0.8 & !is.na(cs))
 ```
 
@@ -125,84 +125,81 @@ weights_prostate_expression <- preprocess_weights(weight_files[1],
                                                   region_info,
                                                   gwas_snp_ids = z_snp$id,
                                                   snp_map = snp_map,
-                                                  LD_map = LD_map,
                                                   type = "eQTL",
                                                   context = "prostate",
                                                   weight_format = "PredictDB",
                                                   drop_strand_ambig = TRUE,
                                                   scale_predictdb_weights = TRUE,
-                                                  load_predictdb_LD = FALSE,
+                                                  load_predictdb_LD = TRUE,
                                                   filter_protein_coding_genes = TRUE,
-                                                  ncore = ncore)
+                                                  ncore = 5)
+
 weights_prostate_splicing <- preprocess_weights(weight_files[2],
                                                 region_info,
                                                 gwas_snp_ids = z_snp$id,
                                                 snp_map = snp_map,
-                                                LD_map = LD_map,
                                                 type = "sQTL",
                                                 context = "prostate",
                                                 weight_format = "PredictDB",
                                                 drop_strand_ambig = TRUE,
                                                 scale_predictdb_weights = TRUE,
-                                                load_predictdb_LD = FALSE,
+                                                load_predictdb_LD = TRUE,
                                                 filter_protein_coding_genes = TRUE,
-                                                ncore = ncore)
+                                                ncore = 5)
 
 weights_testis_expression <- preprocess_weights(weight_files[3],
                                                 region_info,
                                                 gwas_snp_ids = z_snp$id,
                                                 snp_map = snp_map,
-                                                LD_map = LD_map,
                                                 type = "eQTL",
                                                 context = "testis",
                                                 weight_format = "PredictDB",
                                                 drop_strand_ambig = TRUE,
                                                 scale_predictdb_weights = TRUE,
-                                                load_predictdb_LD = FALSE,
+                                                load_predictdb_LD = TRUE,
                                                 filter_protein_coding_genes = TRUE,
-                                                ncore = ncore)
+                                                ncore = 5)
+
 weights_testis_splicing <- preprocess_weights(weight_files[4],
                                               region_info,
                                               gwas_snp_ids = z_snp$id,
                                               snp_map = snp_map,
-                                              LD_map = LD_map,
                                               type = "sQTL",
                                               context = "testis",
                                               weight_format = "PredictDB",
                                               drop_strand_ambig = TRUE,
                                               scale_predictdb_weights = TRUE,
-                                              load_predictdb_LD = FALSE,
+                                              load_predictdb_LD = TRUE,
                                               filter_protein_coding_genes = TRUE,
-                                              ncore = ncore)
+                                              ncore = 5)
 
 weights_lymphocytes_expression <- preprocess_weights(weight_files[5],
                                                      region_info,
                                                      gwas_snp_ids = z_snp$id,
                                                      snp_map = snp_map,
-                                                     LD_map = LD_map,
                                                      type = "eQTL",
                                                      context = "lymphocytes",
                                                      weight_format = "PredictDB",
                                                      drop_strand_ambig = TRUE,
                                                      scale_predictdb_weights = TRUE,
-                                                     load_predictdb_LD = FALSE,
+                                                     load_predictdb_LD = TRUE,
                                                      filter_protein_coding_genes = TRUE,
-                                                     ncore = ncore)
+                                                     ncore = 5)
+
 weights_lymphocytes_splicing <- preprocess_weights(weight_files[6],
                                                    region_info,
                                                    gwas_snp_ids = z_snp$id,
                                                    snp_map = snp_map,
-                                                   LD_map = LD_map,
                                                    type = "sQTL",
                                                    context = "lymphocytes",
                                                    weight_format = "PredictDB",
                                                    drop_strand_ambig = TRUE,
                                                    scale_predictdb_weights = TRUE,
-                                                   load_predictdb_LD = FALSE,
+                                                   load_predictdb_LD = TRUE,
                                                    filter_protein_coding_genes = TRUE,
-                                                   ncore = ncore)
+                                                   ncore = 5)
 
-weights_RefZ_prostate <- preprocess_weights("/project2/xinhe/yifany/MAYO/weights",
+weights_RefZ_prostate <- preprocess_weights("/project2/xinhe/yifany/RefZ_prostate/weights",
                                             region_info,
                                             gwas_snp_ids = z_snp$id,
                                             snp_map = snp_map,
@@ -217,7 +214,7 @@ weights_RefZ_prostate <- preprocess_weights("/project2/xinhe/yifany/MAYO/weights
                                             filter_protein_coding_genes = FALSE,
                                             scale_predictdb_weights = FALSE,
                                             load_predictdb_LD = FALSE,
-                                            ncore = ncore)
+                                            ncore = 5)
 
 weights_TCGA_prostate <- preprocess_weights("/project2/xinhe/yifany/TCGA_prostate/TCGA-PRAD.TUMOR",
                                             region_info,
@@ -234,24 +231,7 @@ weights_TCGA_prostate <- preprocess_weights("/project2/xinhe/yifany/TCGA_prostat
                                             filter_protein_coding_genes = FALSE,
                                             scale_predictdb_weights = FALSE,
                                             load_predictdb_LD = FALSE,
-                                            ncore = ncore)
-
-weights_TCGA_prostate <- preprocess_weights("/project2/xinhe/yifany/TCGA_prostate/TCGA-PRAD.TUMOR",
-                                            region_info,
-                                            gwas_snp_ids = z_snp$id,
-                                            snp_map = snp_map,
-                                            LD_map = LD_map,
-                                            type = "TCGA",
-                                            context = "prostate",                         
-                                            weight_format = "FUSION",
-                                            fusion_method = "lasso",
-                                            fusion_genome_version = "b38",
-                                            top_n_snps = NULL,
-                                            drop_strand_ambig = TRUE,
-                                            filter_protein_coding_genes = FALSE,
-                                            scale_predictdb_weights = FALSE,
-                                            load_predictdb_LD = FALSE,
-                                            ncore = ncore)
+                                            ncore = 5)
 
 weights <- c(
   weights_prostate_expression,
@@ -271,20 +251,12 @@ We use the ctwas main function `ctwas_sumstats` to run the cTWAS analysis with L
 Users can expand the code snippets below to view the exact code used.
 
 ```{r echo=TRUE, eval=FALSE}
-thin <- 0.1
-maxSNP <- 20000
-ctwas_res <- ctwas_sumstats(z_snp, 
-                            weights, 
-                            region_info, 
-                            LD_map, 
-                            snp_map, 
-                            thin = thin,
-                            maxSNP = maxSNP,
-                            group_prior_var_structure = "shared_type", 
-                            filter_L = TRUE,
-                            ncore = ncore, 
-                            save_cor = TRUE, 
-                            cor_dir = file.path(outputdir, "cor_matrix"))
+ctwas_res <- ctwas_sumstats_noLD(z_snp,
+                                 weights,
+                                 region_info,
+                                 snp_map,
+                                 thin = 0.1, 
+                                 ncore = 5)
 ```
 
 ## Parameter estimation
@@ -426,36 +398,6 @@ kpPlotMarkers(kp, data=genes, labels=genes$hgnc_symbol, #text.orientation = "hor
 
 ```{r locus plot, echo=TRUE, eval=TRUE, fig.height=6, fig.width=10}
 make_locusplot(finemap_res,
-               region_id = "6_30830391_31603441",
-               ens_db = ens_db,
-               weights = weights,
-               highlight_pip = 0.8,
-               filter_protein_coding_genes = TRUE,
-               filter_cs = TRUE,
-               color_pval_by = "cs",
-               color_pip_by = "cs")
-
-make_locusplot(finemap_res,
-               region_id = "6_160159465_161748532",
-               ens_db = ens_db,
-               weights = weights,
-               highlight_pip = 0.8,
-               filter_protein_coding_genes = TRUE,
-               filter_cs = TRUE,
-               color_pval_by = "cs",
-               color_pip_by = "cs")
-
-make_locusplot(finemap_res,
-               region_id = "6_33268720_35487979",
-               ens_db = ens_db,
-               weights = weights,
-               highlight_pip = 0.8,
-               filter_protein_coding_genes = TRUE,
-               filter_cs = TRUE,
-               color_pval_by = "cs",
-               color_pip_by = "cs")
-
-make_locusplot(finemap_res,
                region_id = "20_34225635_36332043",
                ens_db = ens_db,
                weights = weights,
@@ -466,27 +408,7 @@ make_locusplot(finemap_res,
                color_pip_by = "cs")
 
 make_locusplot(finemap_res,
-               region_id = "20_24737088_25363595",
-               ens_db = ens_db,
-               weights = weights,
-               highlight_pip = 0.8,
-               filter_protein_coding_genes = TRUE,
-               filter_cs = TRUE,
-               color_pval_by = "cs",
-               color_pip_by = "cs")
-
-make_locusplot(finemap_res,
-               region_id = "11_68238358_69701362",
-               ens_db = ens_db,
-               weights = weights,
-               highlight_pip = 0.8,
-               filter_protein_coding_genes = TRUE,
-               filter_cs = TRUE,
-               color_pval_by = "cs",
-               color_pip_by = "cs")
-
-make_locusplot(finemap_res,
-               region_id = "3_168863172_171247120",
+               region_id = "3_85533081_87360582",
                ens_db = ens_db,
                weights = weights,
                highlight_pip = 0.8,
@@ -506,7 +428,7 @@ make_locusplot(finemap_res,
                color_pip_by = "cs")
 
 make_locusplot(finemap_res,
-               region_id = "5_982137_2132328",
+               region_id = "11_101460390_104088908",
                ens_db = ens_db,
                weights = weights,
                highlight_pip = 0.8,
@@ -516,7 +438,57 @@ make_locusplot(finemap_res,
                color_pip_by = "cs")
 
 make_locusplot(finemap_res,
-               region_id = "10_101189482_102620653",
+               region_id = "7_97470258_99117851",
+               ens_db = ens_db,
+               weights = weights,
+               highlight_pip = 0.8,
+               filter_protein_coding_genes = TRUE,
+               filter_cs = TRUE,
+               color_pval_by = "cs",
+               color_pip_by = "cs")
+
+make_locusplot(finemap_res,
+               region_id = "19_16263605_18299052",
+               ens_db = ens_db,
+               weights = weights,
+               highlight_pip = 0.8,
+               filter_protein_coding_genes = TRUE,
+               filter_cs = TRUE,
+               color_pval_by = "cs",
+               color_pip_by = "cs")
+
+make_locusplot(finemap_res,
+               region_id = "11_124625632_126441425",
+               ens_db = ens_db,
+               weights = weights,
+               highlight_pip = 0.8,
+               filter_protein_coding_genes = TRUE,
+               filter_cs = TRUE,
+               color_pval_by = "cs",
+               color_pip_by = "cs")
+
+make_locusplot(finemap_res,
+               region_id = "2_19492643_20850730",
+               ens_db = ens_db,
+               weights = weights,
+               highlight_pip = 0.8,
+               filter_protein_coding_genes = TRUE,
+               filter_cs = TRUE,
+               color_pval_by = "cs",
+               color_pip_by = "cs")
+
+make_locusplot(finemap_res,
+               region_id = "12_113548904_114598797",
+               ens_db = ens_db,
+               weights = weights,
+               highlight_pip = 0.8,
+               filter_protein_coding_genes = TRUE,
+               filter_cs = TRUE,
+               color_pval_by = "cs",
+               color_pip_by = "cs")
+
+make_locusplot(finemap_res,
+               region_id = "1_85989068_87662948",
                ens_db = ens_db,
                weights = weights,
                highlight_pip = 0.8,

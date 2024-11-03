@@ -7,4 +7,6 @@ editor_options:
   chunk_output_type: console
 ---
 
+Multigroup_cTWAS project
+
 https://yy896.github.io/Multigroup_cTWAS/
