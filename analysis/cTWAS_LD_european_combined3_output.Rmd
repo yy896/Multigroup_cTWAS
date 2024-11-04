@@ -380,7 +380,7 @@ DT::datatable(combined_pip_table, caption = htmltools::tags$caption(
 
 ## Ideogram
 
-```{r Ideogram, eval=TRUE, echo=FALSE, fig.height=22.5, fig.width=40, message=FALSE, warning=FALSE}
+```{r Ideogram, eval=TRUE, echo=FALSE, fig.height=30, fig.width=40, message=FALSE, warning=FALSE}
 library(karyoploteR)
 library(biomaRt)
 library(regioneR)
