@@ -30,10 +30,25 @@ Prostate+Testis+Lymphocytes // eQTL+sQTL without LD [link](cTWAS_noLD_european_p
 
 eQTL+sQTL && RefZ with LD [link](cTWAS_LD_european_combined_output.html)
 
-Union data visulization [link](cTWAS_LD_union_visualization.html)
+---
 
+Munro et al. 7 QTLs
 
-Munro et.al with LD [link](cTWAS_LD_european_munro7_output.html)
+Prostate [link](cTWAS_LD_european_munro_prostate7_output.html)
+
+Testis [link](cTWAS_LD_european_munro_testis7_output.html)
+
+Lymphocytes [link](cTWAS_LD_european_munro_lymphocytes7_output.html)
+
+Lung [link](cTWAS_LD_european_munro_lung7_output.html)
+
+Liver [link](cTWAS_LD_european_munro_liver7_output.html)
+
+Spleen [link](cTWAS_LD_european_munro_spleen7_output.html)
+
+Fibroblasts [link](cTWAS_LD_european_munro_fibroblasts7_output.html)
+
+Union data visulization [link](cTWAS_union_visualization.html)
 
 ---
 

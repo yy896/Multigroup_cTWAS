@@ -1,0 +1,235 @@
+---
+title: "Prostate Cancer ~ Union Gene-list visualization"
+author: "Nina Yifan Yang"
+date: "`r Sys.Date()`"
+output:
+  workflowr::wflow_html:
+    code_folding: hide
+    toc: true
+---
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+library(ctwas)
+library(enrichR)
+library(DT)
+library(htmltools)
+
+susie_alpha_res1 <- readRDS("~/Desktop/Prostate Cancer Project/European.munro_prostate_weights.noLD.susie_alpha_res.RDS")
+susie_alpha_res2 <- readRDS("~/Desktop/Prostate Cancer Project/European.munro_testis_weights.noLD.susie_alpha_res.RDS")
+susie_alpha_res3 <- readRDS("~/Desktop/Prostate Cancer Project/European.munro_lymphocytes_weights.noLD.susie_alpha_res.RDS")
+susie_alpha_res4 <- readRDS("~/Desktop/Prostate Cancer Project/European.munro_lung_weights.noLD.susie_alpha_res.RDS")
+susie_alpha_res5 <- readRDS("~/Desktop/Prostate Cancer Project/European.munro_liver_weights.noLD.susie_alpha_res.RDS")
+susie_alpha_res6 <- readRDS("~/Desktop/Prostate Cancer Project/European.munro_spleen_weights.noLD.susie_alpha_res.RDS")
+susie_alpha_res7 <- readRDS("~/Desktop/Prostate Cancer Project/European.munro_fibroblasts_weights.noLD.susie_alpha_res.RDS")
+susie_alpha_res8 <- readRDS("~/Desktop/Prostate Cancer Project/European.noLD.susie_alpha_res.RDS")
+```
+
+### Prostate
+
+```{r echo=TRUE, eval=TRUE}
+combined_pip_by_group1 <- combine_gene_pips(susie_alpha_res1,
+                                          group_by = "gene_name",
+                                          by = "group",
+                                          method = "combine_cs",
+                                          filter_cs = TRUE,
+                                          include_cs_id = TRUE)
+
+combined_pip_table1 <- subset(combined_pip_by_group1, combined_pip > 0.8)
+
+DT::datatable(combined_pip_table1)
+```
+
+### Testis
+
+```{r echo=TRUE, eval=TRUE}
+combined_pip_by_group2 <- combine_gene_pips(susie_alpha_res2,
+                                          group_by = "gene_name",
+                                          by = "group",
+                                          method = "combine_cs",
+                                          filter_cs = TRUE,
+                                          include_cs_id = TRUE)
+
+combined_pip_table2 <- subset(combined_pip_by_group2, combined_pip > 0.8)
+
+DT::datatable(combined_pip_table2)
+```
+
+### Lymphocytes
+
+```{r echo=TRUE, eval=TRUE}
+combined_pip_by_group3 <- combine_gene_pips(susie_alpha_res3,
+                                          group_by = "gene_name",
+                                          by = "group",
+                                          method = "combine_cs",
+                                          filter_cs = TRUE,
+                                          include_cs_id = TRUE)
+
+combined_pip_table3 <- subset(combined_pip_by_group3, combined_pip > 0.8)
+
+DT::datatable(combined_pip_table3)
+```
+
+### Lung
+
+```{r echo=TRUE, eval=TRUE}
+combined_pip_by_group4 <- combine_gene_pips(susie_alpha_res4,
+                                          group_by = "gene_name",
+                                          by = "group",
+                                          method = "combine_cs",
+                                          filter_cs = TRUE,
+                                          include_cs_id = TRUE)
+
+combined_pip_table4 <- subset(combined_pip_by_group4, combined_pip > 0.8)
+
+DT::datatable(combined_pip_table4)
+```
+
+### Liver
+
+```{r echo=TRUE, eval=TRUE}
+combined_pip_by_group5 <- combine_gene_pips(susie_alpha_res5,
+                                          group_by = "gene_name",
+                                          by = "group",
+                                          method = "combine_cs",
+                                          filter_cs = TRUE,
+                                          include_cs_id = TRUE)
+
+combined_pip_table5 <- subset(combined_pip_by_group5, combined_pip > 0.8)
+
+DT::datatable(combined_pip_table5)
+```
+
+### Spleen
+
+```{r echo=TRUE, eval=TRUE}
+combined_pip_by_group6 <- combine_gene_pips(susie_alpha_res6,
+                                          group_by = "gene_name",
+                                          by = "group",
+                                          method = "combine_cs",
+                                          filter_cs = TRUE,
+                                          include_cs_id = TRUE)
+
+combined_pip_table6 <- subset(combined_pip_by_group6, combined_pip > 0.8)
+
+DT::datatable(combined_pip_table6)
+```
+
+### Fibroblasts
+
+```{r echo=TRUE, eval=TRUE}
+combined_pip_by_group7 <- combine_gene_pips(susie_alpha_res7,
+                                          group_by = "gene_name",
+                                          by = "group",
+                                          method = "combine_cs",
+                                          filter_cs = TRUE,
+                                          include_cs_id = TRUE)
+
+combined_pip_table7 <- subset(combined_pip_by_group7, combined_pip > 0.8)
+
+DT::datatable(combined_pip_table6)
+```
+
+### PredictDB + RefZ + TCGA
+
+```{r echo=TRUE, eval=TRUE}
+combined_pip_by_group8 <- combine_gene_pips(susie_alpha_res8,
+                                          group_by = "gene_name",
+                                          by = "group",
+                                          method = "combine_cs",
+                                          filter_cs = TRUE,
+                                          include_cs_id = TRUE)
+
+combined_pip_table8 <- subset(combined_pip_by_group8, combined_pip > 0.8)
+
+DT::datatable(combined_pip_table8)
+```
+
+```{r echo=TRUE, eval=TRUE}
+Union_genelist <- union(combined_pip_table1$gene_name, combined_pip_table2$gene_name)
+Union_genelist <- union(Union_genelist, combined_pip_table3$gene_name)
+Union_genelist <- union(Union_genelist, combined_pip_table4$gene_name)
+Union_genelist <- union(Union_genelist, combined_pip_table5$gene_name)
+Union_genelist <- union(Union_genelist, combined_pip_table6$gene_name)
+Union_genelist <- union(Union_genelist, combined_pip_table7$gene_name)
+Union_genelist <- union(Union_genelist, combined_pip_table8$gene_name)
+Union_genelist
+```
+
+## Ideogram
+
+```{r Ideogram, eval=TRUE, echo=FALSE, fig.height=34, fig.width=40, message=FALSE, warning=FALSE}
+library(karyoploteR)
+library(biomaRt)
+library(regioneR)
+gene.symbols <- Union_genelist
+ensembl <- useEnsembl(biomart="ensembl", dataset="hsapiens_gene_ensembl")
+genes <- toGRanges(getBM(attributes=c('chromosome_name', 'start_position', 'end_position', 'hgnc_symbol'), filters = 'hgnc_symbol', values =gene.symbols, mart = ensembl))
+seqlevelsStyle(genes) <- "UCSC"
+
+kp <- plotKaryotype(genome="hg38", chromosomes="autosomal")
+kpPlotMarkers(kp, data=genes, labels=genes$hgnc_symbol, #text.orientation = "horizontal",
+              r1=0.7, cex=0.8, adjust.label.position = TRUE)
+kpAddMainTitle(kp, "Union Combined-PIPs genes", cex=3.5)
+```
+
+## GSEA-Gene Ontology
+
+```{r pathway setup, echo=TRUE, eval=TRUE, warning=FALSE, message=FALSE}
+dbs <- c("GO_Biological_Process_2021", "GO_Cellular_Component_2021", "GO_Molecular_Function_2021")
+genes <- Union_genelist
+
+#number of genes for gene set enrichment
+sprintf("The number of genes used in enrichment analysis = %s", length(genes))
+```
+
+```{r GO enrichment, echo=TRUE, eval=TRUE, warning=FALSE, message=FALSE}
+GO_enrichment <- enrichr(genes, dbs)
+```
+
+```{r figure title1, echo=TRUE, eval=TRUE}
+print("GO_Biological_Process_2021")
+```
+
+```{r GO_Biological_Process_2021, echo=TRUE, eval=TRUE}
+db <- "GO_Biological_Process_2021"
+df <- GO_enrichment[[db]]
+print(plotEnrich(GO_enrichment[[db]]))
+```
+
+```{r echo=TRUE, eval=TRUE}
+df <- df[df$Adjusted.P.value<0.05,c("Term", "Overlap", "Adjusted.P.value", "Genes")]
+
+DT::datatable(df,caption = htmltools::tags$caption( style = 'caption-side: topleft; text-align = left; color:black;','Enriched pathways from GO_Biological_Process_2021'),options = list(pageLength = 5) )
+```
+
+```{r figure title2, echo=TRUE, eval=TRUE}
+print("GO_Cellular_Component_2021")
+```
+
+```{r GO_Cellular_Component_2021, echo=TRUE, eval=TRUE}
+db <- "GO_Cellular_Component_2021"
+df <- GO_enrichment[[db]]
+print(plotEnrich(GO_enrichment[[db]]))
+```
+
+```{r echo=TRUE, eval=TRUE}
+df <- df[df$Adjusted.P.value<0.05,c("Term", "Overlap", "Adjusted.P.value", "Genes")]
+
+DT::datatable(df,caption = htmltools::tags$caption( style = 'caption-side: topleft; text-align = left; color:black;','Enriched pathways from GO_Cellular_Component_2021'),options = list(pageLength = 5) )
+```
+
+```{r figure title3, echo=TRUE, eval=TRUE}
+print("GO_Molecular_Function_2021")
+```
+
+```{r GO_Molecular_Function_2021, echo=TRUE, eval=TRUE}
+db <- "GO_Molecular_Function_2021"
+df <- GO_enrichment[[db]]
+print(plotEnrich(GO_enrichment[[db]]))
+```
+
+```{r echo=TRUE, eval=TRUE}
+df <- df[df$Adjusted.P.value<0.05,c("Term", "Overlap", "Adjusted.P.value", "Genes")]
+
+DT::datatable(df,caption = htmltools::tags$caption( style = 'caption-side: topleft; text-align = left; color:black;','Enriched pathways from GO_Molecular_Function_2021'),options = list(pageLength = 5) )
+```
