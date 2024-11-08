@@ -1,0 +1,1457 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Nina Yifan Yang" />
+
+<meta name="date" content="2024-11-08" />
+
+<title>Prostate Cancer ~ Munro 7 lymphocytes QTLs</title>
+
+<script src="site_libs/header-attrs-2.28/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet" />
+<script src="site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<link href="site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="site_libs/datatables-binding-0.33/datatables.js"></script>
+<link href="site_libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="site_libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="site_libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script>
+<link href="site_libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet" />
+<script src="site_libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
+<link href="site_libs/font-awesome-6.4.2/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet" />
+
+<link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/main/img/reproducible.png">
+<!-- Add a small amount of space between sections. -->
+<style type="text/css">
+div.section {
+  padding-top: 12px;
+}
+</style>
+
+
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Multigroup_cTWAS</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="about.html">About</a>
+</li>
+<li>
+  <a href="license.html">License</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/yy896/Multigroup_cTWAS">
+    <span class="fab fa-github"></span>
+     
+    Source code
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+<div class="btn-group pull-right float-right">
+<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu dropdown-menu-right" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
+
+
+
+<h1 class="title toc-ignore">Prostate Cancer ~ Munro 7 lymphocytes
+QTLs</h1>
+<h4 class="author">Nina Yifan Yang</h4>
+<h4 class="date">2024-11-08</h4>
+
+</div>
+
+
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+workflowr <span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span>
+</button>
+</p>
+<div id="workflowr-report" class="collapse">
+<ul class="nav nav-tabs">
+<li class="active">
+<a data-toggle="tab" href="#summary">Summary</a>
+</li>
+<li>
+<a data-toggle="tab" href="#checks"> Checks <span
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+</a>
+</li>
+<li>
+<a data-toggle="tab" href="#versions">Past versions</a>
+</li>
+</ul>
+<div class="tab-content">
+<div id="summary" class="tab-pane fade in active">
+<p>
+<strong>Last updated:</strong> 2024-11-08
+</p>
+<p>
+<strong>Checks:</strong> <span
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7
+<span class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> 0
+</p>
+<p>
+<strong>Knit directory:</strong> <code>Multigroup_cTWAS/</code> <span
+class="glyphicon glyphicon-question-sign" aria-hidden="true"
+title="This is the local directory in which the code in this file was executed.">
+</span>
+</p>
+<p>
+This reproducible <a href="https://rmarkdown.rstudio.com">R Markdown</a>
+analysis was created with <a
+  href="https://github.com/workflowr/workflowr">workflowr</a> (version
+1.7.1). The <em>Checks</em> tab describes the reproducibility checks
+that were applied when the results were created. The <em>Past
+versions</em> tab lists the development history.
+</p>
+<hr>
+</div>
+<div id="checks" class="tab-pane fade">
+<div id="workflowr-checks" class="panel-group">
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date
+</a>
+</p>
+</div>
+<div id="strongRMarkdownfilestronguptodate"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great! Since the R Markdown file has been committed to the Git
+repository, you know the exact version of the code that produced these
+results.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongEnvironmentstrongempty">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Environment:</strong> empty </a>
+</p>
+</div>
+<div id="strongEnvironmentstrongempty" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! The global environment was empty. Objects defined in the
+global environment can affect the analysis in your R Markdown file in
+unknown ways. For reproduciblity it’s best to always run the code in an
+empty environment.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSeedstrongcodesetseed20241004code">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Seed:</strong>
+<code>set.seed(20241004)</code> </a>
+</p>
+</div>
+<div id="strongSeedstrongcodesetseed20241004code"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>The command <code>set.seed(20241004)</code> was run prior to running
+the code in the R Markdown file. Setting a seed ensures that any results
+that rely on randomness, e.g. subsampling or permutations, are
+reproducible.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSessioninformationstrongrecorded">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Session information:</strong>
+recorded </a>
+</p>
+</div>
+<div id="strongSessioninformationstrongrecorded"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Recording the operating system, R version, and package
+versions is critical for reproducibility.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongCachestrongnone">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Cache:</strong> none </a>
+</p>
+</div>
+<div id="strongCachestrongnone" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Nice! There were no cached chunks for this analysis, so you can be
+confident that you successfully produced the results during this
+run.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongFilepathsstrongrelative">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>File paths:</strong> relative </a>
+</p>
+</div>
+<div id="strongFilepathsstrongrelative" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Using relative paths to the files within your workflowr
+project makes it easier to run your code on other machines.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomyy896MultigroupcTWAStree7450d7f4d679905f229282de66fda9c8cf40370ctargetblank7450d7fa">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Repository version:</strong>
+<a href="https://github.com/yy896/Multigroup_cTWAS/tree/7450d7f4d679905f229282de66fda9c8cf40370c" target="_blank">7450d7f</a>
+</a>
+</p>
+</div>
+<div
+id="strongRepositoryversionstrongahrefhttpsgithubcomyy896MultigroupcTWAStree7450d7f4d679905f229282de66fda9c8cf40370ctargetblank7450d7fa"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>
+Great! You are using Git for version control. Tracking code development
+and connecting the code version to the results is critical for
+reproducibility.
+</p>
+<p>
+The results in this page were generated with repository version
+<a href="https://github.com/yy896/Multigroup_cTWAS/tree/7450d7f4d679905f229282de66fda9c8cf40370c" target="_blank">7450d7f</a>.
+See the <em>Past versions</em> tab to see a history of the changes made
+to the R Markdown and HTML files.
+</p>
+<p>
+Note that you need to be careful to ensure that all relevant files for
+the analysis have been committed to Git prior to generating the results
+(you can use <code>wflow_publish</code> or
+<code>wflow_git_commit</code>). workflowr only checks the R Markdown
+file, but you know if there are other scripts or data files that it
+depends on. Below is the status of the Git repository when the results
+were generated:
+</p>
+<pre><code>
+Ignored files:
+    Ignored:    .DS_Store
+    Ignored:    .Rhistory
+    Ignored:    analysis/.DS_Store
+    Ignored:    analysis/.Rhistory
+
+Unstaged changes:
+    Deleted:    analysis/cTWAS_LD_european_munro7_output.Rmd
+    Deleted:    analysis/cTWAS_LD_union_visualization.Rmd
+
+</code></pre>
+<p>
+Note that any generated files, e.g. HTML, png, CSS, etc., are not
+included in this status report because it is ok for generated content to
+have uncommitted changes.
+</p>
+</div>
+</div>
+</div>
+</div>
+<hr>
+</div>
+<div id="versions" class="tab-pane fade">
+<p>
+These are the previous versions of the repository in which changes were
+made to the R Markdown
+(<code>analysis/cTWAS_LD_european_munro_lymphocytes7_output.Rmd</code>)
+and HTML
+(<code>docs/cTWAS_LD_european_munro_lymphocytes7_output.html</code>)
+files. If you’ve configured a remote Git repository (see
+<code>?wflow_git_remote</code>), click on the hyperlinks in the table
+below to view the files as they were in that past version.
+</p>
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+File
+</th>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+<th>
+Message
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/yy896/Multigroup_cTWAS/blob/7450d7f4d679905f229282de66fda9c8cf40370c/analysis/cTWAS_LD_european_munro_lymphocytes7_output.Rmd" target="_blank">7450d7f</a>
+</td>
+<td>
+yy896
+</td>
+<td>
+2024-11-08
+</td>
+<td>
+UPDATED RESULTS
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+</div>
+</div>
+</div>
+<p>Here presenting a cTWAS results report based on real data analysis.
+The analyzed trait is prostate cancer, the prediction models are Munro
+et.al multimodal 7 QTLs.</p>
+<div id="analysis-settings" class="section level2">
+<h2>Analysis Settings</h2>
+<div id="input-data" class="section level3">
+<h3>Input Data</h3>
+<ul>
+<li>GWAS Z-scores</li>
+</ul>
+<p>The summary statistics for prostate cancer are downloaded from <a
+href="https://www.ebi.ac.uk/gwas/downloads/summary-statistics"
+class="uri">https://www.ebi.ac.uk/gwas/downloads/summary-statistics</a>,
+using dataset ID: GCST90274714.</p>
+<p>The sample size is</p>
+<pre><code>[1] &quot;gwas_n = 726828&quot;</code></pre>
+<ul>
+<li>Prediction models</li>
+</ul>
+<p>The prediction models used in this analysis are Munro et.al 7 QTLs.
+Source data: <a
+href="https://www.dropbox.com/scl/fo/c88y8wu8u6beaxar3bs7g/h?rlkey=d2atycui3uyq83igk4hipu8ln&amp;dl=0"
+class="uri">https://www.dropbox.com/scl/fo/c88y8wu8u6beaxar3bs7g/h?rlkey=d2atycui3uyq83igk4hipu8ln&amp;dl=0</a>.</p>
+<ul>
+<li>Reference data</li>
+</ul>
+<p>We did include ukb38 whole genome LD reference in the analysis.</p>
+</div>
+<div id="data-processing-and-harmonization" class="section level3">
+<h3>Data processing and harmonization</h3>
+<p>We map the reference SNPs to regions following the instructions from
+the cTWAS tutorial.</p>
+<p>When processing z-scores, we exclude multi-allelic and
+strand-ambiguous variants by setting
+<code>drop_multiallelic = TRUE</code> and
+<code>drop_strand_ambig = TRUE</code>.</p>
+<p>The process can be divided into steps below, users can expand the
+code snippets below to view the exact code used.</p>
+<ul>
+<li>Input and output settings</li>
+</ul>
+<pre class="r"><code>weight_files &lt;- c(&quot;/project2/xinhe/shared_data/multigroup_ctwas/weights/Munro_alt_polyA_PredictDB/apa_Lymphocytes.db&quot;,
+                  &quot;/project2/xinhe/shared_data/multigroup_ctwas/weights/Munro_alt_stability_PredictDB/Lymphocytes.db&quot;,
+                  &quot;/project2/xinhe/shared_data/multigroup_ctwas/weights/Munro_alt_tss_PredictDB/tss_Lymphocytes.db&quot;,
+                  &quot;/project2/xinhe/shared_data/multigroup_ctwas/weights/Munro_expression_PredictDB/expression_Lymphocytes.db&quot;,
+                  &quot;/project2/xinhe/shared_data/multigroup_ctwas/weights/Munro_isoform_PredictDB/isoform_Lymphocytes.db&quot;,
+                  &quot;/project2/xinhe/shared_data/multigroup_ctwas/weights/Munro_splicing_PredictDB/splicing_Lymphocytes.db&quot;,
+                  &quot;/project2/xinhe/shared_data/multigroup_ctwas/weights/Munro_stability_PredictDB/stability_Lymphocytes.db&quot;)
+
+z_snp &lt;- vroom::vroom(&quot;/project2/xinhe/yifany/GCST90274714.mod.tsv.gz&quot;, col_names = TRUE, show_col_types = FALSE)
+z_snp$Z &lt;- z_snp$beta / z_snp$standard_error
+
+# gwas_n &lt;- as.numeric(names(sort(table(z_snp$base_pair_location), decreasing = TRUE)[1]))
+# cat(&quot;gwas_n =&quot;, gwas_n, &quot;\n&quot;)
+gwas_n &lt;- 726828
+
+z_snp &lt;- z_snp[, c(&quot;rsid&quot;, &quot;other_allele&quot;, &quot;effect_allele&quot;, &quot;Z&quot;)]
+colnames(z_snp) &lt;- c(&quot;id&quot;, &quot;A1&quot;, &quot;A2&quot;, &quot;z&quot;)
+
+region_file &lt;- system.file(&quot;extdata/ldetect&quot;, &quot;EUR.b38.ldetect.regions.RDS&quot;, package = &quot;ctwas&quot;)
+region_info &lt;- readRDS(region_file)
+
+# output dir
+outputdir &lt;- &quot;/project2/xinhe/yifany/multigroup_cTWAS&quot;
+dir.create(outputdir, showWarnings=F, recursive=T)
+
+# Number of cores
+ncore &lt;- 5</code></pre>
+<ul>
+<li>Preprocessing GWAS</li>
+</ul>
+<pre class="r"><code>### Preprocess SNP_map and LD_map
+genome_version &lt;- &quot;b38&quot;
+region_file &lt;- system.file(&quot;extdata/ldetect&quot;, paste0(&quot;EUR.&quot;, genome_version, &quot;.ldetect.regions.RDS&quot;), package = &quot;ctwas&quot;)
+region_info &lt;- readRDS(region_file)
+
+LD_dir &lt;- &quot;/project2/mstephens/wcrouse/UKB_LDR_0.1&quot;
+
+LD_filestem &lt;- sprintf(&quot;ukb_%s_0.1_chr%s.R_snp.%s_%s&quot;, genome_version, region_info$chrom, region_info$start, region_info$stop)
+
+region_metatable &lt;- region_info
+region_metatable$LD_file &lt;- file.path(LD_dir, paste0(LD_filestem, &quot;.RDS&quot;))
+region_metatable$SNP_file &lt;- file.path(LD_dir, paste0(LD_filestem, &quot;.Rvar&quot;))
+
+res &lt;- create_snp_LD_map(region_metatable)
+region_info &lt;- res$region_info
+snp_map &lt;- res$snp_map
+LD_map &lt;- res$LD_map
+
+z_snp &lt;- preprocess_z_snp(z_snp, snp_map, 
+                          drop_multiallelic = TRUE, 
+                          drop_strand_ambig = TRUE)</code></pre>
+<ul>
+<li>Preprocessing weights</li>
+</ul>
+<pre class="r"><code>weights_lymphocytes_apaQTL &lt;- preprocess_weights(weight_files[1],
+                                              region_info,
+                                              gwas_snp_ids = z_snp$id,
+                                              snp_map = snp_map,
+                                              LD_map = LD_map,
+                                              type = &quot;apaQTL&quot;,
+                                              context = &quot;lymphocytes&quot;,
+                                              weight_format = &quot;PredictDB&quot;,
+                                              drop_strand_ambig = TRUE,
+                                              scale_predictdb_weights = TRUE,
+                                              load_predictdb_LD = FALSE,
+                                              filter_protein_coding_genes = TRUE,
+                                              ncore = 5)
+
+weights_lymphocytes_astQTL &lt;- preprocess_weights(weight_files[2],
+                                              region_info,
+                                              gwas_snp_ids = z_snp$id,
+                                              snp_map = snp_map,
+                                              LD_map = LD_map,
+                                              type = &quot;astQTL&quot;,
+                                              context = &quot;lymphocytes&quot;,
+                                              weight_format = &quot;PredictDB&quot;,
+                                              drop_strand_ambig = TRUE,
+                                              scale_predictdb_weights = TRUE,
+                                              load_predictdb_LD = FALSE,
+                                              filter_protein_coding_genes = TRUE,
+                                              ncore = 5)
+
+weights_lymphocytes_tssQTL &lt;- preprocess_weights(weight_files[3],
+                                              region_info,
+                                              gwas_snp_ids = z_snp$id,
+                                              snp_map = snp_map,
+                                              LD_map = LD_map,
+                                              type = &quot;tssQTL&quot;,
+                                              context = &quot;lymphocytes&quot;,
+                                              weight_format = &quot;PredictDB&quot;,
+                                              drop_strand_ambig = TRUE,
+                                              scale_predictdb_weights = TRUE,
+                                              load_predictdb_LD = FALSE,
+                                              filter_protein_coding_genes = TRUE,
+                                              ncore = 5)
+
+weights_lymphocytes_eQTL &lt;- preprocess_weights(weight_files[4],
+                                            region_info,
+                                            gwas_snp_ids = z_snp$id,
+                                            snp_map = snp_map,
+                                            LD_map = LD_map,
+                                            type = &quot;munro_eQTL&quot;,
+                                            context = &quot;lymphocytes&quot;,
+                                            weight_format = &quot;PredictDB&quot;,
+                                            drop_strand_ambig = TRUE,
+                                            scale_predictdb_weights = TRUE,
+                                            load_predictdb_LD = FALSE,
+                                            filter_protein_coding_genes = TRUE,
+                                            ncore = 5)
+
+weights_lymphocytes_isoQTL &lt;- preprocess_weights(weight_files[5],
+                                              region_info,
+                                              gwas_snp_ids = z_snp$id,
+                                              snp_map = snp_map,
+                                              LD_map = LD_map,
+                                              type = &quot;isoQTL&quot;,
+                                              context = &quot;lymphocytes&quot;,
+                                              weight_format = &quot;PredictDB&quot;,
+                                              drop_strand_ambig = TRUE,
+                                              scale_predictdb_weights = TRUE,
+                                              load_predictdb_LD = FALSE,
+                                              filter_protein_coding_genes = TRUE,
+                                              ncore = 5)
+
+weights_lymphocytes_sQTL &lt;- preprocess_weights(weight_files[6],
+                                            region_info,
+                                            gwas_snp_ids = z_snp$id,
+                                            snp_map = snp_map,
+                                            LD_map = LD_map,
+                                            type = &quot;munro_sQTL&quot;,
+                                            context = &quot;lymphocytes&quot;,
+                                            weight_format = &quot;PredictDB&quot;,
+                                            drop_strand_ambig = TRUE,
+                                            scale_predictdb_weights = TRUE,
+                                            load_predictdb_LD = FALSE,
+                                            filter_protein_coding_genes = TRUE,
+                                            ncore = 5)
+
+weights_lymphocytes_stQTL &lt;- preprocess_weights(weight_files[7],
+                                             region_info,
+                                             gwas_snp_ids = z_snp$id,
+                                             snp_map = snp_map,
+                                             LD_map = LD_map,
+                                             type = &quot;stQTL&quot;,
+                                             context = &quot;lymphocytes&quot;,
+                                             weight_format = &quot;PredictDB&quot;,
+                                             drop_strand_ambig = TRUE,
+                                             scale_predictdb_weights = TRUE,
+                                             load_predictdb_LD = FALSE,
+                                             filter_protein_coding_genes = TRUE,
+                                             ncore = 5)
+
+weights &lt;- c(
+  weights_lymphocytes_apaQTL,
+  weights_lymphocytes_astQTL,
+  weights_lymphocytes_tssQTL,
+  weights_lymphocytes_eQTL,
+  weights_lymphocytes_isoQTL,
+  weights_lymphocytes_sQTL,
+  weights_lymphocytes_stQTL)</code></pre>
+</div>
+</div>
+<div id="running-ctwas-analysis" class="section level2">
+<h2>Running cTWAS analysis</h2>
+<p>We use the ctwas main function <code>ctwas_sumstats</code> to run the
+cTWAS analysis with LD. For more details on this function, refer to the
+cTWAS tutorial: <a
+href="https://xinhe-lab.github.io/multigroup_ctwas/articles/running_ctwas_analysis.html"
+class="uri">https://xinhe-lab.github.io/multigroup_ctwas/articles/running_ctwas_analysis.html</a></p>
+<p>Users can expand the code snippets below to view the exact code
+used.</p>
+<pre class="r"><code>ctwas_res &lt;- ctwas_sumstats_noLD(z_snp,
+                                 weights,
+                                 region_info,
+                                 snp_map,
+                                 thin = 0.1, 
+                                 ncore = 5)</code></pre>
+</div>
+<div id="parameter-estimation" class="section level2">
+<h2>Parameter estimation</h2>
+<p><code>ctwas_res</code> is the object contains the outputs of
+cTWAS</p>
+<p>We extract the estimated parameters by
+<code>param &lt;- ctwas_res$param</code></p>
+<p>We make plots using the function
+<code>make_convergence_plots(param, gwas_n)</code> to see how estimated
+parameters converge during the execution of the program:</p>
+<p><img src="figure/cTWAS_LD_european_munro_lymphocytes7_output.Rmd/unnamed-chunk-7-1.png" width="960" style="display: block; margin: auto;" /></p>
+<p>These plots show the estimated prior inclusion probability, prior
+effect size variance, enrichment and proportion of variance explained
+(PVE) over the iterations of parameter estimation. The enrichment is
+defined as the ratio of the prior inclusion probability of molecular
+traits over the prior inclusion probability of variants. We generally
+expect molecular traits to have higher prior inclusion probability than
+variants. Enrichment values typically range from 20 - 100 for expression
+traits.</p>
+<p>Then, we use <code>summarize_param(param, gwas_n)</code> to obtain
+estimated parameters (from the last iteration) and to compute the PVE by
+variants and molecular traits.</p>
+<pre><code>[1] &quot;The number of genes/introns/SNPs used in the analysis is:&quot;</code></pre>
+<pre><code>    lymphocytes|apaQTL     lymphocytes|astQTL     lymphocytes|tssQTL 
+                  3024                   3968                   2494 
+lymphocytes|munro_eQTL     lymphocytes|isoQTL lymphocytes|munro_sQTL 
+                  2321                   4422                   3885 
+     lymphocytes|stQTL                    SNP 
+                  1960                5316440 </code></pre>
+<p><code>ctwas_parameters$prop_heritability</code> contains the
+proportion of heritability mediated by molecular traits and variants, we
+visualize it using pie chart.</p>
+<pre class="r"><code>ctwas_parameters &lt;- summarize_param(param, gwas_n)
+data &lt;- data.frame(
+  category = names(ctwas_parameters$prop_heritability),
+  percentage = ctwas_parameters$prop_heritability
+)
+# Calculate percentage labels for the chart
+data$percentage_label &lt;- paste0(round(data$percentage * 100), &quot;%&quot;)
+
+ggplot(data, aes(x = &quot;&quot;, y = percentage, fill = category)) +
+  geom_bar(stat = &quot;identity&quot;, width = 1) +
+  coord_polar(&quot;y&quot;, start = 0) +
+  theme_void() +  # Remove background and axes
+  geom_text(aes(label = percentage_label), 
+            position = position_stack(vjust = 0.5)) +
+  scale_fill_brewer(palette = &quot;Pastel1&quot;) +
+  labs(fill = &quot;Category&quot;) +
+  ggtitle(&quot;Percent of heritability&quot;)</code></pre>
+<p><img src="figure/cTWAS_LD_european_munro_lymphocytes7_output.Rmd/piechart-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="diagnosis-plots" class="section level2">
+<h2>Diagnosis plots</h2>
+<p>For all genes analyzed, we compare the z-scores and fine-mapping
+PIPs”</p>
+<pre class="r"><code>ggplot(data = finemap_res[finemap_res$type!=&quot;SNP&quot;,], aes(x = abs(z), y = susie_pip)) +
+  geom_point() +
+  labs(x = &quot;abs(z-scores)&quot;, y = &quot;PIPs&quot;) +
+  theme_minimal()</code></pre>
+<p><img src="figure/cTWAS_LD_european_munro_lymphocytes7_output.Rmd/unnamed-chunk-9-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="fine-mapping-results" class="section level2">
+<h2>Fine-mapping results</h2>
+<p>We process the fine-mapping results here.</p>
+<p>We first add gene annotations to cTWAS results.</p>
+<p><code>mapping_table</code> is a combination of Munro et.al 7
+QTLs.</p>
+<pre class="r"><code>finemap_res &lt;- anno_finemap_res(finemap_res,
+                                snp_map = snp_map,
+                                mapping_table = mapping_table,
+                                add_gene_annot = TRUE,
+                                map_by = &quot;molecular_id&quot;,
+                                drop_unmapped = TRUE,
+                                add_position = TRUE,
+                                use_gene_pos = &quot;mid&quot;)</code></pre>
+<p>The annotated fine-mapping results, ones within credible sets are
+shown</p>
+<pre class="r"><code>finemap_res_show &lt;- subset(finemap_res, group != &quot;SNP&quot; &amp; gene_type == &quot;protein_coding&quot; &amp; susie_pip &gt; 0.8 &amp; !is.na(cs))
+
+DT::datatable(finemap_res_show,caption = htmltools::tags$caption( style = &#39;caption-side: topleft; text-align = left; color:black;&#39;,&#39;The annotated fine-mapping results, ones within credible sets are shown&#39;),options = list(pageLength = 5) )</code></pre>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-232a8e63d6aacd296363" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-232a8e63d6aacd296363">{"x":{"filter":"none","vertical":false,"caption":"<caption style=\"caption-side: topleft; text-align = left; color:black;\">The annotated fine-mapping results, ones within credible sets are shown<\/caption>","data":[["277","413","1254","1304","1642","2005","2425","2669","2695","3581","4199","4436"],["ENSG00000134262:ENST00000472122|lymphocytes_isoQTL","ENSG00000115392:ENST00000696375|lymphocytes_isoQTL","ENSG00000197062:ENST00000316606|lymphocytes_isoQTL","ENSG00000204536|lymphocytes_munro_eQTL","ENSG00000198945|lymphocytes_munro_eQTL","ENSG00000213930:chr9:34647961:34648048:clu_49200_+|lymphocytes_munro_sQTL","ENSG00000048028:ENST00000542033|lymphocytes_isoQTL","ENSG00000017427:ENST00000337514|lymphocytes_isoQTL","ENSG00000111229|lymphocytes_munro_eQTL","ENSG00000153786|lymphocytes_munro_eQTL","ENSG00000101751|lymphocytes_munro_eQTL","ENSG00000188283:ENST00000590503|lymphocytes_isoQTL"],["ENSG00000134262:ENST00000472122","ENSG00000115392:ENST00000696375","ENSG00000197062:ENST00000316606","ENSG00000204536","ENSG00000198945","ENSG00000213930:chr9:34647961:34648048:clu_49200_+","ENSG00000048028:ENST00000542033","ENSG00000017427:ENST00000337514","ENSG00000111229","ENSG00000153786","ENSG00000101751","ENSG00000188283:ENST00000590503"],["isoQTL","isoQTL","isoQTL","munro_eQTL","munro_eQTL","munro_sQTL","isoQTL","isoQTL","munro_eQTL","munro_eQTL","munro_eQTL","isoQTL"],["lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes","lymphocytes"],["lymphocytes|isoQTL","lymphocytes|isoQTL","lymphocytes|isoQTL","lymphocytes|munro_eQTL","lymphocytes|munro_eQTL","lymphocytes|munro_sQTL","lymphocytes|isoQTL","lymphocytes|isoQTL","lymphocytes|munro_eQTL","lymphocytes|munro_eQTL","lymphocytes|munro_eQTL","lymphocytes|isoQTL"],["1_112730684_114331223","2_58070180_60064865","6_28050041_28949831","6_30830391_31603441","6_129539886_130614309","9_34642246_36743286","11_112588765_114387006","12_102571208_104454918","12_109898914_112825713","16_84412277_85115079","18_54027805_57546606","19_35978393_37036131"],[4.934950983406047,-4.58337098832946,7.985983969113839,10.97586794829667,7.180456714241115,-5.229990879327725,9.755715404882995,4.180727457586679,-5.459199639049944,7.517510220968658,6.152813361042162,-6.602675318356181],[0.8672918593597992,0.9273915866159379,0.999860970884867,0.9902131699539626,0.8143920632867718,0.9554156449321994,0.8397761482005208,0.9344600268643062,0.8501376697415262,0.9997935995178266,0.8523240066166737,0.9922247245777122],[21.38902904158886,18.5759438026864,54.52801292672635,107.1890100460142,46.41225852339495,27.42462465677803,80.92175243411204,15.60956698991779,27.22417015707993,50.78150777856706,34.3277275652952,37.56383498410023],["L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1"],["AP4B1","FANCL","ZSCAN26","CCHCR1","L3MBTL3","GALT","USP28","IGF1","ARPC3","ZDHHC7","POLI","ZNF383"],["protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding"],["1","2","6","6","6","9","11","12","12","16","18","19"],["113894748","58159243","28267010","31142439","130013699","34647961","113797874","102415704","110434825","84974181","54270029","37218154"],["113905140","58241348","28278224","31158238","130141451","34648048","113875570","102480645","110450407","85011535","54321266","37248738"],[113899944,58200296,28272617,31150338,130077575,34648004,113836722,102448174,110442616,84992858,54295648,37233446]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>id<\/th>\n      <th>molecular_id<\/th>\n      <th>type<\/th>\n      <th>context<\/th>\n      <th>group<\/th>\n      <th>region_id<\/th>\n      <th>z<\/th>\n      <th>susie_pip<\/th>\n      <th>mu2<\/th>\n      <th>cs<\/th>\n      <th>gene_name<\/th>\n      <th>gene_type<\/th>\n      <th>chrom<\/th>\n      <th>start<\/th>\n      <th>end<\/th>\n      <th>pos<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"columnDefs":[{"className":"dt-right","targets":[7,8,9,16]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"id","targets":1},{"name":"molecular_id","targets":2},{"name":"type","targets":3},{"name":"context","targets":4},{"name":"group","targets":5},{"name":"region_id","targets":6},{"name":"z","targets":7},{"name":"susie_pip","targets":8},{"name":"mu2","targets":9},{"name":"cs","targets":10},{"name":"gene_name","targets":11},{"name":"gene_type","targets":12},{"name":"chrom","targets":13},{"name":"start","targets":14},{"name":"end","targets":15},{"name":"pos","targets":16}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+<p>Next, we compute gene combined-PIPs across different types of
+molecular traits, where only genes within credible sets are shown.</p>
+<pre class="r"><code>susie_alpha_res &lt;- anno_susie_alpha_res(susie_alpha_res,
+                                        mapping_table = mapping_table,
+                                        map_by = &quot;molecular_id&quot;,
+                                        drop_unmapped = TRUE)</code></pre>
+<pre class="r"><code>combined_pip_by_group &lt;- combine_gene_pips(susie_alpha_res,
+                                          group_by = &quot;gene_name&quot;,
+                                          by = &quot;group&quot;,
+                                          method = &quot;combine_cs&quot;,
+                                          filter_cs = TRUE,
+                                          include_cs_id = TRUE)
+combined_pip_by_group$sQTL_pip_partition &lt;- sapply(combined_pip_by_group$gene_name, function(gene) {
+  # Find rows in finemap_res_show matching the gene_name
+  matching_rows &lt;- finemap_res_show %&gt;%
+    dplyr::filter(gene_name == gene, type == &quot;sQTL&quot;)  # Match gene_name and filter by type == &quot;sQTL&quot;
+  # If no matching rows, return NA
+  if (nrow(matching_rows) == 0) {
+    return(NA)
+  }
+  # Create the desired string format: molecular_id-round(susie_pip, digits = 4)
+  paste(matching_rows$molecular_id, &quot;:PIP=&quot;, round(matching_rows$susie_pip, digits = 4), sep = &quot;&quot;, collapse = &quot;, &quot;)
+})
+
+combined_pip_table &lt;- subset(combined_pip_by_group, combined_pip &gt; 0.8)
+DT::datatable(combined_pip_table, caption = htmltools::tags$caption(
+                style = &#39;caption-side: topleft; text-align = left; color:black;&#39;,
+                &#39;Gene PIPs, only genes within credible sets are shown&#39;),
+              options = list(pageLength = 5))</code></pre>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-2112c1f1dbc2c6427f4c" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-2112c1f1dbc2c6427f4c">{"x":{"filter":"none","vertical":false,"caption":"<caption style=\"caption-side: topleft; text-align = left; color:black;\">Gene PIPs, only genes within credible sets are shown<\/caption>","data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21"],["ZSCAN26","ZDHHC7","PTK6","ZNF383","CCHCR1","PYGB","NICN1","GALT","L3MBTL3","IGF1","FANCL","AP4B1","SMAD2","TOMM7","ARPC3","POLI","USP28","STX12","NAB1","RMI1","NME3"],["6_28050041_28949831.L1","16_84412277_85115079.L1","20_62670503_63558827.L1","19_35978393_37036131.L1","6_30830391_31603441.L1","20_24737088_25363595.L1","3_47685722_49279539.L1,3_49279539_51797999.L1","9_34642246_36743286.L1","6_129539886_130614309.L1","12_102571208_104454918.L1","2_58070180_60064865.L1","1_112730684_114331223.L1","18_46719283_48413361.L1","7_22468010_23431823.L1","12_109898914_112825713.L1","18_54027805_57546606.L1","11_112588765_114387006.L1","1_27075376_29689034.L1","2_189017339_191108631.L1","9_82825886_84323281.L1","16_1157206_2714828.L1"],[0.999860970884867,0.9997935995178266,0.9980627570669296,0.9922247245777122,0.9902131699539626,0.9872150381805299,0.9756317488998179,0.9554156449321994,0.9408405653085857,0.9344600268643062,0.9273915866159379,0.9087490630579035,0.9054068056931732,0.8577584294107353,0.8560480095681353,0.8523240066166737,0.8397761482005208,0.8364407201385569,0.8079592086747526,0.8011652996839225,0.8001469910030155],[null,null,null,null,null,null,"3_49279539_51797999.L1",null,null,null,null,null,"18_46719283_48413361.L1",null,null,null,null,null,null,null,null],[null,null,null,null,null,null,0.04051633274143462,null,null,null,null,null,0.04728255051517838,null,null,null,null,null,null,null,null],[null,null,"20_62670503_63558827.L1",null,null,"20_24737088_25363595.L1","3_47685722_49279539.L1,3_49279539_51797999.L1",null,"6_129539886_130614309.L1",null,null,"1_112730684_114331223.L1","18_46719283_48413361.L1","7_22468010_23431823.L1","12_109898914_112825713.L1",null,null,"1_27075376_29689034.L1",null,null,null],[null,null,0.4526100241474215,null,null,0.4536614267948851,0.9384869803443221,null,0.06417825449056958,null,null,0.01246283517345137,0.8581242551779948,0.3479567283094184,0.002244858313401377,null,null,0.3491020944226582,null,null,null],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,"2_189017339_191108631.L1",null,null],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0.08569944141522923,null,null],[null,"16_84412277_85115079.L1",null,null,"6_30830391_31603441.L1",null,null,null,"6_129539886_130614309.L1",null,null,null,null,null,"12_109898914_112825713.L1","18_54027805_57546606.L1",null,null,null,"9_82825886_84323281.L1",null],[null,0.9997935995178266,null,null,0.9902131699539626,null,null,null,0.8143920632867718,null,null,null,null,null,0.8501376697415262,0.8523240066166737,null,null,null,0.5485089816724547,null],["6_28050041_28949831.L1",null,null,"19_35978393_37036131.L1",null,null,null,null,null,"12_102571208_104454918.L1","2_58070180_60064865.L1","1_112730684_114331223.L1",null,null,null,null,"11_112588765_114387006.L1",null,"2_189017339_191108631.L1","9_82825886_84323281.L1","16_1157206_2714828.L1"],[0.999860970884867,null,null,0.9922247245777122,null,null,null,null,null,0.9344600268643062,0.9273915866159379,0.8750313977711908,null,null,null,null,0.8397761482005208,null,0.1898139090360322,0.2526563180114677,0.6850405393925181],[null,null,null,null,null,null,null,"9_34642246_36743286.L1",null,null,null,null,null,null,null,null,null,null,"2_189017339_191108631.L1",null,"16_1157206_2714828.L1"],[null,null,null,null,null,null,null,0.9554156449321994,null,null,null,null,null,null,null,null,null,null,0.5324458582234911,null,0.1151064516104974],[null,null,"20_62670503_63558827.L1",null,null,"20_24737088_25363595.L1",null,null,"6_129539886_130614309.L1",null,null,"1_112730684_114331223.L1",null,"7_22468010_23431823.L1","12_109898914_112825713.L1",null,null,"1_27075376_29689034.L1",null,null,null],[null,null,0.5454527329195081,null,null,0.5335536113856448,null,null,0.06227024753124433,null,null,0.02125483011326135,null,0.509801701101317,0.00366548151320778,null,null,0.4873386257158988,null,null,null],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>gene_name<\/th>\n      <th>combined_cs_id<\/th>\n      <th>combined_pip<\/th>\n      <th>lymphocytes|apaQTL_cs_id<\/th>\n      <th>lymphocytes|apaQTL_pip<\/th>\n      <th>lymphocytes|astQTL_cs_id<\/th>\n      <th>lymphocytes|astQTL_pip<\/th>\n      <th>lymphocytes|tssQTL_cs_id<\/th>\n      <th>lymphocytes|tssQTL_pip<\/th>\n      <th>lymphocytes|munro_eQTL_cs_id<\/th>\n      <th>lymphocytes|munro_eQTL_pip<\/th>\n      <th>lymphocytes|isoQTL_cs_id<\/th>\n      <th>lymphocytes|isoQTL_pip<\/th>\n      <th>lymphocytes|munro_sQTL_cs_id<\/th>\n      <th>lymphocytes|munro_sQTL_pip<\/th>\n      <th>lymphocytes|stQTL_cs_id<\/th>\n      <th>lymphocytes|stQTL_pip<\/th>\n      <th>sQTL_pip_partition<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"columnDefs":[{"className":"dt-right","targets":[3,5,7,9,11,13,15,17]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"gene_name","targets":1},{"name":"combined_cs_id","targets":2},{"name":"combined_pip","targets":3},{"name":"lymphocytes|apaQTL_cs_id","targets":4},{"name":"lymphocytes|apaQTL_pip","targets":5},{"name":"lymphocytes|astQTL_cs_id","targets":6},{"name":"lymphocytes|astQTL_pip","targets":7},{"name":"lymphocytes|tssQTL_cs_id","targets":8},{"name":"lymphocytes|tssQTL_pip","targets":9},{"name":"lymphocytes|munro_eQTL_cs_id","targets":10},{"name":"lymphocytes|munro_eQTL_pip","targets":11},{"name":"lymphocytes|isoQTL_cs_id","targets":12},{"name":"lymphocytes|isoQTL_pip","targets":13},{"name":"lymphocytes|munro_sQTL_cs_id","targets":14},{"name":"lymphocytes|munro_sQTL_pip","targets":15},{"name":"lymphocytes|stQTL_cs_id","targets":16},{"name":"lymphocytes|stQTL_pip","targets":17},{"name":"sQTL_pip_partition","targets":18}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="ideogram" class="section level2">
+<h2>Ideogram</h2>
+<p><img src="figure/cTWAS_LD_european_munro_lymphocytes7_output.Rmd/Ideogram-1.png" width="3840" style="display: block; margin: auto;" /></p>
+</div>
+<div id="locus-plots-only-showing-top-10-here" class="section level2">
+<h2>Locus plots (ONLY showing top 10 here)</h2>
+<pre class="r"><code>make_locusplot(finemap_res,
+               region_id = &quot;6_28050041_28949831&quot;,
+               ens_db = ens_db,
+               weights = weights,
+               highlight_pip = 0.8,
+               filter_protein_coding_genes = TRUE,
+               filter_cs = TRUE,
+               color_pval_by = &quot;cs&quot;,
+               color_pip_by = &quot;cs&quot;)</code></pre>
+<pre><code>2024-11-08 13:12:52.632157 INFO::Limit to protein coding genes
+2024-11-08 13:12:52.742173 INFO::focal id: ENSG00000197062:ENST00000316606|lymphocytes_isoQTL
+2024-11-08 13:12:52.746322 INFO::focal molecular trait: ZSCAN26 lymphocytes isoQTL
+2024-11-08 13:12:52.746593 INFO::Range of locus: chr6:28050475-28949414</code></pre>
+<pre><code>chromosome 6, position 28050475 to 28949414</code></pre>
+<pre><code>2442 SNPs/datapoints</code></pre>
+<pre><code>2024-11-08 13:12:52.83147 INFO::focal molecular trait QTL positions: 28283207,28443467
+2024-11-08 13:12:52.845986 INFO::Limit PIPs to credible sets</code></pre>
+<pre><code>Warning: ggrepel: 15 unlabeled data points (too many overlaps). Consider
+increasing max.overlaps</code></pre>
+<p><img src="figure/cTWAS_LD_european_munro_lymphocytes7_output.Rmd/locus%20plot-1.png" width="960" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>make_locusplot(finemap_res,
+               region_id = &quot;16_84412277_85115079&quot;,
+               ens_db = ens_db,
+               weights = weights,
+               highlight_pip = 0.8,
+               filter_protein_coding_genes = TRUE,
+               filter_cs = TRUE,
+               color_pval_by = &quot;cs&quot;,
+               color_pip_by = &quot;cs&quot;)</code></pre>
+<pre><code>2024-11-08 13:12:53.411993 INFO::Limit to protein coding genes
+2024-11-08 13:12:53.41258 INFO::focal id: ENSG00000153786|lymphocytes_munro_eQTL
+2024-11-08 13:12:53.41282 INFO::focal molecular trait: ZDHHC7 lymphocytes munro_eQTL
+2024-11-08 13:12:53.41306 INFO::Range of locus: chr16:84412178-85114834</code></pre>
+<pre><code>chromosome 16, position 84412178 to 85114834</code></pre>
+<pre><code>3313 SNPs/datapoints</code></pre>
+<pre><code>2024-11-08 13:12:53.513051 INFO::focal molecular trait QTL positions: 84607023,84794317,84985325,84995857,85005342,85042138,85084888,85086894
+2024-11-08 13:12:53.52625 INFO::Limit PIPs to credible sets</code></pre>
+<pre><code>Warning: ggrepel: 6 unlabeled data points (too many overlaps). Consider
+increasing max.overlaps</code></pre>
+<p><img src="figure/cTWAS_LD_european_munro_lymphocytes7_output.Rmd/locus%20plot-2.png" width="960" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>make_locusplot(finemap_res,
+               region_id = &quot;20_62670503_63558827&quot;,
+               ens_db = ens_db,
+               weights = weights,
+               highlight_pip = 0.8,
+               filter_protein_coding_genes = TRUE,
+               filter_cs = TRUE,
+               color_pval_by = &quot;cs&quot;,
+               color_pip_by = &quot;cs&quot;)</code></pre>
+<pre><code>2024-11-08 13:12:54.101123 INFO::Limit to protein coding genes
+2024-11-08 13:12:54.101659 INFO::focal id: ENSG00000101213|lymphocytes_stQTL
+2024-11-08 13:12:54.101908 INFO::focal molecular trait: PTK6 lymphocytes stQTL
+2024-11-08 13:12:54.102142 INFO::Range of locus: chr20:62670403-63558401</code></pre>
+<pre><code>chromosome 20, position 62670403 to 63558401</code></pre>
+<pre><code>3534 SNPs/datapoints</code></pre>
+<pre><code>2024-11-08 13:12:54.151158 INFO::focal molecular trait QTL positions: 63420901
+2024-11-08 13:12:54.164363 INFO::Limit PIPs to credible sets</code></pre>
+<pre><code>Warning: ggrepel: 17 unlabeled data points (too many overlaps). Consider
+increasing max.overlaps</code></pre>
+<p><img src="figure/cTWAS_LD_european_munro_lymphocytes7_output.Rmd/locus%20plot-3.png" width="960" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>make_locusplot(finemap_res,
+               region_id = &quot;19_35978393_37036131&quot;,
+               ens_db = ens_db,
+               weights = weights,
+               highlight_pip = 0.8,
+               filter_protein_coding_genes = TRUE,
+               filter_cs = TRUE,
+               color_pval_by = &quot;cs&quot;,
+               color_pip_by = &quot;cs&quot;)</code></pre>
+<pre><code>2024-11-08 13:12:54.743036 INFO::Limit to protein coding genes
+2024-11-08 13:12:54.743618 INFO::focal id: ENSG00000188283:ENST00000590503|lymphocytes_isoQTL
+2024-11-08 13:12:54.743872 INFO::focal molecular trait: ZNF383 lymphocytes isoQTL
+2024-11-08 13:12:54.744113 INFO::Range of locus: chr19:35715532-37341201</code></pre>
+<pre><code>chromosome 19, position 35715532 to 37341201</code></pre>
+<pre><code>2560 SNPs/datapoints</code></pre>
+<pre><code>2024-11-08 13:12:54.803406 INFO::focal molecular trait QTL positions: 36773288,36794468,36951176,37012881
+2024-11-08 13:12:54.816631 INFO::Limit PIPs to credible sets</code></pre>
+<pre><code>Warning: ggrepel: 47 unlabeled data points (too many overlaps). Consider
+increasing max.overlaps</code></pre>
+<p><img src="figure/cTWAS_LD_european_munro_lymphocytes7_output.Rmd/locus%20plot-4.png" width="960" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>make_locusplot(finemap_res,
+               region_id = &quot;6_30830391_31603441&quot;,
+               ens_db = ens_db,
+               weights = weights,
+               highlight_pip = 0.8,
+               filter_protein_coding_genes = TRUE,
+               filter_cs = TRUE,
+               color_pval_by = &quot;cs&quot;,
+               color_pip_by = &quot;cs&quot;)</code></pre>
+<pre><code>2024-11-08 13:12:55.483204 INFO::Limit to protein coding genes
+2024-11-08 13:12:55.484003 INFO::focal id: ENSG00000204536|lymphocytes_munro_eQTL
+2024-11-08 13:12:55.484366 INFO::focal molecular trait: CCHCR1 lymphocytes munro_eQTL
+2024-11-08 13:12:55.484688 INFO::Range of locus: chr6:30735121-32025190</code></pre>
+<pre><code>chromosome 6, position 30735121 to 32025190</code></pre>
+<pre><code>9735 SNPs/datapoints</code></pre>
+<pre><code>2024-11-08 13:12:55.567422 INFO::focal molecular trait QTL positions: 31112694,31125289,31125705,31137895,31138712,31138739,31139254,31139956,31142033,31497253,31543361
+2024-11-08 13:12:55.58107 INFO::Limit PIPs to credible sets</code></pre>
+<pre><code>Warning: ggrepel: 133 unlabeled data points (too many overlaps). Consider
+increasing max.overlaps</code></pre>
+<pre><code>Warning: ggrepel: 9 unlabeled data points (too many overlaps). Consider
+increasing max.overlaps</code></pre>
+<p><img src="figure/cTWAS_LD_european_munro_lymphocytes7_output.Rmd/locus%20plot-5.png" width="960" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>make_locusplot(finemap_res,
+               region_id = &quot;20_24737088_25363595&quot;,
+               ens_db = ens_db,
+               weights = weights,
+               highlight_pip = 0.8,
+               filter_protein_coding_genes = TRUE,
+               filter_cs = TRUE,
+               color_pval_by = &quot;cs&quot;,
+               color_pip_by = &quot;cs&quot;)</code></pre>
+<pre><code>2024-11-08 13:12:56.465075 INFO::Limit to protein coding genes
+2024-11-08 13:12:56.465823 INFO::focal id: ENSG00000100994|lymphocytes_stQTL
+2024-11-08 13:12:56.466073 INFO::focal molecular trait: PYGB lymphocytes stQTL
+2024-11-08 13:12:56.466308 INFO::Range of locus: chr20:24736988-25691304</code></pre>
+<pre><code>chromosome 20, position 24736988 to 25691304</code></pre>
+<pre><code>2021 SNPs/datapoints</code></pre>
+<pre><code>2024-11-08 13:12:56.514783 INFO::focal molecular trait QTL positions: 25226438,25275630
+2024-11-08 13:12:56.793088 INFO::Limit PIPs to credible sets</code></pre>
+<p><img src="figure/cTWAS_LD_european_munro_lymphocytes7_output.Rmd/locus%20plot-6.png" width="960" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>make_locusplot(finemap_res,
+               region_id = &quot;3_49279539_51797999&quot;,
+               ens_db = ens_db,
+               weights = weights,
+               highlight_pip = 0.8,
+               filter_protein_coding_genes = TRUE,
+               filter_cs = TRUE,
+               color_pval_by = &quot;cs&quot;,
+               color_pip_by = &quot;cs&quot;)</code></pre>
+<pre><code>2024-11-08 13:12:57.263928 INFO::Limit to protein coding genes
+2024-11-08 13:12:57.264514 INFO::focal id: ENSG00000145029.grp_2.downstream.ENST00000615713|lymphocytes_astQTL
+2024-11-08 13:12:57.264774 INFO::focal molecular trait: NICN1 lymphocytes astQTL
+2024-11-08 13:12:57.265037 INFO::Range of locus: chr3:48923664-51794719</code></pre>
+<pre><code>chromosome 3, position 48923664 to 51794719</code></pre>
+<pre><code>3452 SNPs/datapoints</code></pre>
+<pre><code>2024-11-08 13:12:57.349813 INFO::focal molecular trait QTL positions: 49402007,49422974,49469467,49507808,49544126,49831022,49831409
+2024-11-08 13:12:57.364555 INFO::Limit PIPs to credible sets</code></pre>
+<pre><code>Warning: ggrepel: 40 unlabeled data points (too many overlaps). Consider
+increasing max.overlaps</code></pre>
+<p><img src="figure/cTWAS_LD_european_munro_lymphocytes7_output.Rmd/locus%20plot-7.png" width="960" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>make_locusplot(finemap_res,
+               region_id = &quot;9_34642246_36743286&quot;,
+               ens_db = ens_db,
+               weights = weights,
+               highlight_pip = 0.8,
+               filter_protein_coding_genes = TRUE,
+               filter_cs = TRUE,
+               color_pval_by = &quot;cs&quot;,
+               color_pip_by = &quot;cs&quot;)</code></pre>
+<pre><code>2024-11-08 13:12:58.185896 INFO::Limit to protein coding genes
+2024-11-08 13:12:58.186505 INFO::focal id: ENSG00000213930:chr9:34647961:34648048:clu_49200_+|lymphocytes_munro_sQTL
+2024-11-08 13:12:58.186757 INFO::focal molecular trait: GALT lymphocytes munro_sQTL
+2024-11-08 13:12:58.187002 INFO::Range of locus: chr9:34642556-36743207</code></pre>
+<pre><code>chromosome 9, position 34642556 to 36743207</code></pre>
+<pre><code>4219 SNPs/datapoints</code></pre>
+<pre><code>2024-11-08 13:12:58.253906 INFO::focal molecular trait QTL positions: 34648023,34649445,34691538
+2024-11-08 13:12:58.267415 INFO::Limit PIPs to credible sets</code></pre>
+<pre><code>Warning: ggrepel: 25 unlabeled data points (too many overlaps). Consider
+increasing max.overlaps</code></pre>
+<p><img src="figure/cTWAS_LD_european_munro_lymphocytes7_output.Rmd/locus%20plot-8.png" width="960" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>make_locusplot(finemap_res,
+               region_id = &quot;6_129539886_130614309&quot;,
+               ens_db = ens_db,
+               weights = weights,
+               highlight_pip = 0.8,
+               filter_protein_coding_genes = TRUE,
+               filter_cs = TRUE,
+               color_pval_by = &quot;cs&quot;,
+               color_pip_by = &quot;cs&quot;)</code></pre>
+<pre><code>2024-11-08 13:12:58.937424 INFO::Limit to protein coding genes
+2024-11-08 13:12:58.938008 INFO::focal id: ENSG00000198945|lymphocytes_munro_eQTL
+2024-11-08 13:12:58.938271 INFO::focal molecular trait: L3MBTL3 lymphocytes munro_eQTL
+2024-11-08 13:12:58.938528 INFO::Range of locus: chr6:129539786-130613726</code></pre>
+<pre><code>chromosome 6, position 129539786 to 130613726</code></pre>
+<pre><code>3669 SNPs/datapoints</code></pre>
+<pre><code>2024-11-08 13:12:58.9861 INFO::focal molecular trait QTL positions: 129883997,130001212,130013220,130027974,130033710,130049023,130076370,130095804,130098410,130362740,130427039
+2024-11-08 13:12:58.999997 INFO::Limit PIPs to credible sets</code></pre>
+<pre><code>Warning: ggrepel: 3 unlabeled data points (too many overlaps). Consider
+increasing max.overlaps</code></pre>
+<p><img src="figure/cTWAS_LD_european_munro_lymphocytes7_output.Rmd/locus%20plot-9.png" width="960" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>make_locusplot(finemap_res,
+               region_id = &quot;12_102571208_104454918&quot;,
+               ens_db = ens_db,
+               weights = weights,
+               highlight_pip = 0.8,
+               filter_protein_coding_genes = TRUE,
+               filter_cs = TRUE,
+               color_pval_by = &quot;cs&quot;,
+               color_pip_by = &quot;cs&quot;)</code></pre>
+<pre><code>2024-11-08 13:12:59.58463 INFO::Limit to protein coding genes
+2024-11-08 13:12:59.585242 INFO::focal id: ENSG00000017427:ENST00000337514|lymphocytes_isoQTL
+2024-11-08 13:12:59.585511 INFO::focal molecular trait: IGF1 lymphocytes isoQTL
+2024-11-08 13:12:59.585773 INFO::Range of locus: chr12:102448074-104454431</code></pre>
+<pre><code>chromosome 12, position 102448074 to 104454431</code></pre>
+<pre><code>5546 SNPs/datapoints</code></pre>
+<pre><code>2024-11-08 13:12:59.642763 INFO::focal molecular trait QTL positions: 102651075,102653045,102668410
+2024-11-08 13:12:59.656798 INFO::Limit PIPs to credible sets</code></pre>
+<pre><code>Warning: ggrepel: 17 unlabeled data points (too many overlaps). Consider
+increasing max.overlaps</code></pre>
+<p><img src="figure/cTWAS_LD_european_munro_lymphocytes7_output.Rmd/locus%20plot-10.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="gsea-gene-ontology" class="section level2">
+<h2>GSEA-Gene Ontology</h2>
+<pre class="r"><code>dbs &lt;- c(&quot;GO_Biological_Process_2021&quot;, &quot;GO_Cellular_Component_2021&quot;, &quot;GO_Molecular_Function_2021&quot;)
+genes &lt;- combined_pip_by_group$gene_name[combined_pip_by_group$combined_pip &gt;0.8]
+
+#number of genes for gene set enrichment
+sprintf(&quot;The number of genes used in enrichment analysis = %s&quot;, length(genes))</code></pre>
+<pre><code>[1] &quot;The number of genes used in enrichment analysis = 21&quot;</code></pre>
+<pre class="r"><code>GO_enrichment &lt;- enrichr(genes, dbs)</code></pre>
+<pre><code>Uploading data to Enrichr... Done.
+  Querying GO_Biological_Process_2021... Done.
+  Querying GO_Cellular_Component_2021... Done.
+  Querying GO_Molecular_Function_2021... Done.
+Parsing results... Done.</code></pre>
+<pre class="r"><code>print(&quot;GO_Biological_Process_2021&quot;)</code></pre>
+<pre><code>[1] &quot;GO_Biological_Process_2021&quot;</code></pre>
+<pre class="r"><code>db &lt;- &quot;GO_Biological_Process_2021&quot;
+df &lt;- GO_enrichment[[db]]
+print(plotEnrich(GO_enrichment[[db]]))</code></pre>
+<p><img src="figure/cTWAS_LD_european_munro_lymphocytes7_output.Rmd/GO_Biological_Process_2021-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>df &lt;- df[df$Adjusted.P.value&lt;0.05,c(&quot;Term&quot;, &quot;Overlap&quot;, &quot;Adjusted.P.value&quot;, &quot;Genes&quot;)]
+
+DT::datatable(df,caption = htmltools::tags$caption( style = &#39;caption-side: topleft; text-align = left; color:black;&#39;,&#39;Enriched pathways from GO_Biological_Process_2021&#39;),options = list(pageLength = 5) )</code></pre>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-57a5e797e447beab7be8" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-57a5e797e447beab7be8">{"x":{"filter":"none","vertical":false,"caption":"<caption style=\"caption-side: topleft; text-align = left; color:black;\">Enriched pathways from GO_Biological_Process_2021<\/caption>","data":[[],[],[],[],[]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Term<\/th>\n      <th>Overlap<\/th>\n      <th>Adjusted.P.value<\/th>\n      <th>Genes<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"columnDefs":[{"className":"dt-right","targets":3},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"Term","targets":1},{"name":"Overlap","targets":2},{"name":"Adjusted.P.value","targets":3},{"name":"Genes","targets":4}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+<pre class="r"><code>print(&quot;GO_Cellular_Component_2021&quot;)</code></pre>
+<pre><code>[1] &quot;GO_Cellular_Component_2021&quot;</code></pre>
+<pre class="r"><code>db &lt;- &quot;GO_Cellular_Component_2021&quot;
+df &lt;- GO_enrichment[[db]]
+print(plotEnrich(GO_enrichment[[db]]))</code></pre>
+<p><img src="figure/cTWAS_LD_european_munro_lymphocytes7_output.Rmd/GO_Cellular_Component_2021-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>df &lt;- df[df$Adjusted.P.value&lt;0.05,c(&quot;Term&quot;, &quot;Overlap&quot;, &quot;Adjusted.P.value&quot;, &quot;Genes&quot;)]
+
+DT::datatable(df,caption = htmltools::tags$caption( style = &#39;caption-side: topleft; text-align = left; color:black;&#39;,&#39;Enriched pathways from GO_Cellular_Component_2021&#39;),options = list(pageLength = 5) )</code></pre>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-0a34d9ca313023088b60" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-0a34d9ca313023088b60">{"x":{"filter":"none","vertical":false,"caption":"<caption style=\"caption-side: topleft; text-align = left; color:black;\">Enriched pathways from GO_Cellular_Component_2021<\/caption>","data":[[],[],[],[],[]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Term<\/th>\n      <th>Overlap<\/th>\n      <th>Adjusted.P.value<\/th>\n      <th>Genes<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"columnDefs":[{"className":"dt-right","targets":3},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"Term","targets":1},{"name":"Overlap","targets":2},{"name":"Adjusted.P.value","targets":3},{"name":"Genes","targets":4}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+<pre class="r"><code>print(&quot;GO_Molecular_Function_2021&quot;)</code></pre>
+<pre><code>[1] &quot;GO_Molecular_Function_2021&quot;</code></pre>
+<pre class="r"><code>db &lt;- &quot;GO_Molecular_Function_2021&quot;
+df &lt;- GO_enrichment[[db]]
+print(plotEnrich(GO_enrichment[[db]]))</code></pre>
+<p><img src="figure/cTWAS_LD_european_munro_lymphocytes7_output.Rmd/GO_Molecular_Function_2021-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>df &lt;- df[df$Adjusted.P.value&lt;0.05,c(&quot;Term&quot;, &quot;Overlap&quot;, &quot;Adjusted.P.value&quot;, &quot;Genes&quot;)]
+
+DT::datatable(df,caption = htmltools::tags$caption( style = &#39;caption-side: topleft; text-align = left; color:black;&#39;,&#39;Enriched pathways from GO_Molecular_Function_2021&#39;),options = list(pageLength = 5) )</code></pre>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-38f6575cbe0384702c9e" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-38f6575cbe0384702c9e">{"x":{"filter":"none","vertical":false,"caption":"<caption style=\"caption-side: topleft; text-align = left; color:black;\">Enriched pathways from GO_Molecular_Function_2021<\/caption>","data":[[],[],[],[],[]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Term<\/th>\n      <th>Overlap<\/th>\n      <th>Adjusted.P.value<\/th>\n      <th>Genes<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"columnDefs":[{"className":"dt-right","targets":3},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"Term","targets":1},{"name":"Overlap","targets":2},{"name":"Adjusted.P.value","targets":3},{"name":"Genes","targets":4}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+<br>
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
+<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+Session information
+</button>
+</p>
+<div id="workflowr-sessioninfo" class="collapse">
+<pre class="r"><code>sessionInfo()</code></pre>
+<pre><code>R version 4.4.1 (2024-06-14)
+Platform: aarch64-apple-darwin20
+Running under: macOS 15.1
+
+Matrix products: default
+BLAS:   /Library/Frameworks/R.framework/Versions/4.4-arm64/Resources/lib/libRblas.0.dylib 
+LAPACK: /Library/Frameworks/R.framework/Versions/4.4-arm64/Resources/lib/libRlapack.dylib;  LAPACK version 3.12.0
+
+locale:
+[1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+
+time zone: America/New_York
+tzcode source: internal
+
+attached base packages:
+[1] stats4    stats     graphics  grDevices utils     datasets  methods  
+[8] base     
+
+other attached packages:
+ [1] biomaRt_2.60.1            karyoploteR_1.30.0       
+ [3] regioneR_1.36.0           htmltools_0.5.8.1        
+ [5] DT_0.33                   enrichR_3.2              
+ [7] EnsDb.Hsapiens.v86_2.99.0 ensembldb_2.28.1         
+ [9] AnnotationFilter_1.28.0   GenomicFeatures_1.56.0   
+[11] AnnotationDbi_1.66.0      Biobase_2.64.0           
+[13] GenomicRanges_1.56.2      GenomeInfoDb_1.40.1      
+[15] IRanges_2.38.1            S4Vectors_0.42.1         
+[17] BiocGenerics_0.50.0       ctwas_0.4.18             
+[19] data.table_1.16.2         lubridate_1.9.3          
+[21] forcats_1.0.0             stringr_1.5.1            
+[23] dplyr_1.1.4               purrr_1.0.2              
+[25] readr_2.1.5               tidyr_1.3.1              
+[27] tibble_3.2.1              ggplot2_3.5.1            
+[29] tidyverse_2.0.0          
+
+loaded via a namespace (and not attached):
+  [1] later_1.3.2                 BiocIO_1.14.0              
+  [3] bitops_1.0-9                filelock_1.0.3             
+  [5] XML_3.99-0.17               rpart_4.1.23               
+  [7] lifecycle_1.0.4             httr2_1.0.5                
+  [9] mixsqp_0.3-54               rprojroot_2.0.4            
+ [11] lattice_0.22-6              crosstalk_1.2.1            
+ [13] backports_1.5.0             magrittr_2.0.3             
+ [15] locuszoomr_0.3.5            Hmisc_5.2-0                
+ [17] plotly_4.10.4               sass_0.4.9                 
+ [19] rmarkdown_2.28              jquerylib_0.1.4            
+ [21] yaml_2.3.10                 httpuv_1.6.15              
+ [23] cowplot_1.1.3               DBI_1.2.3                  
+ [25] RColorBrewer_1.1-3          abind_1.4-8                
+ [27] zlibbioc_1.50.0             pgenlibr_0.3.7             
+ [29] biovizBase_1.52.0           RCurl_1.98-1.16            
+ [31] nnet_7.3-19                 WriteXLS_6.7.0             
+ [33] VariantAnnotation_1.50.0    rappdirs_0.3.3             
+ [35] git2r_0.35.0                GenomeInfoDbData_1.2.12    
+ [37] ggrepel_0.9.6               irlba_2.3.5.1              
+ [39] codetools_0.2-20            DelayedArray_0.30.1        
+ [41] xml2_1.3.6                  tidyselect_1.2.1           
+ [43] UCSC.utils_1.0.0            farver_2.1.2               
+ [45] matrixStats_1.4.1           BiocFileCache_2.12.0       
+ [47] base64enc_0.1-3             bamsignals_1.36.0          
+ [49] GenomicAlignments_1.40.0    jsonlite_1.8.9             
+ [51] Formula_1.2-5               tools_4.4.1                
+ [53] progress_1.2.3              Rcpp_1.0.13                
+ [55] glue_1.8.0                  gridExtra_2.3              
+ [57] SparseArray_1.4.8           xfun_0.48                  
+ [59] MatrixGenerics_1.16.0       withr_3.0.2                
+ [61] fastmap_1.2.0               LDlinkR_1.4.0              
+ [63] fansi_1.0.6                 digest_0.6.37              
+ [65] timechange_0.3.0            R6_2.5.1                   
+ [67] colorspace_2.1-1            dichromat_2.0-0.1          
+ [69] RSQLite_2.3.7               utf8_1.2.4                 
+ [71] generics_0.1.3              rtracklayer_1.64.0         
+ [73] prettyunits_1.2.0           httr_1.4.7                 
+ [75] htmlwidgets_1.6.4           S4Arrays_1.4.1             
+ [77] whisker_0.4.1               pkgconfig_2.0.3            
+ [79] gtable_0.3.6                blob_1.2.4                 
+ [81] workflowr_1.7.1             XVector_0.44.0             
+ [83] gggrid_0.2-0                ProtGenerics_1.36.0        
+ [85] scales_1.3.0                logging_0.10-108           
+ [87] png_0.1-8                   knitr_1.48                 
+ [89] rstudioapi_0.17.1           tzdb_0.4.0                 
+ [91] rjson_0.2.23                checkmate_2.3.2            
+ [93] curl_5.2.3                  cachem_1.1.0               
+ [95] zoo_1.8-12                  parallel_4.4.1             
+ [97] foreign_0.8-87              restfulr_0.0.15            
+ [99] pillar_1.9.0                grid_4.4.1                 
+[101] vctrs_0.6.5                 promises_1.3.0             
+[103] dbplyr_2.5.0                cluster_2.1.6              
+[105] htmlTable_2.4.3             evaluate_1.0.1             
+[107] cli_3.6.3                   compiler_4.4.1             
+[109] bezier_1.1.2                Rsamtools_2.20.0           
+[111] rlang_1.1.4                 crayon_1.5.3               
+[113] labeling_0.4.3              fs_1.6.5                   
+[115] stringi_1.8.4               viridisLite_0.4.2          
+[117] BiocParallel_1.38.0         munsell_0.5.1              
+[119] Biostrings_2.72.1           lazyeval_0.2.2             
+[121] Matrix_1.7-1                BSgenome_1.72.0            
+[123] hms_1.1.3                   bit64_4.5.2                
+[125] KEGGREST_1.44.1             SummarizedExperiment_1.34.0
+[127] highr_0.11                  memoise_2.0.1              
+[129] bslib_0.8.0                 bit_4.5.0                  </code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<!-- Adjust MathJax settings so that all math formulae are shown using
+TeX fonts only; see
+https://docs.mathjax.org/en/latest/web/configuration.html. This will make
+the presentation more consistent at the cost of the webpage sometimes
+taking slightly longer to load. Note that this only works because the
+footer is added to webpages before the MathJax javascript. -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("hide" === "show");
+});
+</script>
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
