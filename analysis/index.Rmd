@@ -48,6 +48,8 @@ Spleen [link](cTWAS_LD_european_munro_spleen7_output.html)
 
 Fibroblasts [link](cTWAS_LD_european_munro_fibroblasts7_output.html)
 
+Whole Blood [link](cTWAS_LD_european_munro_whole_blood7_output.html)
+
 Union data visulization [link](cTWAS_union_visualization.html)
 
 ---
