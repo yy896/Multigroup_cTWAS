@@ -13,7 +13,7 @@
 
 <meta name="date" content="2024-11-09" />
 
-<title>Prostate Cancer ~ Munro 7 liver QTLs</title>
+<title>Prostate Cancer ~ Munro 7 stomach QTLs</title>
 
 <script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -380,7 +380,7 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Prostate Cancer ~ Munro 7 liver QTLs</h1>
+<h1 class="title toc-ignore">Prostate Cancer ~ Munro 7 stomach QTLs</h1>
 <h4 class="author">Nina Yifan Yang</h4>
 <h4 class="date">2024-11-09</h4>
 
@@ -596,8 +596,8 @@ have uncommitted changes.
 <p>
 These are the previous versions of the repository in which changes were
 made to the R Markdown
-(<code>analysis/cTWAS_LD_european_munro_liver7_output.Rmd</code>) and
-HTML (<code>docs/cTWAS_LD_european_munro_liver7_output.html</code>)
+(<code>analysis/cTWAS_LD_european_munro_stomach7_output.Rmd</code>) and
+HTML (<code>docs/cTWAS_LD_european_munro_stomach7_output.html</code>)
 files. If you’ve configured a remote Git repository (see
 <code>?wflow_git_remote</code>), click on the hyperlinks in the table
 below to view the files as they were in that past version.
@@ -629,47 +629,13 @@ Message
 Rmd
 </td>
 <td>
-<a href="https://github.com/yy896/Multigroup_cTWAS/blob/85bac39b5da338d27efefb43c3d08620aa740f1e/analysis/cTWAS_LD_european_munro_liver7_output.Rmd" target="_blank">85bac39</a>
+<a href="https://github.com/yy896/Multigroup_cTWAS/blob/85bac39b5da338d27efefb43c3d08620aa740f1e/analysis/cTWAS_LD_european_munro_stomach7_output.Rmd" target="_blank">85bac39</a>
 </td>
 <td>
 yy896
 </td>
 <td>
 2024-11-09
-</td>
-<td>
-UPDATED RESULTS
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/yy896/Multigroup_cTWAS/ca444ce60878792fbe1c6a94241f0b0fd916102b/docs/cTWAS_LD_european_munro_liver7_output.html" target="_blank">ca444ce</a>
-</td>
-<td>
-yy896
-</td>
-<td>
-2024-11-08
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/yy896/Multigroup_cTWAS/blob/7450d7f4d679905f229282de66fda9c8cf40370c/analysis/cTWAS_LD_european_munro_liver7_output.Rmd" target="_blank">7450d7f</a>
-</td>
-<td>
-yy896
-</td>
-<td>
-2024-11-08
 </td>
 <td>
 UPDATED RESULTS
@@ -723,13 +689,13 @@ code snippets below to view the exact code used.</p>
 <ul>
 <li>Input and output settings</li>
 </ul>
-<pre class="r"><code>weight_files &lt;- c(&quot;/project2/xinhe/shared_data/multigroup_ctwas/weights/Munro_alt_polyA_PredictDB/apa_Liver.db&quot;,
-                  &quot;/project2/xinhe/shared_data/multigroup_ctwas/weights/Munro_alt_stability_PredictDB/Liver.db&quot;,
-                  &quot;/project2/xinhe/shared_data/multigroup_ctwas/weights/Munro_alt_tss_PredictDB/tss_Liver.db&quot;,
-                  &quot;/project2/xinhe/shared_data/multigroup_ctwas/weights/Munro_expression_PredictDB/expression_Liver.db&quot;,
-                  &quot;/project2/xinhe/shared_data/multigroup_ctwas/weights/Munro_isoform_PredictDB/isoform_Liver.db&quot;,
-                  &quot;/project2/xinhe/shared_data/multigroup_ctwas/weights/Munro_splicing_PredictDB/splicing_Liver.db&quot;,
-                  &quot;/project2/xinhe/shared_data/multigroup_ctwas/weights/Munro_stability_PredictDB/stability_Liver.db&quot;)
+<pre class="r"><code>weight_files &lt;- c(&quot;/project2/xinhe/shared_data/multigroup_ctwas/weights/Munro_alt_polyA_PredictDB/apa_Stomach.db&quot;,
+                  &quot;/project2/xinhe/shared_data/multigroup_ctwas/weights/Munro_alt_stability_PredictDB/Stomach.db&quot;,
+                  &quot;/project2/xinhe/shared_data/multigroup_ctwas/weights/Munro_alt_tss_PredictDB/tss_Stomach.db&quot;,
+                  &quot;/project2/xinhe/shared_data/multigroup_ctwas/weights/Munro_expression_PredictDB/expression_Stomach.db&quot;,
+                  &quot;/project2/xinhe/shared_data/multigroup_ctwas/weights/Munro_isoform_PredictDB/isoform_Stomach.db&quot;,
+                  &quot;/project2/xinhe/shared_data/multigroup_ctwas/weights/Munro_splicing_PredictDB/splicing_Stomach.db&quot;,
+                  &quot;/project2/xinhe/shared_data/multigroup_ctwas/weights/Munro_stability_PredictDB/stability_Stomach.db&quot;)
 
 z_snp &lt;- vroom::vroom(&quot;/project2/xinhe/yifany/GCST90274714.mod.tsv.gz&quot;, col_names = TRUE, show_col_types = FALSE)
 z_snp$Z &lt;- z_snp$beta / z_snp$standard_error
@@ -777,13 +743,13 @@ z_snp &lt;- preprocess_z_snp(z_snp, snp_map,
 <ul>
 <li>Preprocessing weights</li>
 </ul>
-<pre class="r"><code>weights_liver_apaQTL &lt;- preprocess_weights(weight_files[1],
+<pre class="r"><code>weights_stomach_apaQTL &lt;- preprocess_weights(weight_files[1],
                                               region_info,
                                               gwas_snp_ids = z_snp$id,
                                               snp_map = snp_map,
                                               LD_map = LD_map,
                                               type = &quot;apaQTL&quot;,
-                                              context = &quot;liver&quot;,
+                                              context = &quot;stomach&quot;,
                                               weight_format = &quot;PredictDB&quot;,
                                               drop_strand_ambig = TRUE,
                                               scale_predictdb_weights = TRUE,
@@ -791,13 +757,13 @@ z_snp &lt;- preprocess_z_snp(z_snp, snp_map,
                                               filter_protein_coding_genes = TRUE,
                                               ncore = 5)
 
-weights_liver_astQTL &lt;- preprocess_weights(weight_files[2],
+weights_stomach_astQTL &lt;- preprocess_weights(weight_files[2],
                                               region_info,
                                               gwas_snp_ids = z_snp$id,
                                               snp_map = snp_map,
                                               LD_map = LD_map,
                                               type = &quot;astQTL&quot;,
-                                              context = &quot;liver&quot;,
+                                              context = &quot;stomach&quot;,
                                               weight_format = &quot;PredictDB&quot;,
                                               drop_strand_ambig = TRUE,
                                               scale_predictdb_weights = TRUE,
@@ -805,13 +771,13 @@ weights_liver_astQTL &lt;- preprocess_weights(weight_files[2],
                                               filter_protein_coding_genes = TRUE,
                                               ncore = 5)
 
-weights_liver_tssQTL &lt;- preprocess_weights(weight_files[3],
+weights_stomach_tssQTL &lt;- preprocess_weights(weight_files[3],
                                               region_info,
                                               gwas_snp_ids = z_snp$id,
                                               snp_map = snp_map,
                                               LD_map = LD_map,
                                               type = &quot;tssQTL&quot;,
-                                              context = &quot;liver&quot;,
+                                              context = &quot;stomach&quot;,
                                               weight_format = &quot;PredictDB&quot;,
                                               drop_strand_ambig = TRUE,
                                               scale_predictdb_weights = TRUE,
@@ -819,13 +785,13 @@ weights_liver_tssQTL &lt;- preprocess_weights(weight_files[3],
                                               filter_protein_coding_genes = TRUE,
                                               ncore = 5)
 
-weights_liver_eQTL &lt;- preprocess_weights(weight_files[4],
+weights_stomach_eQTL &lt;- preprocess_weights(weight_files[4],
                                             region_info,
                                             gwas_snp_ids = z_snp$id,
                                             snp_map = snp_map,
                                             LD_map = LD_map,
                                             type = &quot;munro_eQTL&quot;,
-                                            context = &quot;liver&quot;,
+                                            context = &quot;stomach&quot;,
                                             weight_format = &quot;PredictDB&quot;,
                                             drop_strand_ambig = TRUE,
                                             scale_predictdb_weights = TRUE,
@@ -833,13 +799,13 @@ weights_liver_eQTL &lt;- preprocess_weights(weight_files[4],
                                             filter_protein_coding_genes = TRUE,
                                             ncore = 5)
 
-weights_liver_isoQTL &lt;- preprocess_weights(weight_files[5],
+weights_stomach_isoQTL &lt;- preprocess_weights(weight_files[5],
                                               region_info,
                                               gwas_snp_ids = z_snp$id,
                                               snp_map = snp_map,
                                               LD_map = LD_map,
                                               type = &quot;isoQTL&quot;,
-                                              context = &quot;liver&quot;,
+                                              context = &quot;stomach&quot;,
                                               weight_format = &quot;PredictDB&quot;,
                                               drop_strand_ambig = TRUE,
                                               scale_predictdb_weights = TRUE,
@@ -847,13 +813,13 @@ weights_liver_isoQTL &lt;- preprocess_weights(weight_files[5],
                                               filter_protein_coding_genes = TRUE,
                                               ncore = 5)
 
-weights_liver_sQTL &lt;- preprocess_weights(weight_files[6],
+weights_stomach_sQTL &lt;- preprocess_weights(weight_files[6],
                                             region_info,
                                             gwas_snp_ids = z_snp$id,
                                             snp_map = snp_map,
                                             LD_map = LD_map,
                                             type = &quot;munro_sQTL&quot;,
-                                            context = &quot;liver&quot;,
+                                            context = &quot;stomach&quot;,
                                             weight_format = &quot;PredictDB&quot;,
                                             drop_strand_ambig = TRUE,
                                             scale_predictdb_weights = TRUE,
@@ -861,13 +827,13 @@ weights_liver_sQTL &lt;- preprocess_weights(weight_files[6],
                                             filter_protein_coding_genes = TRUE,
                                             ncore = 5)
 
-weights_liver_stQTL &lt;- preprocess_weights(weight_files[7],
+weights_stomach_stQTL &lt;- preprocess_weights(weight_files[7],
                                              region_info,
                                              gwas_snp_ids = z_snp$id,
                                              snp_map = snp_map,
                                              LD_map = LD_map,
                                              type = &quot;stQTL&quot;,
-                                             context = &quot;liver&quot;,
+                                             context = &quot;stomach&quot;,
                                              weight_format = &quot;PredictDB&quot;,
                                              drop_strand_ambig = TRUE,
                                              scale_predictdb_weights = TRUE,
@@ -876,13 +842,13 @@ weights_liver_stQTL &lt;- preprocess_weights(weight_files[7],
                                              ncore = 5)
 
 weights &lt;- c(
-  weights_liver_apaQTL,
-  weights_liver_astQTL,
-  weights_liver_tssQTL,
-  weights_liver_eQTL,
-  weights_liver_isoQTL,
-  weights_liver_sQTL,
-  weights_liver_stQTL)</code></pre>
+  weights_stomach_apaQTL,
+  weights_stomach_astQTL,
+  weights_stomach_tssQTL,
+  weights_stomach_eQTL,
+  weights_stomach_isoQTL,
+  weights_stomach_sQTL,
+  weights_stomach_stQTL)</code></pre>
 </div>
 </div>
 <div id="running-ctwas-analysis" class="section level2">
@@ -910,44 +876,7 @@ cTWAS</p>
 <p>We make plots using the function
 <code>make_convergence_plots(param, gwas_n)</code> to see how estimated
 parameters converge during the execution of the program:</p>
-<p><img src="figure/cTWAS_LD_european_munro_liver7_output.Rmd/unnamed-chunk-7-1.png" width="960" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-7-1">
-Past versions of unnamed-chunk-7-1.png
-</button>
-</p>
-<div id="fig-unnamed-chunk-7-1" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/yy896/Multigroup_cTWAS/blob/ca444ce60878792fbe1c6a94241f0b0fd916102b/docs/figure/cTWAS_LD_european_munro_liver7_output.Rmd/unnamed-chunk-7-1.png" target="_blank">ca444ce</a>
-</td>
-<td>
-yy896
-</td>
-<td>
-2024-11-08
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
+<p><img src="figure/cTWAS_LD_european_munro_stomach7_output.Rmd/unnamed-chunk-7-1.png" width="960" style="display: block; margin: auto;" /></p>
 <p>These plots show the estimated prior inclusion probability, prior
 effect size variance, enrichment and proportion of variance explained
 (PVE) over the iterations of parameter estimation. The enrichment is
@@ -960,10 +889,10 @@ traits.</p>
 estimated parameters (from the last iteration) and to compute the PVE by
 variants and molecular traits.</p>
 <pre><code>[1] &quot;The number of genes/introns/SNPs used in the analysis is:&quot;</code></pre>
-<pre><code>    liver|apaQTL     liver|astQTL     liver|tssQTL liver|munro_eQTL 
-            2700             3307             1637             2511 
-    liver|isoQTL liver|munro_sQTL      liver|stQTL              SNP 
-            3563             3192             1188          5307170 </code></pre>
+<pre><code>    stomach|apaQTL     stomach|astQTL     stomach|tssQTL stomach|munro_eQTL 
+              4356               5282               2963               3400 
+    stomach|isoQTL stomach|munro_sQTL      stomach|stQTL                SNP 
+              5739               4973               2370            5671320 </code></pre>
 <p><code>ctwas_parameters$prop_heritability</code> contains the
 proportion of heritability mediated by molecular traits and variants, we
 visualize it using pie chart.</p>
@@ -984,44 +913,7 @@ ggplot(data, aes(x = &quot;&quot;, y = percentage, fill = category)) +
   scale_fill_brewer(palette = &quot;Pastel1&quot;) +
   labs(fill = &quot;Category&quot;) +
   ggtitle(&quot;Percent of heritability&quot;)</code></pre>
-<p><img src="figure/cTWAS_LD_european_munro_liver7_output.Rmd/piechart-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-piechart-1">
-Past versions of piechart-1.png
-</button>
-</p>
-<div id="fig-piechart-1" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/yy896/Multigroup_cTWAS/blob/ca444ce60878792fbe1c6a94241f0b0fd916102b/docs/figure/cTWAS_LD_european_munro_liver7_output.Rmd/piechart-1.png" target="_blank">ca444ce</a>
-</td>
-<td>
-yy896
-</td>
-<td>
-2024-11-08
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
+<p><img src="figure/cTWAS_LD_european_munro_stomach7_output.Rmd/piechart-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="diagnosis-plots" class="section level2">
 <h2>Diagnosis plots</h2>
@@ -1031,44 +923,7 @@ PIPs”</p>
   geom_point() +
   labs(x = &quot;abs(z-scores)&quot;, y = &quot;PIPs&quot;) +
   theme_minimal()</code></pre>
-<p><img src="figure/cTWAS_LD_european_munro_liver7_output.Rmd/unnamed-chunk-9-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-9-1">
-Past versions of unnamed-chunk-9-1.png
-</button>
-</p>
-<div id="fig-unnamed-chunk-9-1" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/yy896/Multigroup_cTWAS/blob/ca444ce60878792fbe1c6a94241f0b0fd916102b/docs/figure/cTWAS_LD_european_munro_liver7_output.Rmd/unnamed-chunk-9-1.png" target="_blank">ca444ce</a>
-</td>
-<td>
-yy896
-</td>
-<td>
-2024-11-08
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
+<p><img src="figure/cTWAS_LD_european_munro_stomach7_output.Rmd/unnamed-chunk-9-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="fine-mapping-results" class="section level2">
 <h2>Fine-mapping results</h2>
@@ -1090,7 +945,7 @@ shown</p>
 
 DT::datatable(finemap_res_show,caption = htmltools::tags$caption( style = &#39;caption-side: topleft; text-align = left; color:black;&#39;,&#39;The annotated fine-mapping results, ones within credible sets are shown&#39;),options = list(pageLength = 5) )</code></pre>
 <div class="datatables html-widget html-fill-item" id="htmlwidget-232a8e63d6aacd296363" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-232a8e63d6aacd296363">{"x":{"filter":"none","vertical":false,"caption":"<caption style=\"caption-side: topleft; text-align = left; color:black;\">The annotated fine-mapping results, ones within credible sets are shown<\/caption>","data":[["210","484","739","1137","1756","2252","2323","2848"],["ENSG00000198837:ENST00000477746|liver_isoQTL","ENSG00000145029:ENST00000615713|liver_isoQTL","ENSG00000188818:chr5:733839:833773:clu_41403_-|liver_munro_sQTL","ENSG00000204257.grp_2.upstream.ENST00000480785|liver_tssQTL","ENSG00000138111|liver_munro_eQTL","ENSG00000198208|liver_munro_eQTL","ENSG00000184990:ENST00000556431|liver_isoQTL","ENSG00000258839:ENST00000555427|liver_isoQTL"],["ENSG00000198837:ENST00000477746","ENSG00000145029:ENST00000615713","ENSG00000188818:chr5:733839:833773:clu_41403_-","ENSG00000204257.grp_2.upstream.ENST00000480785","ENSG00000138111","ENSG00000198208","ENSG00000184990:ENST00000556431","ENSG00000258839:ENST00000555427"],["isoQTL","isoQTL","munro_sQTL","tssQTL","munro_eQTL","munro_eQTL","isoQTL","isoQTL"],["liver","liver","liver","liver","liver","liver","liver","liver"],["liver|isoQTL","liver|isoQTL","liver|munro_sQTL","liver|tssQTL","liver|munro_eQTL","liver|munro_eQTL","liver|isoQTL","liver|isoQTL"],["1_153208353_154797927","3_47685722_49279539","5_11940_982137","6_32714887_33268720","10_101189482_102620653","14_72422907_75978424","14_104535386_105874495","16_88974757_90226404"],[12.00167665261856,-8.559545599653234,7.808012374560035,-8.917888929442139,-12.44043510804498,-5.482125363699557,4.783553937448154,-5.065142308060161],[0.8596625638218001,0.9152380762032213,0.9999999987809647,0.9978028845903906,0.999999999902209,0.8187406412184773,0.9227190468899357,0.8235198235936316],[133.7527517659121,68.50488424852522,51.82560223846112,62.13048663799457,144.9076966310031,28.91674908766625,22.05573692985226,24.61245859380131],["L1","L1","L1","L1","L1","L1","L1","L1"],["DENND4B","NICN1","ZDHHC11","HLA-DMA","MFSD13A","RPS6KL1","SIVA1","MC1R"],["protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding"],["1","3","5","6","10","14","14","16"],["153929501","49422946","733839","32948613","102461395","74903954","104753100","89913628"],["153946696","49429326","833773","32969094","102477045","74923396","104768494","89920977"],[153938098,49426136,783806,32958854,102469220,74913675,104760797,89917302]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>id<\/th>\n      <th>molecular_id<\/th>\n      <th>type<\/th>\n      <th>context<\/th>\n      <th>group<\/th>\n      <th>region_id<\/th>\n      <th>z<\/th>\n      <th>susie_pip<\/th>\n      <th>mu2<\/th>\n      <th>cs<\/th>\n      <th>gene_name<\/th>\n      <th>gene_type<\/th>\n      <th>chrom<\/th>\n      <th>start<\/th>\n      <th>end<\/th>\n      <th>pos<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"columnDefs":[{"className":"dt-right","targets":[7,8,9,16]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"id","targets":1},{"name":"molecular_id","targets":2},{"name":"type","targets":3},{"name":"context","targets":4},{"name":"group","targets":5},{"name":"region_id","targets":6},{"name":"z","targets":7},{"name":"susie_pip","targets":8},{"name":"mu2","targets":9},{"name":"cs","targets":10},{"name":"gene_name","targets":11},{"name":"gene_type","targets":12},{"name":"chrom","targets":13},{"name":"start","targets":14},{"name":"end","targets":15},{"name":"pos","targets":16}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-232a8e63d6aacd296363">{"x":{"filter":"none","vertical":false,"caption":"<caption style=\"caption-side: topleft; text-align = left; color:black;\">The annotated fine-mapping results, ones within credible sets are shown<\/caption>","data":[["1337","1480","1534","2662","2845","2992","3380","3439","3505","3953","4759","5797","6510","6979"],["ENSG00000067560|stomach_stQTL","ENSG00000064225|stomach_munro_eQTL","ENSG00000114770:ENST00000334444|stomach_isoQTL","ENSG00000006704:ENST00000265755|stomach_isoQTL","ENSG00000173273|stomach_stQTL","ENSG00000137070|stomach_munro_eQTL","ENSG00000138111:ENST00000238936|stomach_isoQTL","ENSG00000166272:chr10:102744143:102797993:clu_7704_+|stomach_munro_sQTL","ENSG00000165915|stomach_stQTL","ENSG00000111445|stomach_stQTL","ENSG00000140479:ENST00000676598|stomach_isoQTL","ENSG00000174292|stomach_stQTL","ENSG00000198453.grp_1.downstream.ENST00000427117|stomach_apaQTL","ENSG00000100997|stomach_stQTL"],["ENSG00000067560","ENSG00000064225","ENSG00000114770:ENST00000334444","ENSG00000006704:ENST00000265755","ENSG00000173273","ENSG00000137070","ENSG00000138111:ENST00000238936","ENSG00000166272:chr10:102744143:102797993:clu_7704_+","ENSG00000165915","ENSG00000111445","ENSG00000140479:ENST00000676598","ENSG00000174292","ENSG00000198453.grp_1.downstream.ENST00000427117","ENSG00000100997"],["stQTL","munro_eQTL","isoQTL","isoQTL","stQTL","munro_eQTL","isoQTL","munro_sQTL","stQTL","stQTL","isoQTL","stQTL","apaQTL","stQTL"],["stomach","stomach","stomach","stomach","stomach","stomach","stomach","stomach","stomach","stomach","stomach","stomach","stomach","stomach"],["stomach|stQTL","stomach|munro_eQTL","stomach|isoQTL","stomach|isoQTL","stomach|stQTL","stomach|munro_eQTL","stomach|isoQTL","stomach|munro_sQTL","stomach|stQTL","stomach|stQTL","stomach|isoQTL","stomach|stQTL","stomach|apaQTL","stomach|stQTL"],["3_49279539_51797999","3_98497106_99654918","3_184051895_185350467","7_73920272_76829247","8_9783277_10605687","9_34642246_36743286","10_101189482_102620653","10_102620653_104935290","11_46984586_49844498","12_117697570_119316305","15_101012489_101980763","17_5838014_7414079","19_35978393_37036131","20_24737088_25363595"],[8.353074516686842,3.828289919756442,-4.453132248381928,-4.698412698412358,4.610092768356862,-4.736426208902452,11.51999530400561,-12.44970844488745,-7.527153449645594,5.735881981803276,-5.475279365036493,-5.450689362790493,-8.231500147502306,6.360013429370329],[0.9850172818465578,0.8271873327371128,0.826200491516068,0.8335978432583698,0.9397523233883589,0.8944288917093867,0.9999857214371757,0.9999999842304473,0.9567559205524897,0.889899459537585,0.8011060550487734,0.9604120335248161,0.9999981728312557,0.8370009637400168],[63.38964457542671,12.16146047779753,19.19780153183364,21.26233414802698,19.966200412681,18.14995290441238,123.0178033612871,144.2539900436904,51.65173637877482,30.38994903345715,28.53158193135078,27.53478732674315,63.01264499064641,37.14625829336421],["L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1","L1"],["RHOA","ST3GAL6","ABCC5","GTF2IRD1","TNKS","IL11RA","MFSD13A","WBP1L","SLC39A13","RFC5","PCSK6","TNK1","ZNF568","ABHD12"],["protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding","protein_coding"],["3","3","3","7","8","9","10","10","11","12","15","17","19","20"],["49359145","98732236","183919934","74453790","9556521","34651036","102461395","102744143","47407132","118013588","101297142","7380534","36916329","25294743"],["49412202","98821201","184018015","74602604","9782346","34661879","102477045","102797993","47416501","118032618","101525202","7389726","36997932","25390983"],[49385674,98776718,183968974,74528197,9669434,34656458,102469220,102771068,47411816,118023103,101411172,7385130,36957130,25342863]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>id<\/th>\n      <th>molecular_id<\/th>\n      <th>type<\/th>\n      <th>context<\/th>\n      <th>group<\/th>\n      <th>region_id<\/th>\n      <th>z<\/th>\n      <th>susie_pip<\/th>\n      <th>mu2<\/th>\n      <th>cs<\/th>\n      <th>gene_name<\/th>\n      <th>gene_type<\/th>\n      <th>chrom<\/th>\n      <th>start<\/th>\n      <th>end<\/th>\n      <th>pos<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"columnDefs":[{"className":"dt-right","targets":[7,8,9,16]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"id","targets":1},{"name":"molecular_id","targets":2},{"name":"type","targets":3},{"name":"context","targets":4},{"name":"group","targets":5},{"name":"region_id","targets":6},{"name":"z","targets":7},{"name":"susie_pip","targets":8},{"name":"mu2","targets":9},{"name":"cs","targets":10},{"name":"gene_name","targets":11},{"name":"gene_type","targets":12},{"name":"chrom","targets":13},{"name":"start","targets":14},{"name":"end","targets":15},{"name":"pos","targets":16}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
 <p>Next, we compute gene combined-PIPs across different types of
 molecular traits, where only genes within credible sets are shown.</p>
 <pre class="r"><code>susie_alpha_res &lt;- anno_susie_alpha_res(susie_alpha_res,
@@ -1121,53 +976,16 @@ DT::datatable(combined_pip_table, caption = htmltools::tags$caption(
                 &#39;Gene PIPs, only genes within credible sets are shown&#39;),
               options = list(pageLength = 5))</code></pre>
 <div class="datatables html-widget html-fill-item" id="htmlwidget-2112c1f1dbc2c6427f4c" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-2112c1f1dbc2c6427f4c">{"x":{"filter":"none","vertical":false,"caption":"<caption style=\"caption-side: topleft; text-align = left; color:black;\">Gene PIPs, only genes within credible sets are shown<\/caption>","data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18"],["MFSD13A","ZDHHC11","TUBA1C","HLA-DMA","ZNF568","ABHD12","L3MBTL3","CYP2C18","ZFAND1","CHMP4C","SIVA1","NICN1","TMEM110","DENND4B","CYP4F3","RFC5","MC1R","RPS6KL1"],["10_101189482_102620653.L1","5_11940_982137.L1","12_48608083_51382710.L1","6_32714887_33268720.L1","19_35978393_37036131.L1","20_25363595_33027017.L1","6_129539886_130614309.L1","10_94461486_96062600.L1","8_81781504_83313354.L1","8_81044160_81781504.L1","14_104535386_105874495.L1","3_47685722_49279539.L1","3_51797999_54047363.L1","1_153208353_154797927.L1","19_15537799_16263605.L1","12_117697570_119316305.L1","16_88974757_90226404.L1","14_72422907_75978424.L1"],[0.999999999902209,0.9999999987809647,0.9998702634063785,0.9978028845903906,0.9945342071130016,0.9895825710361144,0.9658020190896597,0.9636007769298905,0.9574394745628876,0.9472146438635286,0.9227190468899357,0.9152380762032213,0.8990945151276342,0.8596625638218001,0.8522433472473465,0.8373124940479821,0.8352767661289366,0.8187406412184773],[null,null,null,null,"19_35978393_37036131.L1",null,null,null,null,null,null,null,"3_51797999_54047363.L1",null,null,null,null,null],[null,null,null,null,0.3040286651456191,null,null,null,null,null,null,null,0.196183671995265,null,null,null,null,null],[null,null,null,null,"19_35978393_37036131.L1","20_25363595_33027017.L1","6_129539886_130614309.L1",null,null,"8_81044160_81781504.L1",null,null,"3_51797999_54047363.L1",null,"19_15537799_16263605.L1","12_117697570_119316305.L1",null,null],[null,null,null,null,0.6905055419673825,0.3029900404442702,0.06341561828403786,null,null,0.1332761614696916,null,null,0.4419053226912019,null,0.1500609000399473,0.1740277618179351,null,null],[null,null,null,"6_32714887_33268720.L1",null,null,null,null,"8_81781504_83313354.L1",null,null,null,null,null,null,null,"16_88974757_90226404.L1",null],[null,null,null,0.9978028845903906,null,null,null,null,0.9574394745628876,null,null,null,null,null,null,null,0.01175694253530501,null],["10_101189482_102620653.L1",null,null,null,null,null,"6_129539886_130614309.L1",null,null,"8_81044160_81781504.L1",null,null,null,null,null,null,null,"14_72422907_75978424.L1"],[0.999999999902209,null,null,null,null,null,0.6003369053080294,null,null,0.1994168514170196,null,null,null,null,null,null,null,0.8187406412184773],[null,null,"12_48608083_51382710.L1",null,null,null,null,null,null,null,"14_104535386_105874495.L1","3_47685722_49279539.L1","3_51797999_54047363.L1","1_153208353_154797927.L1",null,null,"16_88974757_90226404.L1",null],[null,null,0.9998702634063785,null,null,null,null,null,null,null,0.9227190468899357,0.9152380762032213,0.2610055204411673,0.8596625638218001,null,null,0.8235198235936316,null],[null,"5_11940_982137.L1",null,null,null,null,"6_129539886_130614309.L1","10_94461486_96062600.L1",null,null,null,null,null,null,null,null,null,null],[null,0.9999999987809647,null,null,null,null,0.141652916959812,0.9636007769298905,null,null,null,null,null,null,null,null,null,null],[null,null,null,null,null,"20_25363595_33027017.L1","6_129539886_130614309.L1",null,null,"8_81044160_81781504.L1",null,null,null,null,"19_15537799_16263605.L1","12_117697570_119316305.L1",null,null],[null,null,null,null,null,0.6865925305918442,0.1603965785377804,null,null,0.6145216309768174,null,null,null,null,0.7021824472073993,0.6632847322300471,null,null],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>gene_name<\/th>\n      <th>combined_cs_id<\/th>\n      <th>combined_pip<\/th>\n      <th>liver|apaQTL_cs_id<\/th>\n      <th>liver|apaQTL_pip<\/th>\n      <th>liver|astQTL_cs_id<\/th>\n      <th>liver|astQTL_pip<\/th>\n      <th>liver|tssQTL_cs_id<\/th>\n      <th>liver|tssQTL_pip<\/th>\n      <th>liver|munro_eQTL_cs_id<\/th>\n      <th>liver|munro_eQTL_pip<\/th>\n      <th>liver|isoQTL_cs_id<\/th>\n      <th>liver|isoQTL_pip<\/th>\n      <th>liver|munro_sQTL_cs_id<\/th>\n      <th>liver|munro_sQTL_pip<\/th>\n      <th>liver|stQTL_cs_id<\/th>\n      <th>liver|stQTL_pip<\/th>\n      <th>sQTL_pip_partition<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"columnDefs":[{"className":"dt-right","targets":[3,5,7,9,11,13,15,17]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"gene_name","targets":1},{"name":"combined_cs_id","targets":2},{"name":"combined_pip","targets":3},{"name":"liver|apaQTL_cs_id","targets":4},{"name":"liver|apaQTL_pip","targets":5},{"name":"liver|astQTL_cs_id","targets":6},{"name":"liver|astQTL_pip","targets":7},{"name":"liver|tssQTL_cs_id","targets":8},{"name":"liver|tssQTL_pip","targets":9},{"name":"liver|munro_eQTL_cs_id","targets":10},{"name":"liver|munro_eQTL_pip","targets":11},{"name":"liver|isoQTL_cs_id","targets":12},{"name":"liver|isoQTL_pip","targets":13},{"name":"liver|munro_sQTL_cs_id","targets":14},{"name":"liver|munro_sQTL_pip","targets":15},{"name":"liver|stQTL_cs_id","targets":16},{"name":"liver|stQTL_pip","targets":17},{"name":"sQTL_pip_partition","targets":18}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-2112c1f1dbc2c6427f4c">{"x":{"filter":"none","vertical":false,"caption":"<caption style=\"caption-side: topleft; text-align = left; color:black;\">Gene PIPs, only genes within credible sets are shown<\/caption>","data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23"],["WBP1L","ZNF568","MFSD13A","NICN1","ADGRG1","ABHD12","RHOA","TNKS","L3MBTL3","TNK1","SLC39A13","GGCX","RFC5","IL11RA","SETD9","ZCCHC11","GTF2IRD1","ST3GAL6","TOMM7","ABCC5","NAB1","CHMP4C","PCSK6"],["10_102620653_104935290.L1","19_35978393_37036131.L1","10_101189482_102620653.L1","3_47685722_49279539.L1","16_57630418_59011501.L1","20_24737088_25363595.L1,20_25363595_33027017.L1","3_49279539_51797999.L1","8_9783277_10605687.L1","6_129539886_130614309.L1","17_5838014_7414079.L1","11_46984586_49844498.L1","2_84913556_87738988.L1","12_117697570_119316305.L1","9_34642246_36743286.L1","5_56121522_57325275.L1","1_51248054_53760589.L1","7_73920272_76829247.L1","3_98497106_99654918.L1","7_22468010_23431823.L1","3_184051895_185350467.L1","2_189017339_191108631.L1","8_81044160_81781504.L1","15_101012489_101980763.L1"],[0.9999999842304473,0.9999981728312557,0.9999857214371757,0.9998407527155322,0.9972072667105989,0.9912960937500944,0.9850172818465578,0.9783730930812875,0.9668066507439184,0.9604120335248161,0.9567559205524897,0.936243539299803,0.9150132054673359,0.8944288917093867,0.8769159311894881,0.858542112770853,0.8335978432583698,0.8308658555415528,0.8282864191344492,0.826200491516068,0.8064791682261969,0.8055934077103697,0.8011060550487734],[null,"19_35978393_37036131.L1",null,"3_47685722_49279539.L1",null,null,null,null,"6_129539886_130614309.L1",null,null,"2_84913556_87738988.L1",null,null,"5_56121522_57325275.L1",null,null,null,null,null,null,null,null],[null,0.9999981728312557,null,0.9998407527155322,null,null,null,null,0.4162955110992042,null,null,0.537582514750081,null,null,0.2425230378534786,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,"8_9783277_10605687.L1",null,null,null,null,"12_117697570_119316305.L1",null,"5_56121522_57325275.L1",null,null,null,"7_22468010_23431823.L1",null,null,"8_81044160_81781504.L1",null],[null,null,null,null,null,null,null,0.0386207696929286,null,null,null,null,0.02511374592975091,null,0.01481264273385952,null,null,null,0.02270532488276866,null,null,0.01375346170802549,null],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,"5_56121522_57325275.L1",null,null,"3_98497106_99654918.L1",null,null,"2_189017339_191108631.L1",null,null],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,0.01210440012553371,null,null,0.00022054460401566,null,null,0.07310847414746258,null,null],[null,null,null,null,null,"20_25363595_33027017.L1",null,null,"6_129539886_130614309.L1",null,null,null,null,"9_34642246_36743286.L1",null,"1_51248054_53760589.L1",null,"3_98497106_99654918.L1","7_22468010_23431823.L1",null,null,"8_81044160_81781504.L1",null],[null,null,null,null,null,0.5473928336148888,null,null,0.02554324124562146,null,null,null,null,0.8944288917093867,null,0.01748634549693417,null,0.8271873327371128,0.1924882567529858,null,null,0.4619847876021728,null],[null,null,"10_101189482_102620653.L1",null,null,"20_24737088_25363595.L1",null,null,"6_129539886_130614309.L1",null,null,"2_84913556_87738988.L1",null,null,"5_56121522_57325275.L1","1_51248054_53760589.L1","7_73920272_76829247.L1","3_98497106_99654918.L1",null,"3_184051895_185350467.L1","2_189017339_191108631.L1",null,"15_101012489_101980763.L1"],[null,null,0.9999857214371757,null,null,0.09400458760415176,null,null,0.5015153231549165,null,null,0.398661024549722,null,null,0.03062635269769098,0.007192154199896494,0.8335978432583698,0.001007938491303206,null,0.826200491516068,0.397784830312424,null,0.8011060550487734],["10_102620653_104935290.L1",null,null,null,"16_57630418_59011501.L1","20_24737088_25363595.L1,20_25363595_33027017.L1",null,null,"6_129539886_130614309.L1",null,null,null,null,null,null,"1_51248054_53760589.L1",null,"3_98497106_99654918.L1",null,null,"2_189017339_191108631.L1",null,null],[0.9999999842304473,null,null,null,0.9972072667105989,0.1055055160751617,null,null,0.02345257524417632,null,null,null,null,null,null,0.8338636130740223,null,0.001610213259085724,null,null,0.321127502784892,null,null],[null,null,null,null,null,"20_24737088_25363595.L1","3_49279539_51797999.L1","8_9783277_10605687.L1",null,"17_5838014_7414079.L1","11_46984586_49844498.L1",null,"12_117697570_119316305.L1",null,"5_56121522_57325275.L1",null,null,"3_98497106_99654918.L1","7_22468010_23431823.L1",null,"2_189017339_191108631.L1","8_81044160_81781504.L1",null],[null,null,null,null,null,0.8370009637400168,0.9850172818465578,0.9397523233883589,null,0.9604120335248161,0.9567559205524897,null,0.889899459537585,null,0.5768494977789251,null,null,0.0008398264500354413,0.6130928374986947,null,0.01445836098141839,0.3298551584001713,null],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>gene_name<\/th>\n      <th>combined_cs_id<\/th>\n      <th>combined_pip<\/th>\n      <th>stomach|apaQTL_cs_id<\/th>\n      <th>stomach|apaQTL_pip<\/th>\n      <th>stomach|astQTL_cs_id<\/th>\n      <th>stomach|astQTL_pip<\/th>\n      <th>stomach|tssQTL_cs_id<\/th>\n      <th>stomach|tssQTL_pip<\/th>\n      <th>stomach|munro_eQTL_cs_id<\/th>\n      <th>stomach|munro_eQTL_pip<\/th>\n      <th>stomach|isoQTL_cs_id<\/th>\n      <th>stomach|isoQTL_pip<\/th>\n      <th>stomach|munro_sQTL_cs_id<\/th>\n      <th>stomach|munro_sQTL_pip<\/th>\n      <th>stomach|stQTL_cs_id<\/th>\n      <th>stomach|stQTL_pip<\/th>\n      <th>sQTL_pip_partition<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"columnDefs":[{"className":"dt-right","targets":[3,5,7,9,11,13,15,17]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"gene_name","targets":1},{"name":"combined_cs_id","targets":2},{"name":"combined_pip","targets":3},{"name":"stomach|apaQTL_cs_id","targets":4},{"name":"stomach|apaQTL_pip","targets":5},{"name":"stomach|astQTL_cs_id","targets":6},{"name":"stomach|astQTL_pip","targets":7},{"name":"stomach|tssQTL_cs_id","targets":8},{"name":"stomach|tssQTL_pip","targets":9},{"name":"stomach|munro_eQTL_cs_id","targets":10},{"name":"stomach|munro_eQTL_pip","targets":11},{"name":"stomach|isoQTL_cs_id","targets":12},{"name":"stomach|isoQTL_pip","targets":13},{"name":"stomach|munro_sQTL_cs_id","targets":14},{"name":"stomach|munro_sQTL_pip","targets":15},{"name":"stomach|stQTL_cs_id","targets":16},{"name":"stomach|stQTL_pip","targets":17},{"name":"sQTL_pip_partition","targets":18}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="ideogram" class="section level2">
 <h2>Ideogram</h2>
-<p><img src="figure/cTWAS_LD_european_munro_liver7_output.Rmd/Ideogram-1.png" width="3840" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-Ideogram-1">
-Past versions of Ideogram-1.png
-</button>
-</p>
-<div id="fig-Ideogram-1" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/yy896/Multigroup_cTWAS/blob/ca444ce60878792fbe1c6a94241f0b0fd916102b/docs/figure/cTWAS_LD_european_munro_liver7_output.Rmd/Ideogram-1.png" target="_blank">ca444ce</a>
-</td>
-<td>
-yy896
-</td>
-<td>
-2024-11-08
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
+<p><img src="figure/cTWAS_LD_european_munro_stomach7_output.Rmd/Ideogram-1.png" width="3840" style="display: block; margin: auto;" /></p>
 </div>
 <div id="locus-plots-only-showing-top-10-here" class="section level2">
 <h2>Locus plots (ONLY showing top 10 here)</h2>
 <pre class="r"><code>make_locusplot(finemap_res,
-               region_id = &quot;10_101189482_102620653&quot;,
+               region_id = &quot;10_102620653_104935290&quot;,
                ens_db = ens_db,
                weights = weights,
                highlight_pip = 0.8,
@@ -1175,225 +993,17 @@ yy896
                filter_cs = TRUE,
                color_pval_by = &quot;cs&quot;,
                color_pip_by = &quot;cs&quot;)</code></pre>
-<pre><code>2024-11-09 11:11:48.37361 INFO::Limit to protein coding genes
-2024-11-09 11:11:48.377707 INFO::focal id: ENSG00000138111|liver_munro_eQTL
-2024-11-09 11:11:48.381554 INFO::focal molecular trait: MFSD13A liver munro_eQTL
-2024-11-09 11:11:48.381796 INFO::Range of locus: chr10:101190250-102651552</code></pre>
-<pre><code>chromosome 10, position 101190250 to 102651552</code></pre>
-<pre><code>2344 SNPs/datapoints</code></pre>
-<pre><code>2024-11-09 11:11:48.595804 INFO::focal molecular trait QTL positions: 102463871,102485792,102485831,102555910
-2024-11-09 11:11:48.690914 INFO::Limit PIPs to credible sets</code></pre>
-<pre><code>Warning: ggrepel: 11 unlabeled data points (too many overlaps). Consider
+<pre><code>2024-11-09 11:13:32.653959 INFO::Limit to protein coding genes
+2024-11-09 11:13:32.657864 INFO::focal id: ENSG00000166272:chr10:102744143:102797993:clu_7704_+|stomach_munro_sQTL
+2024-11-09 11:13:32.661548 INFO::focal molecular trait: WBP1L stomach munro_sQTL
+2024-11-09 11:13:32.661817 INFO::Range of locus: chr10:102482196-104935322</code></pre>
+<pre><code>chromosome 10, position 102482196 to 104935322</code></pre>
+<pre><code>4836 SNPs/datapoints</code></pre>
+<pre><code>2024-11-09 11:13:32.749642 INFO::focal molecular trait QTL positions: 102674873,102719628,102725544
+2024-11-09 11:13:32.764375 INFO::Limit PIPs to credible sets</code></pre>
+<pre><code>Warning: ggrepel: 26 unlabeled data points (too many overlaps). Consider
 increasing max.overlaps</code></pre>
-<p><img src="figure/cTWAS_LD_european_munro_liver7_output.Rmd/locus%20plot-1.png" width="960" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-locus-plot-1">
-Past versions of "locus plot-1.png"
-</button>
-</p>
-<div id="fig-no-spaces-locus-plot-1" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/yy896/Multigroup_cTWAS/blob/ca444ce60878792fbe1c6a94241f0b0fd916102b/docs/figure/cTWAS_LD_european_munro_liver7_output.Rmd/locus plot-1.png" target="_blank">ca444ce</a>
-</td>
-<td>
-yy896
-</td>
-<td>
-2024-11-08
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<pre class="r"><code>make_locusplot(finemap_res,
-               region_id = &quot;5_11940_982137&quot;,
-               ens_db = ens_db,
-               weights = weights,
-               highlight_pip = 0.8,
-               filter_protein_coding_genes = TRUE,
-               filter_cs = TRUE,
-               color_pval_by = &quot;cs&quot;,
-               color_pip_by = &quot;cs&quot;)</code></pre>
-<pre><code>2024-11-09 11:11:50.291898 INFO::Limit to protein coding genes
-2024-11-09 11:11:50.292488 INFO::focal id: ENSG00000188818:chr5:733839:833773:clu_41403_-|liver_munro_sQTL
-2024-11-09 11:11:50.292728 INFO::focal molecular trait: ZDHHC11 liver munro_sQTL
-2024-11-09 11:11:50.29296 INFO::Range of locus: chr5:12125-981935</code></pre>
-<pre><code>chromosome 5, position 12125 to 981935</code></pre>
-<pre><code>2968 SNPs/datapoints</code></pre>
-<pre><code>2024-11-09 11:11:50.43828 INFO::focal molecular trait QTL positions: 818543
-2024-11-09 11:11:50.451337 INFO::Limit PIPs to credible sets</code></pre>
-<pre><code>Warning: ggrepel: 12 unlabeled data points (too many overlaps). Consider
-increasing max.overlaps</code></pre>
-<p><img src="figure/cTWAS_LD_european_munro_liver7_output.Rmd/locus%20plot-2.png" width="960" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-locus-plot-2">
-Past versions of "locus plot-2.png"
-</button>
-</p>
-<div id="fig-no-spaces-locus-plot-2" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/yy896/Multigroup_cTWAS/blob/ca444ce60878792fbe1c6a94241f0b0fd916102b/docs/figure/cTWAS_LD_european_munro_liver7_output.Rmd/locus plot-2.png" target="_blank">ca444ce</a>
-</td>
-<td>
-yy896
-</td>
-<td>
-2024-11-08
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<pre class="r"><code>make_locusplot(finemap_res,
-               region_id = &quot;12_48608083_51382710&quot;,
-               ens_db = ens_db,
-               weights = weights,
-               highlight_pip = 0.8,
-               filter_protein_coding_genes = TRUE,
-               filter_cs = TRUE,
-               color_pval_by = &quot;cs&quot;,
-               color_pip_by = &quot;cs&quot;)</code></pre>
-<pre><code>2024-11-09 11:11:50.935507 INFO::Limit to protein coding genes
-2024-11-09 11:11:50.936167 INFO::focal id: ENSG00000167553:ENST00000548470|liver_isoQTL
-2024-11-09 11:11:50.93646 INFO::focal molecular trait: TUBA1C liver isoQTL
-2024-11-09 11:11:50.936747 INFO::Range of locus: chr12:48607983-51381592</code></pre>
-<pre><code>chromosome 12, position 48607983 to 51381592</code></pre>
-<pre><code>5411 SNPs/datapoints</code></pre>
-<pre><code>2024-11-09 11:11:51.078636 INFO::focal molecular trait QTL positions: 48962751,49251457,49279375,49294274,49305869
-2024-11-09 11:11:51.092908 INFO::Limit PIPs to credible sets</code></pre>
-<pre><code>Warning: ggrepel: 41 unlabeled data points (too many overlaps). Consider
-increasing max.overlaps</code></pre>
-<p><img src="figure/cTWAS_LD_european_munro_liver7_output.Rmd/locus%20plot-3.png" width="960" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-locus-plot-3">
-Past versions of "locus plot-3.png"
-</button>
-</p>
-<div id="fig-no-spaces-locus-plot-3" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/yy896/Multigroup_cTWAS/blob/ca444ce60878792fbe1c6a94241f0b0fd916102b/docs/figure/cTWAS_LD_european_munro_liver7_output.Rmd/locus plot-3.png" target="_blank">ca444ce</a>
-</td>
-<td>
-yy896
-</td>
-<td>
-2024-11-08
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<pre class="r"><code>make_locusplot(finemap_res,
-               region_id = &quot;6_32714887_33268720&quot;,
-               ens_db = ens_db,
-               weights = weights,
-               highlight_pip = 0.8,
-               filter_protein_coding_genes = TRUE,
-               filter_cs = TRUE,
-               color_pval_by = &quot;cs&quot;,
-               color_pip_by = &quot;cs&quot;)</code></pre>
-<pre><code>2024-11-09 11:11:51.797275 INFO::Limit to protein coding genes
-2024-11-09 11:11:51.797963 INFO::focal id: ENSG00000204257.grp_2.upstream.ENST00000480785|liver_tssQTL
-2024-11-09 11:11:51.798245 INFO::focal molecular trait: HLA-DMA liver tssQTL
-2024-11-09 11:11:51.79851 INFO::Range of locus: chr6:32714787-33268498</code></pre>
-<pre><code>chromosome 6, position 32714787 to 33268498</code></pre>
-<pre><code>5022 SNPs/datapoints</code></pre>
-<pre><code>2024-11-09 11:11:51.879079 INFO::focal molecular trait QTL positions: 32829843,32836793,33010810,33012203
-2024-11-09 11:11:51.893128 INFO::Limit PIPs to credible sets</code></pre>
-<pre><code>Warning: ggrepel: 18 unlabeled data points (too many overlaps). Consider
-increasing max.overlaps</code></pre>
-<p><img src="figure/cTWAS_LD_european_munro_liver7_output.Rmd/locus%20plot-4.png" width="960" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-locus-plot-4">
-Past versions of "locus plot-4.png"
-</button>
-</p>
-<div id="fig-no-spaces-locus-plot-4" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/yy896/Multigroup_cTWAS/blob/ca444ce60878792fbe1c6a94241f0b0fd916102b/docs/figure/cTWAS_LD_european_munro_liver7_output.Rmd/locus plot-4.png" target="_blank">ca444ce</a>
-</td>
-<td>
-yy896
-</td>
-<td>
-2024-11-08
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
+<p><img src="figure/cTWAS_LD_european_munro_stomach7_output.Rmd/locus%20plot-1.png" width="960" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>make_locusplot(finemap_res,
                region_id = &quot;19_35978393_37036131&quot;,
                ens_db = ens_db,
@@ -1403,56 +1013,19 @@ yy896
                filter_cs = TRUE,
                color_pval_by = &quot;cs&quot;,
                color_pip_by = &quot;cs&quot;)</code></pre>
-<pre><code>2024-11-09 11:11:52.497664 INFO::Limit to protein coding genes
-2024-11-09 11:11:52.498205 INFO::focal id: ENSG00000198453.grp_1.downstream.ENST00000427117|liver_astQTL
-2024-11-09 11:11:52.498433 INFO::focal molecular trait: ZNF568 liver astQTL
-2024-11-09 11:11:52.498661 INFO::Range of locus: chr19:35978293-37108988</code></pre>
-<pre><code>chromosome 19, position 35978293 to 37108988</code></pre>
-<pre><code>2529 SNPs/datapoints</code></pre>
-<pre><code>2024-11-09 11:11:52.587735 INFO::focal molecular trait QTL positions: 36884377,36937563,36970948,36997153
-2024-11-09 11:11:52.601078 INFO::Limit PIPs to credible sets</code></pre>
-<pre><code>Warning: ggrepel: 7 unlabeled data points (too many overlaps). Consider
+<pre><code>2024-11-09 11:13:34.208773 INFO::Limit to protein coding genes
+2024-11-09 11:13:34.20935 INFO::focal id: ENSG00000198453.grp_1.downstream.ENST00000427117|stomach_apaQTL
+2024-11-09 11:13:34.209586 INFO::focal molecular trait: ZNF568 stomach apaQTL
+2024-11-09 11:13:34.209812 INFO::Range of locus: chr19:35978293-37341201</code></pre>
+<pre><code>chromosome 19, position 35978293 to 37341201</code></pre>
+<pre><code>2554 SNPs/datapoints</code></pre>
+<pre><code>2024-11-09 11:13:34.330447 INFO::focal molecular trait QTL positions: 36965001,36976227,37012997,37025184,37031291
+2024-11-09 11:13:34.343499 INFO::Limit PIPs to credible sets</code></pre>
+<pre><code>Warning: ggrepel: 39 unlabeled data points (too many overlaps). Consider
 increasing max.overlaps</code></pre>
-<p><img src="figure/cTWAS_LD_european_munro_liver7_output.Rmd/locus%20plot-5.png" width="960" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-locus-plot-5">
-Past versions of "locus plot-5.png"
-</button>
-</p>
-<div id="fig-no-spaces-locus-plot-5" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/yy896/Multigroup_cTWAS/blob/ca444ce60878792fbe1c6a94241f0b0fd916102b/docs/figure/cTWAS_LD_european_munro_liver7_output.Rmd/locus plot-5.png" target="_blank">ca444ce</a>
-</td>
-<td>
-yy896
-</td>
-<td>
-2024-11-08
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
+<p><img src="figure/cTWAS_LD_european_munro_stomach7_output.Rmd/locus%20plot-2.png" width="960" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>make_locusplot(finemap_res,
-               region_id = &quot;20_25363595_33027017&quot;,
+               region_id = &quot;10_101189482_102620653&quot;,
                ens_db = ens_db,
                weights = weights,
                highlight_pip = 0.8,
@@ -1460,54 +1033,115 @@ yy896
                filter_cs = TRUE,
                color_pval_by = &quot;cs&quot;,
                color_pip_by = &quot;cs&quot;)</code></pre>
-<pre><code>2024-11-09 11:11:53.132673 INFO::Limit to protein coding genes
-2024-11-09 11:11:53.133307 INFO::focal id: ENSG00000100997|liver_stQTL
-2024-11-09 11:11:53.133588 INFO::focal molecular trait: ABHD12 liver stQTL
-2024-11-09 11:11:53.133873 INFO::Range of locus: chr20:25272942-33027082</code></pre>
-<pre><code>chromosome 20, position 25272942 to 33027082</code></pre>
-<pre><code>6359 SNPs/datapoints</code></pre>
-<pre><code>2024-11-09 11:11:53.231854 INFO::focal molecular trait QTL positions: 25484953,25506741,25516902,25584603
-2024-11-09 11:11:53.245372 INFO::Limit PIPs to credible sets</code></pre>
-<pre><code>Warning: ggrepel: 1 unlabeled data points (too many overlaps). Consider
+<pre><code>2024-11-09 11:13:34.964609 INFO::Limit to protein coding genes
+2024-11-09 11:13:34.965135 INFO::focal id: ENSG00000138111:ENST00000238936|stomach_isoQTL
+2024-11-09 11:13:34.965367 INFO::focal molecular trait: MFSD13A stomach isoQTL
+2024-11-09 11:13:34.965587 INFO::Range of locus: chr10:101190250-102619931</code></pre>
+<pre><code>chromosome 10, position 101190250 to 102619931</code></pre>
+<pre><code>2356 SNPs/datapoints</code></pre>
+<pre><code>2024-11-09 11:13:35.014365 INFO::focal molecular trait QTL positions: 102463871,102485792,102555910,102582130
+2024-11-09 11:13:35.02748 INFO::Limit PIPs to credible sets</code></pre>
+<pre><code>Warning: ggrepel: 16 unlabeled data points (too many overlaps). Consider
 increasing max.overlaps</code></pre>
-<p><img src="figure/cTWAS_LD_european_munro_liver7_output.Rmd/locus%20plot-6.png" width="960" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-locus-plot-6">
-Past versions of "locus plot-6.png"
-</button>
-</p>
-<div id="fig-no-spaces-locus-plot-6" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/yy896/Multigroup_cTWAS/blob/ca444ce60878792fbe1c6a94241f0b0fd916102b/docs/figure/cTWAS_LD_european_munro_liver7_output.Rmd/locus plot-6.png" target="_blank">ca444ce</a>
-</td>
-<td>
-yy896
-</td>
-<td>
-2024-11-08
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
+<p><img src="figure/cTWAS_LD_european_munro_stomach7_output.Rmd/locus%20plot-3.png" width="960" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>make_locusplot(finemap_res,
+               region_id = &quot;3_47685722_49279539&quot;,
+               ens_db = ens_db,
+               weights = weights,
+               highlight_pip = 0.8,
+               filter_protein_coding_genes = TRUE,
+               filter_cs = TRUE,
+               color_pval_by = &quot;cs&quot;,
+               color_pip_by = &quot;cs&quot;)</code></pre>
+<pre><code>2024-11-09 11:13:35.635822 INFO::Limit to protein coding genes
+2024-11-09 11:13:35.636388 INFO::focal id: ENSG00000145029.grp_2.downstream.ENST00000615713|stomach_apaQTL
+2024-11-09 11:13:35.636612 INFO::focal molecular trait: NICN1 stomach apaQTL
+2024-11-09 11:13:35.636827 INFO::Range of locus: chr3:47688075-49426236</code></pre>
+<pre><code>chromosome 3, position 47688075 to 49426236</code></pre>
+<pre><code>1803 SNPs/datapoints</code></pre>
+<pre><code>2024-11-09 11:13:35.702349 INFO::focal molecular trait QTL positions: 48995534,49026677,49070995,49076235,49076280,49101973,49103683
+2024-11-09 11:13:35.71564 INFO::Limit PIPs to credible sets</code></pre>
+<pre><code>Warning: ggrepel: 73 unlabeled data points (too many overlaps). Consider
+increasing max.overlaps</code></pre>
+<pre><code>Warning: ggrepel: 5 unlabeled data points (too many overlaps). Consider
+increasing max.overlaps</code></pre>
+<p><img src="figure/cTWAS_LD_european_munro_stomach7_output.Rmd/locus%20plot-4.png" width="960" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>make_locusplot(finemap_res,
+               region_id = &quot;16_57630418_59011501&quot;,
+               ens_db = ens_db,
+               weights = weights,
+               highlight_pip = 0.8,
+               filter_protein_coding_genes = TRUE,
+               filter_cs = TRUE,
+               color_pval_by = &quot;cs&quot;,
+               color_pip_by = &quot;cs&quot;)</code></pre>
+<pre><code>2024-11-09 11:13:36.418601 INFO::Limit to protein coding genes
+2024-11-09 11:13:36.419192 INFO::focal id: ENSG00000205336:chr16:57657491:57659395:clu_23556_+|stomach_munro_sQTL
+2024-11-09 11:13:36.419449 INFO::focal molecular trait: ADGRG1 stomach munro_sQTL
+2024-11-09 11:13:36.419708 INFO::Range of locus: chr16:57630318-59011394</code></pre>
+<pre><code>chromosome 16, position 57630318 to 59011394</code></pre>
+<pre><code>4736 SNPs/datapoints</code></pre>
+<pre><code>2024-11-09 11:13:36.49026 INFO::focal molecular trait QTL positions: 57658544,57659143,57666109
+2024-11-09 11:13:36.50382 INFO::Limit PIPs to credible sets</code></pre>
+<pre><code>Warning: ggrepel: 12 unlabeled data points (too many overlaps). Consider
+increasing max.overlaps</code></pre>
+<p><img src="figure/cTWAS_LD_european_munro_stomach7_output.Rmd/locus%20plot-5.png" width="960" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>make_locusplot(finemap_res,
+               region_id = &quot;20_24737088_25363595&quot;,
+               ens_db = ens_db,
+               weights = weights,
+               highlight_pip = 0.8,
+               filter_protein_coding_genes = TRUE,
+               filter_cs = TRUE,
+               color_pval_by = &quot;cs&quot;,
+               color_pip_by = &quot;cs&quot;)</code></pre>
+<pre><code>2024-11-09 11:13:37.09324 INFO::Limit to protein coding genes
+2024-11-09 11:13:37.093779 INFO::focal id: ENSG00000100997|stomach_stQTL
+2024-11-09 11:13:37.094003 INFO::focal molecular trait: ABHD12 stomach stQTL
+2024-11-09 11:13:37.094219 INFO::Range of locus: chr20:24736988-25363553</code></pre>
+<pre><code>chromosome 20, position 24736988 to 25363553</code></pre>
+<pre><code>2026 SNPs/datapoints</code></pre>
+<pre><code>2024-11-09 11:13:37.143224 INFO::focal molecular trait QTL positions: 24955112,24966840,24969737,24998806,25226739,25275962,25297964,25320386
+2024-11-09 11:13:37.156842 INFO::Limit PIPs to credible sets</code></pre>
+<p><img src="figure/cTWAS_LD_european_munro_stomach7_output.Rmd/locus%20plot-6.png" width="960" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>make_locusplot(finemap_res,
+               region_id = &quot;3_49279539_51797999&quot;,
+               ens_db = ens_db,
+               weights = weights,
+               highlight_pip = 0.8,
+               filter_protein_coding_genes = TRUE,
+               filter_cs = TRUE,
+               color_pval_by = &quot;cs&quot;,
+               color_pip_by = &quot;cs&quot;)</code></pre>
+<pre><code>2024-11-09 11:13:37.709828 INFO::Limit to protein coding genes
+2024-11-09 11:13:37.710422 INFO::focal id: ENSG00000067560|stomach_stQTL
+2024-11-09 11:13:37.710679 INFO::focal molecular trait: RHOA stomach stQTL
+2024-11-09 11:13:37.710919 INFO::Range of locus: chr3:49019024-51794719</code></pre>
+<pre><code>chromosome 3, position 49019024 to 51794719</code></pre>
+<pre><code>3511 SNPs/datapoints</code></pre>
+<pre><code>2024-11-09 11:13:37.779687 INFO::focal molecular trait QTL positions: 49299687,49488867,49604594,49609548
+2024-11-09 11:13:37.792803 INFO::Limit PIPs to credible sets</code></pre>
+<pre><code>Warning: ggrepel: 96 unlabeled data points (too many overlaps). Consider
+increasing max.overlaps</code></pre>
+<p><img src="figure/cTWAS_LD_european_munro_stomach7_output.Rmd/locus%20plot-7.png" width="960" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>make_locusplot(finemap_res,
+               region_id = &quot;8_9783277_10605687&quot;,
+               ens_db = ens_db,
+               weights = weights,
+               highlight_pip = 0.8,
+               filter_protein_coding_genes = TRUE,
+               filter_cs = TRUE,
+               color_pval_by = &quot;cs&quot;,
+               color_pip_by = &quot;cs&quot;)</code></pre>
+<pre><code>2024-11-09 11:13:38.571365 INFO::Limit to protein coding genes
+2024-11-09 11:13:38.571922 INFO::focal id: ENSG00000173273|stomach_stQTL
+2024-11-09 11:13:38.572171 INFO::focal molecular trait: TNKS stomach stQTL
+2024-11-09 11:13:38.57241 INFO::Range of locus: chr8:9669334-10605396</code></pre>
+<pre><code>chromosome 8, position 9669334 to 10605396</code></pre>
+<pre><code>2910 SNPs/datapoints</code></pre>
+<pre><code>2024-11-09 11:13:38.7023 INFO::focal molecular trait QTL positions: 9826504,9827852
+2024-11-09 11:13:38.715421 INFO::Limit PIPs to credible sets</code></pre>
+<p><img src="figure/cTWAS_LD_european_munro_stomach7_output.Rmd/locus%20plot-8.png" width="960" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>make_locusplot(finemap_res,
                region_id = &quot;6_129539886_130614309&quot;,
                ens_db = ens_db,
@@ -1517,56 +1151,19 @@ yy896
                filter_cs = TRUE,
                color_pval_by = &quot;cs&quot;,
                color_pip_by = &quot;cs&quot;)</code></pre>
-<pre><code>2024-11-09 11:11:53.882317 INFO::Limit to protein coding genes
-2024-11-09 11:11:53.882906 INFO::focal id: ENSG00000198945|liver_munro_eQTL
-2024-11-09 11:11:53.883156 INFO::focal molecular trait: L3MBTL3 liver munro_eQTL
-2024-11-09 11:11:53.883409 INFO::Range of locus: chr6:129539786-130613726</code></pre>
+<pre><code>2024-11-09 11:13:39.125961 INFO::Limit to protein coding genes
+2024-11-09 11:13:39.126577 INFO::focal id: ENSG00000198945:ENST00000368139|stomach_isoQTL
+2024-11-09 11:13:39.126851 INFO::focal molecular trait: L3MBTL3 stomach isoQTL
+2024-11-09 11:13:39.127103 INFO::Range of locus: chr6:129539786-130613726</code></pre>
 <pre><code>chromosome 6, position 129539786 to 130613726</code></pre>
-<pre><code>3673 SNPs/datapoints</code></pre>
-<pre><code>2024-11-09 11:11:53.938058 INFO::focal molecular trait QTL positions: 130027974,130066628,130072637,130076370
-2024-11-09 11:11:53.951752 INFO::Limit PIPs to credible sets</code></pre>
+<pre><code>3672 SNPs/datapoints</code></pre>
+<pre><code>2024-11-09 11:13:39.179733 INFO::focal molecular trait QTL positions: 130024960,130076370,130098907,130100997
+2024-11-09 11:13:39.193375 INFO::Limit PIPs to credible sets</code></pre>
 <pre><code>Warning: ggrepel: 9 unlabeled data points (too many overlaps). Consider
 increasing max.overlaps</code></pre>
-<p><img src="figure/cTWAS_LD_european_munro_liver7_output.Rmd/locus%20plot-7.png" width="960" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-locus-plot-7">
-Past versions of "locus plot-7.png"
-</button>
-</p>
-<div id="fig-no-spaces-locus-plot-7" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/yy896/Multigroup_cTWAS/blob/ca444ce60878792fbe1c6a94241f0b0fd916102b/docs/figure/cTWAS_LD_european_munro_liver7_output.Rmd/locus plot-7.png" target="_blank">ca444ce</a>
-</td>
-<td>
-yy896
-</td>
-<td>
-2024-11-08
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
+<p><img src="figure/cTWAS_LD_european_munro_stomach7_output.Rmd/locus%20plot-9.png" width="960" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>make_locusplot(finemap_res,
-               region_id = &quot;10_94461486_96062600&quot;,
+               region_id = &quot;17_5838014_7414079&quot;,
                ens_db = ens_db,
                weights = weights,
                highlight_pip = 0.8,
@@ -1574,170 +1171,17 @@ yy896
                filter_cs = TRUE,
                color_pval_by = &quot;cs&quot;,
                color_pip_by = &quot;cs&quot;)</code></pre>
-<pre><code>2024-11-09 11:11:54.407701 INFO::Limit to protein coding genes
-2024-11-09 11:11:54.408312 INFO::focal id: ENSG00000108242:chr10:94724533:94728556:clu_5950_+|liver_munro_sQTL
-2024-11-09 11:11:54.408568 INFO::focal molecular trait: CYP2C18 liver munro_sQTL
-2024-11-09 11:11:54.408816 INFO::Range of locus: chr10:94347992-96060682</code></pre>
-<pre><code>chromosome 10, position 94347992 to 96060682</code></pre>
-<pre><code>4386 SNPs/datapoints</code></pre>
-<pre><code>2024-11-09 11:11:54.544893 INFO::focal molecular trait QTL positions: 94549197,94581579,94582231,94582263,94597265,94653315,94693342,94733571,94948469,94986321,95032445
-2024-11-09 11:11:54.558009 INFO::Limit PIPs to credible sets</code></pre>
-<pre><code>Warning: ggrepel: 6 unlabeled data points (too many overlaps). Consider
+<pre><code>2024-11-09 11:13:39.709898 INFO::Limit to protein coding genes
+2024-11-09 11:13:39.71048 INFO::focal id: ENSG00000174292|stomach_stQTL
+2024-11-09 11:13:39.710735 INFO::focal molecular trait: TNK1 stomach stQTL
+2024-11-09 11:13:39.710994 INFO::Range of locus: chr17:5838011-7553455</code></pre>
+<pre><code>chromosome 17, position 5838011 to 7553455</code></pre>
+<pre><code>4852 SNPs/datapoints</code></pre>
+<pre><code>2024-11-09 11:13:39.788133 INFO::focal molecular trait QTL positions: 7387376,7389366
+2024-11-09 11:13:39.801966 INFO::Limit PIPs to credible sets</code></pre>
+<pre><code>Warning: ggrepel: 65 unlabeled data points (too many overlaps). Consider
 increasing max.overlaps</code></pre>
-<pre><code>Warning: ggrepel: 4 unlabeled data points (too many overlaps). Consider
-increasing max.overlaps</code></pre>
-<p><img src="figure/cTWAS_LD_european_munro_liver7_output.Rmd/locus%20plot-8.png" width="960" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-locus-plot-8">
-Past versions of "locus plot-8.png"
-</button>
-</p>
-<div id="fig-no-spaces-locus-plot-8" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/yy896/Multigroup_cTWAS/blob/ca444ce60878792fbe1c6a94241f0b0fd916102b/docs/figure/cTWAS_LD_european_munro_liver7_output.Rmd/locus plot-8.png" target="_blank">ca444ce</a>
-</td>
-<td>
-yy896
-</td>
-<td>
-2024-11-08
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<pre class="r"><code>make_locusplot(finemap_res,
-               region_id = &quot;8_81781504_83313354&quot;,
-               ens_db = ens_db,
-               weights = weights,
-               highlight_pip = 0.8,
-               filter_protein_coding_genes = TRUE,
-               filter_cs = TRUE,
-               color_pval_by = &quot;cs&quot;,
-               color_pip_by = &quot;cs&quot;)</code></pre>
-<pre><code>2024-11-09 11:11:55.067684 INFO::Limit to protein coding genes
-2024-11-09 11:11:55.0683 INFO::focal id: ENSG00000104231.grp_1.upstream.ENST00000523361|liver_tssQTL
-2024-11-09 11:11:55.068587 INFO::focal molecular trait: ZFAND1 liver tssQTL
-2024-11-09 11:11:55.068849 INFO::Range of locus: chr8:81717202-83313198</code></pre>
-<pre><code>chromosome 8, position 81717202 to 83313198</code></pre>
-<pre><code>4328 SNPs/datapoints</code></pre>
-<pre><code>2024-11-09 11:11:55.12149 INFO::focal molecular trait QTL positions: 82035715,82036793,82038401,82049722
-2024-11-09 11:11:55.134997 INFO::Limit PIPs to credible sets</code></pre>
-<pre><code>Warning: ggrepel: 5 unlabeled data points (too many overlaps). Consider
-increasing max.overlaps</code></pre>
-<p><img src="figure/cTWAS_LD_european_munro_liver7_output.Rmd/locus%20plot-9.png" width="960" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-locus-plot-9">
-Past versions of "locus plot-9.png"
-</button>
-</p>
-<div id="fig-no-spaces-locus-plot-9" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/yy896/Multigroup_cTWAS/blob/ca444ce60878792fbe1c6a94241f0b0fd916102b/docs/figure/cTWAS_LD_european_munro_liver7_output.Rmd/locus plot-9.png" target="_blank">ca444ce</a>
-</td>
-<td>
-yy896
-</td>
-<td>
-2024-11-08
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<pre class="r"><code>make_locusplot(finemap_res,
-               region_id = &quot;8_81044160_81781504&quot;,
-               ens_db = ens_db,
-               weights = weights,
-               highlight_pip = 0.8,
-               filter_protein_coding_genes = TRUE,
-               filter_cs = TRUE,
-               color_pval_by = &quot;cs&quot;,
-               color_pip_by = &quot;cs&quot;)</code></pre>
-<pre><code>2024-11-09 11:11:55.640214 INFO::Limit to protein coding genes
-2024-11-09 11:11:55.640747 INFO::focal id: ENSG00000164695|liver_stQTL
-2024-11-09 11:11:55.640976 INFO::focal molecular trait: CHMP4C liver stQTL
-2024-11-09 11:11:55.641196 INFO::Range of locus: chr8:81044060-81781010</code></pre>
-<pre><code>chromosome 8, position 81044060 to 81781010</code></pre>
-<pre><code>1791 SNPs/datapoints</code></pre>
-<pre><code>2024-11-09 11:11:55.691726 INFO::focal molecular trait QTL positions: 81741409
-2024-11-09 11:11:55.704806 INFO::Limit PIPs to credible sets</code></pre>
-<pre><code>Warning: ggrepel: 11 unlabeled data points (too many overlaps). Consider
-increasing max.overlaps</code></pre>
-<p><img src="figure/cTWAS_LD_european_munro_liver7_output.Rmd/locus%20plot-10.png" width="960" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-locus-plot-10">
-Past versions of "locus plot-10.png"
-</button>
-</p>
-<div id="fig-no-spaces-locus-plot-10" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/yy896/Multigroup_cTWAS/blob/ca444ce60878792fbe1c6a94241f0b0fd916102b/docs/figure/cTWAS_LD_european_munro_liver7_output.Rmd/locus plot-10.png" target="_blank">ca444ce</a>
-</td>
-<td>
-yy896
-</td>
-<td>
-2024-11-08
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
+<p><img src="figure/cTWAS_LD_european_munro_stomach7_output.Rmd/locus%20plot-10.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
 <div id="gsea-gene-ontology" class="section level2">
 <h2>GSEA-Gene Ontology</h2>
@@ -1746,7 +1190,7 @@ genes &lt;- combined_pip_by_group$gene_name[combined_pip_by_group$combined_pip &
 
 #number of genes for gene set enrichment
 sprintf(&quot;The number of genes used in enrichment analysis = %s&quot;, length(genes))</code></pre>
-<pre><code>[1] &quot;The number of genes used in enrichment analysis = 18&quot;</code></pre>
+<pre><code>[1] &quot;The number of genes used in enrichment analysis = 23&quot;</code></pre>
 <pre class="r"><code>GO_enrichment &lt;- enrichr(genes, dbs)</code></pre>
 <pre><code>Uploading data to Enrichr... Done.
   Querying GO_Biological_Process_2021... Done.
@@ -1758,92 +1202,18 @@ Parsing results... Done.</code></pre>
 <pre class="r"><code>db &lt;- &quot;GO_Biological_Process_2021&quot;
 df &lt;- GO_enrichment[[db]]
 print(plotEnrich(GO_enrichment[[db]]))</code></pre>
-<p><img src="figure/cTWAS_LD_european_munro_liver7_output.Rmd/GO_Biological_Process_2021-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-GO_Biological_Process_2021-1">
-Past versions of GO_Biological_Process_2021-1.png
-</button>
-</p>
-<div id="fig-GO_Biological_Process_2021-1" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/yy896/Multigroup_cTWAS/blob/ca444ce60878792fbe1c6a94241f0b0fd916102b/docs/figure/cTWAS_LD_european_munro_liver7_output.Rmd/GO_Biological_Process_2021-1.png" target="_blank">ca444ce</a>
-</td>
-<td>
-yy896
-</td>
-<td>
-2024-11-08
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
+<p><img src="figure/cTWAS_LD_european_munro_stomach7_output.Rmd/GO_Biological_Process_2021-1.png" width="672" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>df &lt;- df[df$Adjusted.P.value&lt;0.05,c(&quot;Term&quot;, &quot;Overlap&quot;, &quot;Adjusted.P.value&quot;, &quot;Genes&quot;)]
 
 DT::datatable(df,caption = htmltools::tags$caption( style = &#39;caption-side: topleft; text-align = left; color:black;&#39;,&#39;Enriched pathways from GO_Biological_Process_2021&#39;),options = list(pageLength = 5) )</code></pre>
 <div class="datatables html-widget html-fill-item" id="htmlwidget-57a5e797e447beab7be8" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-57a5e797e447beab7be8">{"x":{"filter":"none","vertical":false,"caption":"<caption style=\"caption-side: topleft; text-align = left; color:black;\">Enriched pathways from GO_Biological_Process_2021<\/caption>","data":[[],[],[],[],[]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Term<\/th>\n      <th>Overlap<\/th>\n      <th>Adjusted.P.value<\/th>\n      <th>Genes<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"columnDefs":[{"className":"dt-right","targets":3},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"Term","targets":1},{"name":"Overlap","targets":2},{"name":"Adjusted.P.value","targets":3},{"name":"Genes","targets":4}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-57a5e797e447beab7be8">{"x":{"filter":"none","vertical":false,"caption":"<caption style=\"caption-side: topleft; text-align = left; color:black;\">Enriched pathways from GO_Biological_Process_2021<\/caption>","data":[["1","2"],["regulation of lipase activity (GO:0060191)","mitotic cytokinetic process (GO:1902410)"],["2/14","2/20"],[0.03550161569187543,0.03690705624629547],["PCSK6;RHOA","CHMP4C;RHOA"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Term<\/th>\n      <th>Overlap<\/th>\n      <th>Adjusted.P.value<\/th>\n      <th>Genes<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"columnDefs":[{"className":"dt-right","targets":3},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"Term","targets":1},{"name":"Overlap","targets":2},{"name":"Adjusted.P.value","targets":3},{"name":"Genes","targets":4}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
 <pre class="r"><code>print(&quot;GO_Cellular_Component_2021&quot;)</code></pre>
 <pre><code>[1] &quot;GO_Cellular_Component_2021&quot;</code></pre>
 <pre class="r"><code>db &lt;- &quot;GO_Cellular_Component_2021&quot;
 df &lt;- GO_enrichment[[db]]
 print(plotEnrich(GO_enrichment[[db]]))</code></pre>
-<p><img src="figure/cTWAS_LD_european_munro_liver7_output.Rmd/GO_Cellular_Component_2021-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-GO_Cellular_Component_2021-1">
-Past versions of GO_Cellular_Component_2021-1.png
-</button>
-</p>
-<div id="fig-GO_Cellular_Component_2021-1" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/yy896/Multigroup_cTWAS/blob/ca444ce60878792fbe1c6a94241f0b0fd916102b/docs/figure/cTWAS_LD_european_munro_liver7_output.Rmd/GO_Cellular_Component_2021-1.png" target="_blank">ca444ce</a>
-</td>
-<td>
-yy896
-</td>
-<td>
-2024-11-08
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
+<p><img src="figure/cTWAS_LD_european_munro_stomach7_output.Rmd/GO_Cellular_Component_2021-1.png" width="672" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>df &lt;- df[df$Adjusted.P.value&lt;0.05,c(&quot;Term&quot;, &quot;Overlap&quot;, &quot;Adjusted.P.value&quot;, &quot;Genes&quot;)]
 
 DT::datatable(df,caption = htmltools::tags$caption( style = &#39;caption-side: topleft; text-align = left; color:black;&#39;,&#39;Enriched pathways from GO_Cellular_Component_2021&#39;),options = list(pageLength = 5) )</code></pre>
@@ -1854,51 +1224,12 @@ DT::datatable(df,caption = htmltools::tags$caption( style = &#39;caption-side: t
 <pre class="r"><code>db &lt;- &quot;GO_Molecular_Function_2021&quot;
 df &lt;- GO_enrichment[[db]]
 print(plotEnrich(GO_enrichment[[db]]))</code></pre>
-<pre><code>Warning in plotEnrich(GO_enrichment[[db]]): There are duplicated trimmed names
-in the plot, consider increasing the &#39;numChar&#39; setting.</code></pre>
-<p><img src="figure/cTWAS_LD_european_munro_liver7_output.Rmd/GO_Molecular_Function_2021-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-GO_Molecular_Function_2021-1">
-Past versions of GO_Molecular_Function_2021-1.png
-</button>
-</p>
-<div id="fig-GO_Molecular_Function_2021-1" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/yy896/Multigroup_cTWAS/blob/ca444ce60878792fbe1c6a94241f0b0fd916102b/docs/figure/cTWAS_LD_european_munro_liver7_output.Rmd/GO_Molecular_Function_2021-1.png" target="_blank">ca444ce</a>
-</td>
-<td>
-yy896
-</td>
-<td>
-2024-11-08
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
+<p><img src="figure/cTWAS_LD_european_munro_stomach7_output.Rmd/GO_Molecular_Function_2021-1.png" width="672" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>df &lt;- df[df$Adjusted.P.value&lt;0.05,c(&quot;Term&quot;, &quot;Overlap&quot;, &quot;Adjusted.P.value&quot;, &quot;Genes&quot;)]
 
 DT::datatable(df,caption = htmltools::tags$caption( style = &#39;caption-side: topleft; text-align = left; color:black;&#39;,&#39;Enriched pathways from GO_Molecular_Function_2021&#39;),options = list(pageLength = 5) )</code></pre>
 <div class="datatables html-widget html-fill-item" id="htmlwidget-38f6575cbe0384702c9e" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-38f6575cbe0384702c9e">{"x":{"filter":"none","vertical":false,"caption":"<caption style=\"caption-side: topleft; text-align = left; color:black;\">Enriched pathways from GO_Molecular_Function_2021<\/caption>","data":[["1"],["arachidonic acid monooxygenase activity (GO:0008391)"],["2/19"],[0.004537247335078112],["CYP4F3;CYP2C18"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Term<\/th>\n      <th>Overlap<\/th>\n      <th>Adjusted.P.value<\/th>\n      <th>Genes<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"columnDefs":[{"className":"dt-right","targets":3},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"Term","targets":1},{"name":"Overlap","targets":2},{"name":"Adjusted.P.value","targets":3},{"name":"Genes","targets":4}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-38f6575cbe0384702c9e">{"x":{"filter":"none","vertical":false,"caption":"<caption style=\"caption-side: topleft; text-align = left; color:black;\">Enriched pathways from GO_Molecular_Function_2021<\/caption>","data":[[],[],[],[],[]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Term<\/th>\n      <th>Overlap<\/th>\n      <th>Adjusted.P.value<\/th>\n      <th>Genes<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"columnDefs":[{"className":"dt-right","targets":3},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"Term","targets":1},{"name":"Overlap","targets":2},{"name":"Adjusted.P.value","targets":3},{"name":"Genes","targets":4}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
