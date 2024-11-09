@@ -54,6 +54,10 @@ Colon Transverse [link](cTWAS_LD_european_munro_colon_transverse7_output.html)
 
 Small Intestine [link](cTWAS_LD_european_munro_small_intestine7_output.html)
 
+Stomach [link](cTWAS_LD_european_munro_stomach7_output.html)
+
+Colon Sigmoid [link](cTWAS_LD_european_munro_colon_sigmoid7_output.html)
+
 Union data visulization [link](cTWAS_union_visualization.html)
 
 ---

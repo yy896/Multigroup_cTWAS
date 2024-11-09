@@ -1,5 +1,5 @@
 ---
-title: "Prostate Cancer ~ Munro 7 liver QTLs"
+title: "Prostate Cancer ~ Munro 7 colon sigmoid QTLs"
 author: "Nina Yifan Yang"
 date: "`r Sys.Date()`"
 output:
@@ -21,11 +21,11 @@ library(DT)
 library(htmltools)
 
 ens_db <- EnsDb.Hsapiens.v86
-weights <- readRDS(system.file("extdata/project_data", "European.munro_liver7_weights.RDS", package = "ctwas"))
-ctwas_res <- readRDS(system.file("extdata/project_data", "European.munro_liver7_weights.ctwas_noLD_allchrs.RDS", package = "ctwas"))
+weights <- readRDS(system.file("extdata/project_data", "European.munro_colon_sigmoid7_weights.RDS", package = "ctwas"))
+ctwas_res <- readRDS(system.file("extdata/project_data", "European.munro_colon_sigmoid7_weights.ctwas_noLD_allchrs.RDS", package = "ctwas"))
 gwas_n <- 726828
-finemap_res <- readRDS("~/Desktop/Prostate Cancer Project/European.munro_liver_weights.noLD.finemap_res.RDS")
-susie_alpha_res <- readRDS("~/Desktop/Prostate Cancer Project/European.munro_liver_weights.noLD.susie_alpha_res.RDS")
+finemap_res <- readRDS("~/Desktop/Prostate Cancer Project/European.munro_colon_sigmoid_weights.noLD.finemap_res.RDS")
+susie_alpha_res <- readRDS("~/Desktop/Prostate Cancer Project/European.munro_colon_sigmoid_weights.noLD.susie_alpha_res.RDS")
 #finemap_res_sub <- subset(finemap_res, group != "SNP" & gene_type == "protein_coding" & susie_pip > 0.8 & !is.na(cs))
 ```
 
@@ -64,13 +64,13 @@ The process can be divided into steps below, users can expand the code snippets 
 * Input and output settings
 
 ```{r echo=TRUE, eval=FALSE}
-weight_files <- c("/project2/xinhe/shared_data/multigroup_ctwas/weights/Munro_alt_polyA_PredictDB/apa_Liver.db",
-                  "/project2/xinhe/shared_data/multigroup_ctwas/weights/Munro_alt_stability_PredictDB/Liver.db",
-                  "/project2/xinhe/shared_data/multigroup_ctwas/weights/Munro_alt_tss_PredictDB/tss_Liver.db",
-                  "/project2/xinhe/shared_data/multigroup_ctwas/weights/Munro_expression_PredictDB/expression_Liver.db",
-                  "/project2/xinhe/shared_data/multigroup_ctwas/weights/Munro_isoform_PredictDB/isoform_Liver.db",
-                  "/project2/xinhe/shared_data/multigroup_ctwas/weights/Munro_splicing_PredictDB/splicing_Liver.db",
-                  "/project2/xinhe/shared_data/multigroup_ctwas/weights/Munro_stability_PredictDB/stability_Liver.db")
+weight_files <- c("/project2/xinhe/shared_data/multigroup_ctwas/weights/Munro_alt_polyA_PredictDB/apa_Colon_Sigmoid.db",
+                  "/project2/xinhe/shared_data/multigroup_ctwas/weights/Munro_alt_stability_PredictDB/Colon_Sigmoid.db",
+                  "/project2/xinhe/shared_data/multigroup_ctwas/weights/Munro_alt_tss_PredictDB/tss_Colon_Sigmoid.db",
+                  "/project2/xinhe/shared_data/multigroup_ctwas/weights/Munro_expression_PredictDB/expression_Colon_Sigmoid.db",
+                  "/project2/xinhe/shared_data/multigroup_ctwas/weights/Munro_isoform_PredictDB/isoform_Colon_Sigmoid.db",
+                  "/project2/xinhe/shared_data/multigroup_ctwas/weights/Munro_splicing_PredictDB/splicing_Colon_Sigmoid.db",
+                  "/project2/xinhe/shared_data/multigroup_ctwas/weights/Munro_stability_PredictDB/stability_Colon_Sigmoid.db")
 
 z_snp <- vroom::vroom("/project2/xinhe/yifany/GCST90274714.mod.tsv.gz", col_names = TRUE, show_col_types = FALSE)
 z_snp$Z <- z_snp$beta / z_snp$standard_error
@@ -122,112 +122,112 @@ z_snp <- preprocess_z_snp(z_snp, snp_map,
 * Preprocessing weights
 
 ```{r echo=TRUE, eval=FALSE}
-weights_liver_apaQTL <- preprocess_weights(weight_files[1],
-                                              region_info,
-                                              gwas_snp_ids = z_snp$id,
-                                              snp_map = snp_map,
-                                              LD_map = LD_map,
-                                              type = "apaQTL",
-                                              context = "liver",
-                                              weight_format = "PredictDB",
-                                              drop_strand_ambig = TRUE,
-                                              scale_predictdb_weights = TRUE,
-                                              load_predictdb_LD = FALSE,
-                                              filter_protein_coding_genes = TRUE,
-                                              ncore = 5)
+weights_colon_sigmoid_apaQTL <- preprocess_weights(weight_files[1],
+                                                  region_info,
+                                                  gwas_snp_ids = z_snp$id,
+                                                  snp_map = snp_map,
+                                                  LD_map = LD_map,
+                                                  type = "apaQTL",
+                                                  context = "colon_sigmoid",
+                                                  weight_format = "PredictDB",
+                                                  drop_strand_ambig = TRUE,
+                                                  scale_predictdb_weights = TRUE,
+                                                  load_predictdb_LD = FALSE,
+                                                  filter_protein_coding_genes = TRUE,
+                                                  ncore = ncore)
 
-weights_liver_astQTL <- preprocess_weights(weight_files[2],
-                                              region_info,
-                                              gwas_snp_ids = z_snp$id,
-                                              snp_map = snp_map,
-                                              LD_map = LD_map,
-                                              type = "astQTL",
-                                              context = "liver",
-                                              weight_format = "PredictDB",
-                                              drop_strand_ambig = TRUE,
-                                              scale_predictdb_weights = TRUE,
-                                              load_predictdb_LD = FALSE,
-                                              filter_protein_coding_genes = TRUE,
-                                              ncore = 5)
-
-weights_liver_tssQTL <- preprocess_weights(weight_files[3],
-                                              region_info,
-                                              gwas_snp_ids = z_snp$id,
-                                              snp_map = snp_map,
-                                              LD_map = LD_map,
-                                              type = "tssQTL",
-                                              context = "liver",
-                                              weight_format = "PredictDB",
-                                              drop_strand_ambig = TRUE,
-                                              scale_predictdb_weights = TRUE,
-                                              load_predictdb_LD = FALSE,
-                                              filter_protein_coding_genes = TRUE,
-                                              ncore = 5)
-
-weights_liver_eQTL <- preprocess_weights(weight_files[4],
-                                            region_info,
-                                            gwas_snp_ids = z_snp$id,
-                                            snp_map = snp_map,
-                                            LD_map = LD_map,
-                                            type = "munro_eQTL",
-                                            context = "liver",
-                                            weight_format = "PredictDB",
-                                            drop_strand_ambig = TRUE,
-                                            scale_predictdb_weights = TRUE,
-                                            load_predictdb_LD = FALSE,
-                                            filter_protein_coding_genes = TRUE,
-                                            ncore = 5)
-
-weights_liver_isoQTL <- preprocess_weights(weight_files[5],
-                                              region_info,
-                                              gwas_snp_ids = z_snp$id,
-                                              snp_map = snp_map,
-                                              LD_map = LD_map,
-                                              type = "isoQTL",
-                                              context = "liver",
-                                              weight_format = "PredictDB",
-                                              drop_strand_ambig = TRUE,
-                                              scale_predictdb_weights = TRUE,
-                                              load_predictdb_LD = FALSE,
-                                              filter_protein_coding_genes = TRUE,
-                                              ncore = 5)
-
-weights_liver_sQTL <- preprocess_weights(weight_files[6],
-                                            region_info,
-                                            gwas_snp_ids = z_snp$id,
-                                            snp_map = snp_map,
-                                            LD_map = LD_map,
-                                            type = "munro_sQTL",
-                                            context = "liver",
-                                            weight_format = "PredictDB",
-                                            drop_strand_ambig = TRUE,
-                                            scale_predictdb_weights = TRUE,
-                                            load_predictdb_LD = FALSE,
-                                            filter_protein_coding_genes = TRUE,
-                                            ncore = 5)
-
-weights_liver_stQTL <- preprocess_weights(weight_files[7],
+weights_colon_sigmoid_astQTL <- preprocess_weights(weight_files[2],
                                              region_info,
                                              gwas_snp_ids = z_snp$id,
                                              snp_map = snp_map,
                                              LD_map = LD_map,
-                                             type = "stQTL",
-                                             context = "liver",
+                                             type = "astQTL",
+                                             context = "colon_sigmoid",
                                              weight_format = "PredictDB",
                                              drop_strand_ambig = TRUE,
                                              scale_predictdb_weights = TRUE,
                                              load_predictdb_LD = FALSE,
                                              filter_protein_coding_genes = TRUE,
-                                             ncore = 5)
+                                             ncore = ncore)
+
+weights_colon_sigmoid_tssQTL <- preprocess_weights(weight_files[3],
+                                              region_info,
+                                              gwas_snp_ids = z_snp$id,
+                                              snp_map = snp_map,
+                                              LD_map = LD_map,
+                                              type = "tssQTL",
+                                              context = "colon_sigmoid",
+                                              weight_format = "PredictDB",
+                                              drop_strand_ambig = TRUE,
+                                              scale_predictdb_weights = TRUE,
+                                              load_predictdb_LD = FALSE,
+                                              filter_protein_coding_genes = TRUE,
+                                              ncore = ncore)
+
+weights_colon_sigmoid_eQTL <- preprocess_weights(weight_files[4],
+                                            region_info,
+                                            gwas_snp_ids = z_snp$id,
+                                            snp_map = snp_map,
+                                            LD_map = LD_map,
+                                            type = "munro_eQTL",
+                                            context = "colon_sigmoid",
+                                            weight_format = "PredictDB",
+                                            drop_strand_ambig = TRUE,
+                                            scale_predictdb_weights = TRUE,
+                                            load_predictdb_LD = FALSE,
+                                            filter_protein_coding_genes = TRUE,
+                                            ncore = ncore)
+
+weights_colon_sigmoid_isoQTL <- preprocess_weights(weight_files[5],
+                                            region_info,
+                                            gwas_snp_ids = z_snp$id,
+                                            snp_map = snp_map,
+                                            LD_map = LD_map,
+                                            type = "isoQTL",
+                                            context = "colon_sigmoid",
+                                            weight_format = "PredictDB",
+                                            drop_strand_ambig = TRUE,
+                                            scale_predictdb_weights = TRUE,
+                                            load_predictdb_LD = FALSE,
+                                            filter_protein_coding_genes = TRUE,
+                                            ncore = ncore)
+
+weights_colon_sigmoid_sQTL <- preprocess_weights(weight_files[6],
+                                             region_info,
+                                             gwas_snp_ids = z_snp$id,
+                                             snp_map = snp_map,
+                                             LD_map = LD_map,
+                                             type = "munro_sQTL",
+                                             context = "colon_sigmoid",
+                                             weight_format = "PredictDB",
+                                             drop_strand_ambig = TRUE,
+                                             scale_predictdb_weights = TRUE,
+                                             load_predictdb_LD = FALSE,
+                                             filter_protein_coding_genes = TRUE,
+                                             ncore = ncore)
+
+weights_colon_sigmoid_stQTL <- preprocess_weights(weight_files[7],
+                                              region_info,
+                                              gwas_snp_ids = z_snp$id,
+                                              snp_map = snp_map,
+                                              LD_map = LD_map,
+                                              type = "stQTL",
+                                              context = "colon_sigmoid",
+                                              weight_format = "PredictDB",
+                                              drop_strand_ambig = TRUE,
+                                              scale_predictdb_weights = TRUE,
+                                              load_predictdb_LD = FALSE,
+                                              filter_protein_coding_genes = TRUE,
+                                              ncore = ncore)
 
 weights <- c(
-  weights_liver_apaQTL,
-  weights_liver_astQTL,
-  weights_liver_tssQTL,
-  weights_liver_eQTL,
-  weights_liver_isoQTL,
-  weights_liver_sQTL,
-  weights_liver_stQTL)
+  weights_colon_sigmoid_apaQTL,
+  weights_colon_sigmoid_astQTL,
+  weights_colon_sigmoid_tssQTL,
+  weights_colon_sigmoid_eQTL,
+  weights_colon_sigmoid_isoQTL,
+  weights_colon_sigmoid_sQTL,
+  weights_colon_sigmoid_stQTL)
 ```
 
 ## Running cTWAS analysis
@@ -384,6 +384,16 @@ kpPlotMarkers(kp, data=genes, labels=genes$hgnc_symbol, #text.orientation = "hor
 
 ```{r locus plot, echo=TRUE, eval=TRUE, fig.height=6, fig.width=10}
 make_locusplot(finemap_res,
+               region_id = "3_49279539_51797999",
+               ens_db = ens_db,
+               weights = weights,
+               highlight_pip = 0.8,
+               filter_protein_coding_genes = TRUE,
+               filter_cs = TRUE,
+               color_pval_by = "cs",
+               color_pip_by = "cs")
+
+make_locusplot(finemap_res,
                region_id = "10_101189482_102620653",
                ens_db = ens_db,
                weights = weights,
@@ -394,7 +404,7 @@ make_locusplot(finemap_res,
                color_pip_by = "cs")
 
 make_locusplot(finemap_res,
-               region_id = "5_11940_982137",
+               region_id = "17_150263_1269105",
                ens_db = ens_db,
                weights = weights,
                highlight_pip = 0.8,
@@ -404,7 +414,7 @@ make_locusplot(finemap_res,
                color_pip_by = "cs")
 
 make_locusplot(finemap_res,
-               region_id = "12_48608083_51382710",
+               region_id = "9_34642246_36743286",
                ens_db = ens_db,
                weights = weights,
                highlight_pip = 0.8,
@@ -414,7 +424,7 @@ make_locusplot(finemap_res,
                color_pip_by = "cs")
 
 make_locusplot(finemap_res,
-               region_id = "6_32714887_33268720",
+               region_id = "17_57280180_59410151",
                ens_db = ens_db,
                weights = weights,
                highlight_pip = 0.8,
@@ -424,7 +434,7 @@ make_locusplot(finemap_res,
                color_pip_by = "cs")
 
 make_locusplot(finemap_res,
-               region_id = "19_35978393_37036131",
+               region_id = "5_41888608_43983397",
                ens_db = ens_db,
                weights = weights,
                highlight_pip = 0.8,
@@ -434,7 +444,7 @@ make_locusplot(finemap_res,
                color_pip_by = "cs")
 
 make_locusplot(finemap_res,
-               region_id = "20_25363595_33027017",
+               region_id = "3_184051895_185350467",
                ens_db = ens_db,
                weights = weights,
                highlight_pip = 0.8,
@@ -444,7 +454,7 @@ make_locusplot(finemap_res,
                color_pip_by = "cs")
 
 make_locusplot(finemap_res,
-               region_id = "6_129539886_130614309",
+               region_id = "8_9297184_9783277",
                ens_db = ens_db,
                weights = weights,
                highlight_pip = 0.8,
@@ -454,7 +464,7 @@ make_locusplot(finemap_res,
                color_pip_by = "cs")
 
 make_locusplot(finemap_res,
-               region_id = "10_94461486_96062600",
+               region_id = "3_47685722_49279539",
                ens_db = ens_db,
                weights = weights,
                highlight_pip = 0.8,
@@ -464,17 +474,7 @@ make_locusplot(finemap_res,
                color_pip_by = "cs")
 
 make_locusplot(finemap_res,
-               region_id = "8_81781504_83313354",
-               ens_db = ens_db,
-               weights = weights,
-               highlight_pip = 0.8,
-               filter_protein_coding_genes = TRUE,
-               filter_cs = TRUE,
-               color_pval_by = "cs",
-               color_pip_by = "cs")
-
-make_locusplot(finemap_res,
-               region_id = "8_81044160_81781504",
+               region_id = "17_82076532_83247139",
                ens_db = ens_db,
                weights = weights,
                highlight_pip = 0.8,
