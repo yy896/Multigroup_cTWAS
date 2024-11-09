@@ -32,7 +32,35 @@ eQTL+sQTL && RefZ with LD [link](cTWAS_LD_european_combined_output.html)
 
 ---
 
-Munro et al. 7 QTLs
+Overlapped rsid p-values comparison [link](overlapped_pvalue.html)
+
+Prostate+Testis // eQTL+sQTL [link](cTWAS_noLD_european_prostatetestis_output.html)
+
+Prostate+Testis+Lung // eQTL+sQTL [link](cTWAS_noLD_european_prostatetestislung_output.html)
+
+Prostate+Testis+Liver // eQTL+sQTL [link](cTWAS_noLD_european_prostatetestisliver_output.html)
+
+Prostate+Testis+Lymphocytes+Lung // eQTL+sQTL [link](cTWAS_noLD_european_prostatetestislymphocyteslung_output.html)
+
+Prostate+Testis+Lymphocytes+Liver // eQTL+sQTL [link](cTWAS_noLD_european_prostatetestislymphocytesliver_output.html)
+
+---
+
+Small Instestine+Whole Blood // eQTL+sQTL [link](cTWAS_noLD_european_intestinewb_output.html)
+
+Liver // eQTL+sQTL [link](cTWAS_noLD_european_liver_output.html)
+
+Lung // eQTL+sQTL [link](cTWAS_noLD_european_lung_output.html)
+
+Lymphocytes // eQTL+sQTL [link](cTWAS_noLD_european_lymphocytes_output.html)
+
+Lung+Liver // eQTL+sQTL [link](cTWAS_noLD_european_lungliver_output.html)
+
+Lung+Liver+Lymphocytes // eQTL+sQTL [link](cTWAS_noLD_european_lungliverlymphocytes_output.html)
+
+---
+
+Munro et al. 7 QTLs (analyzed by tissues; added LD matrices in weights processing, but not in cTWAS analysis)
 
 Prostate [link](cTWAS_LD_european_munro_prostate7_output.html)
 
@@ -59,31 +87,3 @@ Stomach [link](cTWAS_LD_european_munro_stomach7_output.html)
 Colon Sigmoid [link](cTWAS_LD_european_munro_colon_sigmoid7_output.html)
 
 Union data visulization [link](cTWAS_union_visualization.html)
-
----
-
-Overlapped rsid p-values comparison [link](overlapped_pvalue.html)
-
-Prostate+Testis // eQTL+sQTL [link](cTWAS_noLD_european_prostatetestis_output.html)
-
-Prostate+Testis+Lung // eQTL+sQTL [link](cTWAS_noLD_european_prostatetestislung_output.html)
-
-Prostate+Testis+Liver // eQTL+sQTL [link](cTWAS_noLD_european_prostatetestisliver_output.html)
-
-Prostate+Testis+Lymphocytes+Lung // eQTL+sQTL [link](cTWAS_noLD_european_prostatetestislymphocyteslung_output.html)
-
-Prostate+Testis+Lymphocytes+Liver // eQTL+sQTL [link](cTWAS_noLD_european_prostatetestislymphocytesliver_output.html)
-
----
-
-Small Instestine+Whole Blood // eQTL+sQTL [link](cTWAS_noLD_european_intestinewb_output.html)
-
-Liver // eQTL+sQTL [link](cTWAS_noLD_european_liver_output.html)
-
-Lung // eQTL+sQTL [link](cTWAS_noLD_european_lung_output.html)
-
-Lymphocytes // eQTL+sQTL [link](cTWAS_noLD_european_lymphocytes_output.html)
-
-Lung+Liver // eQTL+sQTL [link](cTWAS_noLD_european_lungliver_output.html)
-
-Lung+Liver+Lymphocytes // eQTL+sQTL [link](cTWAS_noLD_european_lungliverlymphocytes_output.html)
